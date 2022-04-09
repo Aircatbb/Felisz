@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15488C2F-01B0-411A-BB1A-0D920FEE8E7A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Felisz</RootNamespace>
+    <AssemblyName>Felisz</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <PublishUrl>C:\Users\balazs.bognar\source\repos\Felisz\published\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <InstallUrl>https://raw.githubusercontent.com/Aircatbb/Felisz/master/published/</InstallUrl>
+    <UpdateUrl>https://raw.githubusercontent.com/Aircatbb/Felisz/master/published/</UpdateUrl>
+    <ProductName>Felisz</ProductName>
+    <PublisherName>Future2021 Kft.</PublisherName>
+    <WebPage>publish.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationVersion>0.1.5.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F5ECF1B94AD524B0929A85DEE12F6278802DD7FA</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Felisz_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Felisz.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>Custom</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DeltaCompressionDotNet, Version=1.1.0.0, Culture=neutral, PublicKeyToken=1d14d6e5194e7f4a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeltaCompressionDotNet.1.1.0\lib\net20\DeltaCompressionDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DeltaCompressionDotNet.MsDelta, Version=1.1.0.0, Culture=neutral, PublicKeyToken=46b2138a390abf55, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeltaCompressionDotNet.1.1.0\lib\net20\DeltaCompressionDotNet.MsDelta.dll</HintPath>
+    </Reference>
+    <Reference Include="DeltaCompressionDotNet.PatchApi, Version=1.1.0.0, Culture=neutral, PublicKeyToken=3e8888ee913ed789, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeltaCompressionDotNet.1.1.0\lib\net20\DeltaCompressionDotNet.PatchApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.39.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.39\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.2.6\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.11.2.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.11.2\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.11.2.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.11.2\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.11.2.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.11.2\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.11.2.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.11.2\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.27\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.13\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpCompress, Version=0.17.1.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpCompress.0.17.1\lib\net45\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.27\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.27\lib\net452\ZstdNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adatbázis.cs" />
+    <Compile Include="FolyamatJelző.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="formFelisz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formFelisz.Designer.cs">
+      <DependentUpon>formFelisz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formok\formAlapbeállítások.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formok\formAlapbeállítások.Designer.cs">
+      <DependentUpon>formAlapbeállítások.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formBejelentkezés.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formBejelentkezés.Designer.cs">
+      <DependentUpon>formBejelentkezés.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formFelhasználók.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formFelhasználók.Designer.cs">
+      <DependentUpon>formFelhasználók.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formGlobalAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formGlobalAdmin.Designer.cs">
+      <DependentUpon>formGlobalAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formok\formKalkulátor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formok\formKalkulátor.Designer.cs">
+      <DependentUpon>formKalkulátor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formMunkaszerződés.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMunkaszerződés.Designer.cs">
+      <DependentUpon>formMunkaszerződés.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formMunkaTörvénykönyve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMunkaTörvénykönyve.Designer.cs">
+      <DependentUpon>formMunkaTörvénykönyve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formok\formMentésDialógus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formok\formMentésDialógus.Designer.cs">
+      <DependentUpon>formMentésDialógus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formok\formMunkavállalóVálasztás.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formok\formMunkavállalóVálasztás.Designer.cs">
+      <DependentUpon>formMunkavállalóVálasztás.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formok\formMunkavállalóVálasztásNévAlapján.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formok\formMunkavállalóVálasztásNévAlapján.Designer.cs">
+      <DependentUpon>formMunkavállalóVálasztásNévAlapján.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formok\formSzemAdatok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formok\formSzemAdatok.Designer.cs">
+      <DependentUpon>formSzemAdatok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formok\formSzemKiválaszt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formok\formSzemKiválaszt.Designer.cs">
+      <DependentUpon>formSzemKiválaszt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rekordok\FEOR.cs" />
+    <Compile Include="Rekordok\FoglalkoztatásHelye.cs" />
+    <Compile Include="Rekordok\Irszámkód.cs" />
+    <Compile Include="Funkciók.cs" />
+    <Compile Include="MenüGombokNew.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MTRecord.cs" />
+    <Compile Include="MunkaTörvénykönyve.cs" />
+    <Compile Include="Rekordok\IszVárosUtca.cs" />
+    <Compile Include="Rekordok\IszVárosUtcaImport.cs" />
+    <Compile Include="Rekordok\Országkód.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RSSFeed.cs" />
+    <Compile Include="RSSPost.cs" />
+    <Compile Include="VárosUtcanévImport.cs" />
+    <Compile Include="Rekordok\Városkód.cs" />
+    <Compile Include="XMLImport.cs" />
+    <None Include="Resources\Felisz.ico" />
+    <None Include="Resources\Felisz.png" />
+    <None Include="Felisz_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Resources\ikon_Alapbeállítások.png" />
+    <None Include="Resources\ikon_Alapbeállítások_sel.png" />
+    <None Include="Resources\ikon_Felhasználók.png" />
+    <None Include="Resources\ikon_Felhasználók_sel.png" />
+    <EmbeddedResource Include="formFelisz.resx">
+      <DependentUpon>formFelisz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formok\formAlapbeállítások.resx">
+      <DependentUpon>formAlapbeállítások.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formBejelentkezés.resx">
+      <DependentUpon>formBejelentkezés.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formFelhasználók.resx">
+      <DependentUpon>formFelhasználók.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formGlobalAdmin.resx">
+      <DependentUpon>formGlobalAdmin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formok\formKalkulátor.resx">
+      <DependentUpon>formKalkulátor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formMunkaszerződés.resx">
+      <DependentUpon>formMunkaszerződés.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formMunkaTörvénykönyve.resx">
+      <DependentUpon>formMunkaTörvénykönyve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formok\formMentésDialógus.resx">
+      <DependentUpon>formMentésDialógus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formok\formMunkavállalóVálasztás.resx">
+      <DependentUpon>formMunkavállalóVálasztás.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formok\formMunkavállalóVálasztásNévAlapján.resx">
+      <DependentUpon>formMunkavállalóVálasztásNévAlapján.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formok\formSzemAdatok.resx">
+      <DependentUpon>formSzemAdatok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formok\formSzemKiválaszt.resx">
+      <DependentUpon>formSzemKiválaszt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ADAIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon.ico" />
+    <None Include="Resources\ikon_Kalkulátor.png" />
+    <None Include="Resources\ikon_Kalkulátor_sel.png" />
+    <None Include="Resources\ikon_Munka Törvénykönyve_sel.png" />
+    <None Include="Resources\ikon_Munka Törvénykönyve.png" />
+    <None Include="Resources\ikon_GlobalAdmin beállítások.png" />
+    <None Include="Resources\ikon_GlobalAdmin beállítások_sel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Log\" />
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

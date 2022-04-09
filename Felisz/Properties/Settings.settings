@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Felisz.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="felisz_db_ConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">server=s27.tarhely.com;uid=cbbsseu_sqlaccess;pwd=^DJ5H-B^!wBmXe+-;database=cbbsseu_felisz_main;Character Set=utf8</Value>
+    </Setting>
+    <Setting Name="RSSUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.hrportal.hu/rss/hirek.xml</Value>
+    </Setting>
+    <Setting Name="MTUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://net.jogtar.hu/jogszabaly?docid=A1200001.TV</Value>
+    </Setting>
+    <Setting Name="ügyfélSzolgTel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">+36 30 650 5947</Value>
+    </Setting>
+    <Setting Name="ügyfélSzolgEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)">balazs.bognar@hotmail.com</Value>
+    </Setting>
+    <Setting Name="cég_db_ConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">server=s27.tarhely.com;uid=cbbsseu_XXX;pwd=YYY;database=cbbsseu_ZZZ;Character Set=utf8</Value>
+    </Setting>
+    <Setting Name="utolsóFelhasználó" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="bejelentkezésiKisérlet" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="jelszóÉrvényesség" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="GoogleMapsAPI" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AIzaSyDbfd28AxL8tBKWUrmEOHaBh9e3D-NGQnY</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
