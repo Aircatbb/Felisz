@@ -34,10 +34,7 @@ namespace Felisz
                 return;
             }
 
-            myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            string myConnectionString = Adatbázis.MyConnectionString();
 
             conn = new MySqlConnection(myConnectionString);
             conn.Open();
@@ -185,10 +182,7 @@ namespace Felisz
             try
             {
                 MySqlConnection conn;
-                string myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-                myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-                myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-                myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+                string myConnectionString = Adatbázis.MyConnectionString();
                 conn = new MySqlConnection();
                 conn.ConnectionString = myConnectionString;
                 conn.Open();

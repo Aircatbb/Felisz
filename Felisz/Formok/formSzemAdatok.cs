@@ -1,8 +1,11 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+
 
 
 namespace Felisz.Formok
@@ -45,7 +48,7 @@ namespace Felisz.Formok
         private void cbÁllampolgárságcbLakhelyOrszágFeltöltéscbSzületésiOrszág()
         {
 
-            
+
             for (int i = 0; i < Adatbázis.országKódokList.Count; i++)
             {
                 Országkód item = new Országkód();
@@ -113,7 +116,7 @@ namespace Felisz.Formok
         private void cbVárosFeltöltés()
         {
             cbVáros.Items.Clear();
-            
+
 
             for (int i = 0; i < Adatbázis.csakVárosList.Count; i++)
             {
@@ -369,13 +372,13 @@ namespace Felisz.Formok
             }
         }
 
-      
+
 
         private void tbVezetéknév_Validated(object sender, EventArgs e)
         {
 
-            
-            
+
+
             if (tbVezetéknév.Text.Length >= 2 && !Funkciók.UtolsóKarakterSzóköz(tbVezetéknév) && !Funkciók.StringTartalmazSzámot(tbVezetéknév.Text))
             {
                 CímkeSzínBeállítás(lbVezetéknév, true);
@@ -663,17 +666,12 @@ namespace Felisz.Formok
             formMentésDialógus.MentésMódVálasztás();
             if (formMentésDialógus.mód == "MM") return;
 
+
             MySql.Data.MySqlClient.MySqlConnection conn;
             string myConnectionString = Properties.Settings.Default.felisz_db_ConnectionString;
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
-            myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
-
-            conn = new MySql.Data.MySqlClient.MySqlConnection();
-            conn.ConnectionString = myConnectionString;
+            myConnectionString = Adatbázis.MyConnectionString();
 
 
 
@@ -887,7 +885,7 @@ namespace Felisz.Formok
             {
                 if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
                 if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
-                
+
             }
             else
             {
@@ -909,10 +907,7 @@ namespace Felisz.Formok
             string myConnectionString = Properties.Settings.Default.felisz_db_ConnectionString;
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
-            myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            myConnectionString = Adatbázis.MyConnectionString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
@@ -1075,10 +1070,7 @@ namespace Felisz.Formok
             string myConnectionString = Properties.Settings.Default.felisz_db_ConnectionString;
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
-            myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            myConnectionString = Adatbázis.MyConnectionString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
@@ -1319,5 +1311,85 @@ namespace Felisz.Formok
         }
 
 
+
+        private void tcSzemélyiAdatok_Click(object sender, EventArgs e)
+        {
+            HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
+        }
+
+        private void HozzátartozókBetöltése(int SzemélyiAzon)
+        {
+            if (!Adatbázis.AdatbázisEllenőrzéseCég())
+            {
+                return;
+            }
+
+
+            string myConnectionString = Adatbázis.MyConnectionString();
+                
+            MySqlConnection conn;
+
+            conn = new MySqlConnection(myConnectionString);
+            conn.Open();
+
+
+            string sql = @"SELECT VezNev, UtoNev1, UtoNev2, SzulDatum FROM SzemHozzaTart WHERE SzemAzon='" + SzemélyiAzon + "' ORDER BY VezNev, UtoNev1, UtoNev2";
+
+            //public MySqlDataAdapter dataAdapter;
+
+
+
+            try
+            {
+                MySqlDataAdapter dataAdapter;
+                dataAdapter = new MySqlDataAdapter(sql, conn);
+                DataTable dtRecord = new DataTable();
+                dataAdapter.Fill(dtRecord);
+                dgvHozzátartozó.DataSource = dtRecord;
+                conn.Close();
+
+                if (dgvHozzátartozó.Columns[0].HeaderText == "VezNev")
+                {
+                    for (int i = 0; i < dgvHozzátartozó.ColumnCount; i++)
+                    {
+                        switch (dgvHozzátartozó.Columns[i].HeaderText)
+                        {
+
+                            case "VezNev":
+                                dgvHozzátartozó.Columns[i].HeaderText = "Vezetéknév";
+                                dgvHozzátartozó.Columns[i].Width = 100;
+                                break;
+                            case "UtoNev1":
+                                dgvHozzátartozó.Columns[i].HeaderText = "Utónév 1";
+                                dgvHozzátartozó.Columns[i].Width = 100;
+                                break;
+                            case "UtoNev2":
+                                dgvHozzátartozó.Columns[i].HeaderText = "Utónév 2";
+                                dgvHozzátartozó.Columns[i].Width = 100;
+                                break;
+                            case "SzulDatum":
+                                dgvHozzátartozó.Columns[i].HeaderText = "Születési dátum";
+                                dgvHozzátartozó.Columns[i].Width = 100;
+                                break;
+                            default:
+                                dgvHozzátartozó.Columns[i].HeaderText = "#HIÁNYZIK#";
+                                dgvHozzátartozó.Columns[i].Width = 50;
+                                break;
+                        }
+
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen a hozzátartozói adatok betöltése!---" + ex);
+                return;
+            }
+
+
+        }
     }
 }

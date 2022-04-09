@@ -40,10 +40,7 @@ namespace Felisz.Formok
                 return;
             }
 
-            myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            myConnectionString = Adatbázis.MyConnectionString();
 
             conn = new MySqlConnection(myConnectionString);
             conn.Open();

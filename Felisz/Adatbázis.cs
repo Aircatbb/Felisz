@@ -14,6 +14,16 @@ namespace Felisz
         public static List<FoglalkoztatásHelye> foglalkoztatásHelyeList = new List<FoglalkoztatásHelye>();
         public static List<FEOR> FEORList = new List<FEOR>();
 
+
+        public static string MyConnectionString()
+        {
+            string temp = Properties.Settings.Default.cég_db_ConnectionString;
+            temp = temp.Replace("XXX", Program.prefix);
+            temp = temp.Replace("YYY", Program.jelszóLic);
+            temp = temp.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            return temp;
+        }
+
         public static bool AdatbázisEllenőrzéseMain()
         {
             MySql.Data.MySqlClient.MySqlConnection conn;
@@ -43,9 +53,7 @@ namespace Felisz
             string myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
 
 
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            myConnectionString = Adatbázis.MyConnectionString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
@@ -199,10 +207,7 @@ namespace Felisz
             #endregion
 
             #region Foglalkoztató
-            myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            myConnectionString = Adatbázis.MyConnectionString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
@@ -264,10 +269,7 @@ namespace Felisz
         {
 
             MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            string myConnectionString = Adatbázis.MyConnectionString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
@@ -300,10 +302,7 @@ namespace Felisz
         public static int AzonosítószámKövetkező()
         {
             MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            string myConnectionString = Adatbázis.MyConnectionString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;

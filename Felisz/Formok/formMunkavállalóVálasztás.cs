@@ -37,42 +37,15 @@ namespace Felisz.Formok
                 return;
             }
 
-            /*
-            string sql = "SELECT FelhasznaloNev, Jelszo FROM Felhasznalok WHERE Aktiv=1 AND Felhasznalo=@felhasznalo";
-            var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
-            SQLCommand.Parameters.Add("@felhasznalo", MySql.Data.MySqlClient.MySqlDbType.String);
-            SQLCommand.Parameters["@felhasznalo"].Value = tbFelhasználó.Text;
-            
 
 
-
-            cmdBuilder = new MySqlCommandBuilder(dataAdapter);
-            changes = ds.GetChanges();
-            if (changes != null)
-            {
-                dataAdapter.Update(changes);
-                ds.Clear();
-                dataAdapter.Fill(ds);
-                dataGridView1.DataSource = ds.Tables[0];
-            }
-             
-             */
-
-
-            myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            myConnectionString = Adatbázis.MyConnectionString();
 
 
 
             conn = new MySqlConnection(myConnectionString);
             conn.Open();
-            //string sql = @"SELECT SzemAzon, VezNev, UtoNev1, UtoNev2, LakOrszag, LakIrSzam, LakVaros, LakKozt, LakKoztJell, LakHazSz FROM SzemTorzs WHERE VezNev LIKE '" + selName + "%'";
-
-            //string sql = @"SELECT SzemAzon, VezNev, UtoNev1, UtoNev2, LakOrszag, LakIrSzam, LakVaros, LakKozt, LakKoztJell, LakHazSz FROM SzemTorzs WHERE VezNev LIKE 'Bo%'";
-            //string sql = @"SELECT SzemAzon, VezNev, UtoNev1, UtoNev2, LakOrszag, LakIrSzam, LakVaros, LakKozt, LakKoztJell, LakHazSz FROM SzemTorzs WHERE VezNev LIKE 'Bo%'";
-
+      
             try
             {
                 selName = selName.Substring(0, 1).ToUpper() + selName.Substring(1);

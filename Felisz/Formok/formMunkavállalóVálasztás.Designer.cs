@@ -98,7 +98,7 @@ namespace Felisz.Formok
             this.dgvSelectEmploye.TabIndex = 5;
             this.toolTip1.SetToolTip(this.dgvSelectEmploye, "dfghjklé");
             this.dgvSelectEmploye.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSelectEmploye_CellDoubleClick);
-            this.dgvSelectEmploye.DoubleClick += new System.EventHandler(this.dgvSelectEmploye_DoubleClick);
+            
             this.dgvSelectEmploye.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvSelectEmploye_MouseClick);
             // 
             // panel1

@@ -29,6 +29,10 @@ namespace Felisz.Formok
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btAktualizálás = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbSzemélyiAdatok = new System.Windows.Forms.GroupBox();
@@ -102,7 +106,20 @@ namespace Felisz.Formok
             this.cbSzületésiOrszág = new System.Windows.Forms.ComboBox();
             this.cbSzületésiHely = new System.Windows.Forms.ComboBox();
             this.tpHozzátartozók = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.gpHozzátartozó = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.dgvHozzátartozó = new System.Windows.Forms.DataGridView();
             this.tpKapcsolatok = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbSzemélyiAdatok.SuspendLayout();
             this.tcSzemélyiAdatok.SuspendLayout();
@@ -116,6 +133,11 @@ namespace Felisz.Formok
             this.tlpFoglalkoztatás.SuspendLayout();
             this.gbDolgozó.SuspendLayout();
             this.tlpDolgozó.SuspendLayout();
+            this.tpHozzátartozók.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.gpHozzátartozó.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHozzátartozó)).BeginInit();
             this.SuspendLayout();
             // 
             // btAktualizálás
@@ -165,10 +187,12 @@ namespace Felisz.Formok
             this.tcSzemélyiAdatok.Controls.Add(this.tpKapcsolatok);
             this.tcSzemélyiAdatok.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcSzemélyiAdatok.Location = new System.Drawing.Point(3, 16);
+            this.tcSzemélyiAdatok.Margin = new System.Windows.Forms.Padding(3, 3, 22, 3);
             this.tcSzemélyiAdatok.Name = "tcSzemélyiAdatok";
             this.tcSzemélyiAdatok.SelectedIndex = 0;
             this.tcSzemélyiAdatok.Size = new System.Drawing.Size(1249, 799);
             this.tcSzemélyiAdatok.TabIndex = 13;
+            this.tcSzemélyiAdatok.Click += new System.EventHandler(this.tcSzemélyiAdatok_Click);
             // 
             // tpÁltalánosSzemélyiAdatok
             // 
@@ -1238,12 +1262,233 @@ namespace Felisz.Formok
             // tpHozzátartozók
             // 
             this.tpHozzátartozók.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tpHozzátartozók.Controls.Add(this.tableLayoutPanel1);
             this.tpHozzátartozók.Location = new System.Drawing.Point(4, 22);
             this.tpHozzátartozók.Name = "tpHozzátartozók";
             this.tpHozzátartozók.Padding = new System.Windows.Forms.Padding(3);
             this.tpHozzátartozók.Size = new System.Drawing.Size(1241, 773);
             this.tpHozzátartozók.TabIndex = 1;
             this.tpHozzátartozók.Text = "Hozzátartozók";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.gpHozzátartozó, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dgvHozzátartozó, 0, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 6);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1231, 764);
+            this.tableLayoutPanel1.TabIndex = 29;
+            // 
+            // gpHozzátartozó
+            // 
+            this.gpHozzátartozó.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.gpHozzátartozó.Controls.Add(this.tableLayoutPanel5);
+            this.gpHozzátartozó.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.gpHozzátartozó.Location = new System.Drawing.Point(3, 3);
+            this.gpHozzátartozó.Name = "gpHozzátartozó";
+            this.gpHozzátartozó.Size = new System.Drawing.Size(420, 172);
+            this.gpHozzátartozó.TabIndex = 25;
+            this.gpHozzátartozó.TabStop = false;
+            this.gpHozzátartozó.Text = "Hozzátartozó";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.Controls.Add(this.textBox14, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.textBox15, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.textBox16, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.textBox17, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label24, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.label25, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label26, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.label27, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.button2, 1, 4);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.ForeColor = System.Drawing.Color.White;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 5;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(414, 153);
+            this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // textBox14
+            // 
+            this.textBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox14.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.textBox14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.textBox14.Location = new System.Drawing.Point(166, 93);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(243, 26);
+            this.textBox14.TabIndex = 8;
+            // 
+            // textBox15
+            // 
+            this.textBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox15.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.textBox15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.textBox15.Location = new System.Drawing.Point(166, 63);
+            this.textBox15.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(243, 26);
+            this.textBox15.TabIndex = 4;
+            // 
+            // textBox16
+            // 
+            this.textBox16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox16.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.textBox16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.textBox16.Location = new System.Drawing.Point(166, 33);
+            this.textBox16.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(243, 26);
+            this.textBox16.TabIndex = 3;
+            // 
+            // textBox17
+            // 
+            this.textBox17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox17.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.textBox17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.textBox17.Location = new System.Drawing.Point(166, 3);
+            this.textBox17.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(243, 26);
+            this.textBox17.TabIndex = 2;
+            // 
+            // label24
+            // 
+            this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
+            this.label24.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Location = new System.Drawing.Point(3, 93);
+            this.label24.Margin = new System.Windows.Forms.Padding(3);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(160, 24);
+            this.label24.TabIndex = 21;
+            this.label24.Text = "Születési dátum";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label25
+            // 
+            this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
+            this.label25.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(3, 3);
+            this.label25.Margin = new System.Windows.Forms.Padding(3);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(160, 24);
+            this.label25.TabIndex = 15;
+            this.label25.Text = "Vezetéknév";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label26
+            // 
+            this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
+            this.label26.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label26.ForeColor = System.Drawing.Color.White;
+            this.label26.Location = new System.Drawing.Point(3, 33);
+            this.label26.Margin = new System.Windows.Forms.Padding(3);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(160, 24);
+            this.label26.TabIndex = 16;
+            this.label26.Text = "Utónév 1";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label27
+            // 
+            this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.label27.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label27.Location = new System.Drawing.Point(3, 63);
+            this.label27.Margin = new System.Windows.Forms.Padding(3);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(160, 24);
+            this.label27.TabIndex = 17;
+            this.label27.Text = "Utónév 2";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dgvHozzátartozó
+            // 
+            this.dgvHozzátartozó.AllowUserToAddRows = false;
+            this.dgvHozzátartozó.AllowUserToDeleteRows = false;
+            this.dgvHozzátartozó.AllowUserToOrderColumns = true;
+            this.dgvHozzátartozó.AllowUserToResizeColumns = false;
+            this.dgvHozzátartozó.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gray;
+            this.dgvHozzátartozó.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvHozzátartozó.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHozzátartozó.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvHozzátartozó.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.dgvHozzátartozó.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvHozzátartozó.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHozzátartozó.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvHozzátartozó.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dgvHozzátartozó.Location = new System.Drawing.Point(3, 181);
+            this.dgvHozzátartozó.MultiSelect = false;
+            this.dgvHozzátartozó.Name = "dgvHozzátartozó";
+            this.dgvHozzátartozó.ReadOnly = true;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHozzátartozó.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvHozzátartozó.RowHeadersVisible = false;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvHozzátartozó.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray;
+            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvHozzátartozó.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvHozzátartozó.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvHozzátartozó.Size = new System.Drawing.Size(420, 149);
+            this.dgvHozzátartozó.TabIndex = 26;
             // 
             // tpKapcsolatok
             // 
@@ -1253,6 +1498,19 @@ namespace Felisz.Formok
             this.tpKapcsolatok.Size = new System.Drawing.Size(1241, 773);
             this.tpKapcsolatok.TabIndex = 2;
             this.tpKapcsolatok.Text = "Kapcsolatok";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.button2.Location = new System.Drawing.Point(309, 124);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 26);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "MENTÉS";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // formSzemAdatok
             // 
@@ -1286,6 +1544,12 @@ namespace Felisz.Formok
             this.gbDolgozó.ResumeLayout(false);
             this.tlpDolgozó.ResumeLayout(false);
             this.tlpDolgozó.PerformLayout();
+            this.tpHozzátartozók.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.gpHozzátartozó.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHozzátartozó)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1366,5 +1630,18 @@ namespace Felisz.Formok
         private System.Windows.Forms.ComboBox cbSzületésiHely;
         private System.Windows.Forms.ComboBox cbFEOR;
         private System.Windows.Forms.TextBox tbSzületésDátum;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox gpHozzátartozó;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        public System.Windows.Forms.DataGridView dgvHozzátartozó;
+        private System.Windows.Forms.Button button2;
     }
 }

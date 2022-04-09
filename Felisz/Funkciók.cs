@@ -314,10 +314,7 @@ namespace Felisz
 
             //DB-ben tárolt licenckód letöltése
             MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            string myConnectionString = Adatbázis.MyConnectionString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
@@ -480,10 +477,7 @@ namespace Felisz
 
             if (Adatbázis.AdatbázisEllenőrzéseCég() == false) return false;
             MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            string myConnectionString = Adatbázis.MyConnectionString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
@@ -592,10 +586,7 @@ namespace Felisz
                 try
                 {
                     MySql.Data.MySqlClient.MySqlConnection conn;
-                    string myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-                    myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-                    myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-                    myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+                    string myConnectionString = Adatbázis.MyConnectionString();
                     conn = new MySql.Data.MySqlClient.MySqlConnection();
                     conn.ConnectionString = myConnectionString;
                     conn.Open();
@@ -645,10 +636,7 @@ namespace Felisz
 
 
             MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = Properties.Settings.Default.cég_db_ConnectionString;
-            myConnectionString = myConnectionString.Replace("XXX", Program.prefix);
-            myConnectionString = myConnectionString.Replace("YYY", Program.jelszóLic);
-            myConnectionString = myConnectionString.Replace("ZZZ", Program.aktuálisCég + Program.prefix);
+            string myConnectionString = Adatbázis.MyConnectionString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
