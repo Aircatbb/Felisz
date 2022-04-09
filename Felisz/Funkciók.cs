@@ -38,8 +38,9 @@ namespace Felisz
             else
             {
                 RegistryKey licKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz");
-                if (licKey.GetValue("Lickey") == null) return "";
+                if (licKey == null) return "";
                 return licKey.GetValue("Lickey").ToString();
+
             }
 
         }
