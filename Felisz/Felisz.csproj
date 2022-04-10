@@ -32,7 +32,7 @@
     <PublisherName>Future2021 Kft.</PublisherName>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>18</ApplicationRevision>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>0.1.5.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -258,6 +258,12 @@
     <Compile Include="Formok\formSzemKiválaszt.Designer.cs">
       <DependentUpon>formSzemKiválaszt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formok\formVáltozásLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formok\formVáltozásLista.Designer.cs">
+      <DependentUpon>formVáltozásLista.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rekordok\FEOR.cs" />
     <Compile Include="Rekordok\FoglalkoztatásHelye.cs" />
     <Compile Include="Rekordok\Irszámkód.cs" />
@@ -287,6 +293,7 @@
     <Compile Include="VárosUtcanévImport.cs" />
     <Compile Include="Rekordok\Városkód.cs" />
     <Compile Include="XMLImport.cs" />
+    <None Include="Resources\VáltozásLista.txt" />
     <None Include="Resources\Felisz.ico" />
     <None Include="Resources\Felisz.png" />
     <None Include="Felisz_TemporaryKey.pfx" />
@@ -297,6 +304,7 @@
     <None Include="Resources\ikon_Felhasználók_sel.png" />
     <EmbeddedResource Include="formFelisz.resx">
       <DependentUpon>formFelisz.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formok\formAlapbeállítások.resx">
       <DependentUpon>formAlapbeállítások.cs</DependentUpon>
@@ -334,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formok\formSzemKiválaszt.resx">
       <DependentUpon>formSzemKiválaszt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formok\formVáltozásLista.resx">
+      <DependentUpon>formVáltozásLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

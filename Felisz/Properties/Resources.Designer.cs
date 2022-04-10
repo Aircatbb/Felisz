@@ -361,6 +361,23 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to V1.5.0
+        ///	- A program indításakor ellenőrzi a verzióváltozást. Amennyiben új verziót észlel, megnyitja a VáltozásLista.txt-t.
+        ///V1.4.0
+        ///	- Mentés és frissítés működik a személyi törzsadatoknál
+        ///	- Személyi törzsadatokban az azonosító inaktív, illetve validált marad módosítás esetén
+        ///	- Személyi törzsadatokban dátumbevitel módosítva
+        ///	- Személyi törzsadatokban a mentés megerősítést kér
+        ///	- Személyi törzsadatokban az Insert gomb megnyomásakor szintén működik a mentés
+        ///	- Személyi törzsadatokban az irányítószám, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string VáltozásLista {
+            get {
+                return ResourceManager.GetString("VáltozásLista", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap window_close {

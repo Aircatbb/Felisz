@@ -390,9 +390,9 @@ namespace Felisz
             //lbFelhasználó.Text = "Felhasználó: " +  Environment.UserDomainName + @"\" + Environment.UserName;
             lbFelhasználó.Text = "Felhasználó: " + Program.aktuálisFelhasználóNév;
 
-            
-            //TEST
-            //Funkciók.FTPFrissítés();
+
+            //Verzóváltozás értesítés
+            Funkciók.VerzióVáltozásLog();
 
         }
 

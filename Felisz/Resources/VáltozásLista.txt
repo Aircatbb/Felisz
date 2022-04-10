@@ -1,0 +1,17 @@
+V0.0.5.0
+	- A program indításakor ellenõrzi a verzióváltozást. Amennyiben új verziót észlel, megnyitja a VáltozásLista.txt-t.
+
+V0.0.4.0
+	- Mentés és frissítés mûködik a személyi törzsadatoknál
+	- Személyi törzsadatokban az azonosító inaktív, illetve validált marad módosítás esetén
+	- Személyi törzsadatokban dátumbevitel módosítva
+	- Személyi törzsadatokban a mentés megerõsítést kér
+	- Személyi törzsadatokban az Insert gomb megnyomásakor szintén mûködik a mentés
+	- Személyi törzsadatokban az irányítószám, és város validálása javítva, mindegy melyiket választod elõször
+	- Személyi törzsadatokban a nevekbe sehol nem enged számot rögzíteni
+	- Személyi törzsadatokban nevek végén nem lehet szóköz
+	- Személyi törzsadatokban a személyek kiválasztásakor a fejlécre dupplán kattintva eddig hibát okozott, javítva.
+	- Személyi törzsadatokban a mentés ablak bezárásakor nem történt semmi, javítva.
+	- A fejlécbe bekerült egy "TOP Terminál" modul, amiben az utolsó elvégzett mûvelet eredménye ellenõrizhetõ.
+	- Személyi törzsadatokban a mentésMenés és új felvitel gomb egyenlõre nem lehetséges. A program struktúrájából adódóan csak a fõmenübõl lehet meghívni.
+	- Licenc ezentúl a registry-ben tárolva, frissítéskor nem kell újraaktiválni a programot

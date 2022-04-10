@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -40,9 +41,37 @@ namespace Felisz
                 RegistryKey licKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz");
                 if (licKey == null) return "";
                 return licKey.GetValue("Lickey").ToString();
-
             }
 
+        }
+
+        public static void VerzióVáltozásLog()
+        {
+            string verJelenlegi = Assembly.GetEntryAssembly().GetName().Version.ToString();
+
+
+            RegistryKey verKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz\\", true);
+
+            
+
+            if (Registry.GetValue(verKey.ToString(), "Version", null) == null)
+            {
+                Formok.formVáltozásLista vv = new Formok.formVáltozásLista();
+                vv.ShowDialog();
+                verKey.SetValue("Version", verJelenlegi);
+                verKey.Close();
+                return;
+            }
+
+
+            if ((string)Registry.GetValue(verKey.ToString(), "Version", "") != verJelenlegi)
+            {
+                Formok.formVáltozásLista vv = new Formok.formVáltozásLista();
+                vv.ShowDialog();
+            }
+
+            verKey.SetValue("Version", verJelenlegi);
+            verKey.Close();
         }
 
 
