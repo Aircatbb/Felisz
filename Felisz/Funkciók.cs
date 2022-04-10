@@ -25,7 +25,7 @@ namespace Felisz
             if (Properties.Settings.Default.TTSEngedélyezve == false) return;
             hang.Rate = 0;
             hang.Volume = 33;
-            
+
 
             // Nincs telepítve, így nincs hatása
             // beszélő.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Child);
@@ -48,21 +48,25 @@ namespace Felisz
 
         public static string LicencReg(string licenc, bool RW)
         {
+            RegistryKey licKey = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Felisz\\Felisz", true);
 
             if (RW)
             {
-                RegistryKey licKey = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Felisz\\Felisz");
+
                 licKey.SetValue("LicKey", licenc);
                 licKey.Close();
                 return "";
             }
             else
             {
-                RegistryKey licKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz");
-                if (licKey == null) return "";
-                Program.kódoltLic = licKey.GetValue("Lickey").ToString();
-                return licKey.GetValue("Lickey").ToString();
+                if (Registry.GetValue(licKey.ToString(), "LicKey", null) != null)
+                {
+                    Program.kódoltLic = licKey.GetValue("Lickey").ToString();
+                    return licKey.GetValue("Lickey").ToString();
+                }
+                return "";
             }
+
 
         }
 
@@ -111,10 +115,10 @@ namespace Felisz
                 return;
             }
 
-            
+
             Properties.Settings.Default.TTSEngedélyezve = false;
             TTSKey.Close();
-            
+
 
         }
 

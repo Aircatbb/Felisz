@@ -444,7 +444,7 @@ namespace Felisz
             }
             Funkciók.TTS("Szép napot kedves " + Program.aktuálisFelhasználóNév + "! Ma " + DateTime.Now.Year+" "+ hónapTTS+" hónap "+ DateTime.Now.Day + ". van.");
             Funkciók.TTS("Boldog szülinapot Bohus Attila!");
-            Funkciók.TTS("Boldog névnapot Lackó Mackó munkavállalónak névnapja van.");
+            Funkciók.TTS("Boldog névnapot Lackó Mackó!");
             Funkciók.TTS("Felolvassam az aktuális híreket?");
 
             Funkciók.TTS("Itt most hangfelismeréssel lehetne válaszolni.");
