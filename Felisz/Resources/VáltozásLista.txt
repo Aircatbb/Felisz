@@ -1,3 +1,7 @@
+V0.0.5.2
+	- Hozzátartozók törzsadatai: Vezetéknév, Utónév1, Utónév2, Születés dátuma mezõk és a DB-t tartalmazó DataGrid létrehozva.
+	- Adatbázislekérdezés hozzátartozókra
+
 V0.0.5.1
 	- MyConnectionString cégspecifikus lekérdezése kikerült egy külön funkcióba (Funkciók osztály)
 
