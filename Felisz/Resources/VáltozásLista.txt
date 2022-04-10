@@ -1,3 +1,6 @@
+V0.0.5.1
+	- MyConnectionString cégspecifikus lekérdezése kikerült egy külön funkcióba (Funkciók osztály)
+
 V0.0.5.0
 	- A program indításakor ellenõrzi a verzióváltozást. Amennyiben új verziót észlel, megnyitja a VáltozásLista.txt-t.
 
