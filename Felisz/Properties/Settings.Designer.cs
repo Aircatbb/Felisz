@@ -144,5 +144,17 @@ namespace Felisz.Properties {
                 this["GoogleMapsAPI"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool TTSEngedélyezve {
+            get {
+                return ((bool)(this["TTSEngedélyezve"]));
+            }
+            set {
+                this["TTSEngedélyezve"] = value;
+            }
+        }
     }
 }

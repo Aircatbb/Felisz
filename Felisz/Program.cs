@@ -11,6 +11,7 @@ namespace Felisz
         //Logger
         public static Logger logger = LogManager.GetCurrentClassLogger();
         //Licenc változók
+        public static string kódoltLic = "";
         public static string dekódoltLic = "";
         public static DateTime licÉrvényesség = new DateTime(1900, 01, 01);
         //Cég, felhasználó

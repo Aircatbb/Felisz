@@ -12,11 +12,31 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Speech.Synthesis;
 
 namespace Felisz
 {
     class Funkciók
     {
+        public static SpeechSynthesizer hang = new SpeechSynthesizer();
+
+        public static void TTS(string szöveg)
+        {
+            if (Properties.Settings.Default.TTSEngedélyezve == false) return;
+            hang.Rate = 0;
+            hang.Volume = 33;
+            
+
+            // Nincs telepítve, így nincs hatása
+            // beszélő.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Child);
+            //var test=beszélő.GetInstalledVoices();  
+
+            hang.SpeakAsync(szöveg);
+        }
+
+
+
+
         public static string licDB = "---Üres---";
 
         public static void TopKonzolKiírás(string szöveg)
@@ -40,8 +60,61 @@ namespace Felisz
             {
                 RegistryKey licKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz");
                 if (licKey == null) return "";
+                Program.kódoltLic = licKey.GetValue("Lickey").ToString();
                 return licKey.GetValue("Lickey").ToString();
             }
+
+        }
+
+        public static void TTSRegÍrás(bool engedélyezve)
+        {
+            RegistryKey TTSKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz\\", true);
+
+            /*
+            if (Registry.GetValue(TTSKey.ToString(), "TTSEnabled", null) == null)
+            {
+                TTSKey.SetValue("TTSEnabled", false);
+                Properties.Settings.Default.TTSEngedélyezve = false;
+                TTSKey.Close();
+                return;
+            }
+            */
+
+            if (engedélyezve == true)
+            {
+                TTSKey.SetValue("TTSEnabled", true);
+                Properties.Settings.Default.TTSEngedélyezve = true;
+            }
+            else
+            {
+                TTSKey.SetValue("TTSEnabled", false);
+                Properties.Settings.Default.TTSEngedélyezve = false;
+            }
+
+            TTSKey.Close();
+        }
+
+        public static void TTSRegOlvasás()
+        {
+            RegistryKey TTSKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz\\", true);
+
+
+            if (Registry.GetValue(TTSKey.ToString(), "TTSEnabled", null) == null)
+            {
+                TTSKey.SetValue("TTSEnabled", false);
+            }
+
+            if (TTSKey.GetValue("TTSEnabled").ToString() == "True")
+            {
+                Properties.Settings.Default.TTSEngedélyezve = true;
+                TTSKey.Close();
+                return;
+            }
+
+            
+            Properties.Settings.Default.TTSEngedélyezve = false;
+            TTSKey.Close();
+            
 
         }
 
@@ -52,7 +125,7 @@ namespace Felisz
 
             RegistryKey verKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz\\", true);
 
-            
+
 
             if (Registry.GetValue(verKey.ToString(), "Version", null) == null)
             {

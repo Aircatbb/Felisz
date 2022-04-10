@@ -129,7 +129,19 @@ namespace Felisz
 
         private void formAlapbeállítások_Load(object sender, EventArgs e)
         {
+            //Licenc
+            tbLicenc.Text = Program.kódoltLic;
+            //TTS
+            if (Properties.Settings.Default.TTSEngedélyezve == true) cbTTSEngedélyezve.Checked = true;
+            
+        }
 
+  
+
+        private void cbTTSEngedélyezve_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbTTSEngedélyezve.Checked) Funkciók.TTSRegÍrás(true);
+            else Funkciók.TTSRegÍrás(false);
         }
     }
 }

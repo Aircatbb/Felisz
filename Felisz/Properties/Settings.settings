@@ -32,5 +32,8 @@
     <Setting Name="GoogleMapsAPI" Type="System.String" Scope="User">
       <Value Profile="(Default)">AIzaSyDbfd28AxL8tBKWUrmEOHaBh9e3D-NGQnY</Value>
     </Setting>
+    <Setting Name="TTSEngedélyezve" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -39,6 +39,7 @@ namespace Felisz.Formok
             this.rbÚjrögzítés = new System.Windows.Forms.RadioButton();
             this.rbMódosítás = new System.Windows.Forms.RadioButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.rbTörlés = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectEmploye)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -95,14 +96,14 @@ namespace Felisz.Formok
             this.dgvSelectEmploye.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvSelectEmploye.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSelectEmploye.Size = new System.Drawing.Size(738, 267);
-            this.dgvSelectEmploye.TabIndex = 5;
+            this.dgvSelectEmploye.TabIndex = 7;
             this.toolTip1.SetToolTip(this.dgvSelectEmploye, "dfghjklé");
             this.dgvSelectEmploye.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSelectEmploye_CellDoubleClick);
-            
             this.dgvSelectEmploye.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvSelectEmploye_MouseClick);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.rbTörlés);
             this.panel1.Controls.Add(this.rbÚjrögzítés);
             this.panel1.Controls.Add(this.rbMódosítás);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -135,6 +136,19 @@ namespace Felisz.Formok
             this.rbMódosítás.Text = "Módosítás";
             this.rbMódosítás.UseVisualStyleBackColor = true;
             // 
+            // rbTörlés
+            // 
+            this.rbTörlés.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbTörlés.AutoSize = true;
+            this.rbTörlés.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
+            this.rbTörlés.ForeColor = System.Drawing.Color.White;
+            this.rbTörlés.Location = new System.Drawing.Point(681, 4);
+            this.rbTörlés.Name = "rbTörlés";
+            this.rbTörlés.Size = new System.Drawing.Size(54, 17);
+            this.rbTörlés.TabIndex = 6;
+            this.rbTörlés.Text = "Törlés";
+            this.rbTörlés.UseVisualStyleBackColor = false;
+            // 
             // formMunkavállalóVálasztás
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,5 +179,6 @@ namespace Felisz.Formok
         private System.Windows.Forms.RadioButton rbÚjrögzítés;
         private System.Windows.Forms.RadioButton rbMódosítás;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.RadioButton rbTörlés;
     }
 }

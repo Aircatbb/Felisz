@@ -36,8 +36,7 @@ namespace Felisz
             this.label2 = new System.Windows.Forms.Label();
             this.btAktualizálás = new System.Windows.Forms.Button();
             this.gbCégadatok = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cbTTSEngedélyezve = new System.Windows.Forms.CheckBox();
             this.btCégMódosítás = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).BeginInit();
             this.gbLicenc.SuspendLayout();
@@ -91,7 +90,7 @@ namespace Felisz
             this.tbLicenc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbLicenc.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.tbLicenc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.tbLicenc.Location = new System.Drawing.Point(95, 20);
+            this.tbLicenc.Location = new System.Drawing.Point(82, 19);
             this.tbLicenc.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbLicenc.Name = "tbLicenc";
             this.tbLicenc.Size = new System.Drawing.Size(612, 26);
@@ -105,9 +104,9 @@ namespace Felisz
             this.label2.Location = new System.Drawing.Point(6, 19);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 26);
+            this.label2.Size = new System.Drawing.Size(73, 26);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Új licenckód";
+            this.label2.Text = "Licenckód";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btAktualizálás
@@ -115,7 +114,7 @@ namespace Felisz
             this.btAktualizálás.BackColor = System.Drawing.Color.Transparent;
             this.btAktualizálás.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
             this.btAktualizálás.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.btAktualizálás.Location = new System.Drawing.Point(713, 20);
+            this.btAktualizálás.Location = new System.Drawing.Point(700, 19);
             this.btAktualizálás.Name = "btAktualizálás";
             this.btAktualizálás.Size = new System.Drawing.Size(102, 26);
             this.btAktualizálás.TabIndex = 4;
@@ -125,43 +124,29 @@ namespace Felisz
             // 
             // gbCégadatok
             // 
-            this.gbCégadatok.Controls.Add(this.textBox1);
-            this.gbCégadatok.Controls.Add(this.label1);
+            this.gbCégadatok.Controls.Add(this.cbTTSEngedélyezve);
             this.gbCégadatok.Controls.Add(this.btCégMódosítás);
             this.gbCégadatok.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbCégadatok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.gbCégadatok.Location = new System.Drawing.Point(0, 61);
             this.gbCégadatok.Name = "gbCégadatok";
-            this.gbCégadatok.Size = new System.Drawing.Size(1647, 531);
+            this.gbCégadatok.Size = new System.Drawing.Size(1647, 55);
             this.gbCégadatok.TabIndex = 14;
             this.gbCégadatok.TabStop = false;
-            this.gbCégadatok.Text = "Cégadatok";
+            this.gbCégadatok.Text = "Beszédaszisztens";
             // 
-            // textBox1
+            // cbTTSEngedélyezve
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.textBox1.Location = new System.Drawing.Point(95, 20);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(612, 26);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.label1.Location = new System.Drawing.Point(6, 19);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 26);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Új licenckód";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cbTTSEngedélyezve.AutoSize = true;
+            this.cbTTSEngedélyezve.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.cbTTSEngedélyezve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.cbTTSEngedélyezve.Location = new System.Drawing.Point(12, 19);
+            this.cbTTSEngedélyezve.Name = "cbTTSEngedélyezve";
+            this.cbTTSEngedélyezve.Size = new System.Drawing.Size(226, 24);
+            this.cbTTSEngedélyezve.TabIndex = 15;
+            this.cbTTSEngedélyezve.Text = "Beszédaszisztens bekapcsolása";
+            this.cbTTSEngedélyezve.UseVisualStyleBackColor = true;
+            this.cbTTSEngedélyezve.CheckedChanged += new System.EventHandler(this.cbTTSEngedélyezve_CheckedChanged);
             // 
             // btCégMódosítás
             // 
@@ -208,8 +193,7 @@ namespace Felisz
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btAktualizálás;
         private System.Windows.Forms.GroupBox gbCégadatok;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btCégMódosítás;
+        private System.Windows.Forms.CheckBox cbTTSEngedélyezve;
     }
 }

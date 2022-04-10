@@ -42,6 +42,8 @@ namespace Felisz
             this.rtTalálat = new System.Windows.Forms.RichTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pbFormClose = new System.Windows.Forms.PictureBox();
+            this.btStop = new System.Windows.Forms.Button();
+            this.btPlay = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).BeginInit();
@@ -87,6 +89,8 @@ namespace Felisz
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btPlay);
+            this.panel1.Controls.Add(this.btStop);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btKeresésParagrafus);
             this.panel1.Controls.Add(this.tbMTKeresésParagrafus);
@@ -211,6 +215,32 @@ namespace Felisz
             this.pbFormClose.MouseEnter += new System.EventHandler(this.pbFormClose_MouseEnter);
             this.pbFormClose.MouseLeave += new System.EventHandler(this.pbFormClose_MouseLeave);
             // 
+            // btStop
+            // 
+            this.btStop.BackColor = System.Drawing.Color.Transparent;
+            this.btStop.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
+            this.btStop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.btStop.Location = new System.Drawing.Point(629, 41);
+            this.btStop.Name = "btStop";
+            this.btStop.Size = new System.Drawing.Size(70, 22);
+            this.btStop.TabIndex = 13;
+            this.btStop.Text = "STOP";
+            this.btStop.UseVisualStyleBackColor = false;
+            this.btStop.Click += new System.EventHandler(this.btStop_Click);
+            // 
+            // btPlay
+            // 
+            this.btPlay.BackColor = System.Drawing.Color.Transparent;
+            this.btPlay.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
+            this.btPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.btPlay.Location = new System.Drawing.Point(539, 41);
+            this.btPlay.Name = "btPlay";
+            this.btPlay.Size = new System.Drawing.Size(70, 22);
+            this.btPlay.TabIndex = 14;
+            this.btPlay.Text = "PLAY";
+            this.btPlay.UseVisualStyleBackColor = false;
+            this.btPlay.Click += new System.EventHandler(this.btPlay_Click);
+            // 
             // formMunkaTörvénykönyve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,5 +277,7 @@ namespace Felisz
         private System.Windows.Forms.Button btKeresésParagrafus;
         private System.Windows.Forms.TextBox tbMTKeresésParagrafus;
         private System.Windows.Forms.PictureBox pbFormClose;
+        private System.Windows.Forms.Button btPlay;
+        private System.Windows.Forms.Button btStop;
     }
 }

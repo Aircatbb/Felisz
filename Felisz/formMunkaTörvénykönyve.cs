@@ -13,11 +13,11 @@ namespace Felisz
 
         private void formMunkaTörvénykönyve_Load(object sender, EventArgs e)
         {
-            /*
-            var bindiglist = new BindingList<MTRecord>(MunkaTörvénykönyve.törvények);
-            var source = new BindingSource(bindiglist, null);
-            dataGridView1.DataSource = source;
-            */
+            if(Properties.Settings.Default.TTSEngedélyezve==false)
+            {
+                btPlay.Visible = false;
+                btStop.Visible = false;
+            }
         }
 
         private void lbMTKeresés_Click(object sender, EventArgs e)
@@ -149,6 +149,17 @@ namespace Felisz
         private void pbFormClose_MouseLeave(object sender, EventArgs e)
         {
             pbFormClose.BackColor = Color.Transparent;
+        }
+
+        private void btPlay_Click(object sender, EventArgs e)
+        {
+            Funkciók.TTS(rtTalálat.Text);
+        }
+
+        private void btStop_Click(object sender, EventArgs e)
+        {
+            Funkciók.hang.SpeakAsyncCancelAll();
+            
         }
     }
 }

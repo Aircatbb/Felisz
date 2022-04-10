@@ -30,7 +30,7 @@ namespace Felisz.Formok
         }
 
 
-        private void CégVálaszt(string selName)
+        private void MunkavállalókBetöltése(string selName)
         {
             if (!Adatbázis.AdatbázisEllenőrzéseCég())
             {
@@ -139,6 +139,13 @@ namespace Felisz.Formok
         private void dgvSelectEmploye_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+            if(rbTörlés.Checked==true)
+            {
+                mód = "T";
+                formTörlésFigyelmeztetés formTF = new formTörlésFigyelmeztetés();
+                DialogResult dr = formTF.ShowDialog();
+
+            }
             if (rbMódosítás.Checked == true)
             {
                 mód = "M";
@@ -147,7 +154,6 @@ namespace Felisz.Formok
             }
             if (rbÚjrögzítés.Checked == true) mód = "N";
             formMunkavállalóVálasztás.azon = (int)dgvSelectEmploye.Rows[e.RowIndex].Cells[0].Value;
-
             this.DialogResult = DialogResult.OK;
 
         }
@@ -158,7 +164,7 @@ namespace Felisz.Formok
             {
                 formMunkavállalóVálasztásNévAlapján ns = new formMunkavállalóVálasztásNévAlapján();
                 DialogResult nsDialog = ns.ShowDialog();
-                CégVálaszt(formMunkavállalóVálasztásNévAlapján.selName);
+                MunkavállalókBetöltése(formMunkavállalóVálasztásNévAlapján.selName);
 
             }
 
@@ -167,7 +173,7 @@ namespace Felisz.Formok
 
         private void formMunkavállalóVálasztás_Load(object sender, EventArgs e)
         {
-            CégVálaszt("");
+            MunkavállalókBetöltése("");
         }
 
         private void dgvSelectEmploye_DoubleClick(object sender, EventArgs e)

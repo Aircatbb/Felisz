@@ -1,3 +1,15 @@
+V0.0.5.3
+	- TTS funkció integrálva:
+		- egyenlõre az alapértelmezett hanggal, ellenõrzések nélkül.
+		- Alapbeállítások-ban ki-, be kapcsolható (Default: ki kapcs.)
+		- Registry-ben elmentve
+	- TTS demonstráció
+	- Munkatörvénykönyve TTS:
+		- Play, Stop gomb lejátszáshoz, design még változni fog, illetve kiegészül egy Pause gombbal (esetleg ha kijelölés
+		van a szövegben csak annak a lejátszása).
+	- Alapbeállításokban az aktuális kódolatlan licenckód megjelenítése
+	- Munkavállaló törlés dialógus (DB törlés fejlesztése folyamatban)
+
 V0.0.5.2
 	- Hozzátartozók törzsadatai: Vezetéknév, Utónév1, Utónév2, Születés dátuma mezõk és a DB-t tartalmazó DataGrid létrehozva.
 	- Adatbázislekérdezés hozzátartozókra
