@@ -1,3 +1,6 @@
+V0.0.5.4
+	- Magyar TTS Szabika
+
 V0.0.5.3
 	- TTS funkció integrálva:
 		- egyenlõre az alapértelmezett hanggal, ellenõrzések nélkül.

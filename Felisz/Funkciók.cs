@@ -29,7 +29,16 @@ namespace Felisz
 
             // Nincs telepítve, így nincs hatása
             // beszélő.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Child);
-            //var test=beszélő.GetInstalledVoices();  
+            var test2 = hang.Voice;
+            //hang.SelectVoice()
+            var voice=hang.GetInstalledVoices();
+            string hangName = voice[1].VoiceInfo.Name;
+            string hangCulture = voice[1].VoiceInfo.Culture.ToString();
+            string hangGender = voice[1].VoiceInfo.Gender.ToString();
+            string hangAge = voice[1].VoiceInfo.Age.ToString();
+
+            
+            hang.SelectVoice(hangName);
 
             hang.SpeakAsync(szöveg);
         }
