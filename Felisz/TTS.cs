@@ -38,13 +38,16 @@ namespace Felisz
              string hangCulture = voice[1].VoiceInfo.Culture.ToString();
              string hangGender = voice[1].VoiceInfo.Gender.ToString();
              string hangAge = voice[1].VoiceInfo.Age.ToString();
-
-
-
              hang.SelectVoice(hangName);
             */
 
             hang.SpeakAsync(szöveg);
+
+        }
+
+        public static void TTS_Stop()
+        {
+            hang.SpeakAsyncCancelAll();
         }
 
         public static string szám2Hónap(int hónap)
@@ -54,44 +57,33 @@ namespace Felisz
             {
                 case 1:
                     return "Január";
-                    break;
                 case 2:
                     return "Február";
-                    break;
                 case 3:
                     return "Március";
-                    break;
                 case 4:
                     return "Április";
-                    break;
                 case 5:
                     return "Május";
-                    break;
                 case 6:
                     return "Június";
-                    break;
                 case 7:
                     return "Július";
-                    break;
                 case 8:
                     return "Augusztus";
-                    break;
                 case 9:
                     return "Szeptember";
-                    break;
                 case 10:
                     return "Október";
-                    break;
                 case 11:
                     return "November";
-                    break;
                 case 12:
                     return "December";
-                    break;
                 default:
-                    return "";
                     break;
             }
+
+            return "";
 
         }
 
@@ -163,16 +155,16 @@ namespace Felisz
                 case 31:
                     return "harmincegyedike";
                 default:
-                    return "";
                     break;
 
             }
+            return "";
 
         }
 
         public static string név2Utónév(string név)
         {
-            return név.Substring(név.IndexOf(" ")+1);
+            return név.Substring(név.IndexOf(" ") + 1);
         }
     }
 }

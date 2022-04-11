@@ -438,7 +438,8 @@ namespace Felisz
             // 
             // timerRSS
             // 
-            this.timerRSS.Interval = 8000;
+            this.timerRSS.Enabled = true;
+            this.timerRSS.Interval = 10000;
             this.timerRSS.Tick += new System.EventHandler(this.timerRSS_Tick);
             // 
             // folyamatJelző1

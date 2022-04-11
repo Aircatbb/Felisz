@@ -1273,6 +1273,8 @@ namespace Felisz.Formok
                 {
                     if (DateTime.Parse(tbSzületésDátum.Text) <= DateTime.Now)
                     {
+                        TTS.TTS_Stop();
+                        TTS.TTS_Play("Figyelem! Kiskorúak foglalkoztatását a törvény bünteti!");
                         MessageBox.Show("Kiskorúak foglalkoztatását a törvény bünteti!" + Environment.NewLine +
                             "A 16. életévét betöltött de 18 évnél fiatalabb személy is" + Environment.NewLine +
                             "csupán törvényes képviselője hozzájárulása birtokában" + Environment.NewLine +

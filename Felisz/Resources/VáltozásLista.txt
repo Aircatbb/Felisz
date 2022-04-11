@@ -1,3 +1,6 @@
+V0.0.5.6
+	- kisebb TTS optimalizálások
+
 V0.0.5.5
 	- TTS külön osztályba került
 	- Külön metódusba került az inicializálás, így azt csak a program indulásakor egyszer kell futtatni

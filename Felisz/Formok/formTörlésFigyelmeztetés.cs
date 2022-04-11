@@ -19,6 +19,7 @@ namespace Felisz.Formok
 
         private void formTörlésFigyelmeztetés_Load(object sender, EventArgs e)
         {
+            TTS.TTS_Stop();
             TTS.TTS_Play("FIGYELEM! VÉGLEGESEN TÖRÖLNI KÉSZÜL A KIVÁLASZTOTT MUNKAVÁLLALÓT!");
             //Funkciók.TTS("ACHTUNG! DER AUSGEWÄHLTE MITARBEITER WIRD DAUERHAFT GELÖSCHT!");
         }
