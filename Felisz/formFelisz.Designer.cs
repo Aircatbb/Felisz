@@ -38,25 +38,12 @@ namespace Felisz
             this.btExportImportAdatokKezelese = new System.Windows.Forms.Button();
             this.btExportImport = new System.Windows.Forms.Button();
             this.panelHRSubMenu = new System.Windows.Forms.Panel();
-            this.btHRMT = new Felisz.MenüGombokNew();
-            this.btHRKalkulator = new Felisz.MenüGombokNew();
-            this.btHRUtikoltseg = new Felisz.MenüGombokNew();
-            this.btHRStatisztikak = new Felisz.MenüGombokNew();
-            this.btHRJelentkezok = new Felisz.MenüGombokNew();
-            this.btHRFigyelmeztetesek = new Felisz.MenüGombokNew();
-            this.btHRMunkaszerzodesModositasa = new Felisz.MenüGombokNew();
-            this.btHRFelmondas = new Felisz.MenüGombokNew();
-            this.btHRMunkaszerzodes = new Felisz.MenüGombokNew();
             this.btHR = new System.Windows.Forms.Button();
             this.panelAdminSubMenu = new System.Windows.Forms.Panel();
-            this.btAdminFelhasznalok = new Felisz.MenüGombokNew();
-            this.btAdminGlobalAdminBeallitasok = new Felisz.MenüGombokNew();
-            this.btAdminAlapBeallitasok = new Felisz.MenüGombokNew();
             this.btAdmin = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.ADALogo = new System.Windows.Forms.PictureBox();
             this.panelTopMenu = new System.Windows.Forms.Panel();
-            this.folyamatJelző1 = new Felisz.FolyamatJelző();
             this.lbStátusz = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pbVonalFüggőleges = new System.Windows.Forms.PictureBox();
@@ -71,6 +58,19 @@ namespace Felisz
             this.timerHáttér = new System.Windows.Forms.Timer(this.components);
             this.timerRSS = new System.Windows.Forms.Timer(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.folyamatJelző1 = new Felisz.FolyamatJelző();
+            this.btHRMT = new Felisz.MenüGombokNew();
+            this.btHRKalkulator = new Felisz.MenüGombokNew();
+            this.btHRUtikoltseg = new Felisz.MenüGombokNew();
+            this.btHRStatisztikak = new Felisz.MenüGombokNew();
+            this.btHRJelentkezok = new Felisz.MenüGombokNew();
+            this.btHRFigyelmeztetesek = new Felisz.MenüGombokNew();
+            this.btHRMunkaszerzodesModositasa = new Felisz.MenüGombokNew();
+            this.btHRFelmondas = new Felisz.MenüGombokNew();
+            this.btHRMunkaszerzodes = new Felisz.MenüGombokNew();
+            this.btAdminFelhasznalok = new Felisz.MenüGombokNew();
+            this.btAdminGlobalAdminBeallitasok = new Felisz.MenüGombokNew();
+            this.btAdminAlapBeallitasok = new Felisz.MenüGombokNew();
             this.panelSideMenu.SuspendLayout();
             this.panelExportImportSubMenu.SuspendLayout();
             this.panelHRSubMenu.SuspendLayout();
@@ -205,6 +205,250 @@ namespace Felisz
             this.panelHRSubMenu.Size = new System.Drawing.Size(273, 377);
             this.panelHRSubMenu.TabIndex = 5;
             this.panelHRSubMenu.Visible = false;
+            // 
+            // btHR
+            // 
+            this.btHR.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btHR.FlatAppearance.BorderSize = 0;
+            this.btHR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btHR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btHR.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btHR.Location = new System.Drawing.Point(0, 390);
+            this.btHR.Name = "btHR";
+            this.btHR.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btHR.Size = new System.Drawing.Size(273, 45);
+            this.btHR.TabIndex = 2;
+            this.btHR.Text = "HR";
+            this.btHR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btHR.UseVisualStyleBackColor = true;
+            this.btHR.Visible = false;
+            this.btHR.Click += new System.EventHandler(this.btHR_Click);
+            // 
+            // panelAdminSubMenu
+            // 
+            this.panelAdminSubMenu.BackColor = System.Drawing.Color.Transparent;
+            this.panelAdminSubMenu.Controls.Add(this.btAdminFelhasznalok);
+            this.panelAdminSubMenu.Controls.Add(this.btAdminGlobalAdminBeallitasok);
+            this.panelAdminSubMenu.Controls.Add(this.btAdminAlapBeallitasok);
+            this.panelAdminSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelAdminSubMenu.Location = new System.Drawing.Point(0, 240);
+            this.panelAdminSubMenu.Name = "panelAdminSubMenu";
+            this.panelAdminSubMenu.Size = new System.Drawing.Size(273, 150);
+            this.panelAdminSubMenu.TabIndex = 3;
+            this.panelAdminSubMenu.Visible = false;
+            // 
+            // btAdmin
+            // 
+            this.btAdmin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btAdmin.FlatAppearance.BorderSize = 0;
+            this.btAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btAdmin.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btAdmin.Location = new System.Drawing.Point(0, 200);
+            this.btAdmin.Name = "btAdmin";
+            this.btAdmin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btAdmin.Size = new System.Drawing.Size(273, 40);
+            this.btAdmin.TabIndex = 0;
+            this.btAdmin.Text = "ADMIN";
+            this.btAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btAdmin.UseVisualStyleBackColor = true;
+            this.btAdmin.Visible = false;
+            this.btAdmin.Click += new System.EventHandler(this.btAdmin_Click);
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelLogo.Controls.Add(this.ADALogo);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(273, 200);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // ADALogo
+            // 
+            this.ADALogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ADALogo.Image = global::Felisz.Properties.Resources.Felisz;
+            this.ADALogo.Location = new System.Drawing.Point(0, 0);
+            this.ADALogo.Name = "ADALogo";
+            this.ADALogo.Size = new System.Drawing.Size(200, 200);
+            this.ADALogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ADALogo.TabIndex = 0;
+            this.ADALogo.TabStop = false;
+            // 
+            // panelTopMenu
+            // 
+            this.panelTopMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panelTopMenu.Controls.Add(this.folyamatJelző1);
+            this.panelTopMenu.Controls.Add(this.lbStátusz);
+            this.panelTopMenu.Controls.Add(this.label1);
+            this.panelTopMenu.Controls.Add(this.pbVonalFüggőleges);
+            this.panelTopMenu.Controls.Add(this.pbVonal);
+            this.panelTopMenu.Controls.Add(this.llbRSS);
+            this.panelTopMenu.Controls.Add(this.lbFelhasználó);
+            this.panelTopMenu.Controls.Add(this.pbFormMinimize);
+            this.panelTopMenu.Controls.Add(this.pbFormMaximize);
+            this.panelTopMenu.Controls.Add(this.pbFormClose);
+            this.panelTopMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTopMenu.Location = new System.Drawing.Point(273, 0);
+            this.panelTopMenu.Name = "panelTopMenu";
+            this.panelTopMenu.Size = new System.Drawing.Size(1480, 73);
+            this.panelTopMenu.TabIndex = 1;
+            this.panelTopMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTopMenu_Paint);
+            // 
+            // lbStátusz
+            // 
+            this.lbStátusz.Font = new System.Drawing.Font("Arial Narrow", 8F);
+            this.lbStátusz.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lbStátusz.Location = new System.Drawing.Point(3, 52);
+            this.lbStátusz.Name = "lbStátusz";
+            this.lbStátusz.Size = new System.Drawing.Size(715, 14);
+            this.lbStátusz.TabIndex = 8;
+            this.lbStátusz.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbStátusz.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label1.Location = new System.Drawing.Point(1018, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(459, 20);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Névnap, születésnap, LOG2DB";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pbVonalFüggőleges
+            // 
+            this.pbVonalFüggőleges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.pbVonalFüggőleges.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbVonalFüggőleges.Location = new System.Drawing.Point(0, 0);
+            this.pbVonalFüggőleges.Name = "pbVonalFüggőleges";
+            this.pbVonalFüggőleges.Size = new System.Drawing.Size(1, 72);
+            this.pbVonalFüggőleges.TabIndex = 5;
+            this.pbVonalFüggőleges.TabStop = false;
+            // 
+            // pbVonal
+            // 
+            this.pbVonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.pbVonal.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pbVonal.Location = new System.Drawing.Point(0, 72);
+            this.pbVonal.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.pbVonal.Name = "pbVonal";
+            this.pbVonal.Size = new System.Drawing.Size(1480, 1);
+            this.pbVonal.TabIndex = 4;
+            this.pbVonal.TabStop = false;
+            // 
+            // llbRSS
+            // 
+            this.llbRSS.ActiveLinkColor = System.Drawing.Color.Silver;
+            this.llbRSS.AutoSize = true;
+            this.llbRSS.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.llbRSS.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.llbRSS.LinkColor = System.Drawing.SystemColors.GrayText;
+            this.llbRSS.Location = new System.Drawing.Point(5, 3);
+            this.llbRSS.Name = "llbRSS";
+            this.llbRSS.Size = new System.Drawing.Size(21, 20);
+            this.llbRSS.TabIndex = 0;
+            this.llbRSS.TabStop = true;
+            this.llbRSS.Text = "---";
+            this.llbRSS.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbRSS_LinkClicked);
+            // 
+            // lbFelhasználó
+            // 
+            this.lbFelhasználó.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFelhasználó.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbFelhasználó.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lbFelhasználó.Location = new System.Drawing.Point(1069, 3);
+            this.lbFelhasználó.Name = "lbFelhasználó";
+            this.lbFelhasználó.Size = new System.Drawing.Size(318, 20);
+            this.lbFelhasználó.TabIndex = 3;
+            this.lbFelhasználó.Text = "Felhasználó: ";
+            this.lbFelhasználó.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pbFormMinimize
+            // 
+            this.pbFormMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbFormMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.pbFormMinimize.Image = global::Felisz.Properties.Resources.window_minimize;
+            this.pbFormMinimize.Location = new System.Drawing.Point(1393, 3);
+            this.pbFormMinimize.Name = "pbFormMinimize";
+            this.pbFormMinimize.Size = new System.Drawing.Size(24, 24);
+            this.pbFormMinimize.TabIndex = 2;
+            this.pbFormMinimize.TabStop = false;
+            this.pbFormMinimize.Click += new System.EventHandler(this.pbFormMinimize_Click);
+            this.pbFormMinimize.MouseEnter += new System.EventHandler(this.pbFormMinimize_MouseEnter);
+            this.pbFormMinimize.MouseLeave += new System.EventHandler(this.pbFormMinimize_MouseLeave);
+            // 
+            // pbFormMaximize
+            // 
+            this.pbFormMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbFormMaximize.BackColor = System.Drawing.Color.Transparent;
+            this.pbFormMaximize.Image = global::Felisz.Properties.Resources.window_maximize;
+            this.pbFormMaximize.Location = new System.Drawing.Point(1423, 3);
+            this.pbFormMaximize.Name = "pbFormMaximize";
+            this.pbFormMaximize.Size = new System.Drawing.Size(24, 24);
+            this.pbFormMaximize.TabIndex = 1;
+            this.pbFormMaximize.TabStop = false;
+            this.pbFormMaximize.Click += new System.EventHandler(this.pbFormMaximize_Click);
+            this.pbFormMaximize.MouseEnter += new System.EventHandler(this.pbFormMaximize_MouseEnter);
+            this.pbFormMaximize.MouseLeave += new System.EventHandler(this.pbFormMaximize_MouseLeave);
+            // 
+            // pbFormClose
+            // 
+            this.pbFormClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbFormClose.Image = global::Felisz.Properties.Resources.window_close;
+            this.pbFormClose.Location = new System.Drawing.Point(1453, 3);
+            this.pbFormClose.Name = "pbFormClose";
+            this.pbFormClose.Size = new System.Drawing.Size(24, 24);
+            this.pbFormClose.TabIndex = 0;
+            this.pbFormClose.TabStop = false;
+            this.pbFormClose.Click += new System.EventHandler(this.pbFormClose_Click);
+            this.pbFormClose.MouseEnter += new System.EventHandler(this.pbFormClose_MouseEnter);
+            this.pbFormClose.MouseLeave += new System.EventHandler(this.pbFormClose_MouseLeave);
+            // 
+            // panelHáttér
+            // 
+            this.panelHáttér.AutoSize = true;
+            this.panelHáttér.BackColor = System.Drawing.Color.Transparent;
+            this.panelHáttér.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelHáttér.Controls.Add(this.pictureScore);
+            this.panelHáttér.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelHáttér.Location = new System.Drawing.Point(273, 73);
+            this.panelHáttér.Name = "panelHáttér";
+            this.panelHáttér.Size = new System.Drawing.Size(1480, 951);
+            this.panelHáttér.TabIndex = 1;
+            // 
+            // pictureScore
+            // 
+            this.pictureScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.pictureScore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureScore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureScore.Location = new System.Drawing.Point(0, 0);
+            this.pictureScore.Name = "pictureScore";
+            this.pictureScore.Size = new System.Drawing.Size(1480, 951);
+            this.pictureScore.TabIndex = 0;
+            this.pictureScore.TabStop = false;
+            // 
+            // timerHáttér
+            // 
+            this.timerHáttér.Enabled = true;
+            this.timerHáttér.Interval = 1000;
+            this.timerHáttér.Tick += new System.EventHandler(this.timerHáttér_Tick);
+            // 
+            // timerRSS
+            // 
+            this.timerRSS.Interval = 5000;
+            this.timerRSS.Tick += new System.EventHandler(this.timerRSS_Tick);
+            // 
+            // folyamatJelző1
+            // 
+            this.folyamatJelző1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.folyamatJelző1.Location = new System.Drawing.Point(1, 69);
+            this.folyamatJelző1.Name = "folyamatJelző1";
+            this.folyamatJelző1.Size = new System.Drawing.Size(1479, 3);
+            this.folyamatJelző1.TabIndex = 9;
+            this.folyamatJelző1.Visible = false;
             // 
             // btHRMT
             // 
@@ -407,37 +651,6 @@ namespace Felisz
             this.btHRMunkaszerzodes.Visible = false;
             this.btHRMunkaszerzodes.Click += new System.EventHandler(this.btHRMunkaszerződés_Click);
             // 
-            // btHR
-            // 
-            this.btHR.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btHR.FlatAppearance.BorderSize = 0;
-            this.btHR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btHR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btHR.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btHR.Location = new System.Drawing.Point(0, 390);
-            this.btHR.Name = "btHR";
-            this.btHR.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btHR.Size = new System.Drawing.Size(273, 45);
-            this.btHR.TabIndex = 2;
-            this.btHR.Text = "HR";
-            this.btHR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btHR.UseVisualStyleBackColor = true;
-            this.btHR.Visible = false;
-            this.btHR.Click += new System.EventHandler(this.btHR_Click);
-            // 
-            // panelAdminSubMenu
-            // 
-            this.panelAdminSubMenu.BackColor = System.Drawing.Color.Transparent;
-            this.panelAdminSubMenu.Controls.Add(this.btAdminFelhasznalok);
-            this.panelAdminSubMenu.Controls.Add(this.btAdminGlobalAdminBeallitasok);
-            this.panelAdminSubMenu.Controls.Add(this.btAdminAlapBeallitasok);
-            this.panelAdminSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAdminSubMenu.Location = new System.Drawing.Point(0, 240);
-            this.panelAdminSubMenu.Name = "panelAdminSubMenu";
-            this.panelAdminSubMenu.Size = new System.Drawing.Size(273, 150);
-            this.panelAdminSubMenu.TabIndex = 3;
-            this.panelAdminSubMenu.Visible = false;
-            // 
             // btAdminFelhasznalok
             // 
             this.btAdminFelhasznalok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -506,219 +719,6 @@ namespace Felisz
             this.btAdminAlapBeallitasok.UseVisualStyleBackColor = false;
             this.btAdminAlapBeallitasok.Visible = false;
             this.btAdminAlapBeallitasok.Click += new System.EventHandler(this.btAdminAlapBeallitasok_Click);
-            // 
-            // btAdmin
-            // 
-            this.btAdmin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btAdmin.FlatAppearance.BorderSize = 0;
-            this.btAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btAdmin.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btAdmin.Location = new System.Drawing.Point(0, 200);
-            this.btAdmin.Name = "btAdmin";
-            this.btAdmin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btAdmin.Size = new System.Drawing.Size(273, 40);
-            this.btAdmin.TabIndex = 0;
-            this.btAdmin.Text = "ADMIN";
-            this.btAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btAdmin.UseVisualStyleBackColor = true;
-            this.btAdmin.Visible = false;
-            this.btAdmin.Click += new System.EventHandler(this.btAdmin_Click);
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelLogo.Controls.Add(this.ADALogo);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(273, 200);
-            this.panelLogo.TabIndex = 0;
-            // 
-            // ADALogo
-            // 
-            this.ADALogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ADALogo.Image = global::Felisz.Properties.Resources.Felisz;
-            this.ADALogo.Location = new System.Drawing.Point(0, 0);
-            this.ADALogo.Name = "ADALogo";
-            this.ADALogo.Size = new System.Drawing.Size(200, 200);
-            this.ADALogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ADALogo.TabIndex = 0;
-            this.ADALogo.TabStop = false;
-            // 
-            // panelTopMenu
-            // 
-            this.panelTopMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panelTopMenu.Controls.Add(this.folyamatJelző1);
-            this.panelTopMenu.Controls.Add(this.lbStátusz);
-            this.panelTopMenu.Controls.Add(this.label1);
-            this.panelTopMenu.Controls.Add(this.pbVonalFüggőleges);
-            this.panelTopMenu.Controls.Add(this.pbVonal);
-            this.panelTopMenu.Controls.Add(this.llbRSS);
-            this.panelTopMenu.Controls.Add(this.lbFelhasználó);
-            this.panelTopMenu.Controls.Add(this.pbFormMinimize);
-            this.panelTopMenu.Controls.Add(this.pbFormMaximize);
-            this.panelTopMenu.Controls.Add(this.pbFormClose);
-            this.panelTopMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTopMenu.Location = new System.Drawing.Point(273, 0);
-            this.panelTopMenu.Name = "panelTopMenu";
-            this.panelTopMenu.Size = new System.Drawing.Size(1480, 73);
-            this.panelTopMenu.TabIndex = 1;
-            this.panelTopMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTopMenu_Paint);
-            // 
-            // folyamatJelző1
-            // 
-            this.folyamatJelző1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.folyamatJelző1.Location = new System.Drawing.Point(1, 69);
-            this.folyamatJelző1.Name = "folyamatJelző1";
-            this.folyamatJelző1.Size = new System.Drawing.Size(1479, 3);
-            this.folyamatJelző1.TabIndex = 9;
-            this.folyamatJelző1.Visible = false;
-            // 
-            // lbStátusz
-            // 
-            this.lbStátusz.Font = new System.Drawing.Font("Arial Narrow", 8F);
-            this.lbStátusz.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lbStátusz.Location = new System.Drawing.Point(3, 52);
-            this.lbStátusz.Name = "lbStátusz";
-            this.lbStátusz.Size = new System.Drawing.Size(715, 14);
-            this.lbStátusz.TabIndex = 8;
-            this.lbStátusz.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbStátusz.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label1.Location = new System.Drawing.Point(1018, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(459, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Névnap, születésnap, LOG2DB";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pbVonalFüggőleges
-            // 
-            this.pbVonalFüggőleges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.pbVonalFüggőleges.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbVonalFüggőleges.Location = new System.Drawing.Point(0, 0);
-            this.pbVonalFüggőleges.Name = "pbVonalFüggőleges";
-            this.pbVonalFüggőleges.Size = new System.Drawing.Size(1, 72);
-            this.pbVonalFüggőleges.TabIndex = 5;
-            this.pbVonalFüggőleges.TabStop = false;
-            // 
-            // pbVonal
-            // 
-            this.pbVonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.pbVonal.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pbVonal.Location = new System.Drawing.Point(0, 72);
-            this.pbVonal.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.pbVonal.Name = "pbVonal";
-            this.pbVonal.Size = new System.Drawing.Size(1480, 1);
-            this.pbVonal.TabIndex = 4;
-            this.pbVonal.TabStop = false;
-            // 
-            // llbRSS
-            // 
-            this.llbRSS.ActiveLinkColor = System.Drawing.Color.Silver;
-            this.llbRSS.AutoSize = true;
-            this.llbRSS.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.llbRSS.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.llbRSS.LinkColor = System.Drawing.SystemColors.GrayText;
-            this.llbRSS.Location = new System.Drawing.Point(5, 3);
-            this.llbRSS.Name = "llbRSS";
-            this.llbRSS.Size = new System.Drawing.Size(21, 20);
-            this.llbRSS.TabIndex = 0;
-            this.llbRSS.TabStop = true;
-            this.llbRSS.Text = "---";
-            this.llbRSS.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbRSS_LinkClicked);
-            // 
-            // lbFelhasználó
-            // 
-            this.lbFelhasználó.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbFelhasználó.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lbFelhasználó.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lbFelhasználó.Location = new System.Drawing.Point(1069, 3);
-            this.lbFelhasználó.Name = "lbFelhasználó";
-            this.lbFelhasználó.Size = new System.Drawing.Size(318, 20);
-            this.lbFelhasználó.TabIndex = 3;
-            this.lbFelhasználó.Text = "Felhasználó: ";
-            this.lbFelhasználó.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pbFormMinimize
-            // 
-            this.pbFormMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbFormMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.pbFormMinimize.Image = global::Felisz.Properties.Resources.window_minimize;
-            this.pbFormMinimize.Location = new System.Drawing.Point(1393, 3);
-            this.pbFormMinimize.Name = "pbFormMinimize";
-            this.pbFormMinimize.Size = new System.Drawing.Size(24, 24);
-            this.pbFormMinimize.TabIndex = 2;
-            this.pbFormMinimize.TabStop = false;
-            this.pbFormMinimize.Click += new System.EventHandler(this.pbFormMinimize_Click);
-            this.pbFormMinimize.MouseEnter += new System.EventHandler(this.pbFormMinimize_MouseEnter);
-            this.pbFormMinimize.MouseLeave += new System.EventHandler(this.pbFormMinimize_MouseLeave);
-            // 
-            // pbFormMaximize
-            // 
-            this.pbFormMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbFormMaximize.BackColor = System.Drawing.Color.Transparent;
-            this.pbFormMaximize.Image = global::Felisz.Properties.Resources.window_maximize;
-            this.pbFormMaximize.Location = new System.Drawing.Point(1423, 3);
-            this.pbFormMaximize.Name = "pbFormMaximize";
-            this.pbFormMaximize.Size = new System.Drawing.Size(24, 24);
-            this.pbFormMaximize.TabIndex = 1;
-            this.pbFormMaximize.TabStop = false;
-            this.pbFormMaximize.Click += new System.EventHandler(this.pbFormMaximize_Click);
-            this.pbFormMaximize.MouseEnter += new System.EventHandler(this.pbFormMaximize_MouseEnter);
-            this.pbFormMaximize.MouseLeave += new System.EventHandler(this.pbFormMaximize_MouseLeave);
-            // 
-            // pbFormClose
-            // 
-            this.pbFormClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbFormClose.Image = global::Felisz.Properties.Resources.window_close;
-            this.pbFormClose.Location = new System.Drawing.Point(1453, 3);
-            this.pbFormClose.Name = "pbFormClose";
-            this.pbFormClose.Size = new System.Drawing.Size(24, 24);
-            this.pbFormClose.TabIndex = 0;
-            this.pbFormClose.TabStop = false;
-            this.pbFormClose.Click += new System.EventHandler(this.pbFormClose_Click);
-            this.pbFormClose.MouseEnter += new System.EventHandler(this.pbFormClose_MouseEnter);
-            this.pbFormClose.MouseLeave += new System.EventHandler(this.pbFormClose_MouseLeave);
-            // 
-            // panelHáttér
-            // 
-            this.panelHáttér.AutoSize = true;
-            this.panelHáttér.BackColor = System.Drawing.Color.Transparent;
-            this.panelHáttér.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelHáttér.Controls.Add(this.pictureScore);
-            this.panelHáttér.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelHáttér.Location = new System.Drawing.Point(273, 73);
-            this.panelHáttér.Name = "panelHáttér";
-            this.panelHáttér.Size = new System.Drawing.Size(1480, 951);
-            this.panelHáttér.TabIndex = 1;
-            // 
-            // pictureScore
-            // 
-            this.pictureScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.pictureScore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureScore.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureScore.Location = new System.Drawing.Point(0, 0);
-            this.pictureScore.Name = "pictureScore";
-            this.pictureScore.Size = new System.Drawing.Size(1480, 951);
-            this.pictureScore.TabIndex = 0;
-            this.pictureScore.TabStop = false;
-            // 
-            // timerHáttér
-            // 
-            this.timerHáttér.Enabled = true;
-            this.timerHáttér.Interval = 1000;
-            this.timerHáttér.Tick += new System.EventHandler(this.timerHáttér_Tick);
-            // 
-            // timerRSS
-            // 
-            this.timerRSS.Interval = 10000;
-            this.timerRSS.Tick += new System.EventHandler(this.timerRSS_Tick);
             // 
             // formFelisz
             // 
