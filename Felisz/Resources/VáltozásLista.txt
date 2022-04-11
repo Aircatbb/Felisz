@@ -1,3 +1,11 @@
+V0.0.5.8
+	- Általános személyi adatok új mezõ: Megváltozott munkaképesség vagy fogyatékosság (szabadság számítás végett)
+	- Új mezõkhöz adattáblák bõvítve
+	- Hozzátartozók új mezõ: Fogyatékosság (szabadság számítás végett)
+	- ToolTip(pek) törvényel egyes mezõkön.
+	- Késõbbi fejlesztés:
+		- egy adatbázistáblában összerendelni a mezõket a Tippben megjelenõ törvénnyel, automata hozzárendeléssel.
+
 V0.0.5.7
 	- TTS Szabika megtanulta kiolvasni a §-t...
 
