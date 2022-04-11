@@ -406,19 +406,20 @@ namespace Felisz
 
             
             TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! A Felisz HR aszisztens üdvözli Önt! Ma " + DateTime.Now.Year + " " + TTS.szám2Hónap(DateTime.Now.Month) + " hónap " + TTS.szám2Nap(DateTime.Now.Day) + " van.");
-            TTS.TTS_Play("Mai születésnaposok: Bohus Attila!");
-            TTS.TTS_Play("Ma névnapjukat ünneplők: Lackó Mackó!");
+            TTS.TTS_Play("Születésnaposok: Bohus Attila");
+            TTS.TTS_Play("Ma névnapjukat ünneplők: Lackó Mackó");
             TTS.TTS_Play("Felolvassam az aktuális híreket? Naná, hát persze!");
 
             //Funkciók.TTS("Itt most hangfelismeréssel lehetne válaszolni.");
-            
+            /*
             for (int i = 0; i < RSSFeed.postok.Count; i++)
             {
                 TTS.TTS_Play(RSSFeed.postok[i].Cím);
             }
+            */
 
-            TTS.TTS_Play("A teendők listában az alábbiak szerepelnek: megfejni a macskát, megetetni a házisárkányt!");
-            
+            //TTS.TTS_Play("A teendők listában az alábbiak szerepelnek: megfejni a macskát, megetetni a házisárkányt!");
+            timerRSS.Enabled = true;
         }
 
         private void MenükLetiltása()
@@ -445,6 +446,8 @@ namespace Felisz
                 llbRSS.Text = rs.Cím.ToString().Trim(' ');
                 llbRSS.Links.Clear();
                 llbRSS.Links.Add(0, rs.Cím.Length, rs.Url);
+                TTS.TTS_Play(llbRSS.Text);
+
             }
             else
             {

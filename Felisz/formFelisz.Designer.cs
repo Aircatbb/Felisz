@@ -717,7 +717,6 @@ namespace Felisz
             // 
             // timerRSS
             // 
-            this.timerRSS.Enabled = true;
             this.timerRSS.Interval = 10000;
             this.timerRSS.Tick += new System.EventHandler(this.timerRSS_Tick);
             // 
