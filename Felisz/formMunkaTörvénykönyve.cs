@@ -153,12 +153,12 @@ namespace Felisz
 
         private void btPlay_Click(object sender, EventArgs e)
         {
-            Funkciók.TTS(rtTalálat.Text);
+            TTS.TTS_Play(rtTalálat.Text);
         }
 
         private void btStop_Click(object sender, EventArgs e)
         {
-            Funkciók.hang.SpeakAsyncCancelAll();
+            TTS.hang.SpeakAsyncCancelAll();
             
         }
     }

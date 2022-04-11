@@ -1,3 +1,8 @@
+V0.0.5.5
+	- TTS külön osztályba került
+	- Külön metódusba került az inicializálás, így azt csak a program indulásakor egyszer kell futtatni
+	- int2Hónap, int2Nap (TTS dátum), név2Utónév funkciók
+
 V0.0.5.4
 	- Magyar TTS Szabika
 

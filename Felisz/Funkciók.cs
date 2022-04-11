@@ -12,36 +12,13 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Speech.Synthesis;
+
 
 namespace Felisz
 {
     class Funkciók
     {
-        public static SpeechSynthesizer hang = new SpeechSynthesizer();
-
-        public static void TTS(string szöveg)
-        {
-            if (Properties.Settings.Default.TTSEngedélyezve == false) return;
-            hang.Rate = 0;
-            hang.Volume = 33;
-
-
-            // Nincs telepítve, így nincs hatása
-            // beszélő.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Child);
-            var test2 = hang.Voice;
-            //hang.SelectVoice()
-            var voice=hang.GetInstalledVoices();
-            string hangName = voice[1].VoiceInfo.Name;
-            string hangCulture = voice[1].VoiceInfo.Culture.ToString();
-            string hangGender = voice[1].VoiceInfo.Gender.ToString();
-            string hangAge = voice[1].VoiceInfo.Age.ToString();
-
-            
-            hang.SelectVoice(hangName);
-
-            hang.SpeakAsync(szöveg);
-        }
+        
 
 
 

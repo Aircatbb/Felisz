@@ -19,18 +19,18 @@ namespace Felisz.Formok
 
         private void formTörlésFigyelmeztetés_Load(object sender, EventArgs e)
         {
-            Funkciók.TTS("FIGYELEM! VÉGLEGESEN TÖRÖLNI KÉSZÜL A KIVÁLASZTOTT MUNKAVÁLLALÓT!");
+            TTS.TTS_Play("FIGYELEM! VÉGLEGESEN TÖRÖLNI KÉSZÜL A KIVÁLASZTOTT MUNKAVÁLLALÓT!");
             //Funkciók.TTS("ACHTUNG! DER AUSGEWÄHLTE MITARBEITER WIRD DAUERHAFT GELÖSCHT!");
         }
 
         private void btMegszakítás_Click(object sender, EventArgs e)
         {
-            Funkciók.hang.SpeakAsyncCancelAll();
+            TTS.hang.SpeakAsyncCancelAll();
         }
 
         private void btTörlés_Click(object sender, EventArgs e)
         {
-            Funkciók.hang.SpeakAsyncCancelAll();
+            TTS.hang.SpeakAsyncCancelAll();
         }
     }
 }

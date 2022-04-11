@@ -392,69 +392,33 @@ namespace Felisz
             //lbFelhasználó.Text = "Felhasználó: " +  Environment.UserDomainName + @"\" + Environment.UserName;
             lbFelhasználó.Text = "Felhasználó: " + Program.aktuálisFelhasználóNév;
 
+            //TTS inicializálása
+            TTS.TTS_Beállítás();
 
             //Verzóváltozás értesítés
-            Funkciók.TTS("Kedves " + Program.aktuálisFelhasználóNév + "! Új funkciók és frissítések érhetőek el!");
+            TTS.TTS_Play("Kedves " + Program.aktuálisFelhasználóNév + "! Új funkciók és frissítések érhetőek el!");
             Funkciók.VerzióVáltozásLog();
-            Funkciók.hang.SpeakAsyncCancelAll();
+            TTS.hang.SpeakAsyncCancelAll();
 
             //Üdvözlet, születésnap, névnap, hírek
-            string hónapTTS = "";
-            switch (DateTime.Now.Month)
-            {
-             
-                case 1:
-                    hónapTTS = "Január";
-                    break;
-                case 2:
-                    hónapTTS = "Február";
-                    break;
-                case 3:
-                    hónapTTS = "Március";
-                    break;
-                case 4:
-                    hónapTTS = "Április";
-                    break;
-                case 5:
-                    hónapTTS = "Május";
-                    break;
-                case 6:
-                    hónapTTS = "Június";
-                    break;
-                case 7:
-                    hónapTTS = "Július";
-                    break;
-                case 8:
-                    hónapTTS = "Augusztus";
-                    break;
-                case 9:
-                    hónapTTS = "Szeptember";
-                    break;
-                case 10:
-                    hónapTTS = "Október";
-                    break;
-                case 11:
-                    hónapTTS = "November";
-                    break;
-                case 12:
-                    hónapTTS = "December";
-                    break;
-                default:
-                    break;
-            }
-            Funkciók.TTS("Szép napot kedves " + Program.aktuálisFelhasználóNév + "! Ma " + DateTime.Now.Year+" "+ hónapTTS+" hónap "+ DateTime.Now.Day + ". van.");
-            Funkciók.TTS("Boldog szülinapot Bohus Attila!");
-            Funkciók.TTS("Boldog névnapot Lackó Mackó!");
-            Funkciók.TTS("Felolvassam az aktuális híreket?");
+            
+            
 
-            Funkciók.TTS("Itt most hangfelismeréssel lehetne válaszolni.");
+            
+            TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! A Felisz HR aszisztens üdvözli Önt! Ma " + DateTime.Now.Year + " " + TTS.szám2Hónap(DateTime.Now.Month) + " hónap " + TTS.szám2Nap(DateTime.Now.Day) + " van.");
+            TTS.TTS_Play("Mai születésnaposok: Bohus Attila!");
+            TTS.TTS_Play("Ma névnapjukat ünneplők: Lackó Mackó!");
+            TTS.TTS_Play("Felolvassam az aktuális híreket? Naná, hát persze!");
+
+            //Funkciók.TTS("Itt most hangfelismeréssel lehetne válaszolni.");
+            
             for (int i = 0; i < RSSFeed.postok.Count; i++)
             {
-                Funkciók.TTS(RSSFeed.postok[i].Cím);
+                TTS.TTS_Play(RSSFeed.postok[i].Cím);
             }
 
-            Funkciók.TTS("A teendők listában az alábbiak szerepelnek: megfejni a macskát, megetetni a házisárkányt!");
-            //Funkciók.hang.SpeakAsyncCancelAll();
+            TTS.TTS_Play("A teendők listában az alábbiak szerepelnek: megfejni a macskát, megetetni a házisárkányt!");
+            
         }
 
         private void MenükLetiltása()
