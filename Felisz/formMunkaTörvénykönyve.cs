@@ -153,7 +153,7 @@ namespace Felisz
 
         private void btPlay_Click(object sender, EventArgs e)
         {
-            TTS.TTS_Play(rtTalálat.Text);
+            TTS.TTS_Play(rtTalálat.Text.Replace("§"," paragrafus "));
         }
 
         private void btStop_Click(object sender, EventArgs e)

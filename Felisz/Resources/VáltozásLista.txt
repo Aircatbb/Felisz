@@ -1,3 +1,6 @@
+V0.0.5.7
+	- TTS Szabika megtanulta kiolvasni a §-t...
+
 V0.0.5.6
 	- kisebb TTS optimalizálások
 
