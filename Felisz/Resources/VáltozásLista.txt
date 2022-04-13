@@ -1,3 +1,10 @@
+V0.0.6.0
+	- Automatikus törvény tippek a ToolTip adatbázistáblában definiált beviteli mezõk esetén.
+	- Csak a paragrafust kell a mezõhöz hozzárendelni, onnatól a program automatikusan kikeresi a hozzá tartozó
+	törvényt.
+	- Az adatbázistábla tartalmaz egy "EgyediSzoveg" oszlopot. Amennyiben ki van töltve, akkor az ebben szereplõ
+	szöveg jelenik meg.
+
 V0.0.5.8
 	- Általános személyi adatok új mezõ: Megváltozott munkaképesség vagy fogyatékosság (szabadság számítás végett)
 	- Új mezõkhöz adattáblák bõvítve
@@ -27,8 +34,8 @@ V0.0.5.3
 		- Registry-ben elmentve
 	- TTS demonstráció
 	- Munkatörvénykönyve TTS:
-		- Play, Stop gomb lejátszáshoz, design még változni fog, illetve kiegészül egy Pause gombbal (esetleg ha kijelölés
-		van a szövegben csak annak a lejátszása).
+	- Play, Stop gomb lejátszáshoz, design még változni fog, illetve kiegészül egy Pause gombbal (esetleg ha kijelölés
+	van a szövegben csak annak a lejátszása).
 	- Alapbeállításokban az aktuális kódolatlan licenckód megjelenítése
 	- Munkavállaló törlés dialógus (DB törlés fejlesztése folyamatban)
 

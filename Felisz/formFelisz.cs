@@ -283,6 +283,7 @@ namespace Felisz
         {
 
             //TEST
+            
 
 
             //Registry beállítások olvasása

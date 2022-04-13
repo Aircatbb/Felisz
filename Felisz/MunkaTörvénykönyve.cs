@@ -2,14 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Windows.Forms;
 
 namespace Felisz
 {
     class MunkaTörvénykönyve
     {
 
+        
         public static List<MTRecord> törvények = new List<MTRecord>();
+        
+
         public static bool MTFrissítése()
         {
 
@@ -233,5 +236,14 @@ namespace Felisz
             conn.Close();
             return true;
         }
+
+        public static string MTParagrafusLekérdezés(string paragrafus, string paragrafusal)
+        {
+            MTRecord talalat = törvények.Find(item => item.törvényNr == paragrafus && item.törvényNrAl == paragrafusal);
+            return talalat.törvénySzöveg;
+        }
+
+        
+
     }
 }

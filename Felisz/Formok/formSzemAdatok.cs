@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Felisz.Formok
 {
+
+
+
     public partial class formSzemAdatok : Form
     {
 
@@ -18,6 +21,10 @@ namespace Felisz.Formok
         public string tempVáros = "";
         public string tempVárosIrsz = "";
         public string tempKözterület = "";
+        private static readonly List<ToolTipRekord> listToolTipRekords = new List<ToolTipRekord>();
+
+
+
 
 
 
@@ -1328,7 +1335,7 @@ namespace Felisz.Formok
 
 
             string myConnectionString = Adatbázis.MyConnectionString();
-                
+
             MySqlConnection conn;
 
             conn = new MySqlConnection(myConnectionString);
@@ -1391,6 +1398,101 @@ namespace Felisz.Formok
                 return;
             }
 
+
+        }
+
+
+
+        public static void ToolTippekBetöltése(Control controlSzuloNeve, ToolTip toolTipNeve)
+        {
+
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString = Properties.Settings.Default.felisz_db_ConnectionString;
+            conn = new MySql.Data.MySqlClient.MySqlConnection();
+            conn.ConnectionString = myConnectionString;
+
+            string sql = "SELECT * FROM ToolTip where ControlSzulo='" + controlSzuloNeve.Name + "'";
+            var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+
+
+
+            try
+            {
+                conn.Open();
+                MySql.Data.MySqlClient.MySqlDataReader dataReader = SQLCommand.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    ToolTipRekord toolTippek = new ToolTipRekord();
+                    toolTippek.controlSzulo = dataReader.GetString(dataReader.GetOrdinal("ControlSzulo"));
+                    toolTippek.controlNeve = dataReader.GetString(dataReader.GetOrdinal("ControlNeve"));
+                    toolTippek.paragrafus = dataReader.GetInt16(dataReader.GetOrdinal("Paragrafus"));
+                    toolTippek.paragrafusal = dataReader.GetString(dataReader.GetOrdinal("ParagrafusAl"));
+                    toolTippek.egyediSzöveg = dataReader.GetString(dataReader.GetOrdinal("EgyediSzoveg"));
+                    listToolTipRekords.Add(toolTippek);
+                }
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Error("---Adatbázis olvasási hiba (ToolTip)!---" + ex);
+                MessageBox.Show("Adatbázis olvasási hiba (ToolTip)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                conn.Close();
+            }
+
+            //TEST
+            ToolTippekBeállítása(controlSzuloNeve, toolTipNeve);
+
+        }
+
+
+        public static bool ToolTippekBeállítása(Control controlSzuloNeve, ToolTip toolTipNeve)
+        {
+            foreach (var item in controlSzuloNeve.Controls)
+            {
+
+                if (item is TextBox)
+                {
+                    TextBox tb = (TextBox)item;
+                    ToolTipRekord toolTipTalálat = listToolTipRekords.Find(keres => keres.controlNeve == tb.Name);
+                    if (toolTipTalálat != null)
+                    {
+                        if (toolTipTalálat.egyediSzöveg != "") toolTipNeve.SetToolTip(tb, toolTipTalálat.egyediSzöveg);
+                        else toolTipNeve.SetToolTip(tb, MunkaTörvénykönyve.MTParagrafusLekérdezés(toolTipTalálat.paragrafus.ToString(), toolTipTalálat.paragrafusal));
+                    }
+                }
+
+                if (item is ComboBox)
+                {
+                    ComboBox cb = (ComboBox)item;
+                    ToolTipRekord toolTipTalálat = listToolTipRekords.Find(keres => keres.controlNeve == cb.Name);
+                    if (toolTipTalálat != null)
+                    {
+                        if (toolTipTalálat.egyediSzöveg != "") toolTipNeve.SetToolTip(cb, toolTipTalálat.egyediSzöveg);
+                        else toolTipNeve.SetToolTip(cb, MunkaTörvénykönyve.MTParagrafusLekérdezés(toolTipTalálat.paragrafus.ToString(), toolTipTalálat.paragrafusal));
+                    }
+                }
+
+
+                if (controlSzuloNeve.HasChildren)
+                {
+                    foreach (Control childControl in controlSzuloNeve.Controls)
+                    {
+                        if (ToolTippekBeállítása(childControl, toolTipNeve) == false) return false;
+
+                    }
+                }
+            }
+
+            return true;
+
+        }
+
+        private void formSzemAdatok_Load(object sender, EventArgs e)
+        {
+
+            ToolTippekBetöltése(this, paragrafusTippek);
 
         }
     }
