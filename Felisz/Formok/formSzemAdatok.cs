@@ -1495,5 +1495,10 @@ namespace Felisz.Formok
             ToolTippekBetöltése(this, paragrafusTippek);
 
         }
+
+        private void gbFoglalkoztatás_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

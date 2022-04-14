@@ -125,10 +125,12 @@ namespace Felisz.Formok
             this.label27 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbHozzáFogyaték = new System.Windows.Forms.ComboBox();
             this.dgvHozzátartozó = new System.Windows.Forms.DataGridView();
             this.tpKapcsolatok = new System.Windows.Forms.TabPage();
             this.paragrafusTippek = new System.Windows.Forms.ToolTip(this.components);
-            this.cbHozzáFogyaték = new System.Windows.Forms.ComboBox();
+            this.lbFöldAlattIon = new System.Windows.Forms.Label();
+            this.cbFöldAlattIon = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbSzemélyiAdatok.SuspendLayout();
             this.tcSzemélyiAdatok.SuspendLayout();
@@ -249,7 +251,7 @@ namespace Felisz.Formok
             this.gbRehab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.gbRehab.Location = new System.Drawing.Point(3, 625);
             this.gbRehab.Name = "gbRehab";
-            this.gbRehab.Size = new System.Drawing.Size(420, 69);
+            this.gbRehab.Size = new System.Drawing.Size(420, 113);
             this.gbRehab.TabIndex = 28;
             this.gbRehab.TabStop = false;
             this.gbRehab.Text = "Rehab";
@@ -259,15 +261,17 @@ namespace Felisz.Formok
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.Controls.Add(this.lbFöldAlattIon, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.lbRehab, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.cbFogyaték, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbFöldAlattIon, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(414, 50);
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(414, 94);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // lbRehab
@@ -278,7 +282,7 @@ namespace Felisz.Formok
             this.lbRehab.Location = new System.Drawing.Point(3, 3);
             this.lbRehab.Margin = new System.Windows.Forms.Padding(3);
             this.lbRehab.Name = "lbRehab";
-            this.lbRehab.Size = new System.Drawing.Size(160, 42);
+            this.lbRehab.Size = new System.Drawing.Size(160, 24);
             this.lbRehab.TabIndex = 15;
             this.lbRehab.Text = "Megváltozott munkaképesség vagy fogyatékosság";
             this.lbRehab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -785,6 +789,7 @@ namespace Felisz.Formok
             this.gbFoglalkoztatás.TabIndex = 26;
             this.gbFoglalkoztatás.TabStop = false;
             this.gbFoglalkoztatás.Text = "Foglalkoztatás";
+            this.gbFoglalkoztatás.Enter += new System.EventHandler(this.gbFoglalkoztatás_Enter);
             // 
             // tlpFoglalkoztatás
             // 
@@ -1545,6 +1550,30 @@ namespace Felisz.Formok
             this.label1.Text = "Fogyatékosság";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // cbHozzáFogyaték
+            // 
+            this.cbHozzáFogyaték.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbHozzáFogyaték.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbHozzáFogyaték.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cbHozzáFogyaték.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbHozzáFogyaték.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbHozzáFogyaték.Font = new System.Drawing.Font("Arial Narrow", 11F);
+            this.cbHozzáFogyaték.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.cbHozzáFogyaték.FormattingEnabled = true;
+            this.cbHozzáFogyaték.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbHozzáFogyaték.IntegralHeight = false;
+            this.cbHozzáFogyaték.Items.AddRange(new object[] {
+            "Igen",
+            "Nem"});
+            this.cbHozzáFogyaték.Location = new System.Drawing.Point(166, 123);
+            this.cbHozzáFogyaték.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.cbHozzáFogyaték.Name = "cbHozzáFogyaték";
+            this.cbHozzáFogyaték.Size = new System.Drawing.Size(245, 28);
+            this.cbHozzáFogyaték.TabIndex = 24;
+            this.paragrafusTippek.SetToolTip(this.cbHozzáFogyaték, "120. § A munkavállalónak, ha\r\na) megváltozott munkaképességű,\r\nb) fogyatékossági " +
+        "támogatásra jogosult, vagy\r\nc) vakok személyi járadékára jogosult\r\névenként öt m" +
+        "unkanap pótszabadság jár.\r\n");
+            // 
             // dgvHozzátartozó
             // 
             this.dgvHozzátartozó.AllowUserToAddRows = false;
@@ -1614,27 +1643,40 @@ namespace Felisz.Formok
             this.paragrafusTippek.InitialDelay = 500;
             this.paragrafusTippek.ReshowDelay = 100;
             // 
-            // cbHozzáFogyaték
+            // lbFöldAlattIon
             // 
-            this.cbHozzáFogyaték.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbHozzáFogyaték.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbHozzáFogyaték.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.cbHozzáFogyaték.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbHozzáFogyaték.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbHozzáFogyaték.Font = new System.Drawing.Font("Arial Narrow", 11F);
-            this.cbHozzáFogyaték.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.cbHozzáFogyaték.FormattingEnabled = true;
-            this.cbHozzáFogyaték.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cbHozzáFogyaték.IntegralHeight = false;
-            this.cbHozzáFogyaték.Items.AddRange(new object[] {
+            this.lbFöldAlattIon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
+            this.lbFöldAlattIon.Font = new System.Drawing.Font("Arial Narrow", 10F);
+            this.lbFöldAlattIon.ForeColor = System.Drawing.Color.White;
+            this.lbFöldAlattIon.Location = new System.Drawing.Point(3, 33);
+            this.lbFöldAlattIon.Margin = new System.Windows.Forms.Padding(3);
+            this.lbFöldAlattIon.Name = "lbFöldAlattIon";
+            this.lbFöldAlattIon.Size = new System.Drawing.Size(160, 57);
+            this.lbFöldAlattIon.TabIndex = 17;
+            this.lbFöldAlattIon.Text = "Föld alatt dolgozik, vagy ionizáló sugárzásnak van kitéve";
+            this.lbFöldAlattIon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cbFöldAlattIon
+            // 
+            this.cbFöldAlattIon.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbFöldAlattIon.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbFöldAlattIon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cbFöldAlattIon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFöldAlattIon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbFöldAlattIon.Font = new System.Drawing.Font("Arial Narrow", 11F);
+            this.cbFöldAlattIon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.cbFöldAlattIon.FormattingEnabled = true;
+            this.cbFöldAlattIon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbFöldAlattIon.IntegralHeight = false;
+            this.cbFöldAlattIon.Items.AddRange(new object[] {
             "Igen",
             "Nem"});
-            this.cbHozzáFogyaték.Location = new System.Drawing.Point(166, 123);
-            this.cbHozzáFogyaték.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.cbHozzáFogyaték.Name = "cbHozzáFogyaték";
-            this.cbHozzáFogyaték.Size = new System.Drawing.Size(245, 28);
-            this.cbHozzáFogyaték.TabIndex = 24;
-            this.paragrafusTippek.SetToolTip(this.cbHozzáFogyaték, "120. § A munkavállalónak, ha\r\na) megváltozott munkaképességű,\r\nb) fogyatékossági " +
+            this.cbFöldAlattIon.Location = new System.Drawing.Point(166, 33);
+            this.cbFöldAlattIon.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.cbFöldAlattIon.Name = "cbFöldAlattIon";
+            this.cbFöldAlattIon.Size = new System.Drawing.Size(245, 28);
+            this.cbFöldAlattIon.TabIndex = 18;
+            this.paragrafusTippek.SetToolTip(this.cbFöldAlattIon, "120. § A munkavállalónak, ha\r\na) megváltozott munkaképességű,\r\nb) fogyatékossági " +
         "támogatásra jogosult, vagy\r\nc) vakok személyi járadékára jogosult\r\névenként öt m" +
         "unkanap pótszabadság jár.\r\n");
             // 
@@ -1779,5 +1821,7 @@ namespace Felisz.Formok
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ToolTip paragrafusTippek;
         private System.Windows.Forms.ComboBox cbHozzáFogyaték;
+        private System.Windows.Forms.Label lbFöldAlattIon;
+        private System.Windows.Forms.ComboBox cbFöldAlattIon;
     }
 }

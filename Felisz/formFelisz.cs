@@ -406,7 +406,7 @@ namespace Felisz
             //Üdvözlet, születésnap, névnap, hírek
 
 
-
+            
             
             TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! A Felisz HR aszisztens üdvözli Önt! Ma " + DateTime.Now.Year + " " + TTS.szám2Hónap(DateTime.Now.Month) + " hónap " + TTS.szám2Nap(DateTime.Now.Day) + " van.");
             TTS.TTS_Play("Születésnaposok: Bohus Attila");

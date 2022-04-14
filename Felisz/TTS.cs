@@ -29,6 +29,8 @@ namespace Felisz
 
         public static void TTS_Play(string szöveg)
         {
+            
+
             /*
              if (Properties.Settings.Default.TTSEngedélyezve == false) return;
              hang.Rate = 0;
@@ -41,8 +43,29 @@ namespace Felisz
              hang.SelectVoice(hangName);
             */
 
-            hang.SpeakAsync(szöveg);
+            hang.SpeakAsync(TTS_SzövegKorrekció(szöveg));
 
+        }
+
+        public static string TTS_SzövegKorrekció(string szöveg)
+        {
+            string[,] korrigálandóSzöveg = new string[,]
+            {
+                { "NAV", "nemzeti adó és vámhivatal" },
+                { "SAP", "esszápé" },
+                { "ORFK", "országos rendőrfőkapitányság" },
+                { "leasing", "lízing" },
+                { "tungsram", "tungszram" },
+                { "continental", "kontinentál" },
+                { "e-kerékpár", "elektromos kerékpár" }
+            };
+
+            for (int i = 0; i < korrigálandóSzöveg.GetLength(0); i++)
+            {
+                szöveg = szöveg.Replace(korrigálandóSzöveg[i, 0], korrigálandóSzöveg[i, 1]);
+            }
+
+            return szöveg;
         }
 
         public static void TTS_Stop()

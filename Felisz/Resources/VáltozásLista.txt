@@ -1,3 +1,7 @@
+V0.0.6.1
+	- Föld alatti munkavégzés mezõ bekerült a személyi adatok-hoz
+	- TTS kiejtés korrigáló funkció (pl. NAV, SAP, stb.)
+
 V0.0.6.0
 	- Automatikus törvény tippek a ToolTip adatbázistáblában definiált beviteli mezõk esetén.
 	- Csak a paragrafust kell a mezõhöz hozzárendelni, onnatól a program automatikusan kikeresi a hozzá tartozó
