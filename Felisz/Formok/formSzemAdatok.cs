@@ -383,72 +383,30 @@ namespace Felisz.Formok
 
         private void tbVezetéknév_Validated(object sender, EventArgs e)
         {
-
-
-
-            if (tbVezetéknév.Text.Length >= 2 && !Funkciók.UtolsóKarakterSzóköz(tbVezetéknév) && !Funkciók.StringTartalmazSzámot(tbVezetéknév.Text))
-            {
-                CímkeSzínBeállítás(lbVezetéknév, true);
-                if (tbSzülVezetéknév.Text == "") tbSzülVezetéknév.Text = tbVezetéknév.Text;
-            }
-            else
-            {
-                CímkeSzínBeállítás(lbVezetéknév, false);
-            }
+            Funkciók.NévValidálás(lbVezetéknév, tbVezetéknév, tbSzülVezetéknév,false);
+            
         }
 
         private void tbUtónév1_Validated(object sender, EventArgs e)
         {
-            if (tbUtónév1.Text.Length >= 2 && !Funkciók.UtolsóKarakterSzóköz(tbUtónév1) && !Funkciók.StringTartalmazSzámot(tbUtónév1.Text))
-            {
-                CímkeSzínBeállítás(lbUtónév1, true);
-                if (tbSzülUtónév1.Text == "") tbSzülUtónév1.Text = tbUtónév1.Text;
-            }
-            else
-            {
-                CímkeSzínBeállítás(lbUtónév1, false);
-            }
+
+            Funkciók.NévValidálás(lbUtónév1, tbUtónév1, tbSzülUtónév1, false);
+            
         }
 
         private void tbSzülVezetéknév_Validated(object sender, EventArgs e)
         {
-            if (tbSzülVezetéknév.Text.Length >= 2 && !Funkciók.UtolsóKarakterSzóköz(tbUtónév2) && !Funkciók.StringTartalmazSzámot(tbSzülVezetéknév.Text))
-            {
-                CímkeSzínBeállítás(lbSzülVezetéknév, true);
-            }
-            else
-            {
-                CímkeSzínBeállítás(lbSzülVezetéknév, false);
-            }
+            Funkciók.NévValidálás(lbSzülVezetéknév, tbSzülVezetéknév, null, false);
         }
 
         private void tbSzülUtónév1_Validated(object sender, EventArgs e)
         {
-            if (tbSzülUtónév1.Text.Length >= 2 && !Funkciók.UtolsóKarakterSzóköz(tbSzülUtónév1) && !Funkciók.StringTartalmazSzámot(tbSzülUtónév1.Text))
-            {
-                CímkeSzínBeállítás(lbSzülUtónév1, true);
-            }
-            else
-            {
-                CímkeSzínBeállítás(lbSzülUtónév1, false);
-            }
+            Funkciók.NévValidálás(lbSzülUtónév1, tbSzülUtónév1, null, false);
         }
 
         private void tbUtónév2_Validated(object sender, EventArgs e)
         {
-            if (!Funkciók.UtolsóKarakterSzóköz(tbUtónév2) && !Funkciók.StringTartalmazSzámot(tbUtónév2.Text))
-            {
-                CímkeSzínBeállítás(lbUtónév2, true);
-                if (tbSzülUtónév2.Text == "") tbSzülUtónév2.Text = tbUtónév2.Text;
-            }
-            else
-            {
-                CímkeSzínBeállítás(lbUtónév2, false);
-            }
-
-
-
-
+            Funkciók.NévValidálás(lbUtónév2, tbUtónév2, tbSzülUtónév2, true);
         }
 
         private void lbIrszám_Validating(object sender, CancelEventArgs e)
@@ -496,14 +454,8 @@ namespace Felisz.Formok
 
         private void tbAnyjaNeve_Validated(object sender, EventArgs e)
         {
-            if (tbAnyjaNeve.Text.Length >= 2 && !Funkciók.UtolsóKarakterSzóköz(tbAnyjaNeve) && !Funkciók.StringTartalmazSzámot(tbAnyjaNeve.Text))
-            {
-                CímkeSzínBeállítás(lbAnyjaNeve, true);
-            }
-            else
-            {
-                CímkeSzínBeállítás(lbAnyjaNeve, false);
-            }
+            Funkciók.NévValidálás(lbAnyjaNeve, tbAnyjaNeve, null,false);
+
         }
 
         private void cbNeme_Validated(object sender, EventArgs e)
@@ -1247,56 +1199,15 @@ namespace Felisz.Formok
 
         private void tbSzülUtónév2_Validated(object sender, EventArgs e)
         {
-            if (!Funkciók.UtolsóKarakterSzóköz(tbSzülUtónév2) && !Funkciók.StringTartalmazSzámot(tbSzülUtónév2.Text))
-            {
-                CímkeSzínBeállítás(lbSzülUtónév2, true);
-            }
-            else
-            {
-                CímkeSzínBeállítás(lbSzülUtónév2, false);
-            }
+            Funkciók.NévValidálás(lbSzülUtónév2, tbSzülUtónév2, null,true);
         }
 
 
 
         private void tbSzületésDátum_Validated(object sender, EventArgs e)
         {
+            Funkciók.DátumValidálás(lbSzületésiDátum, tbSzületésDátum, tbAdóazonosító);
 
-
-
-
-            if (Funkciók.DátumFormázás(tbSzületésDátum.Text).ToString("yyyy.MM.dd") != DateTime.MinValue.ToString("yyyy.MM.dd"))
-            {
-                tbSzületésDátum.Text = Funkciók.DátumFormázás(tbSzületésDátum.Text).ToString("yyyy.MM.dd");
-                CímkeSzínBeállítás(lbSzületésiDátum, true);
-
-                if (DateTime.Parse(tbSzületésDátum.Text) < DateTime.Now.AddYears(-16))
-                {
-                    tbAdóazonosító.Enabled = true; //az adószám ellőnrzése csak a szül. dátum megadásával lehetséges
-                    CímkeSzínBeállítás(lbSzületésiDátum, true);
-
-                }
-                else
-                {
-                    if (DateTime.Parse(tbSzületésDátum.Text) <= DateTime.Now)
-                    {
-                        TTS.TTS_Stop();
-                        TTS.TTS_Play("Figyelem! Kiskorúak foglalkoztatását a törvény bünteti!");
-                        MessageBox.Show("Kiskorúak foglalkoztatását a törvény bünteti!" + Environment.NewLine +
-                            "A 16. életévét betöltött de 18 évnél fiatalabb személy is" + Environment.NewLine +
-                            "csupán törvényes képviselője hozzájárulása birtokában" + Environment.NewLine +
-                            "köthet érvényesen munkaszerződést!"
-                            , "Figyelem", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        tbAdóazonosító.Enabled = false;
-                        CímkeSzínBeállítás(lbSzületésiDátum, false);
-                    }
-                }
-
-                if (DateTime.Parse(tbSzületésDátum.Text) >= DateTime.Now) CímkeSzínBeállítás(lbSzületésiDátum, false);
-
-
-            }
-            else CímkeSzínBeállítás(lbSzületésiDátum, false);
         }
 
         private void formSzemAdatok_KeyDown(object sender, KeyEventArgs e)
@@ -1493,11 +1404,74 @@ namespace Felisz.Formok
         {
 
             ToolTippekBetöltése(this, paragrafusTippek);
+            //Alapértelmezett értékek
+            cbMegVáltMunkFogy.SelectedIndex = 1;
+            cbFöldAlattIonMunk.SelectedIndex = 1;
+            cbFogyatékHozzá.SelectedIndex = 1;
 
         }
 
         private void gbFoglalkoztatás_Enter(object sender, EventArgs e)
         {
+
+        }
+
+        private void cbMegVáltMunkFogy_Validated(object sender, EventArgs e)
+        {
+            if (cbMegVáltMunkFogy.Text.Length > 0)
+            {
+                CímkeSzínBeállítás(lbMegVáltMunkFogy, true);
+            }
+            else
+            {
+                CímkeSzínBeállítás(lbMegVáltMunkFogy, false);
+            }
+        }
+
+        private void cbFöldAlattIonMunk_Validated(object sender, EventArgs e)
+        {
+            if (cbFöldAlattIonMunk.Text.Length > 0)
+            {
+                CímkeSzínBeállítás(lbFöldAlattIon, true);
+            }
+            else
+            {
+                CímkeSzínBeállítás(lbFöldAlattIon, false);
+            }
+        }
+
+        private void cbFogyatékHozzá_Validated(object sender, EventArgs e)
+        {
+            if (cbFogyatékHozzá.Text.Length > 0)
+            {
+                CímkeSzínBeállítás(lbFogyatékHozzá, true);
+            }
+            else
+            {
+                CímkeSzínBeállítás(lbFogyatékHozzá, false);
+            }
+        }
+
+        private void tbHozzáVezetéknév_Validated(object sender, EventArgs e)
+        {
+
+            Funkciók.NévValidálás(lbHozzáVezetéknév, tbHozzáVezetéknév, null, false);
+
+        }
+
+        private void tbHozzáUtónév1_Validated(object sender, EventArgs e)
+        {
+            Funkciók.NévValidálás(lbHozzáUtónév1, tbHozzáUtónév1, null, false);
+        }
+
+        private void tbHozzáUtónév2_Validated(object sender, EventArgs e)
+        {
+            Funkciók.NévValidálás(lbHozzáUtónév2, tbHozzáUtónév2, null,true);
+        }
+
+        private void tbHozzáSzülDátum_Validated(object sender, EventArgs e)
+        {
+            Funkciók.DátumValidálás(lbSzülDátumHozzá, tbSzülDátumHozzá, null);
 
         }
     }

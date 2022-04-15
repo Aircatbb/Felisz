@@ -51,18 +51,22 @@ namespace Felisz
         {
             string[,] korrigálandóSzöveg = new string[,]
             {
-                { "NAV", "nemzeti adó és vámhivatal" },
-                { "SAP", "esszápé" },
-                { "ORFK", "országos rendőrfőkapitányság" },
+                { "nav", "nemzeti adó és vámhivatal" },
+                { "sap", "esszápé" },
+                { "orfk", "országos rendőrfőkapitányság" },
                 { "leasing", "lízing" },
                 { "tungsram", "tungszram" },
                 { "continental", "kontinentál" },
+                { "elon musk", "Ilon Maszk" },
+                { "easyjet", "ízidzset" },
+                { "chip", "csipp" },
+                { "volkswagen", "folkszvágen" },
                 { "e-kerékpár", "elektromos kerékpár" }
             };
 
             for (int i = 0; i < korrigálandóSzöveg.GetLength(0); i++)
             {
-                szöveg = szöveg.Replace(korrigálandóSzöveg[i, 0], korrigálandóSzöveg[i, 1]);
+                szöveg = szöveg.ToLower().Replace(korrigálandóSzöveg[i, 0], korrigálandóSzöveg[i, 1]);
             }
 
             return szöveg;

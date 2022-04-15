@@ -18,8 +18,81 @@ namespace Felisz
 {
     class Funkciók
     {
-        
+        private static void CímkeSzínBeállítás(Label címke, bool engedélyezve)
+        {
+            if (engedélyezve == true)
+            {
+                címke.BackColor = Color.FromArgb(30, 30, 30);
+                címke.ForeColor = Color.FromArgb(200, 200, 200);
+            }
+            else
+            {
+                címke.BackColor = Color.FromArgb(166, 66, 51);
+                címke.ForeColor = Color.White;
+            }
+        }
 
+        public static void DátumValidálás(Label címke, TextBox textboxneve, TextBox adóazon)
+        {
+
+            if (Funkciók.DátumFormázás(textboxneve.Text).ToString("yyyy.MM.dd") != DateTime.MinValue.ToString("yyyy.MM.dd"))
+            {
+                textboxneve.Text = Funkciók.DátumFormázás(textboxneve.Text).ToString("yyyy.MM.dd");
+                CímkeSzínBeállítás(címke, true);
+
+                if (adóazon != null)
+                {
+                    if (DateTime.Parse(textboxneve.Text) < DateTime.Now.AddYears(-16))
+                    {
+                        adóazon.Enabled = true; //az adószám ellőnrzése csak a szül. dátum megadásával lehetséges
+                        CímkeSzínBeállítás(címke, true);
+
+                    }
+                    else
+                    {
+                        if (DateTime.Parse(textboxneve.Text) <= DateTime.Now)
+                        {
+                            TTS.TTS_Stop();
+                            TTS.TTS_Play("Figyelem! Kiskorúak foglalkoztatását a törvény bünteti!");
+                            MessageBox.Show("Kiskorúak foglalkoztatását a törvény bünteti!" + Environment.NewLine +
+                                "A 16. életévét betöltött de 18 évnél fiatalabb személy is" + Environment.NewLine +
+                                "csupán törvényes képviselője hozzájárulása birtokában" + Environment.NewLine +
+                                "köthet érvényesen munkaszerződést!"
+                                , "Figyelem", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            adóazon.Enabled = false;
+                            CímkeSzínBeállítás(címke, false);
+                        }
+                    }
+
+                }
+
+
+                if (DateTime.Parse(textboxneve.Text) >= DateTime.Now) CímkeSzínBeállítás(címke, false);
+
+
+            }
+            else
+            {
+                CímkeSzínBeállítás(címke, false);
+                if(adóazon!=null) adóazon.Enabled = false;
+            }
+        }
+
+        public static void NévValidálás(Label címkeneve, TextBox textboxneve, TextBox együttMódosítandótb, bool üresEngedélyezve)
+        {
+            if (üresEngedélyezve == false && textboxneve.Text.Length >= 2) üresEngedélyezve = true; 
+
+            if (üresEngedélyezve && !Funkciók.UtolsóKarakterSzóköz(textboxneve) && !Funkciók.StringTartalmazSzámot(textboxneve.Text))
+            {
+                CímkeSzínBeállítás(címkeneve, true);
+                if (együttMódosítandótb != null) if (együttMódosítandótb.Text == "") együttMódosítandótb.Text = textboxneve.Text;
+            }
+            else
+            {
+                CímkeSzínBeállítás(címkeneve, false);
+            }
+
+        }
 
 
 

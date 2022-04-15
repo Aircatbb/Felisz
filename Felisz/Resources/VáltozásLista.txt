@@ -1,3 +1,10 @@
+V0.0.6.2
+	- További kisebb TTS javítások
+	- Hozzátartozók mezõk: Vezetéknév, Utónév1, Utónév2, Szül. dátum, Fogyatékosság validálása
+	- Ált. szem. adatok mezõk: Megvált. munkaképesség..., Föld alatt dolg...validálás
+	- Programkód optimalizálás: dátum és név validálás külön funkcióba kikerültek a Funkciók osztályba
+	- Dátumvalidálásnál, ha nincs megadva dátum, akkor letiltja az adóazonosítót
+
 V0.0.6.1
 	- Föld alatti munkavégzés mezõ bekerült a személyi adatok-hoz
 	- TTS kiejtés korrigáló funkció (pl. NAV, SAP, stb.)
