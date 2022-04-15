@@ -13,13 +13,13 @@ using MySql.Data.MySqlClient;
 namespace Felisz.Formok
 {
 
-    
+
 
     public partial class formMunkavállalóVálasztás : Form
 
     {
         public static int azon = 0;
-        public static string mód = ""; //M-Módosítás, N-Új felvitel    
+        public static string mód = ""; //M-Módosítás, N-Új felvitel, T-Törlés, A-Megszakítás    
         public string myConnectionString;
         public MySqlConnection conn;
         public MySqlDataAdapter dataAdapter;
@@ -45,7 +45,7 @@ namespace Felisz.Formok
 
             conn = new MySqlConnection(myConnectionString);
             conn.Open();
-      
+
             try
             {
                 selName = selName.Substring(0, 1).ToUpper() + selName.Substring(1);
@@ -67,7 +67,7 @@ namespace Felisz.Formok
                 this.dgvSelectEmploye.DataSource = dtRecord;
                 conn.Close();
 
-                if (dgvSelectEmploye.Columns[0].HeaderText=="SzemAzon")
+                if (dgvSelectEmploye.Columns[0].HeaderText == "SzemAzon")
                 {
                     for (int i = 0; i < dgvSelectEmploye.ColumnCount; i++)
                     {
@@ -75,7 +75,7 @@ namespace Felisz.Formok
                         {
                             case "SzemAzon":
                                 dgvSelectEmploye.Columns[i].HeaderText = "Személyi azonosító";
-                                dgvSelectEmploye.Columns[i].Width=60;
+                                dgvSelectEmploye.Columns[i].Width = 60;
                                 break;
                             case "VezNev":
                                 dgvSelectEmploye.Columns[i].HeaderText = "Vezetéknév";
@@ -139,7 +139,7 @@ namespace Felisz.Formok
         private void dgvSelectEmploye_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            if(rbTörlés.Checked==true)
+            if (rbTörlés.Checked == true)
             {
                 mód = "T";
                 formTörlésFigyelmeztetés formTF = new formTörlésFigyelmeztetés();
@@ -178,13 +178,13 @@ namespace Felisz.Formok
 
         private void dgvSelectEmploye_DoubleClick(object sender, EventArgs e)
         {
-            
+
             //this.DialogResult = DialogResult.OK;
         }
 
         private void rbÚjrögzítés_CheckedChanged(object sender, EventArgs e)
         {
-            if(rbÚjrögzítés.Checked)
+            if (rbÚjrögzítés.Checked)
             {
                 formMunkavállalóVálasztás.azon = 0;
                 formMunkavállalóVálasztás.mód = "N";

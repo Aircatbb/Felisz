@@ -27,11 +27,15 @@ namespace Felisz.Formok
         private void btMegszakítás_Click(object sender, EventArgs e)
         {
             TTS.hang.SpeakAsyncCancelAll();
+            //this.DialogResult = DialogResult.Abort;
+            formMunkavállalóVálasztás.mód = "A";
         }
 
         private void btTörlés_Click(object sender, EventArgs e)
         {
             TTS.hang.SpeakAsyncCancelAll();
+            //this.DialogResult = DialogResult.Yes;
+            formMunkavállalóVálasztás.mód = "T";
         }
     }
 }

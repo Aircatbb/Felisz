@@ -828,7 +828,6 @@ namespace Felisz.Formok
             this.gbFoglalkoztatás.TabIndex = 26;
             this.gbFoglalkoztatás.TabStop = false;
             this.gbFoglalkoztatás.Text = "Foglalkoztatás";
-            this.gbFoglalkoztatás.Enter += new System.EventHandler(this.gbFoglalkoztatás_Enter);
             // 
             // tlpFoglalkoztatás
             // 

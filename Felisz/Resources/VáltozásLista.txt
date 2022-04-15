@@ -1,3 +1,6 @@
+V0.0.6.3
+	- Figyelem! Mûködik a munkavállaló végleges törlése!
+
 V0.0.6.2
 	- További kisebb TTS javítások
 	- Hozzátartozók mezõk: Vezetéknév, Utónév1, Utónév2, Szül. dátum, Fogyatékosság validálása

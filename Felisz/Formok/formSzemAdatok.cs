@@ -34,12 +34,6 @@ namespace Felisz.Formok
 
         }
 
-
-
-
-
-
-
         private void cbFEORFeltöltés()
         {
             for (int i = 0; i < Adatbázis.FEORList.Count; i++)
@@ -91,7 +85,6 @@ namespace Felisz.Formok
             cbFoglalkoztatásHelye.SelectedIndex = 0;
 
         }
-
 
         private void cbIrszámFeltöltés()
         {
@@ -164,7 +157,6 @@ namespace Felisz.Formok
 
         }
 
-
         private void cbVáros_Validated(object sender, EventArgs e)
         {
 
@@ -233,8 +225,6 @@ namespace Felisz.Formok
                 CímkeSzínBeállítás(lbIrszám, false);
             }
         }
-
-
 
         private void TávolságSzámítása()
         {
@@ -326,12 +316,6 @@ namespace Felisz.Formok
             cbKözterület.Items.Remove(tempKözterület);
         }
 
-
-
-
-
-
-
         private void cbFoglalkoztatásHelye_Validated(object sender, EventArgs e)
         {
             TávolságSzámítása();
@@ -379,19 +363,17 @@ namespace Felisz.Formok
             }
         }
 
-
-
         private void tbVezetéknév_Validated(object sender, EventArgs e)
         {
-            Funkciók.NévValidálás(lbVezetéknév, tbVezetéknév, tbSzülVezetéknév,false);
-            
+            Funkciók.NévValidálás(lbVezetéknév, tbVezetéknév, tbSzülVezetéknév, false);
+
         }
 
         private void tbUtónév1_Validated(object sender, EventArgs e)
         {
 
             Funkciók.NévValidálás(lbUtónév1, tbUtónév1, tbSzülUtónév1, false);
-            
+
         }
 
         private void tbSzülVezetéknév_Validated(object sender, EventArgs e)
@@ -454,7 +436,7 @@ namespace Felisz.Formok
 
         private void tbAnyjaNeve_Validated(object sender, EventArgs e)
         {
-            Funkciók.NévValidálás(lbAnyjaNeve, tbAnyjaNeve, null,false);
+            Funkciók.NévValidálás(lbAnyjaNeve, tbAnyjaNeve, null, false);
 
         }
 
@@ -548,19 +530,19 @@ namespace Felisz.Formok
             //Dolgozó kiválasztása
 
             Form formSzemKi = new formMunkavállalóVálasztás();
-            //Form formSzemKi = new formSzemKiválaszt();
             DialogResult dialogResult = formSzemKi.ShowDialog();
 
 
-            if (dialogResult == DialogResult.Cancel) this.Close();
+            if (dialogResult == DialogResult.Cancel || formMunkavállalóVálasztás.mód == "A") this.Close();
             if (formMunkavállalóVálasztás.mód == "M") SzemélyiAdatokBetöltése();
-
-
+            if (formMunkavállalóVálasztás.mód == "T")
+            {
+                MunkavállalóTörlése(formMunkavállalóVálasztás.azon);
+                this.Close();
+            }
 
 
         }
-
-
 
         private void cbLakhelyOrszág_Validated(object sender, EventArgs e)
         {
@@ -628,10 +610,9 @@ namespace Felisz.Formok
 
             MySql.Data.MySqlClient.MySqlConnection conn;
             string myConnectionString = Properties.Settings.Default.felisz_db_ConnectionString;
+            myConnectionString = Adatbázis.MyConnectionString();
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
-            myConnectionString = Adatbázis.MyConnectionString();
-
 
 
 
@@ -645,7 +626,7 @@ namespace Felisz.Formok
                 string sql = "INSERT INTO SzemTorzs (" +
                     "SzekhelyTelephelyID, " +
                     "EngedelyKor, " +
-                     "SzemAzon, " +
+                    "SzemAzon, " +
                     "VezNev, " +
                     "UtoNev1, " +
                     "UtoNev2, " +
@@ -673,6 +654,8 @@ namespace Felisz.Formok
                     "TajSzam, " +
                     "AnyjaNeve, " +
                     "AllamPolg, " +
+                    "MegvaltMunkFogy, " +
+                    "FoldAlattIonMunk, " +
                     "Feor, " +
                     "RogzFelh, " +
                     "RogzDatum) " +
@@ -707,6 +690,8 @@ namespace Felisz.Formok
                 "@TajSzam, " +
                 "@AnyjaNeve, " +
                 "@AllamPolg, " +
+                "@MegvaltMunkFogy, " +
+                "@FoldAlattIonMunk, " +
                 "@Feor, " +
                 "@RogzFelh, " +
                 "@RogzDatum)";
@@ -800,15 +785,20 @@ namespace Felisz.Formok
                 SQLCommand.Parameters.Add("@TajSzam", MySql.Data.MySqlClient.MySqlDbType.VarString);
                 SQLCommand.Parameters["@TajSzam"].Value = tbTAJSzám.Text;
 
+                SQLCommand.Parameters.Add("@Feor", MySql.Data.MySqlClient.MySqlDbType.VarString);
+                SQLCommand.Parameters["@Feor"].Value = (cbFEOR.SelectedItem as FEOR).Feor4;
+
                 SQLCommand.Parameters.Add("@AnyjaNeve", MySql.Data.MySqlClient.MySqlDbType.VarString);
                 SQLCommand.Parameters["@AnyjaNeve"].Value = tbAnyjaNeve.Text;
 
                 SQLCommand.Parameters.Add("@AllamPolg", MySql.Data.MySqlClient.MySqlDbType.VarString);
                 SQLCommand.Parameters["@AllamPolg"].Value = (cbÁllampolgárság.SelectedItem as Országkód).Kód;
 
-                SQLCommand.Parameters.Add("@Feor", MySql.Data.MySqlClient.MySqlDbType.VarString);
-                SQLCommand.Parameters["@Feor"].Value = (cbFEOR.SelectedItem as FEOR).Feor4;
+                SQLCommand.Parameters.Add("@MegvaltMunkFogy", MySql.Data.MySqlClient.MySqlDbType.VarChar);
+                SQLCommand.Parameters["@MegvaltMunkFogy"].Value = cbMegVáltMunkFogy.Text.Substring(0, 1);
 
+                SQLCommand.Parameters.Add("@FoldAlattIonMunk", MySql.Data.MySqlClient.MySqlDbType.VarChar);
+                SQLCommand.Parameters["@FoldAlattIonMunk"].Value = cbFöldAlattIonMunk.Text.Substring(0, 1);
 
                 SQLCommand.Parameters.Add("@RogzFelh", MySql.Data.MySqlClient.MySqlDbType.VarString);
                 SQLCommand.Parameters["@RogzFelh"].Value = Properties.Settings.Default.utolsóFelhasználó;
@@ -818,7 +808,7 @@ namespace Felisz.Formok
 
                 SQLCommand.ExecuteNonQuery();
 
-
+                Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " általános személyi adatok mentve! " + DateTime.Now.ToString());
 
                 SQLCommand.Dispose();
             }
@@ -829,7 +819,7 @@ namespace Felisz.Formok
             }
             conn.Close();
 
-            Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " általános személyi adatok mentve! " + DateTime.Now.ToString());
+
             if (formMentésDialógus.mód == "MB") this.Close();
             if (formMentésDialógus.mód == "MF") formMunkavállalóVálasztás.mód = "M";
 
@@ -916,6 +906,11 @@ namespace Felisz.Formok
 
                     tbAdóazonosító.Text = dataReader.GetString(dataReader.GetOrdinal("AdoAzonosito"));
                     tbTAJSzám.Text = dataReader.GetString(dataReader.GetOrdinal("TajSzam"));
+
+                    if (dataReader.GetChar(dataReader.GetOrdinal("MegvaltMunkFogy")) == 'I') cbMegVáltMunkFogy.SelectedIndex = 0; else cbMegVáltMunkFogy.SelectedItem = 1;
+
+                    if (dataReader.GetChar(dataReader.GetOrdinal("FoldAlattIonMunk")) == 'I') cbFöldAlattIonMunk.SelectedIndex = 0; else cbFöldAlattIonMunk.SelectedItem = 1;
+
                     cbLakhelyOrszág.SelectedItem = dataReader.GetString(dataReader.GetOrdinal("LakOrszag"));
                     cbIrszám.Text = dataReader.GetString(dataReader.GetOrdinal("LakirSzam"));
 
@@ -1027,8 +1022,6 @@ namespace Felisz.Formok
 
             MySql.Data.MySqlClient.MySqlConnection conn;
             string myConnectionString = Properties.Settings.Default.felisz_db_ConnectionString;
-            conn = new MySql.Data.MySqlClient.MySqlConnection();
-            conn.ConnectionString = myConnectionString;
             myConnectionString = Adatbázis.MyConnectionString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection();
@@ -1068,6 +1061,8 @@ namespace Felisz.Formok
                     "TajSzam=@TajSzam, " +
                     "AnyjaNeve=@AnyjaNeve, " +
                     "AllamPolg=@AllamPolg, " +
+                    "MegvaltMunkFogy=@MegvaltMunkFogy, " +
+                    "FoldAlattIonMunk=@FoldAlattIonMunk, " +
                     "Feor=@Feor, " +
                     "RogzFelh=@RogzFelh, " +
                     "RogzDatum=@RogzDatum " +
@@ -1166,6 +1161,12 @@ namespace Felisz.Formok
                 SQLCommand.Parameters.Add("@AllamPolg", MySql.Data.MySqlClient.MySqlDbType.VarString);
                 SQLCommand.Parameters["@AllamPolg"].Value = (cbÁllampolgárság.SelectedItem as Országkód).Kód;
 
+                SQLCommand.Parameters.Add("@MegvaltMunkFogy", MySql.Data.MySqlClient.MySqlDbType.VarChar);
+                SQLCommand.Parameters["@MegvaltMunkFogy"].Value = cbMegVáltMunkFogy.Text.Substring(0, 1);
+
+                SQLCommand.Parameters.Add("@FoldAlattIonMunk", MySql.Data.MySqlClient.MySqlDbType.VarChar);
+                SQLCommand.Parameters["@FoldAlattIonMunk"].Value = cbFöldAlattIonMunk.Text.Substring(0, 1);
+
                 SQLCommand.Parameters.Add("@Feor", MySql.Data.MySqlClient.MySqlDbType.VarString);
                 SQLCommand.Parameters["@Feor"].Value = cbFEOR.SelectedItem.ToString().Substring(0, 4);
 
@@ -1179,7 +1180,7 @@ namespace Felisz.Formok
 
                 SQLCommand.ExecuteNonQuery();
 
-
+                Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " általános személyi adatok frissítve! " + DateTime.Now.ToString());
 
                 SQLCommand.Dispose();
             }
@@ -1190,7 +1191,7 @@ namespace Felisz.Formok
             }
             conn.Close();
 
-            Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " általános személyi adatok mentve! " + DateTime.Now.ToString());
+
 
             if (formMentésDialógus.mód == "MB") this.Close();
 
@@ -1199,10 +1200,8 @@ namespace Felisz.Formok
 
         private void tbSzülUtónév2_Validated(object sender, EventArgs e)
         {
-            Funkciók.NévValidálás(lbSzülUtónév2, tbSzülUtónév2, null,true);
+            Funkciók.NévValidálás(lbSzülUtónév2, tbSzülUtónév2, null, true);
         }
-
-
 
         private void tbSzületésDátum_Validated(object sender, EventArgs e)
         {
@@ -1229,8 +1228,6 @@ namespace Felisz.Formok
 
 
         }
-
-
 
         private void tcSzemélyiAdatok_Click(object sender, EventArgs e)
         {
@@ -1312,8 +1309,6 @@ namespace Felisz.Formok
 
         }
 
-
-
         public static void ToolTippekBetöltése(Control controlSzuloNeve, ToolTip toolTipNeve)
         {
 
@@ -1356,7 +1351,6 @@ namespace Felisz.Formok
             ToolTippekBeállítása(controlSzuloNeve, toolTipNeve);
 
         }
-
 
         public static bool ToolTippekBeállítása(Control controlSzuloNeve, ToolTip toolTipNeve)
         {
@@ -1411,11 +1405,6 @@ namespace Felisz.Formok
 
         }
 
-        private void gbFoglalkoztatás_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbMegVáltMunkFogy_Validated(object sender, EventArgs e)
         {
             if (cbMegVáltMunkFogy.Text.Length > 0)
@@ -1466,12 +1455,54 @@ namespace Felisz.Formok
 
         private void tbHozzáUtónév2_Validated(object sender, EventArgs e)
         {
-            Funkciók.NévValidálás(lbHozzáUtónév2, tbHozzáUtónév2, null,true);
+            Funkciók.NévValidálás(lbHozzáUtónév2, tbHozzáUtónév2, null, true);
         }
 
         private void tbHozzáSzülDátum_Validated(object sender, EventArgs e)
         {
             Funkciók.DátumValidálás(lbSzülDátumHozzá, tbSzülDátumHozzá, null);
+
+        }
+
+        private void MunkavállalóTörlése(int SzemAzon)
+        {
+
+
+
+
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString = Properties.Settings.Default.felisz_db_ConnectionString;
+            myConnectionString = Adatbázis.MyConnectionString();
+            conn = new MySql.Data.MySqlClient.MySqlConnection();
+            conn.ConnectionString = myConnectionString;
+
+
+
+            try
+            {
+                conn.Open();
+
+                //Személyi adatok törlése
+                string sql = "DELETE FROM SzemTorzs WHERE SzemAzon='" + SzemAzon.ToString() + "'";
+                var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+                SQLCommand.ExecuteNonQuery();
+
+                //Hozzátartozók törlése
+                sql = "DELETE FROM SzemHozzaTart WHERE SzemAzon='" + SzemAzon.ToString() + "'";
+                SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+                SQLCommand.ExecuteNonQuery();
+
+
+                Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " munkavállaló véglegesen törölve! " + DateTime.Now.ToString());
+                SQLCommand.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis írási hiba (Munkavállaló törlése)!---" + ex);
+                MessageBox.Show("Adatbázis írási hiba (Munkavállaló törlése)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            conn.Close();
+
 
         }
     }

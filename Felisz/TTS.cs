@@ -31,9 +31,10 @@ namespace Felisz
         {
             
 
-            /*
+            
              if (Properties.Settings.Default.TTSEngedélyezve == false) return;
-             hang.Rate = 0;
+            /*
+            hang.Rate = 0;
              hang.Volume = 33;
              var voice = hang.GetInstalledVoices();
              string hangName = voice[1].VoiceInfo.Name;
