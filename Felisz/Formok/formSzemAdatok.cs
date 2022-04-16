@@ -535,12 +535,19 @@ namespace Felisz.Formok
 
             if (dialogResult == DialogResult.Cancel || formMunkavállalóVálasztás.mód == "A") this.Close();
             if (formMunkavállalóVálasztás.mód == "M") SzemélyiAdatokBetöltése();
+
             if (formMunkavállalóVálasztás.mód == "T")
             {
                 MunkavállalóTörlése(formMunkavállalóVálasztás.azon);
                 this.Close();
             }
 
+            if (formMunkavállalóVálasztás.mód == "N") tbAzonosítószám.Focus();
+
+            //Alapértelmezett értékek
+            cbMegVáltMunkFogy.SelectedIndex = 1;
+            cbFöldAlattIonMunk.SelectedIndex = 1;
+            cbFogyatékHozzá.SelectedIndex = 1;
 
         }
 
@@ -810,6 +817,10 @@ namespace Felisz.Formok
 
                 Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " általános személyi adatok mentve! " + DateTime.Now.ToString());
 
+                //Amennyiben új rögzítés,úgy mostantól engedélyezük a további adatok felvitelét
+                tlpHozzátartozók.Visible = true;
+
+
                 SQLCommand.Dispose();
             }
             catch (Exception ex)
@@ -822,6 +833,7 @@ namespace Felisz.Formok
 
             if (formMentésDialógus.mód == "MB") this.Close();
             if (formMentésDialógus.mód == "MF") formMunkavállalóVálasztás.mód = "M";
+
 
         }
 
@@ -1236,6 +1248,8 @@ namespace Felisz.Formok
 
         private void HozzátartozókBetöltése(int SzemélyiAzon)
         {
+            if (tlpHozzátartozók.Visible == false) return;
+
             if (!Adatbázis.AdatbázisEllenőrzéseCég())
             {
                 return;
@@ -1398,10 +1412,8 @@ namespace Felisz.Formok
         {
 
             ToolTippekBetöltése(this, paragrafusTippek);
-            //Alapértelmezett értékek
-            cbMegVáltMunkFogy.SelectedIndex = 1;
-            cbFöldAlattIonMunk.SelectedIndex = 1;
-            cbFogyatékHozzá.SelectedIndex = 1;
+            
+
 
         }
 
@@ -1502,6 +1514,119 @@ namespace Felisz.Formok
                 MessageBox.Show("Adatbázis írási hiba (Munkavállaló törlése)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             conn.Close();
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (MentésIndítható(tlpHozzátartozók))
+            {
+                if (formMunkavállalóVálasztás.mód == "M")
+                {
+                    HozzátartozókMentés();
+                    HozzátartozókBetöltése(int.Parse(tbAzonosítószám.Text));
+                }
+            }
+            else
+            {
+                MessageBox.Show("A jelölt mezők kitöltése kötelező, illetve lehetséges hibákat tartalmazhatnak." + Environment.NewLine +
+                                "A mentés nem lehetséges!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        private void tcSzemélyiAdatok_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (formMunkavállalóVálasztás.mód == "N" && e.TabPage.Name == "tpHozzátartozók")
+            {
+                tlpHozzátartozók.Visible = false;
+                //Kapcsoltaok jönnek majd még ide, no meg a többi
+            }
+
+        }
+
+        private void HozzátartozókMentés()
+        {
+
+
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString = Properties.Settings.Default.felisz_db_ConnectionString;
+            myConnectionString = Adatbázis.MyConnectionString();
+            conn = new MySql.Data.MySqlClient.MySqlConnection();
+            conn.ConnectionString = myConnectionString;
+
+
+
+            try
+            {
+                conn.Open();
+
+
+
+
+                string sql = "INSERT INTO SzemHozzaTart (" +
+                    "SzemAzon, " +
+                    "VezNev, " +
+                    "UtoNev1, " +
+                    "UtoNev2, " +
+                    "SzulDatum, " +
+                    "Fogyatekos, " +
+                    "RogzFelh, " +
+                    "RogzDatum) " +
+                    "VALUES (" +
+                    "@SzemAzon, " +
+                    "@VezNev, " +
+                    "@UtoNev1, " +
+                    "@UtoNev2, " +
+                    "@SzulDatum, " +
+                    "@Fogyatekos, " +
+                    "@RogzFelh, " +
+                    "@RogzDatum)";
+
+
+                var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+
+                SQLCommand.Parameters.Add("@SzemAzon", MySql.Data.MySqlClient.MySqlDbType.Int16);
+                SQLCommand.Parameters["@SzemAzon"].Value = tbAzonosítószám.Text;
+
+                SQLCommand.Parameters.Add("@VezNev", MySql.Data.MySqlClient.MySqlDbType.VarString);
+                SQLCommand.Parameters["@VezNev"].Value = tbHozzáVezetéknév.Text;
+
+                SQLCommand.Parameters.Add("@UtoNev1", MySql.Data.MySqlClient.MySqlDbType.VarString);
+                SQLCommand.Parameters["@UtoNev1"].Value = tbHozzáUtónév1.Text;
+
+                SQLCommand.Parameters.Add("@UtoNev2", MySql.Data.MySqlClient.MySqlDbType.VarString);
+                SQLCommand.Parameters["@UtoNev2"].Value = tbHozzáUtónév2.Text;
+
+                SQLCommand.Parameters.Add("@SzulDatum", MySql.Data.MySqlClient.MySqlDbType.Date);
+                SQLCommand.Parameters["@SzulDatum"].Value = DateTime.Parse(tbSzülDátumHozzá.Text);
+
+                SQLCommand.Parameters.Add("@Fogyatekos", MySql.Data.MySqlClient.MySqlDbType.VarChar);
+                SQLCommand.Parameters["@Fogyatekos"].Value = cbFogyatékHozzá.Text.Substring(0, 1);
+
+                SQLCommand.Parameters.Add("@RogzFelh", MySql.Data.MySqlClient.MySqlDbType.VarString);
+                SQLCommand.Parameters["@RogzFelh"].Value = Properties.Settings.Default.utolsóFelhasználó;
+
+                SQLCommand.Parameters.Add("@RogzDatum", MySql.Data.MySqlClient.MySqlDbType.Date);
+                SQLCommand.Parameters["@RogzDatum"].Value = DateTime.Now;
+
+                SQLCommand.ExecuteNonQuery();
+
+                Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " hozzátartozója rögzítve! " + DateTime.Now.ToString());
+
+
+
+                SQLCommand.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis írási hiba (Hozzátartozók)!---" + ex);
+                MessageBox.Show("Adatbázis írási hiba (Hozzátartozók)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            conn.Close();
+
+
+
 
 
         }

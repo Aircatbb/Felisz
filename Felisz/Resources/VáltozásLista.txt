@@ -1,5 +1,14 @@
+V0.0.6.4
+	- Új munkavállaló rögzítése esetén a többi TLP (Hozzátartozók, Kapcsolatok) letiltva, amíg a
+	munkavállaló adatai nincsenek mentve.
+	- Hozáátartozó rögzítése elkészült.
+	- Tabindexek frissítve (Személyi adatok)
+	- Új munkavállaló rögzítésnél a focus az azonosítószámra állítva
+	- Kód optimalizálás mezõk alapértelmezett értékeinek megjelenítésekor
+
 V0.0.6.3
-	- Figyelem! Mûködik a munkavállaló végleges törlése!
+	- Figyelem! Mûködik a munkavállaló végleges törlése! Ez nem csak a személyi adatokra vonatkozik, hanem minden
+	a munkavállalóról tárolt adatokra! Jelenleg két tábla érintett: SzemTorzs és SzemHozzaTart
 
 V0.0.6.2
 	- További kisebb TTS javítások
