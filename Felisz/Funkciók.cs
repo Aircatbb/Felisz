@@ -74,13 +74,13 @@ namespace Felisz
             else
             {
                 CímkeSzínBeállítás(címke, false);
-                if(adóazon!=null) adóazon.Enabled = false;
+                if (adóazon != null) adóazon.Enabled = false;
             }
         }
 
         public static void NévValidálás(Label címkeneve, TextBox textboxneve, TextBox együttMódosítandótb, bool üresEngedélyezve)
         {
-            if (üresEngedélyezve == false && textboxneve.Text.Length >= 2) üresEngedélyezve = true; 
+            if (üresEngedélyezve == false && textboxneve.Text.Length >= 2) üresEngedélyezve = true;
 
             if (üresEngedélyezve && !Funkciók.UtolsóKarakterSzóköz(textboxneve) && !Funkciók.StringTartalmazSzámot(textboxneve.Text))
             {
@@ -1006,7 +1006,114 @@ namespace Felisz
 
         }
 
+        public static int SzabadságJogosultságKalkulátor(int azonosító, DateTime szülDátum, string megváltozott, string földAlatt)
+        {
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString = Adatbázis.MyConnectionString();
+            conn = new MySql.Data.MySqlClient.MySqlConnection();
+            conn.ConnectionString = myConnectionString;
 
+
+
+            string sql = "SELECT SzulDatum, Fogyatekos FROM SzemHozzaTart WHERE SzemAzon='" + azonosító + "' ";
+            var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+
+            try
+            {
+                conn.Open();
+                MySql.Data.MySqlClient.MySqlDataReader dataReader = SQLCommand.ExecuteReader();
+
+
+                int gyerekekSzáma = 0;
+                int szabadság = 20;
+
+                while (dataReader.Read())
+                {
+                    if (dataReader.GetDateTime(dataReader.GetOrdinal("SzulDatum")) > DateTime.Now.AddYears(-16))
+                    {
+                        gyerekekSzáma++;
+                        if (dataReader.GetString(dataReader.GetOrdinal("Fogyatekos")) == "I") szabadság += 2;
+                    }
+
+                }
+
+                conn.Close();
+
+                switch (gyerekekSzáma)
+                {
+                    case int n when (n == 0):
+                        break;
+                    case int n when (n > 0 && n < 3):
+                        szabadság += gyerekekSzáma * 2;
+                        break;
+                    case int n when (n >= 3):
+                        szabadság += 7;
+                        break;
+                    default:
+                        break;
+                }
+
+                if (megváltozott == "I") szabadság += 5;
+                if (földAlatt == "I") szabadság += 5;
+
+
+
+
+
+                switch (DateTime.Now.Year - szülDátum.Year)
+                {
+                    case int n when (n < 25):
+                        break;
+                    case int n when (n >= 25 && n < 28):
+                        szabadság += 1;
+                        break;
+                    case int n when (n >= 28 && n < 31):
+                        szabadság += 2;
+                        break;
+                    case int n when (n >= 31 && n < 33):
+                        szabadság += 3;
+                        break;
+                    case int n when (n >= 33 && n < 35):
+                        szabadság += 4;
+                        break;
+                    case int n when (n >= 35 && n < 37):
+                        szabadság += 5;
+                        break;
+                    case int n when (n >= 37 && n < 39):
+                        szabadság += 6;
+                        break;
+                    case int n when (n >= 39 && n < 41):
+                        szabadság += 7;
+                        break;
+                    case int n when (n >= 41 && n < 43):
+                        szabadság += 8;
+                        break;
+                    case int n when (n >= 43 && n < 45):
+                        szabadság += 9;
+                        break;
+                    case int n when (n >= 45):
+                        szabadság += 10;
+                        break;
+                    default:
+                        break;
+                }
+
+                return szabadság;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Error("---Adatbázis olvasási hiba (Szabadság jogosultság)!---" + ex);
+                MessageBox.Show("Adatbázis olvasási hiba (Szabadság jogosultság)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                conn.Close();
+                return 0;
+            }
+
+
+
+        }
 
 
 

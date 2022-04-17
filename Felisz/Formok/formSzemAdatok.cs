@@ -534,8 +534,11 @@ namespace Felisz.Formok
 
 
             if (dialogResult == DialogResult.Cancel || formMunkavállalóVálasztás.mód == "A") this.Close();
-            if (formMunkavállalóVálasztás.mód == "M") SzemélyiAdatokBetöltése();
-
+            if (formMunkavállalóVálasztás.mód == "M")
+            {
+                SzemélyiAdatokBetöltése();
+                
+            }
             if (formMunkavállalóVálasztás.mód == "T")
             {
                 MunkavállalóTörlése(formMunkavállalóVálasztás.azon);
@@ -846,7 +849,7 @@ namespace Felisz.Formok
             {
                 if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
                 if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
-
+                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(int.Parse(tbAzonosítószám.Text), DateTime.Parse(tbSzületésDátum.Text), cbMegVáltMunkFogy.Text.Substring(0, 1), cbFöldAlattIonMunk.Text.Substring(0, 1)).ToString();
             }
             else
             {
@@ -1235,6 +1238,7 @@ namespace Felisz.Formok
                     {
                         if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
                         if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
+                        tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(int.Parse(tbAzonosítószám.Text), DateTime.Parse(tbSzületésDátum.Text), cbMegVáltMunkFogy.Text.Substring(0, 1), cbFöldAlattIonMunk.Text.Substring(0, 1)).ToString();
                     }
                     else
                     {
@@ -1438,7 +1442,7 @@ namespace Felisz.Formok
         {
 
             ToolTippekBetöltése(this, paragrafusTippek);
-
+            
 
 
         }
@@ -1552,6 +1556,8 @@ namespace Felisz.Formok
                 {
                     HozzátartozókMentés();
                     HozzátartozókBetöltése(int.Parse(tbAzonosítószám.Text));
+                    tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(int.Parse(tbAzonosítószám.Text), DateTime.Parse(tbSzületésDátum.Text), cbMegVáltMunkFogy.Text.Substring(0, 1), cbFöldAlattIonMunk.Text.Substring(0, 1)).ToString();
+
                 }
             }
             else
@@ -1639,7 +1645,11 @@ namespace Felisz.Formok
                 SQLCommand.ExecuteNonQuery();
 
                 Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " hozzátartozója rögzítve! " + DateTime.Now.ToString());
-
+                tbHozzáVezetéknév.Text = "";
+                tbHozzáUtónév1.Text = "";
+                tbHozzáUtónév2.Text = "";
+                tbSzülDátumHozzá.Text = "";
+                cbFogyatékHozzá.Text = "";
 
 
                 SQLCommand.Dispose();
@@ -1695,6 +1705,7 @@ namespace Felisz.Formok
             {
                 HozzátartozóTörlése(formMunkavállalóVálasztás.azon);
                 HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
+                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(int.Parse(tbAzonosítószám.Text), DateTime.Parse(tbSzületésDátum.Text), cbMegVáltMunkFogy.Text.Substring(0, 1), cbFöldAlattIonMunk.Text.Substring(0, 1)).ToString();
             }
 
         }

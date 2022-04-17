@@ -88,7 +88,7 @@ namespace Felisz
 
         public static void SzemAdatok_AdatokMemóriábaOlvasása()
         {
-            
+
 
             MySql.Data.MySqlClient.MySqlConnection conn;
             string myConnectionString = Properties.Settings.Default.felisz_db_ConnectionString;
@@ -328,5 +328,7 @@ namespace Felisz
             conn.Close();
             return 1;
         }
+
+        
     }
 }

@@ -1,3 +1,28 @@
+V0.0.7.0
+	- Szabadság jogosultság kalkulátor
+		- Nincs rendesen tesztelve
+		- Tört dátumok kezelését még fejleszteni kell
+		- Egyenlõre csak a személyi adatok és hozzátartozók mentésekor aktualizálódik
+			(mentés és bezáráskor = hiba)
+			(problémát az egyszerûsített és föld alatti foglalkoztatás okozza,
+			ezek státuszát nem szabad a combobox-ból olvasni, hanem direkt az 
+			adatbázisból kell megdoldani! Következõ vezióban javítva lesz.)
+		- Felmerülõ igény:
+			- személyi adatok betöltésekor egybõl jelenjen meg a szabadságnapok száma (éves és késõbb egyenleg is)
+			- kalkulált összeget adatbázisba lementeni
+			- az év elsõ futtatásakor, automatikusan meg kell állapítani a szabadságnapok számát, és az 
+			adatbázisban aktualizálni, mindenféle beavatkozás nélkül
+			- lehetõség a kalkulált összeg manuális javítására (tartalékos katona, keresõképtelenség, stb.) 
+			- részmunkaidõs kalkuláció
+	- Kalkulátorban figyelembe vett tényezõk, melyeket tesztelni kell:
+		- Életkor
+		- 16 évnél fiatalabb gyerek
+		- Fogyatékos gyerek
+		- Gyerekek száma
+		- Megváltozott munkaképesség
+		- Föld alatti munkavégzés
+
+
 V0.0.6.5
 	- Hozzátartozók mentése Insert gombbal
 	- Univerzális mindenhol használható figyelmeztetõ ablak, TTS támogatással
