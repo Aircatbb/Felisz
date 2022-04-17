@@ -32,7 +32,7 @@
     <PublisherName>Future2021 Kft.</PublisherName>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>39</ApplicationRevision>
+    <ApplicationRevision>41</ApplicationRevision>
     <ApplicationVersion>0.1.5.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -265,6 +265,12 @@
     <Compile Include="Formok\formTörlésFigyelmeztetés.Designer.cs">
       <DependentUpon>formTörlésFigyelmeztetés.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formok\formFigyelmeztetésÁltalános.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formok\formFigyelmeztetésÁltalános.Designer.cs">
+      <DependentUpon>formFigyelmeztetésÁltalános.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formok\formVáltozásLista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -354,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formok\formTörlésFigyelmeztetés.resx">
       <DependentUpon>formTörlésFigyelmeztetés.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formok\formFigyelmeztetésÁltalános.resx">
+      <DependentUpon>formFigyelmeztetésÁltalános.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formok\formVáltozásLista.resx">
       <DependentUpon>formVáltozásLista.cs</DependentUpon>

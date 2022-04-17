@@ -1,3 +1,8 @@
+V0.0.6.5
+	- Hozzátartozók mentése Insert gombbal
+	- Univerzális mindenhol használható figyelmeztetõ ablak, TTS támogatással
+	- Törlésfunkció a hozzátartozóknál aktív
+
 V0.0.6.4
 	- Új munkavállaló rögzítése esetén a többi TLP (Hozzátartozók, Kapcsolatok) letiltva, amíg a
 	munkavállaló adatai nincsenek mentve.

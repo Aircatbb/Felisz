@@ -1224,18 +1224,44 @@ namespace Felisz.Formok
         private void formSzemAdatok_KeyDown(object sender, KeyEventArgs e)
         {
 
+
+
             if (e.KeyCode == Keys.Insert)
             {
-                if (MentésIndítható(tlpÁltalánosSzemélyiAdatok))
+
+                if (tcSzemélyiAdatok.SelectedTab.Text == "Általános személyi adatok")
                 {
-                    if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
-                    if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
+                    if (MentésIndítható(tlpÁltalánosSzemélyiAdatok))
+                    {
+                        if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
+                        if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
+                    }
+                    else
+                    {
+                        MessageBox.Show("A jelölt mezők kitöltése kötelező, illetve lehetséges hibákat tartalmazhatnak." + Environment.NewLine +
+                                        "A mentés nem lehetséges!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
                 }
-                else
+
+                if (tcSzemélyiAdatok.SelectedTab.Text == "Hozzátartozók")
                 {
-                    MessageBox.Show("A jelölt mezők kitöltése kötelező, illetve lehetséges hibákat tartalmazhatnak." + Environment.NewLine +
-                                    "A mentés nem lehetséges!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    if (MentésIndítható(tlpHozzátartozók))
+                    {
+                        if (formMunkavállalóVálasztás.mód == "M")
+                        {
+                            HozzátartozókMentés();
+                            HozzátartozókBetöltése(int.Parse(tbAzonosítószám.Text));
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("A jelölt mezők kitöltése kötelező, illetve lehetséges hibákat tartalmazhatnak." + Environment.NewLine +
+                                        "A mentés nem lehetséges!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
                 }
+
+
             }
 
 
@@ -1412,7 +1438,7 @@ namespace Felisz.Formok
         {
 
             ToolTippekBetöltése(this, paragrafusTippek);
-            
+
 
 
         }
@@ -1627,6 +1653,88 @@ namespace Felisz.Formok
 
 
 
+
+
+        }
+
+        private void tlpHozzátartozók_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private string hozzáTartVezetéknév = "";
+        private string hozzáTartUtónév1 = "";
+        private string hozzáTartUtónév2 = "";
+
+        private void dgvHozzátartozó_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                btHozzTartTörlés.Visible = false;
+                return;
+            }
+
+            btHozzTartTörlés.Visible = true;
+            hozzáTartVezetéknév = dgvHozzátartozó[0, e.RowIndex].Value.ToString();
+            hozzáTartUtónév1 = dgvHozzátartozó[1, e.RowIndex].Value.ToString();
+            hozzáTartUtónév2 = dgvHozzátartozó[2, e.RowIndex].Value.ToString();
+
+        }
+
+        private void btHozzTartTörlés_Click(object sender, EventArgs e)
+        {
+
+            formFigyelmeztetésÁltalános figyelem = new formFigyelmeztetésÁltalános(
+                "FIGYELEM! A hozzátartozó törlésére készül!" + Environment.NewLine +
+                "Valóban ezt akarja!?",
+                "Figyelem, a hozzátartozó törlésére készül!"
+                );
+
+            DialogResult válasz = figyelem.ShowDialog();
+            if (válasz == DialogResult.OK)
+            {
+                HozzátartozóTörlése(formMunkavállalóVálasztás.azon);
+                HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
+            }
+
+        }
+
+        private void HozzátartozóTörlése(int SzemAzon)
+        {
+
+
+
+
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString = Properties.Settings.Default.felisz_db_ConnectionString;
+            myConnectionString = Adatbázis.MyConnectionString();
+            conn = new MySql.Data.MySqlClient.MySqlConnection();
+            conn.ConnectionString = myConnectionString;
+
+
+
+            try
+            {
+                conn.Open();
+
+                //Személyi adatok törlése
+                string sql = "DELETE FROM SzemHozzaTart WHERE SzemAzon='" + SzemAzon.ToString() + "' " +
+                    "AND VezNev='" + hozzáTartVezetéknév + "' " +
+                    "AND UtoNev1='" + hozzáTartUtónév1 + "' " +
+                    "AND UtoNev2='" + hozzáTartUtónév2 + "'";
+                var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+                SQLCommand.ExecuteNonQuery();
+
+
+                Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " hozzátartozója törölve! " + DateTime.Now.ToString());
+                SQLCommand.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis írási hiba (Hozzátartozó törlése)!---" + ex);
+                MessageBox.Show("Adatbázis írási hiba (Hozzátartozó törlése)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            conn.Close();
 
 
         }

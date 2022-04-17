@@ -119,13 +119,15 @@ namespace Felisz.Formok
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tbSzülDátumHozzá = new System.Windows.Forms.TextBox();
             this.tbHozzáUtónév2 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btHozzTartMentes = new System.Windows.Forms.Button();
+            this.btHozzTartTörlés = new System.Windows.Forms.Button();
             this.tbHozzáUtónév1 = new System.Windows.Forms.TextBox();
             this.tbHozzáVezetéknév = new System.Windows.Forms.TextBox();
             this.lbSzülDátumHozzá = new System.Windows.Forms.Label();
             this.lbHozzáVezetéknév = new System.Windows.Forms.Label();
             this.lbHozzáUtónév1 = new System.Windows.Forms.Label();
             this.lbHozzáUtónév2 = new System.Windows.Forms.Label();
-            this.btHozzTartMentes = new System.Windows.Forms.Button();
             this.lbFogyatékHozzá = new System.Windows.Forms.Label();
             this.cbFogyatékHozzá = new System.Windows.Forms.ComboBox();
             this.dgvHozzátartozó = new System.Windows.Forms.DataGridView();
@@ -152,6 +154,7 @@ namespace Felisz.Formok
             this.tlpHozzátartozók.SuspendLayout();
             this.gpHozzátartozó.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHozzátartozó)).BeginInit();
             this.tpKapcsolatok.SuspendLayout();
             this.SuspendLayout();
@@ -1416,6 +1419,7 @@ namespace Felisz.Formok
             this.tlpHozzátartozók.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpHozzátartozók.Size = new System.Drawing.Size(1231, 761);
             this.tlpHozzátartozók.TabIndex = 29;
+            this.tlpHozzátartozók.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpHozzátartozók_Paint);
             // 
             // gpHozzátartozó
             // 
@@ -1424,7 +1428,7 @@ namespace Felisz.Formok
             this.gpHozzátartozó.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.gpHozzátartozó.Location = new System.Drawing.Point(3, 3);
             this.gpHozzátartozó.Name = "gpHozzátartozó";
-            this.gpHozzátartozó.Size = new System.Drawing.Size(420, 204);
+            this.gpHozzátartozó.Size = new System.Drawing.Size(420, 210);
             this.gpHozzátartozó.TabIndex = 25;
             this.gpHozzátartozó.TabStop = false;
             this.gpHozzátartozó.Text = "Hozzátartozó";
@@ -1436,13 +1440,13 @@ namespace Felisz.Formok
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel5.Controls.Add(this.tbSzülDátumHozzá, 1, 3);
             this.tableLayoutPanel5.Controls.Add(this.tbHozzáUtónév2, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel1, 1, 5);
             this.tableLayoutPanel5.Controls.Add(this.tbHozzáUtónév1, 1, 1);
             this.tableLayoutPanel5.Controls.Add(this.tbHozzáVezetéknév, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.lbSzülDátumHozzá, 0, 3);
             this.tableLayoutPanel5.Controls.Add(this.lbHozzáVezetéknév, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.lbHozzáUtónév1, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.lbHozzáUtónév2, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.btHozzTartMentes, 1, 5);
             this.tableLayoutPanel5.Controls.Add(this.lbFogyatékHozzá, 0, 4);
             this.tableLayoutPanel5.Controls.Add(this.cbFogyatékHozzá, 1, 4);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1462,7 +1466,7 @@ namespace Felisz.Formok
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(414, 185);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(414, 191);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // tbSzülDátumHozzá
@@ -1491,6 +1495,52 @@ namespace Felisz.Formok
             this.tbHozzáUtónév2.Size = new System.Drawing.Size(243, 26);
             this.tbHozzáUtónév2.TabIndex = 4;
             this.tbHozzáUtónév2.Validated += new System.EventHandler(this.tbHozzáUtónév2_Validated);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.btHozzTartMentes, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btHozzTartTörlés, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(169, 156);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(242, 32);
+            this.tableLayoutPanel1.TabIndex = 27;
+            // 
+            // btHozzTartMentes
+            // 
+            this.btHozzTartMentes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btHozzTartMentes.BackColor = System.Drawing.Color.Transparent;
+            this.btHozzTartMentes.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
+            this.btHozzTartMentes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.btHozzTartMentes.Location = new System.Drawing.Point(137, 3);
+            this.btHozzTartMentes.Name = "btHozzTartMentes";
+            this.btHozzTartMentes.Size = new System.Drawing.Size(102, 26);
+            this.btHozzTartMentes.TabIndex = 7;
+            this.btHozzTartMentes.Text = "MENTÉS";
+            this.btHozzTartMentes.UseVisualStyleBackColor = false;
+            this.btHozzTartMentes.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btHozzTartTörlés
+            // 
+            this.btHozzTartTörlés.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btHozzTartTörlés.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
+            this.btHozzTartTörlés.FlatAppearance.BorderSize = 0;
+            this.btHozzTartTörlés.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btHozzTartTörlés.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
+            this.btHozzTartTörlés.ForeColor = System.Drawing.Color.White;
+            this.btHozzTartTörlés.Location = new System.Drawing.Point(3, 3);
+            this.btHozzTartTörlés.Name = "btHozzTartTörlés";
+            this.btHozzTartTörlés.Size = new System.Drawing.Size(102, 26);
+            this.btHozzTartTörlés.TabIndex = 24;
+            this.btHozzTartTörlés.Text = "TÖRLÉS";
+            this.btHozzTartTörlés.UseVisualStyleBackColor = false;
+            this.btHozzTartTörlés.Visible = false;
+            this.btHozzTartTörlés.Click += new System.EventHandler(this.btHozzTartTörlés_Click);
             // 
             // tbHozzáUtónév1
             // 
@@ -1571,20 +1621,6 @@ namespace Felisz.Formok
             this.lbHozzáUtónév2.Text = "Utónév 2";
             this.lbHozzáUtónév2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btHozzTartMentes
-            // 
-            this.btHozzTartMentes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btHozzTartMentes.BackColor = System.Drawing.Color.Transparent;
-            this.btHozzTartMentes.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
-            this.btHozzTartMentes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.btHozzTartMentes.Location = new System.Drawing.Point(309, 156);
-            this.btHozzTartMentes.Name = "btHozzTartMentes";
-            this.btHozzTartMentes.Size = new System.Drawing.Size(102, 26);
-            this.btHozzTartMentes.TabIndex = 7;
-            this.btHozzTartMentes.Text = "MENTÉS";
-            this.btHozzTartMentes.UseVisualStyleBackColor = false;
-            this.btHozzTartMentes.Click += new System.EventHandler(this.button2_Click);
-            // 
             // lbFogyatékHozzá
             // 
             this.lbFogyatékHozzá.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
@@ -1648,7 +1684,7 @@ namespace Felisz.Formok
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvHozzátartozó.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHozzátartozó.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.dgvHozzátartozó.Location = new System.Drawing.Point(3, 213);
+            this.dgvHozzátartozó.Location = new System.Drawing.Point(3, 219);
             this.dgvHozzátartozó.MultiSelect = false;
             this.dgvHozzátartozó.Name = "dgvHozzátartozó";
             this.dgvHozzátartozó.ReadOnly = true;
@@ -1677,6 +1713,7 @@ namespace Felisz.Formok
             this.dgvHozzátartozó.Size = new System.Drawing.Size(420, 149);
             this.dgvHozzátartozó.TabIndex = 26;
             this.dgvHozzátartozó.TabStop = false;
+            this.dgvHozzátartozó.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHozzátartozó_CellClick);
             // 
             // lbHozzátartozókFigyelmeztetés
             // 
@@ -1757,6 +1794,7 @@ namespace Felisz.Formok
             this.gpHozzátartozó.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHozzátartozó)).EndInit();
             this.tpKapcsolatok.ResumeLayout(false);
             this.tpKapcsolatok.PerformLayout();
@@ -1864,5 +1902,7 @@ namespace Felisz.Formok
         private System.Windows.Forms.ComboBox cbFöldAlattIonMunk;
         private System.Windows.Forms.Label lbHozzátartozókFigyelmeztetés;
         private System.Windows.Forms.Label lbKapcsolatokFigyelmeztetés;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btHozzTartTörlés;
     }
 }

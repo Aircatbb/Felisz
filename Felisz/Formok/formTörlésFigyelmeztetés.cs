@@ -21,20 +21,18 @@ namespace Felisz.Formok
         {
             TTS.TTS_Stop();
             TTS.TTS_Play("FIGYELEM! VÉGLEGESEN TÖRÖLNI KÉSZÜL A KIVÁLASZTOTT MUNKAVÁLLALÓT!");
-            //Funkciók.TTS("ACHTUNG! DER AUSGEWÄHLTE MITARBEITER WIRD DAUERHAFT GELÖSCHT!");
+            
         }
 
         private void btMegszakítás_Click(object sender, EventArgs e)
         {
             TTS.hang.SpeakAsyncCancelAll();
-            //this.DialogResult = DialogResult.Abort;
             formMunkavállalóVálasztás.mód = "A";
         }
 
         private void btTörlés_Click(object sender, EventArgs e)
         {
             TTS.hang.SpeakAsyncCancelAll();
-            //this.DialogResult = DialogResult.Yes;
             formMunkavállalóVálasztás.mód = "T";
         }
     }
