@@ -1,5 +1,10 @@
+V0.0.7.1
+	- Észrevétel: foglalkoztatás helyét rosszul tölti vissza! Attila tesztelés? :-P
+	- Szabdság igény aktualizálás javítva, bezáráskor nincs hiba.
+	- Betöltéskor frissül
+
 V0.0.7.0
-	- Szabadság jogosultság kalkulátor
+	- Szabadság igény kalkulátor
 		- Nincs rendesen tesztelve
 		- Tört dátumok kezelését még fejleszteni kell
 		- Egyenlõre csak a személyi adatok és hozzátartozók mentésekor aktualizálódik

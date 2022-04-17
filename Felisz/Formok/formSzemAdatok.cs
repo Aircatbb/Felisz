@@ -537,7 +537,8 @@ namespace Felisz.Formok
             if (formMunkavállalóVálasztás.mód == "M")
             {
                 SzemélyiAdatokBetöltése();
-                
+                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
+
             }
             if (formMunkavállalóVálasztás.mód == "T")
             {
@@ -849,7 +850,7 @@ namespace Felisz.Formok
             {
                 if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
                 if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
-                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(int.Parse(tbAzonosítószám.Text), DateTime.Parse(tbSzületésDátum.Text), cbMegVáltMunkFogy.Text.Substring(0, 1), cbFöldAlattIonMunk.Text.Substring(0, 1)).ToString();
+                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
             }
             else
             {
@@ -910,7 +911,11 @@ namespace Felisz.Formok
 
                     cbÁllampolgárság.SelectedItem = dataReader.GetString(dataReader.GetOrdinal("AllamPolg"));
 
+                    //Ezzel még kell foglalkozni!!! Nem olvassa vissza
+                    var test = cbFoglalkoztatásHelye.Items;
                     cbFoglalkoztatásHelye.SelectedItem = dataReader.GetInt16(dataReader.GetOrdinal("SzekhelyTelephelyID"));
+                    
+
                     tbEngedélykör.Text = dataReader.GetString(dataReader.GetOrdinal("EngedelyKor"));
 
 
@@ -1238,7 +1243,7 @@ namespace Felisz.Formok
                     {
                         if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
                         if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
-                        tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(int.Parse(tbAzonosítószám.Text), DateTime.Parse(tbSzületésDátum.Text), cbMegVáltMunkFogy.Text.Substring(0, 1), cbFöldAlattIonMunk.Text.Substring(0, 1)).ToString();
+                        tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
                     }
                     else
                     {
@@ -1556,7 +1561,7 @@ namespace Felisz.Formok
                 {
                     HozzátartozókMentés();
                     HozzátartozókBetöltése(int.Parse(tbAzonosítószám.Text));
-                    tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(int.Parse(tbAzonosítószám.Text), DateTime.Parse(tbSzületésDátum.Text), cbMegVáltMunkFogy.Text.Substring(0, 1), cbFöldAlattIonMunk.Text.Substring(0, 1)).ToString();
+                    tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
 
                 }
             }
@@ -1705,7 +1710,7 @@ namespace Felisz.Formok
             {
                 HozzátartozóTörlése(formMunkavállalóVálasztás.azon);
                 HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
-                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(int.Parse(tbAzonosítószám.Text), DateTime.Parse(tbSzületésDátum.Text), cbMegVáltMunkFogy.Text.Substring(0, 1), cbFöldAlattIonMunk.Text.Substring(0, 1)).ToString();
+                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
             }
 
         }

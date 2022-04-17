@@ -1006,26 +1006,30 @@ namespace Felisz
 
         }
 
-        public static int SzabadságJogosultságKalkulátor(int azonosító, DateTime szülDátum, string megváltozott, string földAlatt)
+        public static int SzabadságJogosultságKalkulátor(int azonosító)
         {
-            MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = Adatbázis.MyConnectionString();
-            conn = new MySql.Data.MySqlClient.MySqlConnection();
-            conn.ConnectionString = myConnectionString;
 
 
 
-            string sql = "SELECT SzulDatum, Fogyatekos FROM SzemHozzaTart WHERE SzemAzon='" + azonosító + "' ";
-            var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+            int gyerekekSzáma = 0;
+            int szabadság = 20;
+
+
+            #region Hozzátartozó adatai, szabi számítás
+
 
             try
             {
+                MySql.Data.MySqlClient.MySqlConnection conn;
+                string myConnectionString = Adatbázis.MyConnectionString();
+                conn = new MySql.Data.MySqlClient.MySqlConnection();
+                conn.ConnectionString = myConnectionString;
+
+
+                string sql = "SELECT SzulDatum, Fogyatekos FROM SzemHozzaTart WHERE SzemAzon='" + azonosító + "' ";
+                var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 conn.Open();
                 MySql.Data.MySqlClient.MySqlDataReader dataReader = SQLCommand.ExecuteReader();
-
-
-                int gyerekekSzáma = 0;
-                int szabadság = 20;
 
                 while (dataReader.Read())
                 {
@@ -1037,7 +1041,7 @@ namespace Felisz
 
                 }
 
-                conn.Close();
+
 
                 switch (gyerekekSzáma)
                 {
@@ -1052,15 +1056,35 @@ namespace Felisz
                     default:
                         break;
                 }
+                dataReader.Close();
 
-                if (megváltozott == "I") szabadság += 5;
-                if (földAlatt == "I") szabadság += 5;
+                #endregion
+
+                #region Megváltozott munkaképesség és föld alatti munkavégzés, szül. dátum
 
 
 
 
 
-                switch (DateTime.Now.Year - szülDátum.Year)
+                sql = "SELECT SzulDatum, MegvaltMunkFogy, FoldAlattIonMunk FROM SzemTorzs " +
+                    "WHERE SzemAzon='" + azonosító + "' " +
+                    "AND SzemErvIg='2099-01-31'";
+                SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+                dataReader = SQLCommand.ExecuteReader();
+
+
+
+                dataReader.Read();
+
+                var test = dataReader.GetDateTime(dataReader.GetOrdinal("SzulDatum"));
+                if (dataReader.GetString(dataReader.GetOrdinal("MegvaltMunkFogy")) == "I") szabadság += 5;
+                if (dataReader.GetString(dataReader.GetOrdinal("FoldAlattIonMunk")) == "I") szabadság += 5;
+
+                
+                #endregion
+
+                #region Alapszabadság számítása
+                switch (DateTime.Now.Year - dataReader.GetDateTime(dataReader.GetOrdinal("SzulDatum")).Year)
                 {
                     case int n when (n < 25):
                         break;
@@ -1098,6 +1122,12 @@ namespace Felisz
                         break;
                 }
 
+                dataReader.Close();
+                conn.Close();
+
+
+                #endregion
+
                 return szabadság;
 
 
@@ -1107,7 +1137,6 @@ namespace Felisz
             {
                 Program.logger.Error("---Adatbázis olvasási hiba (Szabadság jogosultság)!---" + ex);
                 MessageBox.Show("Adatbázis olvasási hiba (Szabadság jogosultság)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                conn.Close();
                 return 0;
             }
 
