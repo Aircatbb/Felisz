@@ -1,3 +1,6 @@
+V0.0.7.4
+	- TTS beállítások mentése, visszatöltése, beállítása javítva
+
 V0.0.7.3
 	- Alapbeállításokon belül elérhetõ a változáslista
 	- TTS beállításoknál elérhetõ a hangerõ és a beszéd sebessége

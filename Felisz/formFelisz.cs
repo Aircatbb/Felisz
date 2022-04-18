@@ -423,11 +423,7 @@ namespace Felisz
             }
             
 
-            //TTS.TTS_Play("A teendők listában az alábbiak szerepelnek: megfejni a macskát, megetetni a házisárkányt!");
-
-
-            //TTS.hang.State==System.Speech.Synthesis.SynthesizerState.Speaking
-
+            
 
         }
 

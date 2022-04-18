@@ -132,9 +132,9 @@ namespace Felisz
             //Licenc
             tbLicenc.Text = Program.kódoltLic;
             //TTS
-            cbTTSEngedélyezve.Checked = Properties.Settings.Default.TTSEngedélyezve;
-            trbHangerő.Value = Properties.Settings.Default.TTSHangerő;
-            trbSebesség.Value = Properties.Settings.Default.TTSSebesség;
+            cbTTSEngedélyezve.Checked = Program.TTSEngedélyezve;
+            trbHangerő.Value = Program.TTSHangerő;
+            trbSebesség.Value = Program.TTSSebesség; 
             //Változáslista
             rtbVáltozásLista.Text = Properties.Resources.VáltozásLista;
 
@@ -146,23 +146,31 @@ namespace Felisz
         {
             if (cbTTSEngedélyezve.Checked)
             {
-                Funkciók.TTSRegÍrás(true, Properties.Settings.Default.TTSHangerő, Properties.Settings.Default.TTSSebesség);
+                Funkciók.TTSRegÍrás(true, Program.TTSHangerő, Program.TTSSebesség);
                 TTS.TTS_Beállítás();
             }
-            else Funkciók.TTSRegÍrás(false, Properties.Settings.Default.TTSHangerő, Properties.Settings.Default.TTSSebesség);
+            else Funkciók.TTSRegÍrás(false, Program.TTSHangerő, Program.TTSSebesség);
         }
 
 
         private void trbSebesség_ValueChanged(object sender, EventArgs e)
         {
-            Funkciók.TTSRegÍrás(Properties.Settings.Default.TTSEngedélyezve, trbHangerő.Value, trbSebesség.Value);
+
+            Program.TTSSebesség = trbSebesség.Value;
+            Funkciók.TTSRegÍrás(Program.TTSEngedélyezve, Program.TTSHangerő,  Program.TTSSebesség);
             TTS.TTS_Beállítás();
         }
 
         private void trbHangerő_ValueChanged(object sender, EventArgs e)
         {
-            Funkciók.TTSRegÍrás(Properties.Settings.Default.TTSEngedélyezve, trbHangerő.Value, trbSebesség.Value);
+            Program.TTSHangerő = trbHangerő.Value;
+            Funkciók.TTSRegÍrás(Program.TTSEngedélyezve, Program.TTSHangerő, Program.TTSSebesség);
             TTS.TTS_Beállítás();
+        }
+
+        private void trbHangerő_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var test = 0;
         }
     }
 }

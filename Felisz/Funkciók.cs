@@ -134,18 +134,17 @@ namespace Felisz
             RegistryKey TTSKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz\\", true);
 
             TTSKey.SetValue("TTSEnabled", engedélyezve);
-            Properties.Settings.Default.TTSEngedélyezve = engedélyezve;
+            Program.TTSEngedélyezve = engedélyezve;
 
 
             TTSKey.SetValue("TTSVolume", beszHangerő);
-            Properties.Settings.Default.TTSHangerő = beszHangerő;
+            Program.TTSHangerő = beszHangerő;
             
             TTSKey.SetValue("TTSSpeed", beszSebesség);
-            Properties.Settings.Default.TTSSebesség = beszSebesség;
+            Program.TTSSebesség = beszSebesség;
 
-            Properties.Settings.Default.Save();
-
-            var test = Properties.Settings.Default.TTSSebesség;
+            
+ 
 
             TTSKey.Close();
         }
@@ -163,39 +162,37 @@ namespace Felisz
             if (Registry.GetValue(TTSKey.ToString(), "TTSEnabled", null) == null)
             {
                 TTSKey.SetValue("TTSEnabled", false);
-                Properties.Settings.Default.TTSEngedélyezve = false;
+                Program.TTSEngedélyezve = false;
             }
 
             if (TTSKey.GetValue("TTSEnabled").ToString() == "True")
             {
-                Properties.Settings.Default.TTSEngedélyezve = true;
+                Program.TTSEngedélyezve = true;
             }
             else
             {
-                Properties.Settings.Default.TTSEngedélyezve = false;
+                Program.TTSEngedélyezve = false;
             }
 
             //Hangerő
             if (Registry.GetValue(TTSKey.ToString(), "TTSVolume", null) == null)
             {
                 TTSKey.SetValue("TTSVolume", 33);
-                Properties.Settings.Default.TTSHangerő = 33;
+                Program.TTSHangerő = 33;
             }
 
-            Properties.Settings.Default.TTSHangerő = int.Parse(TTSKey.GetValue("TTSVolume").ToString());
+            Program.TTSHangerő = int.Parse(TTSKey.GetValue("TTSVolume").ToString());
 
             //Sebesség
             if (Registry.GetValue(TTSKey.ToString(), "TTSSpeed", null) == null)
             {
                 TTSKey.SetValue("TTSSpeed", 0);
-                Properties.Settings.Default.TTSSebesség = 0;
+                Program.TTSSebesség = 0;
             }
 
-            Properties.Settings.Default.TTSSebesség = int.Parse(TTSKey.GetValue("TTSSPeed").ToString());
+            Program.TTSSebesség = int.Parse(TTSKey.GetValue("TTSSPeed").ToString());
 
-            Properties.Settings.Default.Save();
-
-            var test = Properties.Settings.Default.TTSSebesség;
+            
 
             TTSKey.Close();
 

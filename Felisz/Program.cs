@@ -21,6 +21,10 @@ namespace Felisz
         public static string jelszó = "";
         public static string aktuálisFelhasználó = "";
         public static string aktuálisFelhasználóNév = "";
+        //TTS
+        public static bool TTSEngedélyezve = false;
+        public static int TTSHangerő = 33;
+        public static int TTSSebesség = 0;
 
 
         /// <summary>

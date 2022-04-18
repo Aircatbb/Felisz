@@ -157,6 +157,7 @@ namespace Felisz
             this.trbSebesség.Name = "trbSebesség";
             this.trbSebesség.Size = new System.Drawing.Size(147, 45);
             this.trbSebesség.TabIndex = 19;
+            this.trbSebesség.Value = -5;
             this.trbSebesség.ValueChanged += new System.EventHandler(this.trbSebesség_ValueChanged);
             // 
             // label3
@@ -192,8 +193,8 @@ namespace Felisz
             this.trbHangerő.SmallChange = 5;
             this.trbHangerő.TabIndex = 16;
             this.trbHangerő.TickFrequency = 10;
-            this.trbHangerő.Value = 33;
             this.trbHangerő.ValueChanged += new System.EventHandler(this.trbHangerő_ValueChanged);
+            this.trbHangerő.Validating += new System.ComponentModel.CancelEventHandler(this.trbHangerő_Validating);
             // 
             // cbTTSEngedélyezve
             // 

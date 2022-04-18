@@ -13,7 +13,7 @@ namespace Felisz
 
         private void formMunkaTörvénykönyve_Load(object sender, EventArgs e)
         {
-            if(Properties.Settings.Default.TTSEngedélyezve==false)
+            if(Program.TTSEngedélyezve==false)
             {
                 btPlay.Visible = false;
                 btStop.Visible = false;

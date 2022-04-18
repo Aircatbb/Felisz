@@ -144,41 +144,5 @@ namespace Felisz.Properties {
                 this["GoogleMapsAPI"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool TTSEngedélyezve {
-            get {
-                return ((bool)(this["TTSEngedélyezve"]));
-            }
-            set {
-                this["TTSEngedélyezve"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("33")]
-        public int TTSHangerő {
-            get {
-                return ((int)(this["TTSHangerő"]));
-            }
-            set {
-                this["TTSHangerő"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int TTSSebesség {
-            get {
-                return ((int)(this["TTSSebesség"]));
-            }
-            set {
-                this["TTSSebesség"] = value;
-            }
-        }
     }
 }
