@@ -1,6 +1,7 @@
 V0.0.7.3
 	- Alapbeállításokon belül elérhetõ a változáslista
-	- TTS beállításoknál elérhetõ a hangerõ és a beszéd sebessége, beállítások mentésénél még van egy hiba...
+	- TTS beállításoknál elérhetõ a hangerõ és a beszéd sebessége
+	- A sebesség beállítás mentésénél még van egy hiba...
 
 V0.0.7.2
 	- Foglalkoztatás helyének visszatöltése javítva

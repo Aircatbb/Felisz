@@ -143,7 +143,7 @@ namespace Felisz
             this.gbCégadatok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.gbCégadatok.Location = new System.Drawing.Point(0, 61);
             this.gbCégadatok.Name = "gbCégadatok";
-            this.gbCégadatok.Size = new System.Drawing.Size(1647, 119);
+            this.gbCégadatok.Size = new System.Drawing.Size(1647, 129);
             this.gbCégadatok.TabIndex = 14;
             this.gbCégadatok.TabStop = false;
             this.gbCégadatok.Text = "Beszédaszisztens";
@@ -226,7 +226,7 @@ namespace Felisz
             this.gbVáltozásLista.Controls.Add(this.rtbVáltozásLista);
             this.gbVáltozásLista.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbVáltozásLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.gbVáltozásLista.Location = new System.Drawing.Point(0, 180);
+            this.gbVáltozásLista.Location = new System.Drawing.Point(0, 190);
             this.gbVáltozásLista.Name = "gbVáltozásLista";
             this.gbVáltozásLista.Size = new System.Drawing.Size(1647, 252);
             this.gbVáltozásLista.TabIndex = 15;
