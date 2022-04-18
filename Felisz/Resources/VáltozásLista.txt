@@ -1,3 +1,6 @@
+V0.0.7.2
+	- Foglalkoztatás helyének visszatöltése javítva
+
 V0.0.7.1
 	- Észrevétel: foglalkoztatás helyét rosszul tölti vissza! Attila tesztelés? :-P
 	- Szabdság igény aktualizálás javítva, bezáráskor nincs hiba.

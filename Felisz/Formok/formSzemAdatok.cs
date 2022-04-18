@@ -887,7 +887,17 @@ namespace Felisz.Formok
 
 
 
-                string sql = "select * from SzemTorzs where SzemAzon=" + formMunkavállalóVálasztás.azon;
+                string sql = "select * from SzemTorzs " +
+                             "where SzemAzon='" + formMunkavállalóVálasztás.azon + "' " +
+                             "and SzemTorzs.SzemErvIg='2099.01.31' ";
+                             
+                /*string sql = "select * from SzemTorzs, CegTorzs " +
+                           "where SzemAzon='" + formMunkavállalóVálasztás.azon + "' " +
+                           "and SzemTorzs.SzekhelyTelephelyID=CegTorzs.ID " +
+                           "and SzemTorzs.SzemErvIg='2099.01.31' " +
+                           "and CegTorzs.CegErvIg='2099.01.31'";
+                */
+
                 var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
 
 
@@ -911,13 +921,12 @@ namespace Felisz.Formok
 
                     cbÁllampolgárság.SelectedItem = dataReader.GetString(dataReader.GetOrdinal("AllamPolg"));
 
-                    //Ezzel még kell foglalkozni!!! Nem olvassa vissza
-                    var test = cbFoglalkoztatásHelye.Items;
+
                     cbFoglalkoztatásHelye.SelectedItem = dataReader.GetInt16(dataReader.GetOrdinal("SzekhelyTelephelyID"));
-                    
+                    FoglalkoztatásHelye talalat = Adatbázis.foglalkoztatásHelyeList.Find(item => item.ID == dataReader.GetInt16(dataReader.GetOrdinal("SzekhelyTelephelyID")));
+                    cbFoglalkoztatásHelye.SelectedIndex = cbFoglalkoztatásHelye.FindString(talalat.Megnevezés);
 
                     tbEngedélykör.Text = dataReader.GetString(dataReader.GetOrdinal("EngedelyKor"));
-
 
                     cbFEOR.Items.Add(dataReader.GetString(dataReader.GetOrdinal("Feor")));
                     string tempFeor = dataReader.GetString(dataReader.GetOrdinal("Feor")) + " - " + FeorLeírásLekérdezés(dataReader.GetString(dataReader.GetOrdinal("Feor")));
