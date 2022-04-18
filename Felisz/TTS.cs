@@ -14,9 +14,9 @@ namespace Felisz
         public static void TTS_Beállítás()
         {
             if (Properties.Settings.Default.TTSEngedélyezve == false) return;
-            hang.Rate = 0;
-            hang.Volume = 33;
-
+            hang.Rate = Properties.Settings.Default.TTSSebesség;
+            hang.Volume = Properties.Settings.Default.TTSHangerő;
+            
             var voice = hang.GetInstalledVoices();
             string hangName = voice[1].VoiceInfo.Name;
             string hangCulture = voice[1].VoiceInfo.Culture.ToString();

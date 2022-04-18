@@ -132,16 +132,37 @@ namespace Felisz
             //Licenc
             tbLicenc.Text = Program.kódoltLic;
             //TTS
-            if (Properties.Settings.Default.TTSEngedélyezve == true) cbTTSEngedélyezve.Checked = true;
-            
+            cbTTSEngedélyezve.Checked = Properties.Settings.Default.TTSEngedélyezve;
+            trbHangerő.Value = Properties.Settings.Default.TTSHangerő;
+            trbSebesség.Value = Properties.Settings.Default.TTSSebesség;
+            //Változáslista
+            rtbVáltozásLista.Text = Properties.Resources.VáltozásLista;
+
         }
 
   
 
         private void cbTTSEngedélyezve_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbTTSEngedélyezve.Checked) Funkciók.TTSRegÍrás(true);
-            else Funkciók.TTSRegÍrás(false);
+            if (cbTTSEngedélyezve.Checked)
+            {
+                Funkciók.TTSRegÍrás(true, Properties.Settings.Default.TTSHangerő, Properties.Settings.Default.TTSSebesség);
+                TTS.TTS_Beállítás();
+            }
+            else Funkciók.TTSRegÍrás(false, Properties.Settings.Default.TTSHangerő, Properties.Settings.Default.TTSSebesség);
+        }
+
+
+        private void trbSebesség_ValueChanged(object sender, EventArgs e)
+        {
+            Funkciók.TTSRegÍrás(Properties.Settings.Default.TTSEngedélyezve, trbHangerő.Value, trbSebesség.Value);
+            TTS.TTS_Beállítás();
+        }
+
+        private void trbHangerő_ValueChanged(object sender, EventArgs e)
+        {
+            Funkciók.TTSRegÍrás(Properties.Settings.Default.TTSEngedélyezve, trbHangerő.Value, trbSebesség.Value);
+            TTS.TTS_Beállítás();
         }
     }
 }

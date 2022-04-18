@@ -291,6 +291,7 @@ namespace Felisz
             Funkciók.TTSRegOlvasás();
 
 
+
             //RSS beolvasás indítása
             timerRSS_Tick(null, null);
 

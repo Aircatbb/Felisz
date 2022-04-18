@@ -36,12 +36,21 @@ namespace Felisz
             this.label2 = new System.Windows.Forms.Label();
             this.btAktualizálás = new System.Windows.Forms.Button();
             this.gbCégadatok = new System.Windows.Forms.GroupBox();
+            this.trbSebesség = new System.Windows.Forms.TrackBar();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.trbHangerő = new System.Windows.Forms.TrackBar();
             this.cbTTSEngedélyezve = new System.Windows.Forms.CheckBox();
             this.btCégMódosítás = new System.Windows.Forms.Button();
+            this.gbVáltozásLista = new System.Windows.Forms.GroupBox();
+            this.rtbVáltozásLista = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).BeginInit();
             this.gbLicenc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbCégadatok.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trbSebesség)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trbHangerő)).BeginInit();
+            this.gbVáltozásLista.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbFormClose
@@ -124,20 +133,72 @@ namespace Felisz
             // 
             // gbCégadatok
             // 
+            this.gbCégadatok.Controls.Add(this.trbSebesség);
+            this.gbCégadatok.Controls.Add(this.label3);
+            this.gbCégadatok.Controls.Add(this.label1);
+            this.gbCégadatok.Controls.Add(this.trbHangerő);
             this.gbCégadatok.Controls.Add(this.cbTTSEngedélyezve);
             this.gbCégadatok.Controls.Add(this.btCégMódosítás);
             this.gbCégadatok.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbCégadatok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.gbCégadatok.Location = new System.Drawing.Point(0, 61);
             this.gbCégadatok.Name = "gbCégadatok";
-            this.gbCégadatok.Size = new System.Drawing.Size(1647, 55);
+            this.gbCégadatok.Size = new System.Drawing.Size(1647, 119);
             this.gbCégadatok.TabIndex = 14;
             this.gbCégadatok.TabStop = false;
             this.gbCégadatok.Text = "Beszédaszisztens";
             // 
+            // trbSebesség
+            // 
+            this.trbSebesség.LargeChange = 1;
+            this.trbSebesség.Location = new System.Drawing.Point(91, 81);
+            this.trbSebesség.Maximum = 5;
+            this.trbSebesség.Minimum = -5;
+            this.trbSebesség.Name = "trbSebesség";
+            this.trbSebesség.Size = new System.Drawing.Size(147, 45);
+            this.trbSebesség.TabIndex = 19;
+            this.trbSebesség.ValueChanged += new System.EventHandler(this.trbSebesség_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.label3.Location = new System.Drawing.Point(12, 49);
+            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 26);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Hangerő";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.label1.Location = new System.Drawing.Point(12, 81);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 26);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Sebesség";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // trbHangerő
+            // 
+            this.trbHangerő.Location = new System.Drawing.Point(91, 49);
+            this.trbHangerő.Maximum = 100;
+            this.trbHangerő.Name = "trbHangerő";
+            this.trbHangerő.Size = new System.Drawing.Size(147, 45);
+            this.trbHangerő.SmallChange = 5;
+            this.trbHangerő.TabIndex = 16;
+            this.trbHangerő.TickFrequency = 10;
+            this.trbHangerő.Value = 33;
+            this.trbHangerő.ValueChanged += new System.EventHandler(this.trbHangerő_ValueChanged);
+            // 
             // cbTTSEngedélyezve
             // 
             this.cbTTSEngedélyezve.AutoSize = true;
+            this.cbTTSEngedélyezve.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cbTTSEngedélyezve.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.cbTTSEngedélyezve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.cbTTSEngedélyezve.Location = new System.Drawing.Point(12, 19);
@@ -160,12 +221,34 @@ namespace Felisz
             this.btCégMódosítás.Text = "MÓDOSÍTÁS";
             this.btCégMódosítás.UseVisualStyleBackColor = false;
             // 
+            // gbVáltozásLista
+            // 
+            this.gbVáltozásLista.Controls.Add(this.rtbVáltozásLista);
+            this.gbVáltozásLista.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbVáltozásLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.gbVáltozásLista.Location = new System.Drawing.Point(0, 180);
+            this.gbVáltozásLista.Name = "gbVáltozásLista";
+            this.gbVáltozásLista.Size = new System.Drawing.Size(1647, 252);
+            this.gbVáltozásLista.TabIndex = 15;
+            this.gbVáltozásLista.TabStop = false;
+            this.gbVáltozásLista.Text = "Változáslista";
+            // 
+            // rtbVáltozásLista
+            // 
+            this.rtbVáltozásLista.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbVáltozásLista.Location = new System.Drawing.Point(3, 16);
+            this.rtbVáltozásLista.Name = "rtbVáltozásLista";
+            this.rtbVáltozásLista.Size = new System.Drawing.Size(1641, 233);
+            this.rtbVáltozásLista.TabIndex = 12;
+            this.rtbVáltozásLista.Text = "";
+            // 
             // formAlapbeállítások
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(1647, 1000);
+            this.Controls.Add(this.gbVáltozásLista);
             this.Controls.Add(this.gbCégadatok);
             this.Controls.Add(this.gbLicenc);
             this.Controls.Add(this.pbFormClose);
@@ -179,6 +262,9 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbCégadatok.ResumeLayout(false);
             this.gbCégadatok.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trbSebesség)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trbHangerő)).EndInit();
+            this.gbVáltozásLista.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +281,11 @@ namespace Felisz
         private System.Windows.Forms.GroupBox gbCégadatok;
         private System.Windows.Forms.Button btCégMódosítás;
         private System.Windows.Forms.CheckBox cbTTSEngedélyezve;
+        private System.Windows.Forms.GroupBox gbVáltozásLista;
+        private System.Windows.Forms.RichTextBox rtbVáltozásLista;
+        private System.Windows.Forms.TrackBar trbSebesség;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TrackBar trbHangerő;
     }
 }
