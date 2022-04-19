@@ -1,3 +1,6 @@
+V0.0.7.6
+	- TTS vezérlõ jobb egér click = Pause, Resume
+
 V0.0.7.5
 	- Új vezérlõ a TTS lejátszáshoz és megállításhoz létrehozva. Paraméterként csak a szöveget tartalmazó
 	vezérlõt kell megadni, minden más teljesen automatikus!
