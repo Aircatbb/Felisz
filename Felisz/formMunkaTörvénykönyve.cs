@@ -15,8 +15,8 @@ namespace Felisz
         {
             if(Program.TTSEngedélyezve==false)
             {
-                btPlay.Visible = false;
-                btStop.Visible = false;
+                ttsPlayMT.Visible = false;
+                ttsPlayMT.Visible = false;
             }
         }
 

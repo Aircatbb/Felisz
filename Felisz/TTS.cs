@@ -16,7 +16,7 @@ namespace Felisz
             if (Program.TTSEngedélyezve == false) return;
             hang.Rate = Program.TTSSebesség;
             hang.Volume = Program.TTSHangerő;
-            
+
             var voice = hang.GetInstalledVoices();
             string hangName = voice[1].VoiceInfo.Name;
             string hangCulture = voice[1].VoiceInfo.Culture.ToString();
@@ -29,10 +29,10 @@ namespace Felisz
 
         public static void TTS_Play(string szöveg)
         {
-            
 
-            
-             if (Program.TTSEngedélyezve == false) return;
+
+
+            if (Program.TTSEngedélyezve == false) return;
             /*
             hang.Rate = 0;
              hang.Volume = 33;
@@ -62,6 +62,7 @@ namespace Felisz
                 { "easyjet", "ízidzset" },
                 { "chip", "csipp" },
                 { "volkswagen", "folkszvágen" },
+                { "§", "paragrafus" },
                 { "e-kerékpár", "elektromos kerékpár" }
             };
 

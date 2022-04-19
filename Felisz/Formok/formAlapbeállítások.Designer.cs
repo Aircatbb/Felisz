@@ -29,28 +29,33 @@ namespace Felisz
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAlapbeállítások));
             this.pbFormClose = new System.Windows.Forms.PictureBox();
             this.gbLicenc = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbClose = new System.Windows.Forms.PictureBox();
             this.tbLicenc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btAktualizálás = new System.Windows.Forms.Button();
-            this.gbCégadatok = new System.Windows.Forms.GroupBox();
+            this.gbBeszédaszisztens = new System.Windows.Forms.GroupBox();
             this.trbSebesség = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.trbHangerő = new System.Windows.Forms.TrackBar();
             this.cbTTSEngedélyezve = new System.Windows.Forms.CheckBox();
             this.btCégMódosítás = new System.Windows.Forms.Button();
-            this.gbVáltozásLista = new System.Windows.Forms.GroupBox();
+            this.gbVáltozásLista1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbVáltozásLista = new System.Windows.Forms.RichTextBox();
+            this.ttsPlay1 = new Felisz.Vezérlők.TTSPlay();
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).BeginInit();
             this.gbLicenc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.gbCégadatok.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
+            this.gbBeszédaszisztens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trbSebesség)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbHangerő)).BeginInit();
-            this.gbVáltozásLista.SuspendLayout();
+            this.gbVáltozásLista1.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ttsPlay1)).BeginInit();
             this.SuspendLayout();
             // 
             // pbFormClose
@@ -69,7 +74,7 @@ namespace Felisz
             // 
             // gbLicenc
             // 
-            this.gbLicenc.Controls.Add(this.pictureBox1);
+            this.gbLicenc.Controls.Add(this.pbClose);
             this.gbLicenc.Controls.Add(this.tbLicenc);
             this.gbLicenc.Controls.Add(this.label2);
             this.gbLicenc.Controls.Add(this.btAktualizálás);
@@ -82,16 +87,16 @@ namespace Felisz
             this.gbLicenc.TabStop = false;
             this.gbLicenc.Text = "Licenc aktualizálás";
             // 
-            // pictureBox1
+            // pbClose
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::Felisz.Properties.Resources.window_close;
-            this.pictureBox1.Location = new System.Drawing.Point(1626, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.pbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbClose.Image = global::Felisz.Properties.Resources.window_close;
+            this.pbClose.Location = new System.Drawing.Point(1626, 0);
+            this.pbClose.Name = "pbClose";
+            this.pbClose.Size = new System.Drawing.Size(24, 24);
+            this.pbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbClose.TabIndex = 11;
+            this.pbClose.TabStop = false;
             // 
             // tbLicenc
             // 
@@ -131,22 +136,22 @@ namespace Felisz
             this.btAktualizálás.UseVisualStyleBackColor = false;
             this.btAktualizálás.Click += new System.EventHandler(this.btAktualizálás_Click);
             // 
-            // gbCégadatok
+            // gbBeszédaszisztens
             // 
-            this.gbCégadatok.Controls.Add(this.trbSebesség);
-            this.gbCégadatok.Controls.Add(this.label3);
-            this.gbCégadatok.Controls.Add(this.label1);
-            this.gbCégadatok.Controls.Add(this.trbHangerő);
-            this.gbCégadatok.Controls.Add(this.cbTTSEngedélyezve);
-            this.gbCégadatok.Controls.Add(this.btCégMódosítás);
-            this.gbCégadatok.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbCégadatok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.gbCégadatok.Location = new System.Drawing.Point(0, 61);
-            this.gbCégadatok.Name = "gbCégadatok";
-            this.gbCégadatok.Size = new System.Drawing.Size(1647, 129);
-            this.gbCégadatok.TabIndex = 14;
-            this.gbCégadatok.TabStop = false;
-            this.gbCégadatok.Text = "Beszédaszisztens";
+            this.gbBeszédaszisztens.Controls.Add(this.trbSebesség);
+            this.gbBeszédaszisztens.Controls.Add(this.label3);
+            this.gbBeszédaszisztens.Controls.Add(this.label1);
+            this.gbBeszédaszisztens.Controls.Add(this.trbHangerő);
+            this.gbBeszédaszisztens.Controls.Add(this.cbTTSEngedélyezve);
+            this.gbBeszédaszisztens.Controls.Add(this.btCégMódosítás);
+            this.gbBeszédaszisztens.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbBeszédaszisztens.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.gbBeszédaszisztens.Location = new System.Drawing.Point(0, 61);
+            this.gbBeszédaszisztens.Name = "gbBeszédaszisztens";
+            this.gbBeszédaszisztens.Size = new System.Drawing.Size(1647, 129);
+            this.gbBeszédaszisztens.TabIndex = 14;
+            this.gbBeszédaszisztens.TabStop = false;
+            this.gbBeszédaszisztens.Text = "Beszédaszisztens";
             // 
             // trbSebesség
             // 
@@ -194,7 +199,6 @@ namespace Felisz
             this.trbHangerő.TabIndex = 16;
             this.trbHangerő.TickFrequency = 10;
             this.trbHangerő.ValueChanged += new System.EventHandler(this.trbHangerő_ValueChanged);
-            this.trbHangerő.Validating += new System.ComponentModel.CancelEventHandler(this.trbHangerő_Validating);
             // 
             // cbTTSEngedélyezve
             // 
@@ -222,26 +226,56 @@ namespace Felisz
             this.btCégMódosítás.Text = "MÓDOSÍTÁS";
             this.btCégMódosítás.UseVisualStyleBackColor = false;
             // 
-            // gbVáltozásLista
+            // gbVáltozásLista1
             // 
-            this.gbVáltozásLista.Controls.Add(this.rtbVáltozásLista);
-            this.gbVáltozásLista.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbVáltozásLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.gbVáltozásLista.Location = new System.Drawing.Point(0, 190);
-            this.gbVáltozásLista.Name = "gbVáltozásLista";
-            this.gbVáltozásLista.Size = new System.Drawing.Size(1647, 252);
-            this.gbVáltozásLista.TabIndex = 15;
-            this.gbVáltozásLista.TabStop = false;
-            this.gbVáltozásLista.Text = "Változáslista";
+            this.gbVáltozásLista1.Controls.Add(this.tableLayoutPanel12);
+            this.gbVáltozásLista1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbVáltozásLista1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.gbVáltozásLista1.Location = new System.Drawing.Point(0, 190);
+            this.gbVáltozásLista1.Name = "gbVáltozásLista1";
+            this.gbVáltozásLista1.Size = new System.Drawing.Size(1647, 616);
+            this.gbVáltozásLista1.TabIndex = 15;
+            this.gbVáltozásLista1.TabStop = false;
+            this.gbVáltozásLista1.Text = "Változáslista";
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 1;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.Controls.Add(this.rtbVáltozásLista, 0, 3);
+            this.tableLayoutPanel12.Controls.Add(this.ttsPlay1, 0, 2);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 4;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(799, 334);
+            this.tableLayoutPanel12.TabIndex = 0;
             // 
             // rtbVáltozásLista
             // 
-            this.rtbVáltozásLista.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbVáltozásLista.Location = new System.Drawing.Point(3, 16);
+            this.rtbVáltozásLista.Location = new System.Drawing.Point(3, 23);
             this.rtbVáltozásLista.Name = "rtbVáltozásLista";
-            this.rtbVáltozásLista.Size = new System.Drawing.Size(1641, 233);
+            this.rtbVáltozásLista.Size = new System.Drawing.Size(793, 258);
             this.rtbVáltozásLista.TabIndex = 12;
             this.rtbVáltozásLista.Text = "";
+            // 
+            // ttsPlay1
+            // 
+            this.ttsPlay1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ttsPlay1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ttsPlay1.Image = ((System.Drawing.Image)(resources.GetObject("ttsPlay1.Image")));
+            this.ttsPlay1.Location = new System.Drawing.Point(775, 0);
+            this.ttsPlay1.Margin = new System.Windows.Forms.Padding(0);
+            this.ttsPlay1.mitMondjak = this.rtbVáltozásLista;
+            this.ttsPlay1.Name = "ttsPlay1";
+            this.ttsPlay1.Size = new System.Drawing.Size(24, 20);
+            this.ttsPlay1.TabIndex = 13;
+            this.ttsPlay1.TabStop = false;
+            this.ttsPlay1.TTSállapot = false;
             // 
             // formAlapbeállítások
             // 
@@ -249,8 +283,8 @@ namespace Felisz
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(1647, 1000);
-            this.Controls.Add(this.gbVáltozásLista);
-            this.Controls.Add(this.gbCégadatok);
+            this.Controls.Add(this.gbVáltozásLista1);
+            this.Controls.Add(this.gbBeszédaszisztens);
             this.Controls.Add(this.gbLicenc);
             this.Controls.Add(this.pbFormClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -260,12 +294,14 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).EndInit();
             this.gbLicenc.ResumeLayout(false);
             this.gbLicenc.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.gbCégadatok.ResumeLayout(false);
-            this.gbCégadatok.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
+            this.gbBeszédaszisztens.ResumeLayout(false);
+            this.gbBeszédaszisztens.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trbSebesség)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbHangerő)).EndInit();
-            this.gbVáltozásLista.ResumeLayout(false);
+            this.gbVáltozásLista1.ResumeLayout(false);
+            this.tableLayoutPanel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ttsPlay1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,18 +311,20 @@ namespace Felisz
 
         private System.Windows.Forms.PictureBox pbFormClose;
         private System.Windows.Forms.GroupBox gbLicenc;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbClose;
         private System.Windows.Forms.TextBox tbLicenc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btAktualizálás;
-        private System.Windows.Forms.GroupBox gbCégadatok;
+        private System.Windows.Forms.GroupBox gbBeszédaszisztens;
         private System.Windows.Forms.Button btCégMódosítás;
         private System.Windows.Forms.CheckBox cbTTSEngedélyezve;
-        private System.Windows.Forms.GroupBox gbVáltozásLista;
-        private System.Windows.Forms.RichTextBox rtbVáltozásLista;
+        private System.Windows.Forms.GroupBox gbVáltozásLista1;
         private System.Windows.Forms.TrackBar trbSebesség;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TrackBar trbHangerő;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.RichTextBox rtbVáltozásLista;
+        private Vezérlők.TTSPlay ttsPlay1;
     }
 }

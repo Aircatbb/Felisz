@@ -171,6 +171,26 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hang {
+            get {
+                object obj = ResourceManager.GetObject("hang", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hang_inv {
+            get {
+                object obj = ResourceManager.GetObject("hang_inv", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon Icon {
@@ -361,15 +381,23 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to V1.5.0
-        ///	- A program indításakor ellenőrzi a verzióváltozást. Amennyiben új verziót észlel, megnyitja a VáltozásLista.txt-t.
-        ///V1.4.0
-        ///	- Mentés és frissítés működik a személyi törzsadatoknál
-        ///	- Személyi törzsadatokban az azonosító inaktív, illetve validált marad módosítás esetén
-        ///	- Személyi törzsadatokban dátumbevitel módosítva
-        ///	- Személyi törzsadatokban a mentés megerősítést kér
-        ///	- Személyi törzsadatokban az Insert gomb megnyomásakor szintén működik a mentés
-        ///	- Személyi törzsadatokban az irányítószám, [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to V0.0.7.4
+        ///	- TTS beállítások mentése, visszatöltése, beállítása javítva
+        ///
+        ///V0.0.7.3
+        ///	- Alapbeállításokon belül elérhető a változáslista
+        ///	- TTS beállításoknál elérhető a hangerő és a beszéd sebessége
+        ///	- A sebesség beállítás mentésénél még van egy hiba...
+        ///
+        ///V0.0.7.2
+        ///	- Foglalkoztatás helyének visszatöltése javítva
+        ///
+        ///V0.0.7.1
+        ///	- Észrevétel: foglalkoztatás helyét rosszul tölti vissza! Attila tesztelés? :-P
+        ///	- Szabdság igény aktualizálás javítva, bezáráskor nincs hiba.
+        ///	- Betöltéskor frissül
+        ///
+        ///V0.0.7.0 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VáltozásLista {
             get {

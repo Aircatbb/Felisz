@@ -32,7 +32,7 @@
     <PublisherName>Future2021 Kft.</PublisherName>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>47</ApplicationRevision>
+    <ApplicationRevision>48</ApplicationRevision>
     <ApplicationVersion>0.1.5.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -305,9 +305,16 @@
     <Compile Include="RSSFeed.cs" />
     <Compile Include="RSSPost.cs" />
     <Compile Include="TTS.cs" />
+    <Compile Include="Vezérlők\TTSPlay.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="VárosUtcanévImport.cs" />
     <Compile Include="Rekordok\Városkód.cs" />
     <Compile Include="XMLImport.cs" />
+    <None Include="Resources\hang_inv.png" />
+    <None Include="Resources\hang.png" />
+    <None Include="Resources\voice_sel.png" />
+    <None Include="Resources\voice.png" />
     <None Include="Resources\VáltozásLista.txt" />
     <None Include="Resources\Felisz.ico" />
     <None Include="Resources\Felisz.png" />

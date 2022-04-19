@@ -168,9 +168,6 @@ namespace Felisz
             TTS.TTS_Beállítás();
         }
 
-        private void trbHangerő_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            var test = 0;
-        }
+      
     }
 }

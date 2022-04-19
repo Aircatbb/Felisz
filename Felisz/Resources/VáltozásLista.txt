@@ -1,3 +1,9 @@
+V0.0.7.5
+	- Új vezérlõ a TTS lejátszáshoz és megállításhoz létrehozva. Paraméterként csak a szöveget tartalmazó
+	vezérlõt kell megadni, minden más teljesen automatikus!
+	Új TTS funkció ezentúl 1 perc alatt beállítható.
+	- Demo: Változáslista, és a MT alatt.
+
 V0.0.7.4
 	- TTS beállítások mentése, visszatöltése, beállítása javítva
 
