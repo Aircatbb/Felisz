@@ -286,10 +286,7 @@ namespace Felisz
             
 
 
-            //Registry beállítások olvasása
-            //TTS
-            Funkciók.TTSRegOlvasás();
-
+            
 
 
             //RSS beolvasás indítása
@@ -317,6 +314,10 @@ namespace Felisz
             //Országkódok, Irszám, Város, Utca DB betöltése a memóriába
             Thread threadOIVU_DB_Betöltés = new Thread(new ThreadStart(Adatbázis.SzemAdatok_AdatokMemóriábaOlvasása));
             threadOIVU_DB_Betöltés.Start();
+
+            //Registry beállítások olvasása
+            //TTS
+            Funkciók.TTSRegOlvasás();
 
             //Bejelentkezés
             Form form = new formBejelentkezés();
@@ -409,7 +410,7 @@ namespace Felisz
 
             
             
-            TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! A Felisz HR aszisztens üdvözli Önt! Ma " + DateTime.Now.Year + " " + TTS.szám2Hónap(DateTime.Now.Month) + " hónap " + TTS.szám2Nap(DateTime.Now.Day) + " van.");
+            TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! A Felisz auróra üdvözli Önt! Ma " + DateTime.Now.Year + " " + TTS.szám2Hónap(DateTime.Now.Month) + " hónap " + TTS.szám2Nap(DateTime.Now.Day) + " van.");
             TTS.TTS_Play("Születésnaposok: Bohus Attila");
             TTS.TTS_Play("Ma névnapjukat ünneplők: Lackó Mackó");
             TTS.TTS_Play("Felolvassam az aktuális híreket? Naná, hát persze!");

@@ -32,7 +32,7 @@ namespace Felisz
             }
         }
 
-        public static void DátumValidálás(Label címke, TextBox textboxneve, TextBox adóazon)
+        public static void DátumValidálás(Label címke, TextBox textboxneve, TextBox adóazon, bool üresEngedélyezve)
         {
 
             if (Funkciók.DátumFormázás(textboxneve.Text).ToString("yyyy.MM.dd") != DateTime.MinValue.ToString("yyyy.MM.dd"))
@@ -74,6 +74,7 @@ namespace Felisz
             else
             {
                 CímkeSzínBeállítás(címke, false);
+                if (üresEngedélyezve && textboxneve.Text=="") CímkeSzínBeállítás(címke, true);
                 if (adóazon != null) adóazon.Enabled = false;
             }
         }
@@ -1097,7 +1098,7 @@ namespace Felisz
 
                 dataReader.Read();
 
-                var test = dataReader.GetDateTime(dataReader.GetOrdinal("SzulDatum"));
+                //var test = dataReader.GetDateTime(dataReader.GetOrdinal("SzulDatum"));
                 if (dataReader.GetString(dataReader.GetOrdinal("MegvaltMunkFogy")) == "I") szabadság += 5;
                 if (dataReader.GetString(dataReader.GetOrdinal("FoldAlattIonMunk")) == "I") szabadság += 5;
 
@@ -1107,6 +1108,9 @@ namespace Felisz
                 #region Alapszabadság számítása
                 switch (DateTime.Now.Year - dataReader.GetDateTime(dataReader.GetOrdinal("SzulDatum")).Year)
                 {
+                    case int n when (n < 19):
+                        szabadság += 5;
+                        break;  
                     case int n when (n < 25):
                         break;
                     case int n when (n >= 25 && n < 28):
@@ -1149,7 +1153,10 @@ namespace Felisz
 
                 #endregion
 
-                return szabadság;
+                
+
+
+                    return szabadság;
 
 
 

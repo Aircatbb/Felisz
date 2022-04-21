@@ -30,23 +30,39 @@ namespace Felisz.Formok
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formSzemAdatok));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btSzemAdatMentes = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formSzemAdatok));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbSzemélyiAdatok = new System.Windows.Forms.GroupBox();
             this.tcSzemélyiAdatok = new System.Windows.Forms.TabControl();
             this.tpÁltalánosSzemélyiAdatok = new System.Windows.Forms.TabPage();
             this.tlpÁltalánosSzemélyiAdatok = new System.Windows.Forms.TableLayoutPanel();
+            this.gpHozzátartozó = new System.Windows.Forms.GroupBox();
+            this.dgvHozzátartozó = new System.Windows.Forms.DataGridView();
+            this.tlpHozzátartozók_New = new System.Windows.Forms.TableLayoutPanel();
+            this.tbSzülDátumHozzá = new System.Windows.Forms.TextBox();
+            this.tbHozzáUtónév2 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btHozzTartTörlés = new System.Windows.Forms.Button();
+            this.btHozzTartMentes = new System.Windows.Forms.Button();
+            this.tbHozzáUtónév1 = new System.Windows.Forms.TextBox();
+            this.tbHozzáVezetéknév = new System.Windows.Forms.TextBox();
+            this.lbSzülDátumHozzá = new System.Windows.Forms.Label();
+            this.lbHozzáVezetéknév = new System.Windows.Forms.Label();
+            this.lbHozzáUtónév1 = new System.Windows.Forms.Label();
+            this.lbHozzáUtónév2 = new System.Windows.Forms.Label();
+            this.lbFogyatékHozzá = new System.Windows.Forms.Label();
+            this.cbFogyatékHozzá = new System.Windows.Forms.ComboBox();
             this.gbEgyéb = new System.Windows.Forms.GroupBox();
             this.tlpEgyéb = new System.Windows.Forms.TableLayoutPanel();
             this.lbFöldAlattIon = new System.Windows.Forms.Label();
             this.lbMegVáltMunkFogy = new System.Windows.Forms.Label();
             this.cbMegVáltMunkFogy = new System.Windows.Forms.ComboBox();
             this.cbFöldAlattIonMunk = new System.Windows.Forms.ComboBox();
+            this.lbKalkSzabadság = new System.Windows.Forms.Label();
             this.gbAdóésTB = new System.Windows.Forms.GroupBox();
             this.tlpAdóésTB = new System.Windows.Forms.TableLayoutPanel();
             this.tbTAJSzám = new System.Windows.Forms.TextBox();
@@ -57,6 +73,8 @@ namespace Felisz.Formok
             this.tlpLakhely = new System.Windows.Forms.TableLayoutPanel();
             this.tbAjtó = new System.Windows.Forms.TextBox();
             this.tbEmelet = new System.Windows.Forms.TextBox();
+            this.lbTávolság = new System.Windows.Forms.Label();
+            this.tbTávolság = new System.Windows.Forms.TextBox();
             this.tbLépcsőház = new System.Windows.Forms.TextBox();
             this.tbÉpület = new System.Windows.Forms.TextBox();
             this.tbHázszám = new System.Windows.Forms.TextBox();
@@ -111,29 +129,10 @@ namespace Felisz.Formok
             this.cbNeme = new System.Windows.Forms.ComboBox();
             this.cbSzületésiOrszág = new System.Windows.Forms.ComboBox();
             this.cbSzületésiHely = new System.Windows.Forms.ComboBox();
-            this.tlpKalkuláltÉrtékek = new System.Windows.Forms.TableLayoutPanel();
             this.tbKalkSzabadság = new System.Windows.Forms.TextBox();
-            this.lbKalkSzabadság = new System.Windows.Forms.Label();
-            this.lbTávolság = new System.Windows.Forms.Label();
-            this.tbTávolság = new System.Windows.Forms.TextBox();
+            this.btÁltalánosSzemAdatokMentés = new System.Windows.Forms.Button();
             this.tpHozzátartozók = new System.Windows.Forms.TabPage();
             this.tlpHozzátartozók = new System.Windows.Forms.TableLayoutPanel();
-            this.gpHozzátartozó = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.tbSzülDátumHozzá = new System.Windows.Forms.TextBox();
-            this.tbHozzáUtónév2 = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btHozzTartMentes = new System.Windows.Forms.Button();
-            this.btHozzTartTörlés = new System.Windows.Forms.Button();
-            this.tbHozzáUtónév1 = new System.Windows.Forms.TextBox();
-            this.tbHozzáVezetéknév = new System.Windows.Forms.TextBox();
-            this.lbSzülDátumHozzá = new System.Windows.Forms.Label();
-            this.lbHozzáVezetéknév = new System.Windows.Forms.Label();
-            this.lbHozzáUtónév1 = new System.Windows.Forms.Label();
-            this.lbHozzáUtónév2 = new System.Windows.Forms.Label();
-            this.lbFogyatékHozzá = new System.Windows.Forms.Label();
-            this.cbFogyatékHozzá = new System.Windows.Forms.ComboBox();
-            this.dgvHozzátartozó = new System.Windows.Forms.DataGridView();
             this.lbHozzátartozókFigyelmeztetés = new System.Windows.Forms.Label();
             this.tpKapcsolatok = new System.Windows.Forms.TabPage();
             this.lbKapcsolatokFigyelmeztetés = new System.Windows.Forms.Label();
@@ -143,6 +142,10 @@ namespace Felisz.Formok
             this.tcSzemélyiAdatok.SuspendLayout();
             this.tpÁltalánosSzemélyiAdatok.SuspendLayout();
             this.tlpÁltalánosSzemélyiAdatok.SuspendLayout();
+            this.gpHozzátartozó.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHozzátartozó)).BeginInit();
+            this.tlpHozzátartozók_New.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.gbEgyéb.SuspendLayout();
             this.tlpEgyéb.SuspendLayout();
             this.gbAdóésTB.SuspendLayout();
@@ -153,36 +156,15 @@ namespace Felisz.Formok
             this.tlpFoglalkoztatás.SuspendLayout();
             this.gbDolgozó.SuspendLayout();
             this.tlpDolgozó.SuspendLayout();
-            this.tlpKalkuláltÉrtékek.SuspendLayout();
             this.tpHozzátartozók.SuspendLayout();
-            this.tlpHozzátartozók.SuspendLayout();
-            this.gpHozzátartozó.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHozzátartozó)).BeginInit();
             this.tpKapcsolatok.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btSzemAdatMentes
-            // 
-            this.btSzemAdatMentes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btSzemAdatMentes.BackColor = System.Drawing.Color.Transparent;
-            this.btSzemAdatMentes.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
-            this.btSzemAdatMentes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.btSzemAdatMentes.Location = new System.Drawing.Point(676, 107);
-            this.btSzemAdatMentes.Margin = new System.Windows.Forms.Padding(3, 3, 22, 3);
-            this.btSzemAdatMentes.Name = "btSzemAdatMentes";
-            this.btSzemAdatMentes.Size = new System.Drawing.Size(102, 26);
-            this.btSzemAdatMentes.TabIndex = 4;
-            this.btSzemAdatMentes.Text = "MENTÉS";
-            this.btSzemAdatMentes.UseVisualStyleBackColor = false;
-            this.btSzemAdatMentes.Click += new System.EventHandler(this.btAktualizálás_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::Felisz.Properties.Resources.window_close;
-            this.pictureBox1.Location = new System.Drawing.Point(1234, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(1235, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -192,13 +174,14 @@ namespace Felisz.Formok
             // 
             // gbSzemélyiAdatok
             // 
+            this.gbSzemélyiAdatok.AutoSize = true;
             this.gbSzemélyiAdatok.Controls.Add(this.tcSzemélyiAdatok);
             this.gbSzemélyiAdatok.Controls.Add(this.pictureBox1);
-            this.gbSzemélyiAdatok.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbSzemélyiAdatok.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbSzemélyiAdatok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.gbSzemélyiAdatok.Location = new System.Drawing.Point(0, 0);
             this.gbSzemélyiAdatok.Name = "gbSzemélyiAdatok";
-            this.gbSzemélyiAdatok.Size = new System.Drawing.Size(1255, 818);
+            this.gbSzemélyiAdatok.Size = new System.Drawing.Size(1255, 800);
             this.gbSzemélyiAdatok.TabIndex = 14;
             this.gbSzemélyiAdatok.TabStop = false;
             this.gbSzemélyiAdatok.Text = "Személyi adatok";
@@ -213,7 +196,7 @@ namespace Felisz.Formok
             this.tcSzemélyiAdatok.Margin = new System.Windows.Forms.Padding(3, 3, 22, 3);
             this.tcSzemélyiAdatok.Name = "tcSzemélyiAdatok";
             this.tcSzemélyiAdatok.SelectedIndex = 0;
-            this.tcSzemélyiAdatok.Size = new System.Drawing.Size(1249, 799);
+            this.tcSzemélyiAdatok.Size = new System.Drawing.Size(1249, 781);
             this.tcSzemélyiAdatok.TabIndex = 13;
             this.tcSzemélyiAdatok.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tcSzemélyiAdatok_Selecting);
             this.tcSzemélyiAdatok.Click += new System.EventHandler(this.tcSzemélyiAdatok_Click);
@@ -225,44 +208,346 @@ namespace Felisz.Formok
             this.tpÁltalánosSzemélyiAdatok.Location = new System.Drawing.Point(4, 22);
             this.tpÁltalánosSzemélyiAdatok.Name = "tpÁltalánosSzemélyiAdatok";
             this.tpÁltalánosSzemélyiAdatok.Padding = new System.Windows.Forms.Padding(3);
-            this.tpÁltalánosSzemélyiAdatok.Size = new System.Drawing.Size(1241, 773);
+            this.tpÁltalánosSzemélyiAdatok.Size = new System.Drawing.Size(1241, 755);
             this.tpÁltalánosSzemélyiAdatok.TabIndex = 0;
             this.tpÁltalánosSzemélyiAdatok.Text = "Általános személyi adatok";
             // 
             // tlpÁltalánosSzemélyiAdatok
             // 
-            this.tlpÁltalánosSzemélyiAdatok.ColumnCount = 2;
-            this.tlpÁltalánosSzemélyiAdatok.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpÁltalánosSzemélyiAdatok.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpÁltalánosSzemélyiAdatok.ColumnCount = 3;
+            this.tlpÁltalánosSzemélyiAdatok.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpÁltalánosSzemélyiAdatok.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpÁltalánosSzemélyiAdatok.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpÁltalánosSzemélyiAdatok.Controls.Add(this.gpHozzátartozó, 2, 0);
             this.tlpÁltalánosSzemélyiAdatok.Controls.Add(this.gbEgyéb, 0, 3);
+            this.tlpÁltalánosSzemélyiAdatok.Controls.Add(this.lbKalkSzabadság, 1, 1);
             this.tlpÁltalánosSzemélyiAdatok.Controls.Add(this.gbAdóésTB, 0, 2);
             this.tlpÁltalánosSzemélyiAdatok.Controls.Add(this.gbLakhely, 1, 0);
             this.tlpÁltalánosSzemélyiAdatok.Controls.Add(this.gbFoglalkoztatás, 0, 1);
             this.tlpÁltalánosSzemélyiAdatok.Controls.Add(this.gbDolgozó, 0, 0);
-            this.tlpÁltalánosSzemélyiAdatok.Controls.Add(this.tlpKalkuláltÉrtékek, 1, 3);
-            this.tlpÁltalánosSzemélyiAdatok.Location = new System.Drawing.Point(6, 6);
+            this.tlpÁltalánosSzemélyiAdatok.Controls.Add(this.tbKalkSzabadság, 2, 1);
+            this.tlpÁltalánosSzemélyiAdatok.Controls.Add(this.btÁltalánosSzemAdatokMentés, 2, 3);
+            this.tlpÁltalánosSzemélyiAdatok.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpÁltalánosSzemélyiAdatok.Location = new System.Drawing.Point(3, 3);
             this.tlpÁltalánosSzemélyiAdatok.Name = "tlpÁltalánosSzemélyiAdatok";
             this.tlpÁltalánosSzemélyiAdatok.RowCount = 4;
             this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
-            this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpÁltalánosSzemélyiAdatok.Size = new System.Drawing.Size(1231, 764);
+            this.tlpÁltalánosSzemélyiAdatok.Size = new System.Drawing.Size(1235, 749);
             this.tlpÁltalánosSzemélyiAdatok.TabIndex = 28;
+            // 
+            // gpHozzátartozó
+            // 
+            this.gpHozzátartozó.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.gpHozzátartozó.Controls.Add(this.dgvHozzátartozó);
+            this.gpHozzátartozó.Controls.Add(this.tlpHozzátartozók_New);
+            this.gpHozzátartozó.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpHozzátartozó.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.gpHozzátartozó.Location = new System.Drawing.Point(823, 1);
+            this.gpHozzátartozó.Margin = new System.Windows.Forms.Padding(1);
+            this.gpHozzátartozó.Name = "gpHozzátartozó";
+            this.gpHozzátartozó.Size = new System.Drawing.Size(411, 412);
+            this.gpHozzátartozó.TabIndex = 48;
+            this.gpHozzátartozó.TabStop = false;
+            this.gpHozzátartozó.Text = "Hozzátartozó";
+            // 
+            // dgvHozzátartozó
+            // 
+            this.dgvHozzátartozó.AllowUserToAddRows = false;
+            this.dgvHozzátartozó.AllowUserToDeleteRows = false;
+            this.dgvHozzátartozó.AllowUserToOrderColumns = true;
+            this.dgvHozzátartozó.AllowUserToResizeColumns = false;
+            this.dgvHozzátartozó.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            this.dgvHozzátartozó.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvHozzátartozó.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHozzátartozó.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvHozzátartozó.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.dgvHozzátartozó.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvHozzátartozó.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHozzátartozó.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvHozzátartozó.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvHozzátartozó.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dgvHozzátartozó.Location = new System.Drawing.Point(3, 209);
+            this.dgvHozzátartozó.MultiSelect = false;
+            this.dgvHozzátartozó.Name = "dgvHozzátartozó";
+            this.dgvHozzátartozó.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHozzátartozó.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvHozzátartozó.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvHozzátartozó.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray;
+            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvHozzátartozó.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvHozzátartozó.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvHozzátartozó.Size = new System.Drawing.Size(405, 200);
+            this.dgvHozzátartozó.TabIndex = 27;
+            this.dgvHozzátartozó.TabStop = false;
+            this.dgvHozzátartozó.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHozzátartozó_CellClick_1);
+            // 
+            // tlpHozzátartozók_New
+            // 
+            this.tlpHozzátartozók_New.ColumnCount = 2;
+            this.tlpHozzátartozók_New.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpHozzátartozók_New.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpHozzátartozók_New.Controls.Add(this.tbSzülDátumHozzá, 1, 3);
+            this.tlpHozzátartozók_New.Controls.Add(this.tbHozzáUtónév2, 1, 2);
+            this.tlpHozzátartozók_New.Controls.Add(this.tableLayoutPanel1, 1, 5);
+            this.tlpHozzátartozók_New.Controls.Add(this.tbHozzáUtónév1, 1, 1);
+            this.tlpHozzátartozók_New.Controls.Add(this.tbHozzáVezetéknév, 1, 0);
+            this.tlpHozzátartozók_New.Controls.Add(this.lbSzülDátumHozzá, 0, 3);
+            this.tlpHozzátartozók_New.Controls.Add(this.lbHozzáVezetéknév, 0, 0);
+            this.tlpHozzátartozók_New.Controls.Add(this.lbHozzáUtónév1, 0, 1);
+            this.tlpHozzátartozók_New.Controls.Add(this.lbHozzáUtónév2, 0, 2);
+            this.tlpHozzátartozók_New.Controls.Add(this.lbFogyatékHozzá, 0, 4);
+            this.tlpHozzátartozók_New.Controls.Add(this.cbFogyatékHozzá, 1, 4);
+            this.tlpHozzátartozók_New.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tlpHozzátartozók_New.ForeColor = System.Drawing.Color.White;
+            this.tlpHozzátartozók_New.Location = new System.Drawing.Point(3, 16);
+            this.tlpHozzátartozók_New.Name = "tlpHozzátartozók_New";
+            this.tlpHozzátartozók_New.RowCount = 6;
+            this.tlpHozzátartozók_New.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpHozzátartozók_New.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpHozzátartozók_New.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpHozzátartozók_New.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpHozzátartozók_New.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tlpHozzátartozók_New.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpHozzátartozók_New.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpHozzátartozók_New.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpHozzátartozók_New.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpHozzátartozók_New.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpHozzátartozók_New.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpHozzátartozók_New.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpHozzátartozók_New.Size = new System.Drawing.Size(405, 193);
+            this.tlpHozzátartozók_New.TabIndex = 0;
+            // 
+            // tbSzülDátumHozzá
+            // 
+            this.tbSzülDátumHozzá.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbSzülDátumHozzá.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbSzülDátumHozzá.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbSzülDátumHozzá.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbSzülDátumHozzá.Location = new System.Drawing.Point(166, 93);
+            this.tbSzülDátumHozzá.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbSzülDátumHozzá.Name = "tbSzülDátumHozzá";
+            this.tbSzülDátumHozzá.Size = new System.Drawing.Size(221, 26);
+            this.tbSzülDátumHozzá.TabIndex = 5;
+            this.paragrafusTippek.SetToolTip(this.tbSzülDátumHozzá, resources.GetString("tbSzülDátumHozzá.ToolTip"));
+            this.tbSzülDátumHozzá.Validated += new System.EventHandler(this.tbSzülDátumHozzá_Validated);
+            // 
+            // tbHozzáUtónév2
+            // 
+            this.tbHozzáUtónév2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbHozzáUtónév2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbHozzáUtónév2.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbHozzáUtónév2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbHozzáUtónév2.Location = new System.Drawing.Point(166, 63);
+            this.tbHozzáUtónév2.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbHozzáUtónév2.Name = "tbHozzáUtónév2";
+            this.tbHozzáUtónév2.Size = new System.Drawing.Size(221, 26);
+            this.tbHozzáUtónév2.TabIndex = 4;
+            this.tbHozzáUtónév2.Validated += new System.EventHandler(this.tbHozzáUtónév2_Validated_1);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.btHozzTartTörlés, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btHozzTartMentes, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(169, 156);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(242, 34);
+            this.tableLayoutPanel1.TabIndex = 27;
+            // 
+            // btHozzTartTörlés
+            // 
+            this.btHozzTartTörlés.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btHozzTartTörlés.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
+            this.btHozzTartTörlés.FlatAppearance.BorderSize = 0;
+            this.btHozzTartTörlés.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btHozzTartTörlés.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
+            this.btHozzTartTörlés.ForeColor = System.Drawing.Color.White;
+            this.btHozzTartTörlés.Location = new System.Drawing.Point(0, 3);
+            this.btHozzTartTörlés.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btHozzTartTörlés.Name = "btHozzTartTörlés";
+            this.btHozzTartTörlés.Size = new System.Drawing.Size(102, 28);
+            this.btHozzTartTörlés.TabIndex = 24;
+            this.btHozzTartTörlés.Text = "TÖRLÉS";
+            this.btHozzTartTörlés.UseVisualStyleBackColor = false;
+            this.btHozzTartTörlés.Visible = false;
+            this.btHozzTartTörlés.Click += new System.EventHandler(this.btHozzTartTörlés_Click_1);
+            // 
+            // btHozzTartMentes
+            // 
+            this.btHozzTartMentes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btHozzTartMentes.BackColor = System.Drawing.Color.Transparent;
+            this.btHozzTartMentes.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
+            this.btHozzTartMentes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.btHozzTartMentes.Location = new System.Drawing.Point(134, 3);
+            this.btHozzTartMentes.Margin = new System.Windows.Forms.Padding(3, 3, 6, 3);
+            this.btHozzTartMentes.Name = "btHozzTartMentes";
+            this.btHozzTartMentes.Size = new System.Drawing.Size(102, 28);
+            this.btHozzTartMentes.TabIndex = 7;
+            this.btHozzTartMentes.Text = "MENTÉS";
+            this.btHozzTartMentes.UseVisualStyleBackColor = false;
+            this.btHozzTartMentes.Click += new System.EventHandler(this.btHozzTartMentes_Click);
+            // 
+            // tbHozzáUtónév1
+            // 
+            this.tbHozzáUtónév1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbHozzáUtónév1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbHozzáUtónév1.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbHozzáUtónév1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbHozzáUtónév1.Location = new System.Drawing.Point(166, 33);
+            this.tbHozzáUtónév1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbHozzáUtónév1.Name = "tbHozzáUtónév1";
+            this.tbHozzáUtónév1.Size = new System.Drawing.Size(221, 26);
+            this.tbHozzáUtónév1.TabIndex = 3;
+            this.tbHozzáUtónév1.Validated += new System.EventHandler(this.tbHozzáUtónév1_Validated_1);
+            // 
+            // tbHozzáVezetéknév
+            // 
+            this.tbHozzáVezetéknév.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbHozzáVezetéknév.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbHozzáVezetéknév.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbHozzáVezetéknév.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbHozzáVezetéknév.Location = new System.Drawing.Point(166, 3);
+            this.tbHozzáVezetéknév.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbHozzáVezetéknév.Name = "tbHozzáVezetéknév";
+            this.tbHozzáVezetéknév.Size = new System.Drawing.Size(221, 26);
+            this.tbHozzáVezetéknév.TabIndex = 2;
+            this.paragrafusTippek.SetToolTip(this.tbHozzáVezetéknév, resources.GetString("tbHozzáVezetéknév.ToolTip"));
+            this.tbHozzáVezetéknév.Validated += new System.EventHandler(this.tbHozzáVezetéknév_Validated_1);
+            // 
+            // lbSzülDátumHozzá
+            // 
+            this.lbSzülDátumHozzá.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
+            this.lbSzülDátumHozzá.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbSzülDátumHozzá.ForeColor = System.Drawing.Color.White;
+            this.lbSzülDátumHozzá.Location = new System.Drawing.Point(3, 93);
+            this.lbSzülDátumHozzá.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSzülDátumHozzá.Name = "lbSzülDátumHozzá";
+            this.lbSzülDátumHozzá.Size = new System.Drawing.Size(160, 24);
+            this.lbSzülDátumHozzá.TabIndex = 21;
+            this.lbSzülDátumHozzá.Text = "Születési dátum";
+            this.lbSzülDátumHozzá.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbHozzáVezetéknév
+            // 
+            this.lbHozzáVezetéknév.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
+            this.lbHozzáVezetéknév.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbHozzáVezetéknév.ForeColor = System.Drawing.Color.White;
+            this.lbHozzáVezetéknév.Location = new System.Drawing.Point(3, 3);
+            this.lbHozzáVezetéknév.Margin = new System.Windows.Forms.Padding(3);
+            this.lbHozzáVezetéknév.Name = "lbHozzáVezetéknév";
+            this.lbHozzáVezetéknév.Size = new System.Drawing.Size(160, 24);
+            this.lbHozzáVezetéknév.TabIndex = 15;
+            this.lbHozzáVezetéknév.Text = "Vezetéknév";
+            this.lbHozzáVezetéknév.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbHozzáUtónév1
+            // 
+            this.lbHozzáUtónév1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
+            this.lbHozzáUtónév1.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbHozzáUtónév1.ForeColor = System.Drawing.Color.White;
+            this.lbHozzáUtónév1.Location = new System.Drawing.Point(3, 33);
+            this.lbHozzáUtónév1.Margin = new System.Windows.Forms.Padding(3);
+            this.lbHozzáUtónév1.Name = "lbHozzáUtónév1";
+            this.lbHozzáUtónév1.Size = new System.Drawing.Size(160, 24);
+            this.lbHozzáUtónév1.TabIndex = 16;
+            this.lbHozzáUtónév1.Text = "Utónév 1";
+            this.lbHozzáUtónév1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbHozzáUtónév2
+            // 
+            this.lbHozzáUtónév2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lbHozzáUtónév2.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbHozzáUtónév2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lbHozzáUtónév2.Location = new System.Drawing.Point(3, 63);
+            this.lbHozzáUtónév2.Margin = new System.Windows.Forms.Padding(3);
+            this.lbHozzáUtónév2.Name = "lbHozzáUtónév2";
+            this.lbHozzáUtónév2.Size = new System.Drawing.Size(160, 24);
+            this.lbHozzáUtónév2.TabIndex = 17;
+            this.lbHozzáUtónév2.Text = "Utónév 2";
+            this.lbHozzáUtónév2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbFogyatékHozzá
+            // 
+            this.lbFogyatékHozzá.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
+            this.lbFogyatékHozzá.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbFogyatékHozzá.ForeColor = System.Drawing.Color.White;
+            this.lbFogyatékHozzá.Location = new System.Drawing.Point(3, 123);
+            this.lbFogyatékHozzá.Margin = new System.Windows.Forms.Padding(3);
+            this.lbFogyatékHozzá.Name = "lbFogyatékHozzá";
+            this.lbFogyatékHozzá.Size = new System.Drawing.Size(160, 24);
+            this.lbFogyatékHozzá.TabIndex = 23;
+            this.lbFogyatékHozzá.Text = "Fogyatékosság";
+            this.lbFogyatékHozzá.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cbFogyatékHozzá
+            // 
+            this.cbFogyatékHozzá.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbFogyatékHozzá.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbFogyatékHozzá.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cbFogyatékHozzá.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFogyatékHozzá.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbFogyatékHozzá.Font = new System.Drawing.Font("Arial Narrow", 11F);
+            this.cbFogyatékHozzá.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.cbFogyatékHozzá.FormattingEnabled = true;
+            this.cbFogyatékHozzá.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbFogyatékHozzá.IntegralHeight = false;
+            this.cbFogyatékHozzá.Items.AddRange(new object[] {
+            "Igen",
+            "Nem"});
+            this.cbFogyatékHozzá.Location = new System.Drawing.Point(166, 123);
+            this.cbFogyatékHozzá.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.cbFogyatékHozzá.Name = "cbFogyatékHozzá";
+            this.cbFogyatékHozzá.Size = new System.Drawing.Size(222, 28);
+            this.cbFogyatékHozzá.TabIndex = 6;
+            this.paragrafusTippek.SetToolTip(this.cbFogyatékHozzá, "120. § A munkavállalónak, ha\r\na) megváltozott munkaképességű,\r\nb) fogyatékossági " +
+        "támogatásra jogosult, vagy\r\nc) vakok személyi járadékára jogosult\r\névenként öt m" +
+        "unkanap pótszabadság jár.\r\n");
+            this.cbFogyatékHozzá.Validated += new System.EventHandler(this.cbFogyatékHozzá_Validated_1);
             // 
             // gbEgyéb
             // 
             this.gbEgyéb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.gbEgyéb.Controls.Add(this.tlpEgyéb);
+            this.gbEgyéb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbEgyéb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.gbEgyéb.Location = new System.Drawing.Point(3, 625);
+            this.gbEgyéb.Location = new System.Drawing.Point(1, 615);
+            this.gbEgyéb.Margin = new System.Windows.Forms.Padding(1);
             this.gbEgyéb.Name = "gbEgyéb";
-            this.gbEgyéb.Size = new System.Drawing.Size(420, 136);
+            this.gbEgyéb.Size = new System.Drawing.Size(409, 133);
             this.gbEgyéb.TabIndex = 28;
             this.gbEgyéb.TabStop = false;
             this.gbEgyéb.Text = "Egyéb";
@@ -282,7 +567,7 @@ namespace Felisz.Formok
             this.tlpEgyéb.RowCount = 2;
             this.tlpEgyéb.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.tlpEgyéb.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tlpEgyéb.Size = new System.Drawing.Size(414, 117);
+            this.tlpEgyéb.Size = new System.Drawing.Size(403, 114);
             this.tlpEgyéb.TabIndex = 0;
             // 
             // lbFöldAlattIon
@@ -293,9 +578,9 @@ namespace Felisz.Formok
             this.lbFöldAlattIon.Location = new System.Drawing.Point(3, 59);
             this.lbFöldAlattIon.Margin = new System.Windows.Forms.Padding(3);
             this.lbFöldAlattIon.Name = "lbFöldAlattIon";
-            this.lbFöldAlattIon.Size = new System.Drawing.Size(160, 55);
+            this.lbFöldAlattIon.Size = new System.Drawing.Size(160, 50);
             this.lbFöldAlattIon.TabIndex = 17;
-            this.lbFöldAlattIon.Text = "Föld alatt dolgozik, vagy ionizáló sugárzásnak van kitéve";
+            this.lbFöldAlattIon.Text = "Föld alatti munkavégzés, vagy sugárzásnak kitett";
             this.lbFöldAlattIon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbMegVáltMunkFogy
@@ -329,7 +614,7 @@ namespace Felisz.Formok
             this.cbMegVáltMunkFogy.Location = new System.Drawing.Point(166, 3);
             this.cbMegVáltMunkFogy.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbMegVáltMunkFogy.Name = "cbMegVáltMunkFogy";
-            this.cbMegVáltMunkFogy.Size = new System.Drawing.Size(245, 28);
+            this.cbMegVáltMunkFogy.Size = new System.Drawing.Size(222, 28);
             this.cbMegVáltMunkFogy.TabIndex = 19;
             this.paragrafusTippek.SetToolTip(this.cbMegVáltMunkFogy, "120. § A munkavállalónak, ha\r\na) megváltozott munkaképességű,\r\nb) fogyatékossági " +
         "támogatásra jogosult, vagy\r\nc) vakok személyi járadékára jogosult\r\névenként öt m" +
@@ -354,21 +639,36 @@ namespace Felisz.Formok
             this.cbFöldAlattIonMunk.Location = new System.Drawing.Point(166, 59);
             this.cbFöldAlattIonMunk.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbFöldAlattIonMunk.Name = "cbFöldAlattIonMunk";
-            this.cbFöldAlattIonMunk.Size = new System.Drawing.Size(245, 28);
+            this.cbFöldAlattIonMunk.Size = new System.Drawing.Size(222, 28);
             this.cbFöldAlattIonMunk.TabIndex = 20;
             this.paragrafusTippek.SetToolTip(this.cbFöldAlattIonMunk, "120. § A munkavállalónak, ha\r\na) megváltozott munkaképességű,\r\nb) fogyatékossági " +
         "támogatásra jogosult, vagy\r\nc) vakok személyi járadékára jogosult\r\névenként öt m" +
         "unkanap pótszabadság jár.\r\n");
             this.cbFöldAlattIonMunk.Validated += new System.EventHandler(this.cbFöldAlattIonMunk_Validated);
             // 
+            // lbKalkSzabadság
+            // 
+            this.lbKalkSzabadság.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lbKalkSzabadság.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbKalkSzabadság.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lbKalkSzabadság.Location = new System.Drawing.Point(414, 417);
+            this.lbKalkSzabadság.Margin = new System.Windows.Forms.Padding(3);
+            this.lbKalkSzabadság.Name = "lbKalkSzabadság";
+            this.lbKalkSzabadság.Size = new System.Drawing.Size(221, 24);
+            this.lbKalkSzabadság.TabIndex = 46;
+            this.lbKalkSzabadság.Text = "Kalkulált éves  szabadság (napok)";
+            this.lbKalkSzabadság.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // gbAdóésTB
             // 
             this.gbAdóésTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.gbAdóésTB.Controls.Add(this.tlpAdóésTB);
+            this.gbAdóésTB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbAdóésTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.gbAdóésTB.Location = new System.Drawing.Point(3, 537);
+            this.gbAdóésTB.Location = new System.Drawing.Point(1, 527);
+            this.gbAdóésTB.Margin = new System.Windows.Forms.Padding(1);
             this.gbAdóésTB.Name = "gbAdóésTB";
-            this.gbAdóésTB.Size = new System.Drawing.Size(420, 81);
+            this.gbAdóésTB.Size = new System.Drawing.Size(409, 86);
             this.gbAdóésTB.TabIndex = 27;
             this.gbAdóésTB.TabStop = false;
             this.gbAdóésTB.Text = "Adó és TB";
@@ -390,7 +690,7 @@ namespace Felisz.Formok
             this.tlpAdóésTB.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpAdóésTB.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpAdóésTB.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpAdóésTB.Size = new System.Drawing.Size(414, 62);
+            this.tlpAdóésTB.Size = new System.Drawing.Size(403, 67);
             this.tlpAdóésTB.TabIndex = 0;
             // 
             // tbTAJSzám
@@ -402,7 +702,7 @@ namespace Felisz.Formok
             this.tbTAJSzám.Location = new System.Drawing.Point(166, 33);
             this.tbTAJSzám.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbTAJSzám.Name = "tbTAJSzám";
-            this.tbTAJSzám.Size = new System.Drawing.Size(243, 26);
+            this.tbTAJSzám.Size = new System.Drawing.Size(221, 26);
             this.tbTAJSzám.TabIndex = 18;
             this.tbTAJSzám.Validated += new System.EventHandler(this.tbTAJSzám_Validated);
             // 
@@ -442,7 +742,7 @@ namespace Felisz.Formok
             this.tbAdóazonosító.Location = new System.Drawing.Point(166, 3);
             this.tbAdóazonosító.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbAdóazonosító.Name = "tbAdóazonosító";
-            this.tbAdóazonosító.Size = new System.Drawing.Size(243, 26);
+            this.tbAdóazonosító.Size = new System.Drawing.Size(221, 26);
             this.tbAdóazonosító.TabIndex = 17;
             this.tbAdóazonosító.Validated += new System.EventHandler(this.tbAdóazonosító_Validated);
             // 
@@ -450,10 +750,12 @@ namespace Felisz.Formok
             // 
             this.gbLakhely.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.gbLakhely.Controls.Add(this.tlpLakhely);
+            this.gbLakhely.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbLakhely.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.gbLakhely.Location = new System.Drawing.Point(429, 3);
+            this.gbLakhely.Location = new System.Drawing.Point(412, 1);
+            this.gbLakhely.Margin = new System.Windows.Forms.Padding(1);
             this.gbLakhely.Name = "gbLakhely";
-            this.gbLakhely.Size = new System.Drawing.Size(420, 352);
+            this.gbLakhely.Size = new System.Drawing.Size(409, 412);
             this.gbLakhely.TabIndex = 29;
             this.gbLakhely.TabStop = false;
             this.gbLakhely.Text = "Lakhely";
@@ -465,6 +767,8 @@ namespace Felisz.Formok
             this.tlpLakhely.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpLakhely.Controls.Add(this.tbAjtó, 1, 9);
             this.tlpLakhely.Controls.Add(this.tbEmelet, 1, 8);
+            this.tlpLakhely.Controls.Add(this.lbTávolság, 0, 10);
+            this.tlpLakhely.Controls.Add(this.tbTávolság, 1, 10);
             this.tlpLakhely.Controls.Add(this.tbLépcsőház, 1, 7);
             this.tlpLakhely.Controls.Add(this.tbÉpület, 1, 6);
             this.tlpLakhely.Controls.Add(this.tbHázszám, 1, 5);
@@ -499,7 +803,7 @@ namespace Felisz.Formok
             this.tlpLakhely.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpLakhely.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpLakhely.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpLakhely.Size = new System.Drawing.Size(414, 333);
+            this.tlpLakhely.Size = new System.Drawing.Size(403, 393);
             this.tlpLakhely.TabIndex = 0;
             // 
             // tbAjtó
@@ -511,9 +815,8 @@ namespace Felisz.Formok
             this.tbAjtó.Location = new System.Drawing.Point(166, 273);
             this.tbAjtó.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbAjtó.Name = "tbAjtó";
-            this.tbAjtó.Size = new System.Drawing.Size(243, 26);
+            this.tbAjtó.Size = new System.Drawing.Size(221, 26);
             this.tbAjtó.TabIndex = 30;
-            this.tbAjtó.Validated += new System.EventHandler(this.tbAjtó_Validated);
             // 
             // tbEmelet
             // 
@@ -524,9 +827,33 @@ namespace Felisz.Formok
             this.tbEmelet.Location = new System.Drawing.Point(166, 243);
             this.tbEmelet.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbEmelet.Name = "tbEmelet";
-            this.tbEmelet.Size = new System.Drawing.Size(243, 26);
+            this.tbEmelet.Size = new System.Drawing.Size(221, 26);
             this.tbEmelet.TabIndex = 29;
-            this.tbEmelet.Validated += new System.EventHandler(this.tbEmelet_Validated);
+            // 
+            // lbTávolság
+            // 
+            this.lbTávolság.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lbTávolság.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbTávolság.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lbTávolság.Location = new System.Drawing.Point(3, 303);
+            this.lbTávolság.Margin = new System.Windows.Forms.Padding(3);
+            this.lbTávolság.Name = "lbTávolság";
+            this.lbTávolság.Size = new System.Drawing.Size(160, 24);
+            this.lbTávolság.TabIndex = 45;
+            this.lbTávolság.Text = "Távolság (utiköltségtérítéshez)";
+            this.lbTávolság.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbTávolság
+            // 
+            this.tbTávolság.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbTávolság.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbTávolság.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbTávolság.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbTávolság.Location = new System.Drawing.Point(166, 303);
+            this.tbTávolság.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbTávolság.Name = "tbTávolság";
+            this.tbTávolság.Size = new System.Drawing.Size(221, 26);
+            this.tbTávolság.TabIndex = 31;
             // 
             // tbLépcsőház
             // 
@@ -537,7 +864,7 @@ namespace Felisz.Formok
             this.tbLépcsőház.Location = new System.Drawing.Point(166, 213);
             this.tbLépcsőház.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbLépcsőház.Name = "tbLépcsőház";
-            this.tbLépcsőház.Size = new System.Drawing.Size(243, 26);
+            this.tbLépcsőház.Size = new System.Drawing.Size(221, 26);
             this.tbLépcsőház.TabIndex = 28;
             // 
             // tbÉpület
@@ -549,7 +876,7 @@ namespace Felisz.Formok
             this.tbÉpület.Location = new System.Drawing.Point(166, 183);
             this.tbÉpület.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbÉpület.Name = "tbÉpület";
-            this.tbÉpület.Size = new System.Drawing.Size(243, 26);
+            this.tbÉpület.Size = new System.Drawing.Size(221, 26);
             this.tbÉpület.TabIndex = 27;
             // 
             // tbHázszám
@@ -561,7 +888,7 @@ namespace Felisz.Formok
             this.tbHázszám.Location = new System.Drawing.Point(166, 153);
             this.tbHázszám.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbHázszám.Name = "tbHázszám";
-            this.tbHázszám.Size = new System.Drawing.Size(243, 26);
+            this.tbHázszám.Size = new System.Drawing.Size(221, 26);
             this.tbHázszám.TabIndex = 26;
             this.tbHázszám.Validated += new System.EventHandler(this.tbHázszám_Validated);
             // 
@@ -714,7 +1041,7 @@ namespace Felisz.Formok
             this.cbLakhelyOrszág.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbLakhelyOrszág.MaxDropDownItems = 5;
             this.cbLakhelyOrszág.Name = "cbLakhelyOrszág";
-            this.cbLakhelyOrszág.Size = new System.Drawing.Size(243, 28);
+            this.cbLakhelyOrszág.Size = new System.Drawing.Size(222, 28);
             this.cbLakhelyOrszág.Sorted = true;
             this.cbLakhelyOrszág.TabIndex = 21;
             this.cbLakhelyOrszág.Validated += new System.EventHandler(this.cbLakhelyOrszág_Validated);
@@ -736,7 +1063,7 @@ namespace Felisz.Formok
             this.cbIrszám.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbIrszám.MaxDropDownItems = 5;
             this.cbIrszám.Name = "cbIrszám";
-            this.cbIrszám.Size = new System.Drawing.Size(243, 28);
+            this.cbIrszám.Size = new System.Drawing.Size(222, 28);
             this.cbIrszám.Sorted = true;
             this.cbIrszám.TabIndex = 22;
             this.cbIrszám.Click += new System.EventHandler(this.cbIrszám_Click);
@@ -759,7 +1086,7 @@ namespace Felisz.Formok
             this.cbVáros.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbVáros.MaxDropDownItems = 5;
             this.cbVáros.Name = "cbVáros";
-            this.cbVáros.Size = new System.Drawing.Size(243, 28);
+            this.cbVáros.Size = new System.Drawing.Size(222, 28);
             this.cbVáros.Sorted = true;
             this.cbVáros.TabIndex = 23;
             this.cbVáros.Click += new System.EventHandler(this.cbVáros_Click);
@@ -782,7 +1109,7 @@ namespace Felisz.Formok
             this.cbKözterület.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbKözterület.MaxDropDownItems = 5;
             this.cbKözterület.Name = "cbKözterület";
-            this.cbKözterület.Size = new System.Drawing.Size(243, 28);
+            this.cbKözterület.Size = new System.Drawing.Size(222, 28);
             this.cbKözterület.Sorted = true;
             this.cbKözterület.TabIndex = 24;
             this.cbKözterület.Click += new System.EventHandler(this.cbKözterület_Click);
@@ -797,7 +1124,7 @@ namespace Felisz.Formok
             this.tbKözterületJellege.Location = new System.Drawing.Point(166, 123);
             this.tbKözterületJellege.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbKözterületJellege.Name = "tbKözterületJellege";
-            this.tbKözterületJellege.Size = new System.Drawing.Size(243, 26);
+            this.tbKözterületJellege.Size = new System.Drawing.Size(221, 26);
             this.tbKözterületJellege.TabIndex = 25;
             this.tbKözterületJellege.Validated += new System.EventHandler(this.tbKözterületJellege_Validated);
             // 
@@ -805,10 +1132,12 @@ namespace Felisz.Formok
             // 
             this.gbFoglalkoztatás.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.gbFoglalkoztatás.Controls.Add(this.tlpFoglalkoztatás);
+            this.gbFoglalkoztatás.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbFoglalkoztatás.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.gbFoglalkoztatás.Location = new System.Drawing.Point(3, 421);
+            this.gbFoglalkoztatás.Location = new System.Drawing.Point(1, 415);
+            this.gbFoglalkoztatás.Margin = new System.Windows.Forms.Padding(1);
             this.gbFoglalkoztatás.Name = "gbFoglalkoztatás";
-            this.gbFoglalkoztatás.Size = new System.Drawing.Size(420, 110);
+            this.gbFoglalkoztatás.Size = new System.Drawing.Size(409, 110);
             this.gbFoglalkoztatás.TabIndex = 26;
             this.gbFoglalkoztatás.TabStop = false;
             this.gbFoglalkoztatás.Text = "Foglalkoztatás";
@@ -832,7 +1161,7 @@ namespace Felisz.Formok
             this.tlpFoglalkoztatás.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpFoglalkoztatás.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpFoglalkoztatás.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpFoglalkoztatás.Size = new System.Drawing.Size(414, 91);
+            this.tlpFoglalkoztatás.Size = new System.Drawing.Size(403, 91);
             this.tlpFoglalkoztatás.TabIndex = 0;
             // 
             // tbEngedélykör
@@ -844,7 +1173,7 @@ namespace Felisz.Formok
             this.tbEngedélykör.Location = new System.Drawing.Point(166, 33);
             this.tbEngedélykör.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbEngedélykör.Name = "tbEngedélykör";
-            this.tbEngedélykör.Size = new System.Drawing.Size(243, 26);
+            this.tbEngedélykör.Size = new System.Drawing.Size(221, 26);
             this.tbEngedélykör.TabIndex = 15;
             // 
             // lbFoglalkoztatásHelye
@@ -903,7 +1232,7 @@ namespace Felisz.Formok
             this.cbFoglalkoztatásHelye.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbFoglalkoztatásHelye.MaxDropDownItems = 5;
             this.cbFoglalkoztatásHelye.Name = "cbFoglalkoztatásHelye";
-            this.cbFoglalkoztatásHelye.Size = new System.Drawing.Size(243, 28);
+            this.cbFoglalkoztatásHelye.Size = new System.Drawing.Size(221, 28);
             this.cbFoglalkoztatásHelye.TabIndex = 14;
             this.cbFoglalkoztatásHelye.Validated += new System.EventHandler(this.cbFoglalkoztatásHelye_Validated);
             // 
@@ -924,7 +1253,7 @@ namespace Felisz.Formok
             this.cbFEOR.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbFEOR.MaxDropDownItems = 5;
             this.cbFEOR.Name = "cbFEOR";
-            this.cbFEOR.Size = new System.Drawing.Size(243, 28);
+            this.cbFEOR.Size = new System.Drawing.Size(222, 28);
             this.cbFEOR.Sorted = true;
             this.cbFEOR.TabIndex = 16;
             this.cbFEOR.Validated += new System.EventHandler(this.cbFEOR_Validated);
@@ -933,10 +1262,12 @@ namespace Felisz.Formok
             // 
             this.gbDolgozó.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.gbDolgozó.Controls.Add(this.tlpDolgozó);
+            this.gbDolgozó.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbDolgozó.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.gbDolgozó.Location = new System.Drawing.Point(3, 3);
+            this.gbDolgozó.Location = new System.Drawing.Point(1, 1);
+            this.gbDolgozó.Margin = new System.Windows.Forms.Padding(1);
             this.gbDolgozó.Name = "gbDolgozó";
-            this.gbDolgozó.Size = new System.Drawing.Size(420, 412);
+            this.gbDolgozó.Size = new System.Drawing.Size(409, 412);
             this.gbDolgozó.TabIndex = 25;
             this.gbDolgozó.TabStop = false;
             this.gbDolgozó.Text = "Dolgozó";
@@ -991,7 +1322,7 @@ namespace Felisz.Formok
             this.tlpDolgozó.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpDolgozó.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpDolgozó.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpDolgozó.Size = new System.Drawing.Size(414, 393);
+            this.tlpDolgozó.Size = new System.Drawing.Size(403, 393);
             this.tlpDolgozó.TabIndex = 0;
             // 
             // cbÁllampolgárság
@@ -1011,7 +1342,7 @@ namespace Felisz.Formok
             this.cbÁllampolgárság.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbÁllampolgárság.MaxDropDownItems = 5;
             this.cbÁllampolgárság.Name = "cbÁllampolgárság";
-            this.cbÁllampolgárság.Size = new System.Drawing.Size(243, 28);
+            this.cbÁllampolgárság.Size = new System.Drawing.Size(222, 28);
             this.cbÁllampolgárság.Sorted = true;
             this.cbÁllampolgárság.TabIndex = 13;
             // 
@@ -1037,7 +1368,7 @@ namespace Felisz.Formok
             this.tbSzülUtónév2.Location = new System.Drawing.Point(166, 183);
             this.tbSzülUtónév2.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbSzülUtónév2.Name = "tbSzülUtónév2";
-            this.tbSzülUtónév2.Size = new System.Drawing.Size(243, 26);
+            this.tbSzülUtónév2.Size = new System.Drawing.Size(221, 26);
             this.tbSzülUtónév2.TabIndex = 7;
             this.tbSzülUtónév2.Validated += new System.EventHandler(this.tbSzülUtónév2_Validated);
             // 
@@ -1050,7 +1381,7 @@ namespace Felisz.Formok
             this.tbSzülUtónév1.Location = new System.Drawing.Point(166, 153);
             this.tbSzülUtónév1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbSzülUtónév1.Name = "tbSzülUtónév1";
-            this.tbSzülUtónév1.Size = new System.Drawing.Size(243, 26);
+            this.tbSzülUtónév1.Size = new System.Drawing.Size(221, 26);
             this.tbSzülUtónév1.TabIndex = 6;
             this.tbSzülUtónév1.Validated += new System.EventHandler(this.tbSzülUtónév1_Validated);
             // 
@@ -1063,7 +1394,7 @@ namespace Felisz.Formok
             this.tbSzülVezetéknév.Location = new System.Drawing.Point(166, 123);
             this.tbSzülVezetéknév.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbSzülVezetéknév.Name = "tbSzülVezetéknév";
-            this.tbSzülVezetéknév.Size = new System.Drawing.Size(243, 26);
+            this.tbSzülVezetéknév.Size = new System.Drawing.Size(221, 26);
             this.tbSzülVezetéknév.TabIndex = 5;
             this.tbSzülVezetéknév.Validated += new System.EventHandler(this.tbSzülVezetéknév_Validated);
             // 
@@ -1076,7 +1407,7 @@ namespace Felisz.Formok
             this.tbSzületésDátum.Location = new System.Drawing.Point(166, 213);
             this.tbSzületésDátum.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbSzületésDátum.Name = "tbSzületésDátum";
-            this.tbSzületésDátum.Size = new System.Drawing.Size(243, 26);
+            this.tbSzületésDátum.Size = new System.Drawing.Size(221, 26);
             this.tbSzületésDátum.TabIndex = 8;
             this.tbSzületésDátum.Validated += new System.EventHandler(this.tbSzületésDátum_Validated);
             // 
@@ -1089,7 +1420,7 @@ namespace Felisz.Formok
             this.tbUtónév2.Location = new System.Drawing.Point(166, 93);
             this.tbUtónév2.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbUtónév2.Name = "tbUtónév2";
-            this.tbUtónév2.Size = new System.Drawing.Size(243, 26);
+            this.tbUtónév2.Size = new System.Drawing.Size(221, 26);
             this.tbUtónév2.TabIndex = 4;
             this.tbUtónév2.Validated += new System.EventHandler(this.tbUtónév2_Validated);
             // 
@@ -1102,7 +1433,7 @@ namespace Felisz.Formok
             this.tbUtónév1.Location = new System.Drawing.Point(166, 63);
             this.tbUtónév1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbUtónév1.Name = "tbUtónév1";
-            this.tbUtónév1.Size = new System.Drawing.Size(243, 26);
+            this.tbUtónév1.Size = new System.Drawing.Size(221, 26);
             this.tbUtónév1.TabIndex = 3;
             this.tbUtónév1.Validated += new System.EventHandler(this.tbUtónév1_Validated);
             // 
@@ -1115,7 +1446,7 @@ namespace Felisz.Formok
             this.tbVezetéknév.Location = new System.Drawing.Point(166, 33);
             this.tbVezetéknév.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbVezetéknév.Name = "tbVezetéknév";
-            this.tbVezetéknév.Size = new System.Drawing.Size(243, 26);
+            this.tbVezetéknév.Size = new System.Drawing.Size(221, 26);
             this.tbVezetéknév.TabIndex = 2;
             this.tbVezetéknév.Validated += new System.EventHandler(this.tbVezetéknév_Validated);
             // 
@@ -1271,7 +1602,7 @@ namespace Felisz.Formok
             this.tbAzonosítószám.Location = new System.Drawing.Point(166, 3);
             this.tbAzonosítószám.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbAzonosítószám.Name = "tbAzonosítószám";
-            this.tbAzonosítószám.Size = new System.Drawing.Size(243, 26);
+            this.tbAzonosítószám.Size = new System.Drawing.Size(221, 26);
             this.tbAzonosítószám.TabIndex = 1;
             this.tbAzonosítószám.Validated += new System.EventHandler(this.tbAzonosítószám_Validated);
             // 
@@ -1297,7 +1628,7 @@ namespace Felisz.Formok
             this.tbAnyjaNeve.Location = new System.Drawing.Point(166, 303);
             this.tbAnyjaNeve.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbAnyjaNeve.Name = "tbAnyjaNeve";
-            this.tbAnyjaNeve.Size = new System.Drawing.Size(243, 26);
+            this.tbAnyjaNeve.Size = new System.Drawing.Size(221, 26);
             this.tbAnyjaNeve.TabIndex = 11;
             this.tbAnyjaNeve.Validated += new System.EventHandler(this.tbAnyjaNeve_Validated);
             // 
@@ -1318,7 +1649,7 @@ namespace Felisz.Formok
             this.cbNeme.Location = new System.Drawing.Point(166, 333);
             this.cbNeme.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbNeme.Name = "cbNeme";
-            this.cbNeme.Size = new System.Drawing.Size(243, 28);
+            this.cbNeme.Size = new System.Drawing.Size(222, 28);
             this.cbNeme.TabIndex = 12;
             this.cbNeme.Validated += new System.EventHandler(this.cbNeme_Validated);
             // 
@@ -1339,7 +1670,7 @@ namespace Felisz.Formok
             this.cbSzületésiOrszág.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbSzületésiOrszág.MaxDropDownItems = 5;
             this.cbSzületésiOrszág.Name = "cbSzületésiOrszág";
-            this.cbSzületésiOrszág.Size = new System.Drawing.Size(243, 28);
+            this.cbSzületésiOrszág.Size = new System.Drawing.Size(222, 28);
             this.cbSzületésiOrszág.Sorted = true;
             this.cbSzületésiOrszág.TabIndex = 10;
             // 
@@ -1359,30 +1690,10 @@ namespace Felisz.Formok
             this.cbSzületésiHely.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbSzületésiHely.MaxDropDownItems = 5;
             this.cbSzületésiHely.Name = "cbSzületésiHely";
-            this.cbSzületésiHely.Size = new System.Drawing.Size(243, 28);
+            this.cbSzületésiHely.Size = new System.Drawing.Size(222, 28);
             this.cbSzületésiHely.Sorted = true;
             this.cbSzületésiHely.TabIndex = 9;
             this.cbSzületésiHely.Validated += new System.EventHandler(this.cbSzületésiHely_Validated);
-            // 
-            // tlpKalkuláltÉrtékek
-            // 
-            this.tlpKalkuláltÉrtékek.ColumnCount = 2;
-            this.tlpKalkuláltÉrtékek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpKalkuláltÉrtékek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpKalkuláltÉrtékek.Controls.Add(this.tbKalkSzabadság, 1, 1);
-            this.tlpKalkuláltÉrtékek.Controls.Add(this.lbKalkSzabadság, 0, 1);
-            this.tlpKalkuláltÉrtékek.Controls.Add(this.lbTávolság, 0, 0);
-            this.tlpKalkuláltÉrtékek.Controls.Add(this.btSzemAdatMentes, 1, 2);
-            this.tlpKalkuláltÉrtékek.Controls.Add(this.tbTávolság, 1, 0);
-            this.tlpKalkuláltÉrtékek.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpKalkuláltÉrtékek.Location = new System.Drawing.Point(429, 625);
-            this.tlpKalkuláltÉrtékek.Name = "tlpKalkuláltÉrtékek";
-            this.tlpKalkuláltÉrtékek.RowCount = 3;
-            this.tlpKalkuláltÉrtékek.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpKalkuláltÉrtékek.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpKalkuláltÉrtékek.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpKalkuláltÉrtékek.Size = new System.Drawing.Size(800, 136);
-            this.tlpKalkuláltÉrtékek.TabIndex = 30;
             // 
             // tbKalkSzabadság
             // 
@@ -1391,52 +1702,26 @@ namespace Felisz.Formok
             this.tbKalkSzabadság.Enabled = false;
             this.tbKalkSzabadság.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.tbKalkSzabadság.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.tbKalkSzabadság.Location = new System.Drawing.Point(227, 33);
+            this.tbKalkSzabadság.Location = new System.Drawing.Point(822, 417);
             this.tbKalkSzabadság.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbKalkSzabadság.Name = "tbKalkSzabadság";
-            this.tbKalkSzabadság.Size = new System.Drawing.Size(243, 26);
+            this.tbKalkSzabadság.Size = new System.Drawing.Size(39, 26);
             this.tbKalkSzabadság.TabIndex = 47;
             this.tbKalkSzabadság.TabStop = false;
             // 
-            // lbKalkSzabadság
+            // btÁltalánosSzemAdatokMentés
             // 
-            this.lbKalkSzabadság.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.lbKalkSzabadság.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lbKalkSzabadság.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.lbKalkSzabadság.Location = new System.Drawing.Point(3, 33);
-            this.lbKalkSzabadság.Margin = new System.Windows.Forms.Padding(3);
-            this.lbKalkSzabadság.Name = "lbKalkSzabadság";
-            this.lbKalkSzabadság.Size = new System.Drawing.Size(221, 24);
-            this.lbKalkSzabadság.TabIndex = 46;
-            this.lbKalkSzabadság.Text = "Kalkulált éves  szabadság (napok)";
-            this.lbKalkSzabadság.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbTávolság
-            // 
-            this.lbTávolság.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.lbTávolság.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lbTávolság.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.lbTávolság.Location = new System.Drawing.Point(3, 3);
-            this.lbTávolság.Margin = new System.Windows.Forms.Padding(3);
-            this.lbTávolság.Name = "lbTávolság";
-            this.lbTávolság.Size = new System.Drawing.Size(221, 24);
-            this.lbTávolság.TabIndex = 45;
-            this.lbTávolság.Text = "Távolság (utiköltségtérítéshez)";
-            this.lbTávolság.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbTávolság
-            // 
-            this.tbTávolság.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tbTávolság.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbTávolság.Enabled = false;
-            this.tbTávolság.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbTávolság.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.tbTávolság.Location = new System.Drawing.Point(227, 3);
-            this.tbTávolság.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.tbTávolság.Name = "tbTávolság";
-            this.tbTávolság.Size = new System.Drawing.Size(243, 26);
-            this.tbTávolság.TabIndex = 31;
-            this.tbTávolság.TabStop = false;
+            this.btÁltalánosSzemAdatokMentés.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btÁltalánosSzemAdatokMentés.BackColor = System.Drawing.Color.Transparent;
+            this.btÁltalánosSzemAdatokMentés.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
+            this.btÁltalánosSzemAdatokMentés.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.btÁltalánosSzemAdatokMentés.Location = new System.Drawing.Point(1130, 718);
+            this.btÁltalánosSzemAdatokMentés.Name = "btÁltalánosSzemAdatokMentés";
+            this.btÁltalánosSzemAdatokMentés.Size = new System.Drawing.Size(102, 28);
+            this.btÁltalánosSzemAdatokMentés.TabIndex = 49;
+            this.btÁltalánosSzemAdatokMentés.Text = "MENTÉS";
+            this.btÁltalánosSzemAdatokMentés.UseVisualStyleBackColor = false;
+            this.btÁltalánosSzemAdatokMentés.Click += new System.EventHandler(this.btÁltalánosSzemAdatokMentés_Click);
             // 
             // tpHozzátartozók
             // 
@@ -1446,7 +1731,7 @@ namespace Felisz.Formok
             this.tpHozzátartozók.Location = new System.Drawing.Point(4, 22);
             this.tpHozzátartozók.Name = "tpHozzátartozók";
             this.tpHozzátartozók.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHozzátartozók.Size = new System.Drawing.Size(1241, 773);
+            this.tpHozzátartozók.Size = new System.Drawing.Size(1241, 755);
             this.tpHozzátartozók.TabIndex = 1;
             this.tpHozzátartozók.Text = "Hozzátartozók";
             // 
@@ -1455,8 +1740,6 @@ namespace Felisz.Formok
             this.tlpHozzátartozók.ColumnCount = 2;
             this.tlpHozzátartozók.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpHozzátartozók.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpHozzátartozók.Controls.Add(this.gpHozzátartozó, 0, 0);
-            this.tlpHozzátartozók.Controls.Add(this.dgvHozzátartozó, 0, 2);
             this.tlpHozzátartozók.Location = new System.Drawing.Point(6, 6);
             this.tlpHozzátartozók.Name = "tlpHozzátartozók";
             this.tlpHozzátartozók.RowCount = 3;
@@ -1470,301 +1753,6 @@ namespace Felisz.Formok
             this.tlpHozzátartozók.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpHozzátartozók.Size = new System.Drawing.Size(1231, 761);
             this.tlpHozzátartozók.TabIndex = 29;
-            this.tlpHozzátartozók.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpHozzátartozók_Paint);
-            // 
-            // gpHozzátartozó
-            // 
-            this.gpHozzátartozó.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.gpHozzátartozó.Controls.Add(this.tableLayoutPanel5);
-            this.gpHozzátartozó.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.gpHozzátartozó.Location = new System.Drawing.Point(3, 3);
-            this.gpHozzátartozó.Name = "gpHozzátartozó";
-            this.gpHozzátartozó.Size = new System.Drawing.Size(420, 210);
-            this.gpHozzátartozó.TabIndex = 25;
-            this.gpHozzátartozó.TabStop = false;
-            this.gpHozzátartozó.Text = "Hozzátartozó";
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel5.Controls.Add(this.tbSzülDátumHozzá, 1, 3);
-            this.tableLayoutPanel5.Controls.Add(this.tbHozzáUtónév2, 1, 2);
-            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel1, 1, 5);
-            this.tableLayoutPanel5.Controls.Add(this.tbHozzáUtónév1, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.tbHozzáVezetéknév, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.lbSzülDátumHozzá, 0, 3);
-            this.tableLayoutPanel5.Controls.Add(this.lbHozzáVezetéknév, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.lbHozzáUtónév1, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.lbHozzáUtónév2, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.lbFogyatékHozzá, 0, 4);
-            this.tableLayoutPanel5.Controls.Add(this.cbFogyatékHozzá, 1, 4);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.ForeColor = System.Drawing.Color.White;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 6;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(414, 191);
-            this.tableLayoutPanel5.TabIndex = 0;
-            // 
-            // tbSzülDátumHozzá
-            // 
-            this.tbSzülDátumHozzá.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tbSzülDátumHozzá.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbSzülDátumHozzá.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbSzülDátumHozzá.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.tbSzülDátumHozzá.Location = new System.Drawing.Point(166, 93);
-            this.tbSzülDátumHozzá.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.tbSzülDátumHozzá.Name = "tbSzülDátumHozzá";
-            this.tbSzülDátumHozzá.Size = new System.Drawing.Size(243, 26);
-            this.tbSzülDátumHozzá.TabIndex = 5;
-            this.paragrafusTippek.SetToolTip(this.tbSzülDátumHozzá, resources.GetString("tbSzülDátumHozzá.ToolTip"));
-            this.tbSzülDátumHozzá.Validated += new System.EventHandler(this.tbHozzáSzülDátum_Validated);
-            // 
-            // tbHozzáUtónév2
-            // 
-            this.tbHozzáUtónév2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tbHozzáUtónév2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbHozzáUtónév2.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbHozzáUtónév2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.tbHozzáUtónév2.Location = new System.Drawing.Point(166, 63);
-            this.tbHozzáUtónév2.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.tbHozzáUtónév2.Name = "tbHozzáUtónév2";
-            this.tbHozzáUtónév2.Size = new System.Drawing.Size(243, 26);
-            this.tbHozzáUtónév2.TabIndex = 4;
-            this.tbHozzáUtónév2.Validated += new System.EventHandler(this.tbHozzáUtónév2_Validated);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.btHozzTartMentes, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btHozzTartTörlés, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(169, 156);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(242, 32);
-            this.tableLayoutPanel1.TabIndex = 27;
-            // 
-            // btHozzTartMentes
-            // 
-            this.btHozzTartMentes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btHozzTartMentes.BackColor = System.Drawing.Color.Transparent;
-            this.btHozzTartMentes.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
-            this.btHozzTartMentes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.btHozzTartMentes.Location = new System.Drawing.Point(137, 3);
-            this.btHozzTartMentes.Name = "btHozzTartMentes";
-            this.btHozzTartMentes.Size = new System.Drawing.Size(102, 26);
-            this.btHozzTartMentes.TabIndex = 7;
-            this.btHozzTartMentes.Text = "MENTÉS";
-            this.btHozzTartMentes.UseVisualStyleBackColor = false;
-            this.btHozzTartMentes.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btHozzTartTörlés
-            // 
-            this.btHozzTartTörlés.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btHozzTartTörlés.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
-            this.btHozzTartTörlés.FlatAppearance.BorderSize = 0;
-            this.btHozzTartTörlés.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btHozzTartTörlés.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
-            this.btHozzTartTörlés.ForeColor = System.Drawing.Color.White;
-            this.btHozzTartTörlés.Location = new System.Drawing.Point(3, 3);
-            this.btHozzTartTörlés.Name = "btHozzTartTörlés";
-            this.btHozzTartTörlés.Size = new System.Drawing.Size(102, 26);
-            this.btHozzTartTörlés.TabIndex = 24;
-            this.btHozzTartTörlés.Text = "TÖRLÉS";
-            this.btHozzTartTörlés.UseVisualStyleBackColor = false;
-            this.btHozzTartTörlés.Visible = false;
-            this.btHozzTartTörlés.Click += new System.EventHandler(this.btHozzTartTörlés_Click);
-            // 
-            // tbHozzáUtónév1
-            // 
-            this.tbHozzáUtónév1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tbHozzáUtónév1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbHozzáUtónév1.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbHozzáUtónév1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.tbHozzáUtónév1.Location = new System.Drawing.Point(166, 33);
-            this.tbHozzáUtónév1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.tbHozzáUtónév1.Name = "tbHozzáUtónév1";
-            this.tbHozzáUtónév1.Size = new System.Drawing.Size(243, 26);
-            this.tbHozzáUtónév1.TabIndex = 3;
-            this.tbHozzáUtónév1.Validated += new System.EventHandler(this.tbHozzáUtónév1_Validated);
-            // 
-            // tbHozzáVezetéknév
-            // 
-            this.tbHozzáVezetéknév.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tbHozzáVezetéknév.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbHozzáVezetéknév.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbHozzáVezetéknév.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.tbHozzáVezetéknév.Location = new System.Drawing.Point(166, 3);
-            this.tbHozzáVezetéknév.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.tbHozzáVezetéknév.Name = "tbHozzáVezetéknév";
-            this.tbHozzáVezetéknév.Size = new System.Drawing.Size(243, 26);
-            this.tbHozzáVezetéknév.TabIndex = 2;
-            this.paragrafusTippek.SetToolTip(this.tbHozzáVezetéknév, resources.GetString("tbHozzáVezetéknév.ToolTip"));
-            this.tbHozzáVezetéknév.Validated += new System.EventHandler(this.tbHozzáVezetéknév_Validated);
-            // 
-            // lbSzülDátumHozzá
-            // 
-            this.lbSzülDátumHozzá.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
-            this.lbSzülDátumHozzá.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lbSzülDátumHozzá.ForeColor = System.Drawing.Color.White;
-            this.lbSzülDátumHozzá.Location = new System.Drawing.Point(3, 93);
-            this.lbSzülDátumHozzá.Margin = new System.Windows.Forms.Padding(3);
-            this.lbSzülDátumHozzá.Name = "lbSzülDátumHozzá";
-            this.lbSzülDátumHozzá.Size = new System.Drawing.Size(160, 24);
-            this.lbSzülDátumHozzá.TabIndex = 21;
-            this.lbSzülDátumHozzá.Text = "Születési dátum";
-            this.lbSzülDátumHozzá.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbHozzáVezetéknév
-            // 
-            this.lbHozzáVezetéknév.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
-            this.lbHozzáVezetéknév.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lbHozzáVezetéknév.ForeColor = System.Drawing.Color.White;
-            this.lbHozzáVezetéknév.Location = new System.Drawing.Point(3, 3);
-            this.lbHozzáVezetéknév.Margin = new System.Windows.Forms.Padding(3);
-            this.lbHozzáVezetéknév.Name = "lbHozzáVezetéknév";
-            this.lbHozzáVezetéknév.Size = new System.Drawing.Size(160, 24);
-            this.lbHozzáVezetéknév.TabIndex = 15;
-            this.lbHozzáVezetéknév.Text = "Vezetéknév";
-            this.lbHozzáVezetéknév.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbHozzáUtónév1
-            // 
-            this.lbHozzáUtónév1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
-            this.lbHozzáUtónév1.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lbHozzáUtónév1.ForeColor = System.Drawing.Color.White;
-            this.lbHozzáUtónév1.Location = new System.Drawing.Point(3, 33);
-            this.lbHozzáUtónév1.Margin = new System.Windows.Forms.Padding(3);
-            this.lbHozzáUtónév1.Name = "lbHozzáUtónév1";
-            this.lbHozzáUtónév1.Size = new System.Drawing.Size(160, 24);
-            this.lbHozzáUtónév1.TabIndex = 16;
-            this.lbHozzáUtónév1.Text = "Utónév 1";
-            this.lbHozzáUtónév1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbHozzáUtónév2
-            // 
-            this.lbHozzáUtónév2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.lbHozzáUtónév2.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lbHozzáUtónév2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.lbHozzáUtónév2.Location = new System.Drawing.Point(3, 63);
-            this.lbHozzáUtónév2.Margin = new System.Windows.Forms.Padding(3);
-            this.lbHozzáUtónév2.Name = "lbHozzáUtónév2";
-            this.lbHozzáUtónév2.Size = new System.Drawing.Size(160, 24);
-            this.lbHozzáUtónév2.TabIndex = 17;
-            this.lbHozzáUtónév2.Text = "Utónév 2";
-            this.lbHozzáUtónév2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbFogyatékHozzá
-            // 
-            this.lbFogyatékHozzá.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
-            this.lbFogyatékHozzá.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lbFogyatékHozzá.ForeColor = System.Drawing.Color.White;
-            this.lbFogyatékHozzá.Location = new System.Drawing.Point(3, 123);
-            this.lbFogyatékHozzá.Margin = new System.Windows.Forms.Padding(3);
-            this.lbFogyatékHozzá.Name = "lbFogyatékHozzá";
-            this.lbFogyatékHozzá.Size = new System.Drawing.Size(160, 24);
-            this.lbFogyatékHozzá.TabIndex = 23;
-            this.lbFogyatékHozzá.Text = "Fogyatékosság";
-            this.lbFogyatékHozzá.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cbFogyatékHozzá
-            // 
-            this.cbFogyatékHozzá.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbFogyatékHozzá.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbFogyatékHozzá.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.cbFogyatékHozzá.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFogyatékHozzá.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbFogyatékHozzá.Font = new System.Drawing.Font("Arial Narrow", 11F);
-            this.cbFogyatékHozzá.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.cbFogyatékHozzá.FormattingEnabled = true;
-            this.cbFogyatékHozzá.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cbFogyatékHozzá.IntegralHeight = false;
-            this.cbFogyatékHozzá.Items.AddRange(new object[] {
-            "Igen",
-            "Nem"});
-            this.cbFogyatékHozzá.Location = new System.Drawing.Point(166, 123);
-            this.cbFogyatékHozzá.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.cbFogyatékHozzá.Name = "cbFogyatékHozzá";
-            this.cbFogyatékHozzá.Size = new System.Drawing.Size(245, 28);
-            this.cbFogyatékHozzá.TabIndex = 6;
-            this.paragrafusTippek.SetToolTip(this.cbFogyatékHozzá, "120. § A munkavállalónak, ha\r\na) megváltozott munkaképességű,\r\nb) fogyatékossági " +
-        "támogatásra jogosult, vagy\r\nc) vakok személyi járadékára jogosult\r\névenként öt m" +
-        "unkanap pótszabadság jár.\r\n");
-            this.cbFogyatékHozzá.Validated += new System.EventHandler(this.cbFogyatékHozzá_Validated);
-            // 
-            // dgvHozzátartozó
-            // 
-            this.dgvHozzátartozó.AllowUserToAddRows = false;
-            this.dgvHozzátartozó.AllowUserToDeleteRows = false;
-            this.dgvHozzátartozó.AllowUserToOrderColumns = true;
-            this.dgvHozzátartozó.AllowUserToResizeColumns = false;
-            this.dgvHozzátartozó.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
-            this.dgvHozzátartozó.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvHozzátartozó.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvHozzátartozó.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvHozzátartozó.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.dgvHozzátartozó.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvHozzátartozó.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHozzátartozó.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvHozzátartozó.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.dgvHozzátartozó.Location = new System.Drawing.Point(3, 219);
-            this.dgvHozzátartozó.MultiSelect = false;
-            this.dgvHozzátartozó.Name = "dgvHozzátartozó";
-            this.dgvHozzátartozó.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHozzátartozó.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvHozzátartozó.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvHozzátartozó.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Control;
-            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray;
-            this.dgvHozzátartozó.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvHozzátartozó.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvHozzátartozó.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHozzátartozó.Size = new System.Drawing.Size(420, 149);
-            this.dgvHozzátartozó.TabIndex = 26;
-            this.dgvHozzátartozó.TabStop = false;
-            this.dgvHozzátartozó.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHozzátartozó_CellClick);
             // 
             // lbHozzátartozókFigyelmeztetés
             // 
@@ -1783,7 +1771,7 @@ namespace Felisz.Formok
             this.tpKapcsolatok.Controls.Add(this.lbKapcsolatokFigyelmeztetés);
             this.tpKapcsolatok.Location = new System.Drawing.Point(4, 22);
             this.tpKapcsolatok.Name = "tpKapcsolatok";
-            this.tpKapcsolatok.Size = new System.Drawing.Size(1241, 773);
+            this.tpKapcsolatok.Size = new System.Drawing.Size(1241, 755);
             this.tpKapcsolatok.TabIndex = 2;
             this.tpKapcsolatok.Text = "Kapcsolatok";
             // 
@@ -1808,9 +1796,8 @@ namespace Felisz.Formok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(1255, 1000);
+            this.ClientSize = new System.Drawing.Size(1255, 800);
             this.Controls.Add(this.gbSzemélyiAdatok);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -1825,6 +1812,12 @@ namespace Felisz.Formok
             this.tcSzemélyiAdatok.ResumeLayout(false);
             this.tpÁltalánosSzemélyiAdatok.ResumeLayout(false);
             this.tlpÁltalánosSzemélyiAdatok.ResumeLayout(false);
+            this.tlpÁltalánosSzemélyiAdatok.PerformLayout();
+            this.gpHozzátartozó.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHozzátartozó)).EndInit();
+            this.tlpHozzátartozók_New.ResumeLayout(false);
+            this.tlpHozzátartozók_New.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.gbEgyéb.ResumeLayout(false);
             this.tlpEgyéb.ResumeLayout(false);
             this.gbAdóésTB.ResumeLayout(false);
@@ -1839,25 +1832,16 @@ namespace Felisz.Formok
             this.gbDolgozó.ResumeLayout(false);
             this.tlpDolgozó.ResumeLayout(false);
             this.tlpDolgozó.PerformLayout();
-            this.tlpKalkuláltÉrtékek.ResumeLayout(false);
-            this.tlpKalkuláltÉrtékek.PerformLayout();
             this.tpHozzátartozók.ResumeLayout(false);
             this.tpHozzátartozók.PerformLayout();
-            this.tlpHozzátartozók.ResumeLayout(false);
-            this.gpHozzátartozó.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHozzátartozó)).EndInit();
             this.tpKapcsolatok.ResumeLayout(false);
             this.tpKapcsolatok.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btSzemAdatMentes;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox gbSzemélyiAdatok;
         private System.Windows.Forms.TabControl tcSzemélyiAdatok;
@@ -1932,33 +1916,33 @@ namespace Felisz.Formok
         private System.Windows.Forms.ComboBox cbFEOR;
         private System.Windows.Forms.TextBox tbSzületésDátum;
         private System.Windows.Forms.TableLayoutPanel tlpHozzátartozók;
+        private System.Windows.Forms.GroupBox gbEgyéb;
+        private System.Windows.Forms.TableLayoutPanel tlpEgyéb;
+        private System.Windows.Forms.Label lbMegVáltMunkFogy;
+        private System.Windows.Forms.ComboBox cbMegVáltMunkFogy;
+        public System.Windows.Forms.ToolTip paragrafusTippek;
+        private System.Windows.Forms.Label lbFöldAlattIon;
+        private System.Windows.Forms.ComboBox cbFöldAlattIonMunk;
+        private System.Windows.Forms.Label lbHozzátartozókFigyelmeztetés;
+        private System.Windows.Forms.Label lbKapcsolatokFigyelmeztetés;
+        private System.Windows.Forms.TextBox tbKalkSzabadság;
+        private System.Windows.Forms.Label lbKalkSzabadság;
         private System.Windows.Forms.GroupBox gpHozzátartozó;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        public System.Windows.Forms.DataGridView dgvHozzátartozó;
+        private System.Windows.Forms.TableLayoutPanel tlpHozzátartozók_New;
         private System.Windows.Forms.TextBox tbSzülDátumHozzá;
         private System.Windows.Forms.TextBox tbHozzáUtónév2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btHozzTartMentes;
+        private System.Windows.Forms.Button btHozzTartTörlés;
         private System.Windows.Forms.TextBox tbHozzáUtónév1;
         private System.Windows.Forms.TextBox tbHozzáVezetéknév;
         private System.Windows.Forms.Label lbSzülDátumHozzá;
         private System.Windows.Forms.Label lbHozzáVezetéknév;
         private System.Windows.Forms.Label lbHozzáUtónév1;
         private System.Windows.Forms.Label lbHozzáUtónév2;
-        public System.Windows.Forms.DataGridView dgvHozzátartozó;
-        private System.Windows.Forms.Button btHozzTartMentes;
-        private System.Windows.Forms.GroupBox gbEgyéb;
-        private System.Windows.Forms.TableLayoutPanel tlpEgyéb;
-        private System.Windows.Forms.Label lbMegVáltMunkFogy;
-        private System.Windows.Forms.ComboBox cbMegVáltMunkFogy;
         private System.Windows.Forms.Label lbFogyatékHozzá;
-        public System.Windows.Forms.ToolTip paragrafusTippek;
         private System.Windows.Forms.ComboBox cbFogyatékHozzá;
-        private System.Windows.Forms.Label lbFöldAlattIon;
-        private System.Windows.Forms.ComboBox cbFöldAlattIonMunk;
-        private System.Windows.Forms.Label lbHozzátartozókFigyelmeztetés;
-        private System.Windows.Forms.Label lbKapcsolatokFigyelmeztetés;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btHozzTartTörlés;
-        private System.Windows.Forms.TableLayoutPanel tlpKalkuláltÉrtékek;
-        private System.Windows.Forms.TextBox tbKalkSzabadság;
-        private System.Windows.Forms.Label lbKalkSzabadság;
+        private System.Windows.Forms.Button btÁltalánosSzemAdatokMentés;
     }
 }

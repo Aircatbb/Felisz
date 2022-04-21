@@ -1,3 +1,29 @@
+V0.0.7.7
+	- Fiatal munkavállaló (18 éves koráig) pótszabadsága (Tesztelni!)
+	- Új telepítéskor nem tudta létrehozni a registry bejegyzéseket. Javítva, de tesztelni kell még!
+	- Hozzátartozók átkerültek az álatlános személyi adatok fülbe (Juppi, áttörés a vezérlõk méretezésében,
+	és elhelyezésében! :-) Minden ott van, ahol lennie kell!)
+	- Kalkulált éves szabadság átmenetileg még itt marad az általáns személyi adatoknál.
+	- A hozzátartozók variálgatása miatt lehetnek benne fennakadások, illetve logiaki bukfencek! Tesztelni
+	kell!
+	- Új dolgozó felvitele esetén validáltá kell tenni a hozzátartozók mezõket, mivel nem kötelezõ felvinni bele
+	adatot.
+	- Upgrad-elt funkció: MezõkValidálása. Szülõ control-on belül megkeresi az összes child control-t és
+	átállítja validáltra a státuszát. Eddig kissé faék megoldás volt, most rekurzív fügvénnyel helyettesítve.
+	- Hozzátartozók validálása upgrade-elve
+	- DátumValidálás funkcióba bekerült az üresEngedélyezve kapcsoló (hozzátartozók végett)
+	- Az összes validálást tesztelni minden körülmények között!
+	- TabStop-ok aktualizálva.
+	- Távolság módosítása engedélyezve.
+	- Hozzátartozó mentésekor újravalidálás szükséges, mivel alapesetben megengedett az üres mezõk. Zseniálisan
+	kétféle validálás egy ugyan azon mezõre! :-)
+	- Teendõk:
+		- Új munkavállaló rögzítésekor addig letiltani a hozzátartozók mentését, amíg magának a munkavállalónak az
+		adatai nincsenek lementve!
+		- Távolság módosítása esetén validálás funkció még hiányzik, illetve ide megy bele a jelentés FELFELÉ
+		- Hozzátartozók táblázatánál berakni a fogyatékosság oszlopt.
+		- Fent említett tesztek...
+
 V0.0.7.6
 	- TTS vezérlõ jobb egér click = Pause, Resume
 

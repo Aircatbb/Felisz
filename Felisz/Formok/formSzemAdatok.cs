@@ -22,7 +22,9 @@ namespace Felisz.Formok
         public string tempVárosIrsz = "";
         public string tempKözterület = "";
         private static readonly List<ToolTipRekord> listToolTipRekords = new List<ToolTipRekord>();
-
+        private string hozzáTartVezetéknév = "";
+        private string hozzáTartUtónév1 = "";
+        private string hozzáTartUtónév2 = "";
 
 
 
@@ -553,6 +555,12 @@ namespace Felisz.Formok
             cbFöldAlattIonMunk.SelectedIndex = 1;
             cbFogyatékHozzá.SelectedIndex = 1;
 
+            //Hozzátartozók betöltése
+            HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
+            //Hozzátartozók mezőinek validálása, mivel nem kötelező
+            MezőkValidálása(gpHozzátartozó);
+
+
         }
 
         private void cbLakhelyOrszág_Validated(object sender, EventArgs e)
@@ -841,25 +849,7 @@ namespace Felisz.Formok
 
         }
 
-        private void btAktualizálás_Click(object sender, EventArgs e)
-        {
 
-
-
-            if (MentésIndítható(tlpÁltalánosSzemélyiAdatok))
-            {
-                if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
-                if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
-                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
-            }
-            else
-            {
-                MessageBox.Show("A jelölt mezők kitöltése kötelező, illetve lehetséges hibákat tartalmazhatnak." + Environment.NewLine +
-                                "A mentés nem lehetséges!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            }
-
-
-        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -890,7 +880,7 @@ namespace Felisz.Formok
                 string sql = "select * from SzemTorzs " +
                              "where SzemAzon='" + formMunkavállalóVálasztás.azon + "' " +
                              "and SzemTorzs.SzemErvIg='2099.01.31' ";
-                             
+
                 /*string sql = "select * from SzemTorzs, CegTorzs " +
                            "where SzemAzon='" + formMunkavállalóVálasztás.azon + "' " +
                            "and SzemTorzs.SzekhelyTelephelyID=CegTorzs.ID " +
@@ -979,17 +969,10 @@ namespace Felisz.Formok
             conn.Close();
 
             tbAdóazonosító.Enabled = true;
-            ÁltalánosSzemélyiAdatokValidálása();
+            MezőkValidálása(tlpÁltalánosSzemélyiAdatok);
 
         }
 
-        private void tbEmelet_Validated(object sender, EventArgs e)
-        {
-        }
-
-        private void tbAjtó_Validated(object sender, EventArgs e)
-        {
-        }
 
         private string FeorLeírásLekérdezés(string feorSzám)
         {
@@ -1022,15 +1005,19 @@ namespace Felisz.Formok
             }
         }
 
-        private void ÁltalánosSzemélyiAdatokValidálása()
+        private void MezőkValidálása(Control kontroll)
         {
             //Adatok betöltése után minden mező érvényességének beállítása, engedélyezése, mivel a mentés elött már validálva lettek.
-            foreach (Control groupitem in tlpÁltalánosSzemélyiAdatok.Controls)
+
+            //Ez kissé faékre sikeredett, javítani a későbbiekbe TÖRÖLNI
+            //foreach (Control groupitem in tlpÁltalánosSzemélyiAdatok.Controls)
+            /*foreach (Control groupitem in controlNeve.Controls)
             {
                 foreach (Control tlpitem in groupitem.Controls)
                 {
                     foreach (Control item in tlpitem.Controls)
                     {
+                        if (item.Name == "") continue; //ha belekerülne véletlenül a scrollbar, hibát okozna he ez nem lenne
                         if (item.Name.Substring(0, 2) == "lb")
                         {
                             CímkeSzínBeállítás((Label)item, true);
@@ -1040,6 +1027,33 @@ namespace Felisz.Formok
                 }
 
             }
+            */
+
+            foreach (var item in kontroll.Controls)
+            {
+                if (item is Label)
+                {
+                    Label lb = (Label)item;
+                    if (lb.Name == "") continue; //ha belekerülne véletlenül a scrollbar, hibát okozna ha ez nem lenne
+                    if (lb.Name.Substring(0, 2) == "lb")
+                    {
+                        CímkeSzínBeállítás((Label)lb, true);
+                    }
+                }
+
+                if (kontroll.HasChildren)
+                {
+                    foreach (Control childControl in kontroll.Controls)
+                    {
+                        MezőkValidálása(childControl);
+
+                    }
+                }
+            }
+
+
+
+
 
         }
 
@@ -1234,7 +1248,7 @@ namespace Felisz.Formok
 
         private void tbSzületésDátum_Validated(object sender, EventArgs e)
         {
-            Funkciók.DátumValidálás(lbSzületésiDátum, tbSzületésDátum, tbAdóazonosító);
+            Funkciók.DátumValidálás(lbSzületésiDátum, tbSzületésDátum, tbAdóazonosító, false);
 
         }
 
@@ -1287,12 +1301,13 @@ namespace Felisz.Formok
 
         private void tcSzemélyiAdatok_Click(object sender, EventArgs e)
         {
-            HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
+            //Majd törölni!
+            //HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
         }
 
         private void HozzátartozókBetöltése(int SzemélyiAzon)
         {
-            if (tlpHozzátartozók.Visible == false) return;
+            //if (tlpHozzátartozók.Visible == false) return;
 
             if (!Adatbázis.AdatbázisEllenőrzéseCég())
             {
@@ -1456,7 +1471,7 @@ namespace Felisz.Formok
         {
 
             ToolTippekBetöltése(this, paragrafusTippek);
-            
+
 
 
         }
@@ -1483,41 +1498,6 @@ namespace Felisz.Formok
             {
                 CímkeSzínBeállítás(lbFöldAlattIon, false);
             }
-        }
-
-        private void cbFogyatékHozzá_Validated(object sender, EventArgs e)
-        {
-            if (cbFogyatékHozzá.Text.Length > 0)
-            {
-                CímkeSzínBeállítás(lbFogyatékHozzá, true);
-            }
-            else
-            {
-                CímkeSzínBeállítás(lbFogyatékHozzá, false);
-            }
-        }
-
-        private void tbHozzáVezetéknév_Validated(object sender, EventArgs e)
-        {
-
-            Funkciók.NévValidálás(lbHozzáVezetéknév, tbHozzáVezetéknév, null, false);
-
-        }
-
-        private void tbHozzáUtónév1_Validated(object sender, EventArgs e)
-        {
-            Funkciók.NévValidálás(lbHozzáUtónév1, tbHozzáUtónév1, null, false);
-        }
-
-        private void tbHozzáUtónév2_Validated(object sender, EventArgs e)
-        {
-            Funkciók.NévValidálás(lbHozzáUtónév2, tbHozzáUtónév2, null, true);
-        }
-
-        private void tbHozzáSzülDátum_Validated(object sender, EventArgs e)
-        {
-            Funkciók.DátumValidálás(lbSzülDátumHozzá, tbSzülDátumHozzá, null);
-
         }
 
         private void MunkavállalóTörlése(int SzemAzon)
@@ -1562,32 +1542,15 @@ namespace Felisz.Formok
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (MentésIndítható(tlpHozzátartozók))
-            {
-                if (formMunkavállalóVálasztás.mód == "M")
-                {
-                    HozzátartozókMentés();
-                    HozzátartozókBetöltése(int.Parse(tbAzonosítószám.Text));
-                    tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("A jelölt mezők kitöltése kötelező, illetve lehetséges hibákat tartalmazhatnak." + Environment.NewLine +
-                                "A mentés nem lehetséges!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            }
-        }
-
         private void tcSzemélyiAdatok_Selecting(object sender, TabControlCancelEventArgs e)
         {
+            /*
             if (formMunkavállalóVálasztás.mód == "N" && e.TabPage.Name == "tpHozzátartozók")
             {
                 tlpHozzátartozók.Visible = false;
                 //Kapcsoltaok jönnek majd még ide, no meg a többi
             }
+            */
 
         }
 
@@ -1681,48 +1644,12 @@ namespace Felisz.Formok
 
         }
 
-        private void tlpHozzátartozók_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
-        private string hozzáTartVezetéknév = "";
-        private string hozzáTartUtónév1 = "";
-        private string hozzáTartUtónév2 = "";
 
-        private void dgvHozzátartozó_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                btHozzTartTörlés.Visible = false;
-                return;
-            }
 
-            btHozzTartTörlés.Visible = true;
-            hozzáTartVezetéknév = dgvHozzátartozó[0, e.RowIndex].Value.ToString();
-            hozzáTartUtónév1 = dgvHozzátartozó[1, e.RowIndex].Value.ToString();
-            hozzáTartUtónév2 = dgvHozzátartozó[2, e.RowIndex].Value.ToString();
 
-        }
 
-        private void btHozzTartTörlés_Click(object sender, EventArgs e)
-        {
-
-            formFigyelmeztetésÁltalános figyelem = new formFigyelmeztetésÁltalános(
-                "FIGYELEM! A hozzátartozó törlésére készül!" + Environment.NewLine +
-                "Valóban ezt akarja!?",
-                "Figyelem, a hozzátartozó törlésére készül!"
-                );
-
-            DialogResult válasz = figyelem.ShowDialog();
-            if (válasz == DialogResult.OK)
-            {
-                HozzátartozóTörlése(formMunkavállalóVálasztás.azon);
-                HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
-                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
-            }
-
-        }
 
         private void HozzátartozóTörlése(int SzemAzon)
         {
@@ -1762,6 +1689,114 @@ namespace Felisz.Formok
             conn.Close();
 
 
+        }
+
+        private void btÁltalánosSzemAdatokMentés_Click(object sender, EventArgs e)
+        {
+
+            if (MentésIndítható(tlpÁltalánosSzemélyiAdatok))
+            {
+                if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
+                if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
+                //Kalkulált szabadság újraszámolása
+                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
+            }
+            else
+            {
+                MessageBox.Show("A jelölt mezők kitöltése kötelező, illetve lehetséges hibákat tartalmazhatnak." + Environment.NewLine +
+                                "A mentés nem lehetséges!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+        }
+
+        private void btHozzTartMentes_Click(object sender, EventArgs e)
+        {
+            //Újra validálás mivel eddig nem figyeltük az üres mezőket
+            Funkciók.NévValidálás(lbHozzáVezetéknév, tbHozzáVezetéknév, null, false);
+            Funkciók.NévValidálás(lbHozzáUtónév1, tbHozzáUtónév1, null, false);
+            Funkciók.DátumValidálás(lbSzülDátumHozzá, tbSzülDátumHozzá, null, false);
+            if (cbFogyatékHozzá.Text.Length == 0) CímkeSzínBeállítás(lbFogyatékHozzá, false);
+
+
+            if (MentésIndítható(tlpHozzátartozók_New))
+            {
+                if (formMunkavállalóVálasztás.mód == "M")
+                {
+                    HozzátartozókMentés();
+                    HozzátartozókBetöltése(int.Parse(tbAzonosítószám.Text));
+                    //Ez majf kijön! Törölni
+                    tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("A jelölt mezők kitöltése kötelező, illetve lehetséges hibákat tartalmazhatnak." + Environment.NewLine +
+                                "A mentés nem lehetséges!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        private void tbHozzáVezetéknév_Validated_1(object sender, EventArgs e)
+        {
+            Funkciók.NévValidálás(lbHozzáVezetéknév, tbHozzáVezetéknév, null, true);
+        }
+
+        private void tbHozzáUtónév1_Validated_1(object sender, EventArgs e)
+        {
+            Funkciók.NévValidálás(lbHozzáUtónév1, tbHozzáUtónév1, null, true);
+        }
+
+        private void tbHozzáUtónév2_Validated_1(object sender, EventArgs e)
+        {
+            Funkciók.NévValidálás(lbHozzáUtónév2, tbHozzáUtónév2, null, true);
+        }
+
+        private void tbSzülDátumHozzá_Validated(object sender, EventArgs e)
+        {
+            Funkciók.DátumValidálás(lbSzülDátumHozzá, tbSzülDátumHozzá, null, true);
+        }
+
+        private void cbFogyatékHozzá_Validated_1(object sender, EventArgs e)
+        {
+            if (cbFogyatékHozzá.Text.Length > 0)
+            {
+                CímkeSzínBeállítás(lbFogyatékHozzá, true);
+            }
+            else
+            {
+                CímkeSzínBeállítás(lbFogyatékHozzá, false);
+            }
+        }
+
+        private void dgvHozzátartozó_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                btHozzTartTörlés.Visible = false;
+                return;
+            }
+
+            btHozzTartTörlés.Visible = true;
+            hozzáTartVezetéknév = dgvHozzátartozó[0, e.RowIndex].Value.ToString();
+            hozzáTartUtónév1 = dgvHozzátartozó[1, e.RowIndex].Value.ToString();
+            hozzáTartUtónév2 = dgvHozzátartozó[2, e.RowIndex].Value.ToString();
+        }
+
+        private void btHozzTartTörlés_Click_1(object sender, EventArgs e)
+        {
+            formFigyelmeztetésÁltalános figyelem = new formFigyelmeztetésÁltalános(
+         "FIGYELEM! A hozzátartozó törlésére készül!" + Environment.NewLine +
+         "Valóban ezt akarja!?",
+         "Figyelem, a hozzátartozó törlésére készül!"
+         );
+
+            DialogResult válasz = figyelem.ShowDialog();
+            if (válasz == DialogResult.OK)
+            {
+                HozzátartozóTörlése(formMunkavállalóVálasztás.azon);
+                HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
+                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
+            }
         }
     }
 }
