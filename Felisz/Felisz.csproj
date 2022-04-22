@@ -32,7 +32,7 @@
     <PublisherName>Future2021 Kft.</PublisherName>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>51</ApplicationRevision>
+    <ApplicationRevision>52</ApplicationRevision>
     <ApplicationVersion>0.1.5.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -211,6 +211,12 @@
     <Compile Include="formGlobalAdmin.Designer.cs">
       <DependentUpon>formGlobalAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formok\formCégadatok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formok\formCégadatok.Designer.cs">
+      <DependentUpon>formCégadatok.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formok\formKalkulátor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +317,7 @@
     <Compile Include="VárosUtcanévImport.cs" />
     <Compile Include="Rekordok\Városkód.cs" />
     <Compile Include="XMLImport.cs" />
+    <None Include="Resources\Missing.png" />
     <None Include="Resources\Felisz_Aurora.png" />
     <None Include="Resources\hang_inv.png" />
     <None Include="Resources\hang.png" />
@@ -341,6 +348,9 @@
     <EmbeddedResource Include="formGlobalAdmin.resx">
       <DependentUpon>formGlobalAdmin.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formok\formCégadatok.resx">
+      <DependentUpon>formCégadatok.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formok\formKalkulátor.resx">
       <DependentUpon>formKalkulátor.cs</DependentUpon>

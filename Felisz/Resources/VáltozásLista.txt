@@ -1,3 +1,6 @@
+V0.0.7.9
+	- Egyenlõre a "GlobalAdmin beállítások" alatt érhetõ el a Cégadatok elõzetes formája...
+
 V0.0.7.8
 	- Hozzátartozót nem lehet rögzíteni, míg az általános személyi adatok nincsenek lementve.
 	- Hozzátartozók táblanézetbe bekerült a fogyatékosság.

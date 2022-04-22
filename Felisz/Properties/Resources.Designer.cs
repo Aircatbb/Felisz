@@ -391,13 +391,27 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to V0.0.7.7
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Missing {
+            get {
+                object obj = ResourceManager.GetObject("Missing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to V0.0.7.8
+        ///	- Hozzátartozót nem lehet rögzíteni, míg az általános személyi adatok nincsenek lementve.
+        ///	- Hozzátartozók táblanézetbe bekerült a fogyatékosság.
+        ///	- Ismert hiba: Mentésnél hiba a szabadságjogosultságnál. Felesleges vele foglalkozni, mivel átkerül máshová!
+        ///	- Logo csere.
+        ///	- TTS ki-, bekapcsolása jobb felső ikonnal. 
+        ///
+        ///V0.0.7.7
         ///	- Fiatal munkavállaló (18 éves koráig) pótszabadsága (Tesztelni!)
         ///	- Új telepítéskor nem tudta létrehozni a registry bejegyzéseket. Javítva, de tesztelni kell még!
-        ///	- Hozzátartozók átkerültek az álatlános személyi adatok fülbe (Juppi, áttörés a vezérlők méretezésében,
-        ///	és elhelyezésében! :-) Minden ott van, ahol lennie kell!)
-        ///	- Kalkulált éves szabadság átmenetileg még itt marad az általáns személyi adatoknál.
-        ///	- A hozzátartozók variálgatása miatt lehetnek benne fennakadások, illetve logiaki [rest of string was truncated]&quot;;.
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VáltozásLista {
             get {

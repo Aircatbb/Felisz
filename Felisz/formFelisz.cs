@@ -470,7 +470,7 @@ namespace Felisz
 
         private void btGlobalAdminbeállítások_Click(object sender, EventArgs e)
         {
-            alprogramMegnyitása(new formGlobalAdmin());
+            alprogramMegnyitása(new Formok.formCégadatok());
         }
 
         private void menüGombok1_Click(object sender, EventArgs e)
