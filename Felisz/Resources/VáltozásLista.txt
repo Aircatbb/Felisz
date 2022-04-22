@@ -1,3 +1,10 @@
+V0.0.7.8
+	- Hozzátartozót nem lehet rögzíteni, míg az általános személyi adatok nincsenek lementve.
+	- Hozzátartozók táblanézetbe bekerült a fogyatékosság.
+	- Ismert hiba: Mentésnél hiba a szabadságjogosultságnál. Felesleges vele foglalkozni, mivel átkerül máshová!
+	- Logo csere.
+	- TTS ki-, bekapcsolása jobb felsõ ikonnal. 
+
 V0.0.7.7
 	- Fiatal munkavállaló (18 éves koráig) pótszabadsága (Tesztelni!)
 	- Új telepítéskor nem tudta létrehozni a registry bejegyzéseket. Javítva, de tesztelni kell még!

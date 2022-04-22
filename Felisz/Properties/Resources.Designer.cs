@@ -161,6 +161,16 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Felisz_Aurora {
+            get {
+                object obj = ResourceManager.GetObject("Felisz_Aurora", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon Felisz1 {
@@ -381,23 +391,13 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to V0.0.7.4
-        ///	- TTS beállítások mentése, visszatöltése, beállítása javítva
-        ///
-        ///V0.0.7.3
-        ///	- Alapbeállításokon belül elérhető a változáslista
-        ///	- TTS beállításoknál elérhető a hangerő és a beszéd sebessége
-        ///	- A sebesség beállítás mentésénél még van egy hiba...
-        ///
-        ///V0.0.7.2
-        ///	- Foglalkoztatás helyének visszatöltése javítva
-        ///
-        ///V0.0.7.1
-        ///	- Észrevétel: foglalkoztatás helyét rosszul tölti vissza! Attila tesztelés? :-P
-        ///	- Szabdság igény aktualizálás javítva, bezáráskor nincs hiba.
-        ///	- Betöltéskor frissül
-        ///
-        ///V0.0.7.0 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to V0.0.7.7
+        ///	- Fiatal munkavállaló (18 éves koráig) pótszabadsága (Tesztelni!)
+        ///	- Új telepítéskor nem tudta létrehozni a registry bejegyzéseket. Javítva, de tesztelni kell még!
+        ///	- Hozzátartozók átkerültek az álatlános személyi adatok fülbe (Juppi, áttörés a vezérlők méretezésében,
+        ///	és elhelyezésében! :-) Minden ott van, ahol lennie kell!)
+        ///	- Kalkulált éves szabadság átmenetileg még itt marad az általáns személyi adatoknál.
+        ///	- A hozzátartozók variálgatása miatt lehetnek benne fennakadások, illetve logiaki [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VáltozásLista {
             get {

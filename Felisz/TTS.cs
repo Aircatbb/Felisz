@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Speech.Synthesis;
+using System.Windows.Forms;
 
 namespace Felisz
 {
@@ -13,7 +14,13 @@ namespace Felisz
 
         public static void TTS_Beállítás()
         {
-            if (Program.TTSEngedélyezve == false) return;
+            if (Program.TTSEngedélyezve == false)
+            {
+                PictureBox icon = Application.OpenForms["formFelisz"].Controls["panelTopMenu"].Controls["pbTTSEngedélyezés"] as PictureBox;
+                hang.SpeakAsyncCancelAll();
+                icon.BackColor= System.Drawing.Color.FromArgb(60, 60, 60);
+                return;
+            }
             hang.Rate = Program.TTSSebesség;
             hang.Volume = Program.TTSHangerő;
 
@@ -22,9 +29,10 @@ namespace Felisz
             string hangCulture = voice[1].VoiceInfo.Culture.ToString();
             string hangGender = voice[1].VoiceInfo.Gender.ToString();
             string hangAge = voice[1].VoiceInfo.Age.ToString();
-
-
             hang.SelectVoice(hangName);
+
+            PictureBox pB = Application.OpenForms["formFelisz"].Controls["panelTopMenu"].Controls["pbTTSEngedélyezés"] as PictureBox;
+            pB.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
         }
 
         public static void TTS_Play(string szöveg)

@@ -283,10 +283,10 @@ namespace Felisz
         {
 
             //TEST
-            
 
 
-            
+
+
 
 
             //RSS beolvasás indítása
@@ -295,7 +295,7 @@ namespace Felisz
             //Score frissítés (timer) indítása
             ScoreHáttérFrissítése();
 
-            
+
 
 
 
@@ -396,9 +396,10 @@ namespace Felisz
             //lbFelhasználó.Text = "Felhasználó: " +  Environment.UserDomainName + @"\" + Environment.UserName;
             lbFelhasználó.Text = "Felhasználó: " + Program.aktuálisFelhasználóNév;
 
-     
+
             //TTS inicializálása
             TTS.TTS_Beállítás();
+
 
             //Verzóváltozás értesítés
             TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! Új funkciók és frissítések érhetőek el!");
@@ -408,8 +409,8 @@ namespace Felisz
             //Üdvözlet, születésnap, névnap, hírek
 
 
-            
-            
+
+
             TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! A Felisz auróra üdvözli Önt! Ma " + DateTime.Now.Year + " " + TTS.szám2Hónap(DateTime.Now.Month) + " hónap " + TTS.szám2Nap(DateTime.Now.Day) + " van.");
             TTS.TTS_Play("Születésnaposok: Bohus Attila");
             TTS.TTS_Play("Ma névnapjukat ünneplők: Lackó Mackó");
@@ -417,14 +418,14 @@ namespace Felisz
 
 
             //Funkciók.TTS("Itt most hangfelismeréssel lehetne válaszolni.");
-            
+
             for (int i = 0; i < RSSFeed.postok.Count; i++)
             {
                 TTS.TTS_Play(RSSFeed.postok[i].Cím);
             }
-            
 
-            
+
+
 
         }
 
@@ -452,7 +453,7 @@ namespace Felisz
                 llbRSS.Text = rs.Cím.ToString().Trim(' ');
                 llbRSS.Links.Clear();
                 llbRSS.Links.Add(0, rs.Cím.Length, rs.Url);
-                
+
 
             }
             else
@@ -517,6 +518,25 @@ namespace Felisz
         private void btHRMunkaszerzodesModositasa_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pbTTSEngedélyezés_Click(object sender, EventArgs e)
+        {
+
+            if (Program.TTSEngedélyezve)
+            {
+                Program.TTSEngedélyezve = false;
+                Funkciók.TTSRegÍrás(false, Program.TTSHangerő, Program.TTSSebesség);
+                TTS.TTS_Beállítás();
+                return;
+            }
+            else Program.TTSEngedélyezve = true;
+            {
+                Funkciók.TTSRegÍrás(true, Program.TTSHangerő, Program.TTSSebesség);
+                TTS.TTS_Beállítás();
+            }
+
+            
         }
     }
 

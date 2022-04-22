@@ -1323,7 +1323,7 @@ namespace Felisz.Formok
             conn.Open();
 
 
-            string sql = @"SELECT VezNev, UtoNev1, UtoNev2, SzulDatum FROM SzemHozzaTart WHERE SzemAzon='" + SzemélyiAzon + "' ORDER BY VezNev, UtoNev1, UtoNev2";
+            string sql = @"SELECT VezNev, UtoNev1, UtoNev2, SzulDatum, Fogyatekos FROM SzemHozzaTart WHERE SzemAzon='" + SzemélyiAzon + "' ORDER BY VezNev, UtoNev1, UtoNev2";
 
             //public MySqlDataAdapter dataAdapter;
 
@@ -1359,7 +1359,13 @@ namespace Felisz.Formok
                                 break;
                             case "SzulDatum":
                                 dgvHozzátartozó.Columns[i].HeaderText = "Születési dátum";
-                                dgvHozzátartozó.Columns[i].Width = 100;
+                                dgvHozzátartozó.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                                dgvHozzátartozó.Columns[i].Width = 70;
+                                break;
+                            case "Fogyatekos":
+                                dgvHozzátartozó.Columns[i].HeaderText = "Fogyaték";
+                                dgvHozzátartozó.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                                dgvHozzátartozó.Columns[i].Width = 70;
                                 break;
                             default:
                                 dgvHozzátartozó.Columns[i].HeaderText = "#HIÁNYZIK#";
@@ -1711,6 +1717,12 @@ namespace Felisz.Formok
 
         private void btHozzTartMentes_Click(object sender, EventArgs e)
         {
+            if (formMunkavállalóVálasztás.mód == "N")
+            {
+                MessageBox.Show("Hozzátartozót addig nem lehet rögzíteni," + Environment.NewLine + "míg a személyi alapadatok nincsnenek elmentve!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+
             //Újra validálás mivel eddig nem figyeltük az üres mezőket
             Funkciók.NévValidálás(lbHozzáVezetéknév, tbHozzáVezetéknév, null, false);
             Funkciók.NévValidálás(lbHozzáUtónév1, tbHozzáUtónév1, null, false);

@@ -150,6 +150,7 @@ namespace Felisz
                 TTS.TTS_Beállítás();
             }
             else Funkciók.TTSRegÍrás(false, Program.TTSHangerő, Program.TTSSebesség);
+            TTS.TTS_Beállítás();
         }
 
 

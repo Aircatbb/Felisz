@@ -45,7 +45,6 @@ namespace Felisz
             this.ADALogo = new System.Windows.Forms.PictureBox();
             this.panelTopMenu = new System.Windows.Forms.Panel();
             this.lbStátusz = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.pbVonalFüggőleges = new System.Windows.Forms.PictureBox();
             this.pbVonal = new System.Windows.Forms.PictureBox();
             this.llbRSS = new System.Windows.Forms.LinkLabel();
@@ -58,6 +57,7 @@ namespace Felisz
             this.timerHáttér = new System.Windows.Forms.Timer(this.components);
             this.timerRSS = new System.Windows.Forms.Timer(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.pbTTSEngedélyezés = new System.Windows.Forms.PictureBox();
             this.folyamatJelző1 = new Felisz.FolyamatJelző();
             this.btHRMT = new Felisz.MenüGombokNew();
             this.btHRKalkulator = new Felisz.MenüGombokNew();
@@ -85,6 +85,7 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).BeginInit();
             this.panelHáttér.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureScore)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTTSEngedélyezés)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -268,7 +269,7 @@ namespace Felisz
             // ADALogo
             // 
             this.ADALogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ADALogo.Image = global::Felisz.Properties.Resources.Felisz;
+            this.ADALogo.Image = global::Felisz.Properties.Resources.Felisz_Aurora;
             this.ADALogo.Location = new System.Drawing.Point(0, 0);
             this.ADALogo.Name = "ADALogo";
             this.ADALogo.Size = new System.Drawing.Size(200, 200);
@@ -279,9 +280,9 @@ namespace Felisz
             // panelTopMenu
             // 
             this.panelTopMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panelTopMenu.Controls.Add(this.pbTTSEngedélyezés);
             this.panelTopMenu.Controls.Add(this.folyamatJelző1);
             this.panelTopMenu.Controls.Add(this.lbStátusz);
-            this.panelTopMenu.Controls.Add(this.label1);
             this.panelTopMenu.Controls.Add(this.pbVonalFüggőleges);
             this.panelTopMenu.Controls.Add(this.pbVonal);
             this.panelTopMenu.Controls.Add(this.llbRSS);
@@ -306,17 +307,6 @@ namespace Felisz
             this.lbStátusz.TabIndex = 8;
             this.lbStátusz.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbStátusz.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label1.Location = new System.Drawing.Point(1018, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(459, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Névnap, születésnap, LOG2DB";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pbVonalFüggőleges
             // 
@@ -359,7 +349,7 @@ namespace Felisz
             this.lbFelhasználó.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbFelhasználó.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.lbFelhasználó.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lbFelhasználó.Location = new System.Drawing.Point(1069, 3);
+            this.lbFelhasználó.Location = new System.Drawing.Point(1159, 30);
             this.lbFelhasználó.Name = "lbFelhasználó";
             this.lbFelhasználó.Size = new System.Drawing.Size(318, 20);
             this.lbFelhasználó.TabIndex = 3;
@@ -441,6 +431,18 @@ namespace Felisz
             this.timerRSS.Enabled = true;
             this.timerRSS.Interval = 10000;
             this.timerRSS.Tick += new System.EventHandler(this.timerRSS_Tick);
+            // 
+            // pbTTSEngedélyezés
+            // 
+            this.pbTTSEngedélyezés.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbTTSEngedélyezés.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.pbTTSEngedélyezés.Image = global::Felisz.Properties.Resources.hang;
+            this.pbTTSEngedélyezés.Location = new System.Drawing.Point(1363, 3);
+            this.pbTTSEngedélyezés.Name = "pbTTSEngedélyezés";
+            this.pbTTSEngedélyezés.Size = new System.Drawing.Size(24, 24);
+            this.pbTTSEngedélyezés.TabIndex = 10;
+            this.pbTTSEngedélyezés.TabStop = false;
+            this.pbTTSEngedélyezés.Click += new System.EventHandler(this.pbTTSEngedélyezés_Click);
             // 
             // folyamatJelző1
             // 
@@ -755,6 +757,7 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).EndInit();
             this.panelHáttér.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureScore)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTTSEngedélyezés)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -794,7 +797,6 @@ namespace Felisz
         private MenüGombokNew btHRMT;
         private System.Windows.Forms.PictureBox pbVonal;
         private System.Windows.Forms.PictureBox pbVonalFüggőleges;
-        private System.Windows.Forms.Label label1;
         private MenüGombokNew btAdminAlapBeallitasok;
         private System.Windows.Forms.Button btKijelentkezés;
         private System.Windows.Forms.Button btJelszóVált;
@@ -802,6 +804,7 @@ namespace Felisz
         private System.Windows.Forms.Label lbStátusz;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private FolyamatJelző folyamatJelző1;
+        private System.Windows.Forms.PictureBox pbTTSEngedélyezés;
     }
 }
 
