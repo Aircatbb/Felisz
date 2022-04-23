@@ -14,6 +14,23 @@ namespace Felisz
 
         public static void TTS_Beállítás()
         {
+
+            //Amennyiben van magyar nyelv telepítve, úgy annak kiválasztása, ellenkező esetben a TTS letiltása
+            var talalat = false;
+            var voice = hang.GetInstalledVoices();
+            for (int i = 0; i < voice.Count; i++)
+            {
+                if (voice[i].VoiceInfo.Culture.ToString() == "hu-HU")
+                {
+                    hang.SelectVoice(voice[i].VoiceInfo.Name);
+                    talalat = true;
+                    break;
+                }
+            }
+            if (!talalat) Program.TTSEngedélyezve = false;
+
+
+
             if (Program.TTSEngedélyezve == false)
             {
                 PictureBox icon = Application.OpenForms["formFelisz"].Controls["panelTopMenu"].Controls["pbTTSEngedélyezés"] as PictureBox;
@@ -24,12 +41,17 @@ namespace Felisz
             hang.Rate = Program.TTSSebesség;
             hang.Volume = Program.TTSHangerő;
 
-            var voice = hang.GetInstalledVoices();
+
+            
+    
+             /*
             string hangName = voice[1].VoiceInfo.Name;
             string hangCulture = voice[1].VoiceInfo.Culture.ToString();
             string hangGender = voice[1].VoiceInfo.Gender.ToString();
             string hangAge = voice[1].VoiceInfo.Age.ToString();
-            hang.SelectVoice(hangName);
+             */
+
+            
 
             PictureBox pB = Application.OpenForms["formFelisz"].Controls["panelTopMenu"].Controls["pbTTSEngedélyezés"] as PictureBox;
             pB.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
@@ -37,20 +59,7 @@ namespace Felisz
 
         public static void TTS_Play(string szöveg)
         {
-
-
-
             if (Program.TTSEngedélyezve == false) return;
-            /*
-            hang.Rate = 0;
-             hang.Volume = 33;
-             var voice = hang.GetInstalledVoices();
-             string hangName = voice[1].VoiceInfo.Name;
-             string hangCulture = voice[1].VoiceInfo.Culture.ToString();
-             string hangGender = voice[1].VoiceInfo.Gender.ToString();
-             string hangAge = voice[1].VoiceInfo.Age.ToString();
-             hang.SelectVoice(hangName);
-            */
 
             hang.SpeakAsync(TTS_SzövegKorrekció(szöveg));
 
