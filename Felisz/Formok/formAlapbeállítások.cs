@@ -169,6 +169,12 @@ namespace Felisz
             TTS.TTS_Beállítás();
         }
 
-      
+        private void rtbVáltozásLista_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            //Csak a fejlesztés idejére, utána TÖRÖLNI!
+            if (rtbVáltozásLista.Text.Substring(0, 7) == "Nyitott") rtbVáltozásLista.Text = Properties.Resources.VáltozásLista;
+            else rtbVáltozásLista.Text = Properties.Resources.Teendők;
+            
+        }
     }
 }

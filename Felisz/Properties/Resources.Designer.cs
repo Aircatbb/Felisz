@@ -401,7 +401,19 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to V0.0.7.8
+        ///   Looks up a localized string similar to - Teszt.
+        /// </summary>
+        internal static string Teendők {
+            get {
+                return ResourceManager.GetString("Teendők", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to V0.0.7.9
+        ///	- Egyenlőre a &quot;GlobalAdmin beállítások&quot; alatt érhető el a Cégadatok előzetes formája...
+        ///
+        ///V0.0.7.8
         ///	- Hozzátartozót nem lehet rögzíteni, míg az általános személyi adatok nincsenek lementve.
         ///	- Hozzátartozók táblanézetbe bekerült a fogyatékosság.
         ///	- Ismert hiba: Mentésnél hiba a szabadságjogosultságnál. Felesleges vele foglalkozni, mivel átkerül máshová!
@@ -409,9 +421,7 @@ namespace Felisz.Properties {
         ///	- TTS ki-, bekapcsolása jobb felső ikonnal. 
         ///
         ///V0.0.7.7
-        ///	- Fiatal munkavállaló (18 éves koráig) pótszabadsága (Tesztelni!)
-        ///	- Új telepítéskor nem tudta létrehozni a registry bejegyzéseket. Javítva, de tesztelni kell még!
-        /// [rest of string was truncated]&quot;;.
+        ///	- Fiatal munkavállaló (18 éves koráig) pótszabadsága (Tesztelni! [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VáltozásLista {
             get {

@@ -233,8 +233,8 @@ namespace Felisz.Formok
             this.tlpÁltalánosSzemélyiAdatok.RowCount = 4;
             this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 88F));
-            this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpÁltalánosSzemélyiAdatok.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpÁltalánosSzemélyiAdatok.Size = new System.Drawing.Size(1235, 749);
             this.tlpÁltalánosSzemélyiAdatok.TabIndex = 28;
             // 

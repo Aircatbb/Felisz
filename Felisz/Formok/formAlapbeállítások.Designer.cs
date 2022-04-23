@@ -262,6 +262,7 @@ namespace Felisz
             this.rtbVáltozásLista.Size = new System.Drawing.Size(793, 258);
             this.rtbVáltozásLista.TabIndex = 12;
             this.rtbVáltozásLista.Text = "";
+            this.rtbVáltozásLista.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.rtbVáltozásLista_MouseDoubleClick);
             // 
             // ttsPlay1
             // 
