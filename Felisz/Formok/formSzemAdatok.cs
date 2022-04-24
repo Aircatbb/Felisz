@@ -1222,7 +1222,7 @@ namespace Felisz.Formok
 
         private void tbSzületésDátum_Validated(object sender, EventArgs e)
         {
-            Funkciók.DátumValidálás(lbSzületésiDátum, tbSzületésDátum, tbAdóazonosító, false);
+            Funkciók.DátumValidálás(lbSzületésiDátum, tbSzületésDátum, tbAdóazonosító, lbAdóazonosító, false);
 
         }
 
@@ -1673,7 +1673,7 @@ namespace Felisz.Formok
             //Újra validálás mivel eddig nem figyeltük az üres mezőket
             Funkciók.NévValidálás(lbHozzáVezetéknév, tbHozzáVezetéknév, null, false);
             Funkciók.NévValidálás(lbHozzáUtónév1, tbHozzáUtónév1, null, false);
-            Funkciók.DátumValidálás(lbSzülDátumHozzá, tbSzülDátumHozzá, null, false);
+            Funkciók.DátumValidálás(lbSzülDátumHozzá, tbSzülDátumHozzá, null, null,false);
             if (cbFogyatékHozzá.Text.Length == 0) CímkeSzínBeállítás(lbFogyatékHozzá, false);
 
 
@@ -1712,7 +1712,7 @@ namespace Felisz.Formok
 
         private void tbSzülDátumHozzá_Validated(object sender, EventArgs e)
         {
-            Funkciók.DátumValidálás(lbSzülDátumHozzá, tbSzülDátumHozzá, null, true);
+            Funkciók.DátumValidálás(lbSzülDátumHozzá, tbSzülDátumHozzá, null,null, true);
         }
 
         private void cbFogyatékHozzá_Validated_1(object sender, EventArgs e)
@@ -1762,6 +1762,11 @@ namespace Felisz.Formok
         private void pbClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tbMegválltHatározatÉrv_Validated(object sender, EventArgs e)
+        {
+            Funkciók.DátumValidálás(lbMegválltHatározatÉrv, tbMegválltHatározatÉrv, null,null, false);
         }
     }
 }

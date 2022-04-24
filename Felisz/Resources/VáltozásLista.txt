@@ -1,3 +1,7 @@
+V0.0.7.13
+	- Születési dátum módosítása esetén, az adóazonosítót újra validálni kell
+	- Megváltozott munkaképesség határozat érvényességének validálása
+
 V0.0.7.12
 	- Általános személyi adatok strukturális változtatása a jobb bõvíthetõség végett. A jövõben jelentõsen megkönnyíti
 	a kezelõfelületek fejlesztését. Az összes funkciót újra hozzá kellett rendelni a vezérlõkhöz -> Tesztelni mindent

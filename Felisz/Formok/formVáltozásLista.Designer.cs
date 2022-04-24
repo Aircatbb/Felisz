@@ -38,9 +38,8 @@ namespace Felisz.Formok
             this.lbVerzió.AutoSize = true;
             this.lbVerzió.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbVerzió.Location = new System.Drawing.Point(0, 0);
-            this.lbVerzió.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbVerzió.Name = "lbVerzió";
-            this.lbVerzió.Size = new System.Drawing.Size(168, 25);
+            this.lbVerzió.Size = new System.Drawing.Size(82, 13);
             this.lbVerzió.TabIndex = 0;
             this.lbVerzió.Text = "Jelenlegi verzió:";
             // 
@@ -52,26 +51,25 @@ namespace Felisz.Formok
             this.rtbVáltozásLista.BackColor = System.Drawing.Color.White;
             this.rtbVáltozásLista.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.rtbVáltozásLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rtbVáltozásLista.Location = new System.Drawing.Point(30, 37);
-            this.rtbVáltozásLista.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.rtbVáltozásLista.Location = new System.Drawing.Point(15, 19);
+            this.rtbVáltozásLista.Margin = new System.Windows.Forms.Padding(6);
             this.rtbVáltozásLista.Name = "rtbVáltozásLista";
             this.rtbVáltozásLista.ReadOnly = true;
             this.rtbVáltozásLista.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.rtbVáltozásLista.Size = new System.Drawing.Size(2342, 600);
+            this.rtbVáltozásLista.Size = new System.Drawing.Size(790, 314);
             this.rtbVáltozásLista.TabIndex = 2;
             this.rtbVáltozásLista.Text = "";
             // 
             // formVáltozásLista
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.ClientSize = new System.Drawing.Size(2406, 669);
+            this.ClientSize = new System.Drawing.Size(823, 348);
             this.Controls.Add(this.rtbVáltozásLista);
             this.Controls.Add(this.lbVerzió);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "formVáltozásLista";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

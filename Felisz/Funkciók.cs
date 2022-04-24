@@ -32,7 +32,7 @@ namespace Felisz
             }
         }
 
-        public static void DátumValidálás(Label címke, TextBox textboxneve, TextBox adóazon, bool üresEngedélyezve)
+        public static void DátumValidálás(Label címke, TextBox textboxneve, TextBox adóazon,Label adóazonCimke, bool üresEngedélyezve)
         {
 
             if (Funkciók.DátumFormázás(textboxneve.Text).ToString("yyyy.MM.dd") != DateTime.MinValue.ToString("yyyy.MM.dd"))
@@ -46,6 +46,7 @@ namespace Felisz
                     {
                         adóazon.Enabled = true; //az adószám ellőnrzése csak a szül. dátum megadásával lehetséges
                         CímkeSzínBeállítás(címke, true);
+                        CímkeSzínBeállítás(adóazonCimke, false);
 
                     }
                     else
