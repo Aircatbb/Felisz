@@ -432,13 +432,13 @@ namespace Felisz.Properties {
         ///	- TTS registry létrehozásakor megkerese a magyar &apos;hu-HU&apos; beállítást, amit alapértelmezetként vesz.
         ///	Amennyiben nincsen &apos;hu-HU&apos; úgy az első telepített nyelvet állítja be, és alapértelmezettként letiltja a TTS-t.
         ///	- Alapbeállítások közé bekerült a nyelvválasztási lehetőség
+        ///	- Új logó próba
         ///
         ///V0.0.7.13
         ///	- Születési dátum módosítása esetén, az adóazonosítót újra validálni kell
         ///	- Megváltozott munkaképesség határozat érvényességének validálása
         ///
-        ///V0.0.7.12
-        ///	- Általános sze [rest of string was truncated]&quot;;.
+        ///V0.0.7.12 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VáltozásLista {
             get {
