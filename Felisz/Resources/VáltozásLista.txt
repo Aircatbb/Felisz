@@ -1,3 +1,14 @@
+V0.0.7.12
+	- Általános személyi adatok strukturális változtatása a jobb bõvíthetõség végett. A jövõben jelentõsen megkönnyíti
+	a kezelõfelületek fejlesztését. Az összes funkciót újra hozzá kellett rendelni a vezérlõkhöz -> Tesztelni mindent
+	a rögzítési felületen!!!
+	- Törlésre került a kalkulált szabadság -> hamarosan bekerül egy új fül alá.
+	- Általános személyi adatok bõvítve a rehab határozattal.
+	- Már nem használt kódrészletek törölve az általános személyi adatokból
+	- Hozzátartozó törlése után a TÖRLÉS gomb ismét eltûnik (eddig ott maradt)
+	- Bevezetésre került egy párhuzamos TTS szál az RSS feedek részére. Így a hibaüzenetek megszakítják a hírek olvasását,
+	azonban folytatja a felolvasást a dialógus megválaszolása után. Kivétel az MT, itt leállításra kerül a hírek felolvasása.
+
 V0.0.7.11
 	- TTS "faék" eltávolítva. A program ellenõrzi a telepített hangokat, amennyiben talál "hu-HU" nyelvet, úgy
 	használja, ellenkezõ esetben letiltja a TTS-t.

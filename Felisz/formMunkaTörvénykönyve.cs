@@ -13,7 +13,7 @@ namespace Felisz
 
         private void formMunkaTörvénykönyve_Load(object sender, EventArgs e)
         {
-            if(Program.TTSEngedélyezve==false)
+            if (Program.TTSEngedélyezve == false)
             {
                 ttsPlayMT.Visible = false;
                 ttsPlayMT.Visible = false;
@@ -153,13 +153,13 @@ namespace Felisz
 
         private void btPlay_Click(object sender, EventArgs e)
         {
-            TTS.TTS_Play(rtTalálat.Text.Replace("§"," paragrafus "));
+            TTS.TTS_Play(rtTalálat.Text.Replace("§", " paragrafus "), false);
         }
 
         private void btStop_Click(object sender, EventArgs e)
         {
             TTS.hang.SpeakAsyncCancelAll();
-            
+
         }
     }
 }

@@ -144,12 +144,13 @@ namespace Felisz.Formok
                 mód = "T";
                 formTörlésFigyelmeztetés formTF = new formTörlésFigyelmeztetés();
                 DialogResult dr = formTF.ShowDialog();
+                TTS.TTS_RSS_Resume();
 
             }
             if (rbMódosítás.Checked == true)
             {
                 mód = "M";
-                TextBox tbAzon = Application.OpenForms["formSzemAdatok"].Controls["gbSzemélyiAdatok"].Controls["tcSzemélyiAdatok"].Controls["tpÁltalánosSzemélyiAdatok"].Controls["tlpÁltalánosSzemélyiAdatok"].Controls["gbDolgozó"].Controls["tlpDolgozó"].Controls["tbAzonosítószám"] as TextBox;
+                TextBox tbAzon = Application.OpenForms["formSzemAdatok"].Controls["gbSzemélyiAdatok"].Controls["tcSzemélyiAdatok"].Controls["tpÁltalánosSzemélyiAdatok"].Controls["tlpÁltalánosSzemélyiAdatok"].Controls["tlpOszlop1"].Controls["gbDolgozó"].Controls["tlpDolgozó"].Controls["tbAzonosítószám"] as TextBox;
                 tbAzon.Enabled = false;
             }
             if (rbÚjrögzítés.Checked == true) mód = "N";

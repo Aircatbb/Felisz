@@ -11,7 +11,7 @@ namespace Felisz
     class TTS
     {
         public static SpeechSynthesizer hang = new SpeechSynthesizer();
-
+        public static SpeechSynthesizer hangRSS = new SpeechSynthesizer();
         public static void TTS_Beállítás()
         {
 
@@ -23,6 +23,7 @@ namespace Felisz
                 if (voice[i].VoiceInfo.Culture.ToString() == "hu-HU")
                 {
                     hang.SelectVoice(voice[i].VoiceInfo.Name);
+                    hangRSS.SelectVoice(voice[i].VoiceInfo.Name);
                     talalat = true;
                     break;
                 }
@@ -35,33 +36,39 @@ namespace Felisz
             {
                 PictureBox icon = Application.OpenForms["formFelisz"].Controls["panelTopMenu"].Controls["pbTTSEngedélyezés"] as PictureBox;
                 hang.SpeakAsyncCancelAll();
-                icon.BackColor= System.Drawing.Color.FromArgb(60, 60, 60);
+                hangRSS.SpeakAsyncCancelAll();
+                icon.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
                 return;
             }
             hang.Rate = Program.TTSSebesség;
             hang.Volume = Program.TTSHangerő;
 
+            hangRSS.Rate = Program.TTSSebesség;
+            hangRSS.Volume = Program.TTSHangerő;
 
-            
-    
-             /*
-            string hangName = voice[1].VoiceInfo.Name;
-            string hangCulture = voice[1].VoiceInfo.Culture.ToString();
-            string hangGender = voice[1].VoiceInfo.Gender.ToString();
-            string hangAge = voice[1].VoiceInfo.Age.ToString();
-             */
 
-            
+
+
+            /*
+           string hangName = voice[1].VoiceInfo.Name;
+           string hangCulture = voice[1].VoiceInfo.Culture.ToString();
+           string hangGender = voice[1].VoiceInfo.Gender.ToString();
+           string hangAge = voice[1].VoiceInfo.Age.ToString();
+            */
+
+
 
             PictureBox pB = Application.OpenForms["formFelisz"].Controls["panelTopMenu"].Controls["pbTTSEngedélyezés"] as PictureBox;
             pB.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
         }
 
-        public static void TTS_Play(string szöveg)
+        public static void TTS_Play(string szöveg, bool RSS)
         {
             if (Program.TTSEngedélyezve == false) return;
 
-            hang.SpeakAsync(TTS_SzövegKorrekció(szöveg));
+            if (RSS) hangRSS.SpeakAsync(TTS_SzövegKorrekció(szöveg));
+            else hang.SpeakAsync(TTS_SzövegKorrekció(szöveg));
+
 
         }
 
@@ -91,9 +98,16 @@ namespace Felisz
             return szöveg;
         }
 
-        public static void TTS_Stop()
+        public static void TTS_StopAll()
         {
             hang.SpeakAsyncCancelAll();
+            hangRSS.Pause();
+            
+        }
+
+        public static void TTS_RSS_Resume()
+        {
+            hangRSS.Resume();
         }
 
         public static string szám2Hónap(int hónap)

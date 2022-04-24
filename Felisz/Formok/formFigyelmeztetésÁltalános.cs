@@ -25,14 +25,14 @@ namespace Felisz.Formok
 
         private void btMegszakítás_Click(object sender, EventArgs e)
         {
-            TTS.TTS_Stop();
+            TTS.TTS_StopAll();
             this.DialogResult = DialogResult.Abort;
 
         }
 
         private void btTörlés_Click(object sender, EventArgs e)
         {
-            TTS.TTS_Stop();
+            TTS.TTS_StopAll();
             this.DialogResult = DialogResult.OK;
         }
 
@@ -41,8 +41,9 @@ namespace Felisz.Formok
             tbFigyelmeztetés.Text = figySzöveg;
             tbFigyelmeztetés.Height = tbFigyelmeztetés.Lines.Count() * 23;
             this.Height = 100 + (tbFigyelmeztetés.Lines.Count() * 23);
-            TTS.TTS_Stop();
-            TTS.TTS_Play(figyTTS);
+            TTS.TTS_StopAll();
+            TTS.TTS_Play(figyTTS,false);
+            
         }
     }
 }

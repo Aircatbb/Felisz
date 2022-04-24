@@ -402,7 +402,7 @@ namespace Felisz
 
 
             //Verzóváltozás értesítés
-            TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! Új funkciók és frissítések érhetőek el!");
+            TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! Új funkciók és frissítések érhetőek el!",false);
             Funkciók.VerzióVáltozásLog();
             TTS.hang.SpeakAsyncCancelAll();
 
@@ -411,17 +411,17 @@ namespace Felisz
 
 
 
-            TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! A Felisz auróra üdvözli Önt! Ma " + DateTime.Now.Year + " " + TTS.szám2Hónap(DateTime.Now.Month) + " hónap " + TTS.szám2Nap(DateTime.Now.Day) + " van.");
-            TTS.TTS_Play("Születésnaposok: Bohus Attila");
-            TTS.TTS_Play("Ma névnapjukat ünneplők: Lackó Mackó");
-            TTS.TTS_Play("Felolvassam az aktuális híreket? Naná, hát persze!");
+            TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! A Felisz auróra üdvözli Önt! Ma " + DateTime.Now.Year + " " + TTS.szám2Hónap(DateTime.Now.Month) + " hónap " + TTS.szám2Nap(DateTime.Now.Day) + " van.",true);
+            TTS.TTS_Play("Születésnaposok: Bohus Attila",true);
+            TTS.TTS_Play("Ma névnapjukat ünneplők: Lackó Mackó",true);
+            
 
 
             //Funkciók.TTS("Itt most hangfelismeréssel lehetne válaszolni.");
 
             for (int i = 0; i < RSSFeed.postok.Count; i++)
             {
-                TTS.TTS_Play(RSSFeed.postok[i].Cím);
+                TTS.TTS_Play(RSSFeed.postok[i].Cím,true);
             }
 
 

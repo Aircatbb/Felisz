@@ -52,8 +52,8 @@ namespace Felisz
                     {
                         if (DateTime.Parse(textboxneve.Text) <= DateTime.Now)
                         {
-                            TTS.TTS_Stop();
-                            TTS.TTS_Play("Figyelem! Kiskorúak foglalkoztatását a törvény bünteti!");
+                            TTS.TTS_StopAll();
+                            TTS.TTS_Play("Figyelem! Kiskorúak foglalkoztatását a törvény bünteti!",false);
                             MessageBox.Show("Kiskorúak foglalkoztatását a törvény bünteti!" + Environment.NewLine +
                                 "A 16. életévét betöltött de 18 évnél fiatalabb személy is" + Environment.NewLine +
                                 "csupán törvényes képviselője hozzájárulása birtokában" + Environment.NewLine +
@@ -61,6 +61,8 @@ namespace Felisz
                                 , "Figyelem", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                             adóazon.Enabled = false;
                             CímkeSzínBeállítás(címke, false);
+                            TTS.TTS_RSS_Resume();
+                            
                         }
                     }
 

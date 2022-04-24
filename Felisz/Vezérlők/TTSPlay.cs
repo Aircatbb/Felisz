@@ -64,7 +64,8 @@ namespace Felisz.Vezérlők
                 
             
                 TTS.hang.SpeakAsyncCancelAll();
-                TTS.TTS_Play(TTS.TTS_SzövegKorrekció(mitMondjak.Text));
+                TTS.hangRSS.SpeakAsyncCancelAll();
+                TTS.TTS_Play(TTS.TTS_SzövegKorrekció(mitMondjak.Text),false);
                 this.TTSállapot = true;
             }
             else

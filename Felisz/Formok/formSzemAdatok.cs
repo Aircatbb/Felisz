@@ -393,8 +393,10 @@ namespace Felisz.Formok
             Funkciók.NévValidálás(lbUtónév2, tbUtónév2, tbSzülUtónév2, true);
         }
 
-        private void lbIrszám_Validating(object sender, CancelEventArgs e)
+        private void cbIrszám_Validating(object sender, CancelEventArgs e)
         {
+
+            //erre valószínűleg nincs szükség TÖRÖLNI
             if (cbIrszám.Text != "")
             {
                 CímkeSzínBeállítás(lbIrszám, true);
@@ -539,7 +541,7 @@ namespace Felisz.Formok
             if (formMunkavállalóVálasztás.mód == "M")
             {
                 SzemélyiAdatokBetöltése();
-                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
+                
 
             }
             if (formMunkavállalóVálasztás.mód == "T")
@@ -848,14 +850,7 @@ namespace Felisz.Formok
 
 
         }
-
-
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        
         private void SzemélyiAdatokBetöltése()
         {
             MySql.Data.MySqlClient.MySqlConnection conn;
@@ -973,7 +968,6 @@ namespace Felisz.Formok
 
         }
 
-
         private string FeorLeírásLekérdezés(string feorSzám)
         {
             MySql.Data.MySqlClient.MySqlConnection conn;
@@ -1007,27 +1001,7 @@ namespace Felisz.Formok
 
         private void MezőkValidálása(Control kontroll)
         {
-            //Adatok betöltése után minden mező érvényességének beállítása, engedélyezése, mivel a mentés elött már validálva lettek.
-
-            //Ez kissé faékre sikeredett, javítani a későbbiekbe TÖRÖLNI
-            //foreach (Control groupitem in tlpÁltalánosSzemélyiAdatok.Controls)
-            /*foreach (Control groupitem in controlNeve.Controls)
-            {
-                foreach (Control tlpitem in groupitem.Controls)
-                {
-                    foreach (Control item in tlpitem.Controls)
-                    {
-                        if (item.Name == "") continue; //ha belekerülne véletlenül a scrollbar, hibát okozna he ez nem lenne
-                        if (item.Name.Substring(0, 2) == "lb")
-                        {
-                            CímkeSzínBeállítás((Label)item, true);
-                        }
-                    }
-
-                }
-
-            }
-            */
+       
 
             foreach (var item in kontroll.Controls)
             {
@@ -1266,7 +1240,7 @@ namespace Felisz.Formok
                     {
                         if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
                         if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
-                        tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
+                        
                     }
                     else
                     {
@@ -1297,12 +1271,6 @@ namespace Felisz.Formok
             }
 
 
-        }
-
-        private void tcSzemélyiAdatok_Click(object sender, EventArgs e)
-        {
-            //Majd törölni!
-            //HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
         }
 
         private void HozzátartozókBetöltése(int SzemélyiAzon)
@@ -1478,8 +1446,6 @@ namespace Felisz.Formok
 
             ToolTippekBetöltése(this, paragrafusTippek);
 
-
-
         }
 
         private void cbMegVáltMunkFogy_Validated(object sender, EventArgs e)
@@ -1545,18 +1511,6 @@ namespace Felisz.Formok
             }
             conn.Close();
 
-
-        }
-
-        private void tcSzemélyiAdatok_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            /*
-            if (formMunkavállalóVálasztás.mód == "N" && e.TabPage.Name == "tpHozzátartozók")
-            {
-                tlpHozzátartozók.Visible = false;
-                //Kapcsoltaok jönnek majd még ide, no meg a többi
-            }
-            */
 
         }
 
@@ -1650,13 +1604,6 @@ namespace Felisz.Formok
 
         }
 
-
-
-
-
-
-
-
         private void HozzátartozóTörlése(int SzemAzon)
         {
 
@@ -1705,7 +1652,7 @@ namespace Felisz.Formok
                 if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
                 if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
                 //Kalkulált szabadság újraszámolása
-                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
+                
             }
             else
             {
@@ -1737,7 +1684,7 @@ namespace Felisz.Formok
                     HozzátartozókMentés();
                     HozzátartozókBetöltése(int.Parse(tbAzonosítószám.Text));
                     //Ez majf kijön! Törölni
-                    tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
+                    
 
                 }
             }
@@ -1807,8 +1754,14 @@ namespace Felisz.Formok
             {
                 HozzátartozóTörlése(formMunkavállalóVálasztás.azon);
                 HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
-                tbKalkSzabadság.Text = Funkciók.SzabadságJogosultságKalkulátor(formMunkavállalóVálasztás.azon).ToString();
+                btHozzTartTörlés.Visible = false;
             }
+            TTS.TTS_RSS_Resume();
+        }
+
+        private void pbClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
