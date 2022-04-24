@@ -15,6 +15,7 @@ namespace Felisz
         public static void TTS_Beállítás()
         {
 
+            /*
             //Amennyiben van magyar nyelv telepítve, úgy annak kiválasztása, ellenkező esetben a TTS letiltása
             var talalat = false;
             var voice = hang.GetInstalledVoices();
@@ -29,6 +30,12 @@ namespace Felisz
                 }
             }
             if (!talalat) Program.TTSEngedélyezve = false;
+            */
+
+            hang.SelectVoice(Program.TTSNyelv);
+            hangRSS.SelectVoice(Program.TTSNyelv);
+
+
 
 
 

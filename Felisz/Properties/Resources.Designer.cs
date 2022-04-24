@@ -171,6 +171,16 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap felisz_aurora_273x200 {
+            get {
+                object obj = ResourceManager.GetObject("felisz_aurora_273x200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon Felisz1 {
@@ -401,7 +411,14 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to - Teszt.
+        ///   Looks up a localized string similar to Nyitott pontok:
+        ///
+        ///	- Rehab: Új mezők határozatszám, dátum (csak érvényesség elég?)
+        ///	- Esetleg telephelyenként lehessen megadni külön aláírót? Törvényes képviselő=aláíró?
+        ///	- Aláíró neve: Választható legyen a törvényes képviselő és telephely aláírói között? + beírási lehetőség
+        ///	- Távolság validálása hiányzik
+        ///	- REHAB mezők mentése
+        ///	- Határozatszám formátuma?.
         /// </summary>
         internal static string Teendők {
             get {
@@ -410,18 +427,18 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to V0.0.7.9
-        ///	- Egyenlőre a &quot;GlobalAdmin beállítások&quot; alatt érhető el a Cégadatok előzetes formája...
+        ///   Looks up a localized string similar to V0.0.7.14
+        ///	- Alapbeállítások 2 oszlopra tagolva
+        ///	- TTS registry létrehozásakor megkerese a magyar &apos;hu-HU&apos; beállítást, amit alapértelmezetként vesz.
+        ///	Amennyiben nincsen &apos;hu-HU&apos; úgy az első telepített nyelvet állítja be, és alapértelmezettként letiltja a TTS-t.
+        ///	- Alapbeállítások közé bekerült a nyelvválasztási lehetőség
         ///
-        ///V0.0.7.8
-        ///	- Hozzátartozót nem lehet rögzíteni, míg az általános személyi adatok nincsenek lementve.
-        ///	- Hozzátartozók táblanézetbe bekerült a fogyatékosság.
-        ///	- Ismert hiba: Mentésnél hiba a szabadságjogosultságnál. Felesleges vele foglalkozni, mivel átkerül máshová!
-        ///	- Logo csere.
-        ///	- TTS ki-, bekapcsolása jobb felső ikonnal. 
+        ///V0.0.7.13
+        ///	- Születési dátum módosítása esetén, az adóazonosítót újra validálni kell
+        ///	- Megváltozott munkaképesség határozat érvényességének validálása
         ///
-        ///V0.0.7.7
-        ///	- Fiatal munkavállaló (18 éves koráig) pótszabadsága (Tesztelni! [rest of string was truncated]&quot;;.
+        ///V0.0.7.12
+        ///	- Általános sze [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VáltozásLista {
             get {

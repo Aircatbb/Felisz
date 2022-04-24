@@ -122,34 +122,45 @@ namespace Felisz
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void formAlapbeállítások_Load(object sender, EventArgs e)
         {
             //Licenc
             tbLicenc.Text = Program.kódoltLic;
+
             //TTS
             cbTTSEngedélyezve.Checked = Program.TTSEngedélyezve;
             trbHangerő.Value = Program.TTSHangerő;
-            trbSebesség.Value = Program.TTSSebesség; 
+            trbSebesség.Value = Program.TTSSebesség;
+
+
+            var voice = TTS.hang.GetInstalledVoices();
+            var nyelve = "";
+            for (int i = 0; i < voice.Count; i++)
+            {
+                cbTTSNyelv.Items.Add(voice[i].VoiceInfo.Name + " / " + voice[i].VoiceInfo.Culture);
+                if (voice[i].VoiceInfo.Name == Program.TTSNyelv) nyelve = voice[i].VoiceInfo.Culture.ToString();
+            }
+
+            cbTTSNyelv.SelectedIndex = cbTTSNyelv.FindStringExact(Program.TTSNyelv + " / " + nyelve);
+
+
             //Változáslista
             rtbVáltozásLista.Text = Properties.Resources.VáltozásLista;
 
         }
 
-  
+
 
         private void cbTTSEngedélyezve_CheckedChanged(object sender, EventArgs e)
         {
             if (cbTTSEngedélyezve.Checked)
             {
-                Funkciók.TTSRegÍrás(true, Program.TTSHangerő, Program.TTSSebesség);
+                Funkciók.TTSRegÍrás(true, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
                 TTS.TTS_Beállítás();
             }
-            else Funkciók.TTSRegÍrás(false, Program.TTSHangerő, Program.TTSSebesség);
+            else Funkciók.TTSRegÍrás(false, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
             TTS.TTS_Beállítás();
         }
 
@@ -158,14 +169,14 @@ namespace Felisz
         {
 
             Program.TTSSebesség = trbSebesség.Value;
-            Funkciók.TTSRegÍrás(Program.TTSEngedélyezve, Program.TTSHangerő,  Program.TTSSebesség);
+            Funkciók.TTSRegÍrás(Program.TTSEngedélyezve, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
             TTS.TTS_Beállítás();
         }
 
         private void trbHangerő_ValueChanged(object sender, EventArgs e)
         {
             Program.TTSHangerő = trbHangerő.Value;
-            Funkciók.TTSRegÍrás(Program.TTSEngedélyezve, Program.TTSHangerő, Program.TTSSebesség);
+            Funkciók.TTSRegÍrás(Program.TTSEngedélyezve, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
             TTS.TTS_Beállítás();
         }
 
@@ -174,7 +185,26 @@ namespace Felisz
             //Csak a fejlesztés idejére, utána TÖRÖLNI!
             if (rtbVáltozásLista.Text.Substring(0, 7) == "Nyitott") rtbVáltozásLista.Text = Properties.Resources.VáltozásLista;
             else rtbVáltozásLista.Text = Properties.Resources.Teendők;
+
+        }
+
+     
+
+        private void cbTTSNyelv_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Program.TTSNyelv = cbTTSNyelv.Text.Substring(0, cbTTSNyelv.Text.IndexOf(" / "));
+            Funkciók.TTSRegÍrás(Program.TTSEngedélyezve, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
+            TTS.hang.SpeakAsyncCancelAll();
+            TTS.hangRSS.SpeakAsyncCancelAll();
             
+
+            TTS.TTS_Beállítás();
+            TTS.TTS_Play("A Felisz Aurora köszönti Önt!", false);
+        }
+
+        private void pbClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

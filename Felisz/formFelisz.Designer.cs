@@ -44,6 +44,7 @@ namespace Felisz
             this.panelLogo = new System.Windows.Forms.Panel();
             this.ADALogo = new System.Windows.Forms.PictureBox();
             this.panelTopMenu = new System.Windows.Forms.Panel();
+            this.pbTTSEngedélyezés = new System.Windows.Forms.PictureBox();
             this.lbStátusz = new System.Windows.Forms.Label();
             this.pbVonalFüggőleges = new System.Windows.Forms.PictureBox();
             this.pbVonal = new System.Windows.Forms.PictureBox();
@@ -57,7 +58,6 @@ namespace Felisz
             this.timerHáttér = new System.Windows.Forms.Timer(this.components);
             this.timerRSS = new System.Windows.Forms.Timer(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.pbTTSEngedélyezés = new System.Windows.Forms.PictureBox();
             this.folyamatJelző1 = new Felisz.FolyamatJelző();
             this.btHRMT = new Felisz.MenüGombokNew();
             this.btHRKalkulator = new Felisz.MenüGombokNew();
@@ -78,6 +78,7 @@ namespace Felisz
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ADALogo)).BeginInit();
             this.panelTopMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTTSEngedélyezés)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVonalFüggőleges)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVonal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFormMinimize)).BeginInit();
@@ -85,7 +86,6 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).BeginInit();
             this.panelHáttér.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureScore)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTTSEngedélyezés)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -269,13 +269,15 @@ namespace Felisz
             // ADALogo
             // 
             this.ADALogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ADALogo.Image = global::Felisz.Properties.Resources.Felisz_Aurora;
+            this.ADALogo.Image = global::Felisz.Properties.Resources.felisz_aurora_273x200;
             this.ADALogo.Location = new System.Drawing.Point(0, 0);
+            this.ADALogo.Margin = new System.Windows.Forms.Padding(0);
             this.ADALogo.Name = "ADALogo";
-            this.ADALogo.Size = new System.Drawing.Size(200, 200);
+            this.ADALogo.Size = new System.Drawing.Size(254, 184);
             this.ADALogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ADALogo.TabIndex = 0;
             this.ADALogo.TabStop = false;
+            this.ADALogo.Click += new System.EventHandler(this.ADALogo_Click);
             // 
             // panelTopMenu
             // 
@@ -296,6 +298,18 @@ namespace Felisz
             this.panelTopMenu.Size = new System.Drawing.Size(1480, 73);
             this.panelTopMenu.TabIndex = 1;
             this.panelTopMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTopMenu_Paint);
+            // 
+            // pbTTSEngedélyezés
+            // 
+            this.pbTTSEngedélyezés.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbTTSEngedélyezés.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.pbTTSEngedélyezés.Image = global::Felisz.Properties.Resources.hang;
+            this.pbTTSEngedélyezés.Location = new System.Drawing.Point(1363, 3);
+            this.pbTTSEngedélyezés.Name = "pbTTSEngedélyezés";
+            this.pbTTSEngedélyezés.Size = new System.Drawing.Size(24, 24);
+            this.pbTTSEngedélyezés.TabIndex = 10;
+            this.pbTTSEngedélyezés.TabStop = false;
+            this.pbTTSEngedélyezés.Click += new System.EventHandler(this.pbTTSEngedélyezés_Click);
             // 
             // lbStátusz
             // 
@@ -431,18 +445,6 @@ namespace Felisz
             this.timerRSS.Enabled = true;
             this.timerRSS.Interval = 10000;
             this.timerRSS.Tick += new System.EventHandler(this.timerRSS_Tick);
-            // 
-            // pbTTSEngedélyezés
-            // 
-            this.pbTTSEngedélyezés.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbTTSEngedélyezés.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.pbTTSEngedélyezés.Image = global::Felisz.Properties.Resources.hang;
-            this.pbTTSEngedélyezés.Location = new System.Drawing.Point(1363, 3);
-            this.pbTTSEngedélyezés.Name = "pbTTSEngedélyezés";
-            this.pbTTSEngedélyezés.Size = new System.Drawing.Size(24, 24);
-            this.pbTTSEngedélyezés.TabIndex = 10;
-            this.pbTTSEngedélyezés.TabStop = false;
-            this.pbTTSEngedélyezés.Click += new System.EventHandler(this.pbTTSEngedélyezés_Click);
             // 
             // folyamatJelző1
             // 
@@ -750,6 +752,7 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.ADALogo)).EndInit();
             this.panelTopMenu.ResumeLayout(false);
             this.panelTopMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTTSEngedélyezés)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVonalFüggőleges)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVonal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFormMinimize)).EndInit();
@@ -757,7 +760,6 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).EndInit();
             this.panelHáttér.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureScore)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTTSEngedélyezés)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

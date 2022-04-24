@@ -526,17 +526,22 @@ namespace Felisz
             if (Program.TTSEngedélyezve)
             {
                 Program.TTSEngedélyezve = false;
-                Funkciók.TTSRegÍrás(false, Program.TTSHangerő, Program.TTSSebesség);
+                Funkciók.TTSRegÍrás(false, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
                 TTS.TTS_Beállítás();
                 return;
             }
             else Program.TTSEngedélyezve = true;
             {
-                Funkciók.TTSRegÍrás(true, Program.TTSHangerő, Program.TTSSebesség);
+                Funkciók.TTSRegÍrás(true, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
                 TTS.TTS_Beállítás();
             }
 
             
+        }
+
+        private void ADALogo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

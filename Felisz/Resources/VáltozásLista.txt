@@ -1,3 +1,10 @@
+V0.0.7.14
+	- Alapbeállítások 2 oszlopra tagolva
+	- TTS registry létrehozásakor megkerese a magyar 'hu-HU' beállítást, amit alapértelmezetként vesz.
+	Amennyiben nincsen 'hu-HU' úgy az elsõ telepített nyelvet állítja be, és alapértelmezettként letiltja a TTS-t.
+	- Alapbeállítások közé bekerült a nyelvválasztási lehetõség
+	- Új logó próba
+
 V0.0.7.13
 	- Születési dátum módosítása esetén, az adóazonosítót újra validálni kell
 	- Megváltozott munkaképesség határozat érvényességének validálása
@@ -93,7 +100,8 @@ V0.0.7.0
 			ezek státuszát nem szabad a combobox-ból olvasni, hanem direkt az 
 			adatbázisból kell megdoldani! Következõ vezióban javítva lesz.)
 		- Felmerülõ igény:
-			- személyi adatok betöltésekor egybõl jelenjen meg a szabadságnapok száma (éves és késõbb egyenleg is)
+			- személyi adatok betöltésekor egybõl jelenjen meg a szabadságnapok száma
+			(éves és késõbb egyenleg is)
 			- kalkulált összeget adatbázisba lementeni
 			- az év elsõ futtatásakor, automatikusan meg kell állapítani a szabadságnapok számát, és az 
 			adatbázisban aktualizálni, mindenféle beavatkozás nélkül

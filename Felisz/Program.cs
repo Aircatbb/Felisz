@@ -25,6 +25,7 @@ namespace Felisz
         public static bool TTSEngedélyezve = false;
         public static int TTSHangerő = 33;
         public static int TTSSebesség = 0;
+        public static string TTSNyelv = "";
 
 
         /// <summary>

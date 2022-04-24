@@ -32,7 +32,7 @@ namespace Felisz
             }
         }
 
-        public static void DátumValidálás(Label címke, TextBox textboxneve, TextBox adóazon,Label adóazonCimke, bool üresEngedélyezve)
+        public static void DátumValidálás(Label címke, TextBox textboxneve, TextBox adóazon, Label adóazonCimke, bool üresEngedélyezve)
         {
 
             if (Funkciók.DátumFormázás(textboxneve.Text).ToString("yyyy.MM.dd") != DateTime.MinValue.ToString("yyyy.MM.dd"))
@@ -54,7 +54,7 @@ namespace Felisz
                         if (DateTime.Parse(textboxneve.Text) <= DateTime.Now)
                         {
                             TTS.TTS_StopAll();
-                            TTS.TTS_Play("Figyelem! Kiskorúak foglalkoztatását a törvény bünteti!",false);
+                            TTS.TTS_Play("Figyelem! Kiskorúak foglalkoztatását a törvény bünteti!", false);
                             MessageBox.Show("Kiskorúak foglalkoztatását a törvény bünteti!" + Environment.NewLine +
                                 "A 16. életévét betöltött de 18 évnél fiatalabb személy is" + Environment.NewLine +
                                 "csupán törvényes képviselője hozzájárulása birtokában" + Environment.NewLine +
@@ -63,7 +63,7 @@ namespace Felisz
                             adóazon.Enabled = false;
                             CímkeSzínBeállítás(címke, false);
                             TTS.TTS_RSS_Resume();
-                            
+
                         }
                     }
 
@@ -77,7 +77,7 @@ namespace Felisz
             else
             {
                 CímkeSzínBeállítás(címke, false);
-                if (üresEngedélyezve && textboxneve.Text=="") CímkeSzínBeállítás(címke, true);
+                if (üresEngedélyezve && textboxneve.Text == "") CímkeSzínBeállítás(címke, true);
                 if (adóazon != null) adóazon.Enabled = false;
             }
         }
@@ -133,7 +133,7 @@ namespace Felisz
 
         }
 
-        public static void TTSRegÍrás(bool engedélyezve, int beszHangerő, int beszSebesség)
+        public static void TTSRegÍrás(bool engedélyezve, int beszHangerő, int beszSebesség, string beszNyelv)
         {
             RegistryKey TTSKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz\\", true);
 
@@ -143,12 +143,14 @@ namespace Felisz
 
             TTSKey.SetValue("TTSVolume", beszHangerő);
             Program.TTSHangerő = beszHangerő;
-            
+
             TTSKey.SetValue("TTSSpeed", beszSebesség);
             Program.TTSSebesség = beszSebesség;
 
-            
- 
+            TTSKey.SetValue("TTSLanguage", beszNyelv);
+            Program.TTSNyelv = beszNyelv;
+
+
 
             TTSKey.Close();
         }
@@ -196,7 +198,40 @@ namespace Felisz
 
             Program.TTSSebesség = int.Parse(TTSKey.GetValue("TTSSPeed").ToString());
 
-            
+            //Nyelv
+            if (Registry.GetValue(TTSKey.ToString(), "TTSLanguage", null) == null)
+            {
+
+                //Amennyiben van magyar nyelv telepítve, úgy annak kiválasztása, ellenkező esetben az első találat
+                string nyelv = "";
+                bool találat = false;
+                var voice = TTS.hang.GetInstalledVoices();
+                for (int i = 0; i < voice.Count; i++)
+                {
+                    if (voice[i].VoiceInfo.Culture.ToString() == "shu-HU")
+                    {
+                        nyelv = voice[i].VoiceInfo.Name;
+                        találat = true;
+                        break;
+                    }
+                }
+
+                if(találat)
+                {
+                    TTSKey.SetValue("TTSLanguage", nyelv);
+                    Program.TTSNyelv = nyelv;
+                }
+                else
+                {
+                    TTSKey.SetValue("TTSLanguage", voice[0].VoiceInfo.Name);
+                    Program.TTSNyelv = voice[0].VoiceInfo.Name;
+                    Program.TTSEngedélyezve = false;
+                    TTSKey.SetValue("TTSEnabled", false);
+                }
+            }
+
+            Program.TTSNyelv = TTSKey.GetValue("TTSLanguage").ToString();
+
 
             TTSKey.Close();
 
@@ -1113,7 +1148,7 @@ namespace Felisz
                 {
                     case int n when (n < 19):
                         szabadság += 5;
-                        break;  
+                        break;
                     case int n when (n < 25):
                         break;
                     case int n when (n >= 25 && n < 28):
@@ -1156,10 +1191,10 @@ namespace Felisz
 
                 #endregion
 
-                
 
 
-                    return szabadság;
+
+                return szabadság;
 
 
 

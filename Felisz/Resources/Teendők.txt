@@ -4,6 +4,5 @@ Nyitott pontok:
 	- Esetleg telephelyenként lehessen megadni külön aláírót? Törvényes képviselõ=aláíró?
 	- Aláíró neve: Választható legyen a törvényes képviselõ és telephely aláírói között? + beírási lehetõség
 	- Távolság validálása hiányzik
-	- RSS feed szálat felszabadítani a memóriábal, ha a felolvasás befejezõdött.
 	- REHAB mezõk mentése
 	- Határozatszám formátuma?
