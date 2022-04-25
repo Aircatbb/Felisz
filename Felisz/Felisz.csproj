@@ -32,7 +32,7 @@
     <PublisherName>Future2021 Kft.</PublisherName>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>62</ApplicationRevision>
+    <ApplicationRevision>63</ApplicationRevision>
     <ApplicationVersion>0.1.5.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -317,6 +317,7 @@
     <Compile Include="VárosUtcanévImport.cs" />
     <Compile Include="Rekordok\Városkód.cs" />
     <Compile Include="XMLImport.cs" />
+    <None Include="Resources\bg_2.png" />
     <None Include="Resources\bg.png" />
     <None Include="Resources\felisz_aurora_273x200.png" />
     <None Include="Resources\Teendők.txt" />

@@ -73,16 +73,6 @@ namespace Felisz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Cloud1_OLD {
-            get {
-                object obj = ResourceManager.GetObject("Cloud1_OLD", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Cloud2 {
             get {
                 object obj = ResourceManager.GetObject("Cloud2", resourceCulture);
@@ -423,6 +413,16 @@ namespace Felisz.Properties {
         internal static string Teendők {
             get {
                 return ResourceManager.GetString("Teendők", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TEST {
+            get {
+                object obj = ResourceManager.GetObject("TEST", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
