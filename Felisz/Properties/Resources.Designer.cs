@@ -417,16 +417,6 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap TEST {
-            get {
-                object obj = ResourceManager.GetObject("TEST", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to V0.0.7.15
         ///	- Logó teszt
         ///	- ADA HRLine eltávolítva(?)

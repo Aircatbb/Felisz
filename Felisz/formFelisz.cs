@@ -245,7 +245,7 @@ namespace Felisz
 
             {
                 case int n when (n >= 0 && n <= 8):
-                    pictureScore.BackgroundImage = Properties.Resources.TEST;
+                    pictureScore.BackgroundImage = Properties.Resources.Cloud1;
                     break;
                 case int n when (n >= 9 && n <= 15):
                     pictureScore.BackgroundImage = Properties.Resources.Cloud2;
