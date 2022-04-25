@@ -1205,7 +1205,7 @@ namespace Felisz
 
      public static void  RegistryMásolás()
         {
-
+            
             string beString = "SOFTWARE\\Microsoft\\Speech_OneCore\\Voices\\Tokens\\MSTTS_V110_hu-HU_Szabolcs";
             //string kiString = "SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\";
             string kiString = "SOFTWARE";
@@ -1225,6 +1225,7 @@ namespace Felisz
                 kiKey.SetValue(regValue, beKey.GetValue(regValue));
 
             }
+            
 
 
 
