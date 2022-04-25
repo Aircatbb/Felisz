@@ -15,25 +15,21 @@ namespace Felisz
         public static void TTS_Beállítás()
         {
 
-            /*
-            //Amennyiben van magyar nyelv telepítve, úgy annak kiválasztása, ellenkező esetben a TTS letiltása
-            var talalat = false;
-            var voice = hang.GetInstalledVoices();
-            for (int i = 0; i < voice.Count; i++)
+            try
             {
-                if (voice[i].VoiceInfo.Culture.ToString() == "hu-HU")
-                {
-                    hang.SelectVoice(voice[i].VoiceInfo.Name);
-                    hangRSS.SelectVoice(voice[i].VoiceInfo.Name);
-                    talalat = true;
-                    break;
-                }
+                hang.SelectVoice(Program.TTSNyelv);
+                hangRSS.SelectVoice(Program.TTSNyelv);
             }
-            if (!talalat) Program.TTSEngedélyezve = false;
-            */
+            catch (Exception)
+            {
 
-            hang.SelectVoice(Program.TTSNyelv);
-            hangRSS.SelectVoice(Program.TTSNyelv);
+                MessageBox.Show("Nem sikerült a TTS hang beállítása!" + Environment.NewLine +
+                    "Kérem, ellenőrizze a beállításokat!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Program.TTSEngedélyezve = false;
+                Funkciók.TTSRegÍrás(false, 0, 0, "");
+                return;
+            }
+
 
 
 
@@ -109,7 +105,7 @@ namespace Felisz
         {
             hang.SpeakAsyncCancelAll();
             hangRSS.Pause();
-            
+
         }
 
         public static void TTS_RSS_Resume()

@@ -49,8 +49,8 @@ namespace Felisz
             this.gbVáltozásLista1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbVáltozásLista = new System.Windows.Forms.RichTextBox();
-            this.ttsPlay1 = new Felisz.Vezérlők.TTSPlay();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ttsPlay1 = new Felisz.Vezérlők.TTSPlay();
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).BeginInit();
             this.gbLicenc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
@@ -60,8 +60,8 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.trbHangerő)).BeginInit();
             this.gbVáltozásLista1.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ttsPlay1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ttsPlay1)).BeginInit();
             this.SuspendLayout();
             // 
             // pbFormClose
@@ -329,20 +329,6 @@ namespace Felisz
             this.rtbVáltozásLista.Text = "";
             this.rtbVáltozásLista.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.rtbVáltozásLista_MouseDoubleClick);
             // 
-            // ttsPlay1
-            // 
-            this.ttsPlay1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ttsPlay1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ttsPlay1.Image = ((System.Drawing.Image)(resources.GetObject("ttsPlay1.Image")));
-            this.ttsPlay1.Location = new System.Drawing.Point(791, 0);
-            this.ttsPlay1.Margin = new System.Windows.Forms.Padding(0);
-            this.ttsPlay1.mitMondjak = this.rtbVáltozásLista;
-            this.ttsPlay1.Name = "ttsPlay1";
-            this.ttsPlay1.Size = new System.Drawing.Size(24, 20);
-            this.ttsPlay1.TabIndex = 13;
-            this.ttsPlay1.TabStop = false;
-            this.ttsPlay1.TTSállapot = false;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -361,6 +347,20 @@ namespace Felisz
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1647, 1000);
             this.tableLayoutPanel1.TabIndex = 16;
+            // 
+            // ttsPlay1
+            // 
+            this.ttsPlay1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ttsPlay1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ttsPlay1.Image = ((System.Drawing.Image)(resources.GetObject("ttsPlay1.Image")));
+            this.ttsPlay1.Location = new System.Drawing.Point(791, 0);
+            this.ttsPlay1.Margin = new System.Windows.Forms.Padding(0);
+            this.ttsPlay1.mitMondjak = this.rtbVáltozásLista;
+            this.ttsPlay1.Name = "ttsPlay1";
+            this.ttsPlay1.Size = new System.Drawing.Size(24, 20);
+            this.ttsPlay1.TabIndex = 13;
+            this.ttsPlay1.TabStop = false;
+            this.ttsPlay1.TTSállapot = false;
             // 
             // formAlapbeállítások
             // 
@@ -385,8 +385,8 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.trbHangerő)).EndInit();
             this.gbVáltozásLista1.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ttsPlay1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ttsPlay1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

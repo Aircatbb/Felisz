@@ -1,3 +1,6 @@
+V0.0.7.16
+	- Helytelen registry beállításból (Speech, Speech_oneCore) adódó hibák lekezelése.
+
 V0.0.7.15
 	- Logó teszt
 	- ADA HRLine eltávolítva(?)

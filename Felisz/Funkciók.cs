@@ -1203,43 +1203,7 @@ namespace Felisz
 
         }
 
-        public static void RegistryMásolás()
-        {
-            /*
-            string beString = "SOFTWARE\\Microsoft\\Speech_OneCore\\Voices\\Tokens\\MSTTS_V110_hu-HU_Szabolcs";
-            string kiString = "SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\MSTTS_V110_hu-HU_Szabolcs";
-
-            RegistryKey beKey = Registry.LocalMachine.OpenSubKey(beString, false);
-            RegistryKey kiKey = Registry.LocalMachine.CreateSubKey(kiString, true);
-
-
-
-            foreach (var regValue in beKey.GetValueNames())
-            {
-
-
-                kiKey.SetValue(regValue, beKey.GetValue(regValue));
-
-            }
-            kiKey.Close();
-
-
-            foreach (var subKey in beKey.GetSubKeyNames())
-            {
-                RegistryKey beKeyKind = Registry.LocalMachine.OpenSubKey(beString + "\\" + subKey, false);
-                kiKey = Registry.LocalMachine.CreateSubKey(kiString + "\\" + subKey, true);
-
-                foreach (var regValue in beKeyKind.GetValueNames())
-                {
-
-                    kiKey.SetValue(regValue, beKeyKind.GetValue(regValue));
-                }
-                beKeyKind.Close();
-            }
-            beKey.Close();
-
-            */
-        }
+        
 
 
     }

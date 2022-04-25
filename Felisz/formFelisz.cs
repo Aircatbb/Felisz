@@ -283,7 +283,7 @@ namespace Felisz
         {
 
             //TEST
-            Funkciók.RegistryMásolás();
+            
 
 
 
