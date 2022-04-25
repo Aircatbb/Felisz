@@ -210,7 +210,7 @@ namespace Felisz
                     }
                 }
 
-                if(találat)
+                if (találat)
                 {
                     TTSKey.SetValue("TTSLanguage", nyelv);
                     Program.TTSNyelv = nyelv;
@@ -1203,41 +1203,42 @@ namespace Felisz
 
         }
 
-     public static void  RegistryMásolás()
+        public static void RegistryMásolás()
         {
-         /*   
+
             string beString = "SOFTWARE\\Microsoft\\Speech_OneCore\\Voices\\Tokens\\MSTTS_V110_hu-HU_Szabolcs";
-            //string kiString = "SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\";
-            string kiString = "SOFTWARE";
+            string kiString = "SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\MSTTS_V110_hu-HU_Szabolcs";
+
             RegistryKey beKey = Registry.LocalMachine.OpenSubKey(beString, false);
-            RegistryKey kiKey = Registry.LocalMachine.OpenSubKey(kiString, true);
+            RegistryKey kiKey = Registry.LocalMachine.CreateSubKey(kiString, true);
+
+
 
             foreach (var regValue in beKey.GetValueNames())
             {
 
-                RegistryKey attrib = kiKey.CreateSubKey("MSTTS_V110_hu-HU_Szabolcs");
-                
-
-
-
-                var test=beKey.GetValue(regValue);
 
                 kiKey.SetValue(regValue, beKey.GetValue(regValue));
 
             }
-            
+            kiKey.Close();
+
 
             foreach (var subKey in beKey.GetSubKeyNames())
             {
+                RegistryKey beKeyKind = Registry.LocalMachine.OpenSubKey(beString + "\\" + subKey, false);
+                kiKey = Registry.LocalMachine.CreateSubKey(kiString + "\\" + subKey, true);
 
-
-                foreach (var regValue in beKey.GetValueNames())
+                foreach (var regValue in beKeyKind.GetValueNames())
                 {
-                    var test = beKey.GetValue(regValue);
 
+                    kiKey.SetValue(regValue, beKeyKind.GetValue(regValue));
                 }
+                beKeyKind.Close();
             }
-          */ 
+            beKey.Close();
+
+
         }
 
 
