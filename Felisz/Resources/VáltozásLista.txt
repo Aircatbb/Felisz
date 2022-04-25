@@ -1,3 +1,7 @@
+V0.0.7.15
+	- Logó teszt
+	- ADA HRLine eltávolítva(?)
+
 V0.0.7.14
 	- Alapbeállítások 2 oszlopra tagolva
 	- TTS registry létrehozásakor megkerese a magyar 'hu-HU' beállítást, amit alapértelmezetként vesz.

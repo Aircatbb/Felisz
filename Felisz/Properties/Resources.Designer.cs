@@ -63,16 +63,6 @@ namespace Felisz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ADAHRline {
-            get {
-                object obj = ResourceManager.GetObject("ADAHRline", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Cloud1 {
             get {
                 object obj = ResourceManager.GetObject("Cloud1", resourceCulture);

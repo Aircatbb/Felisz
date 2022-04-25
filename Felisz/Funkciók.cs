@@ -155,10 +155,6 @@ namespace Felisz
             TTSKey.Close();
         }
 
-
-
-
-
         public static void TTSRegOlvasás()
         {
             RegistryKey TTSKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz\\", true);
@@ -269,7 +265,6 @@ namespace Felisz
             verKey.SetValue("Version", verJelenlegi);
             verKey.Close();
         }
-
 
         public static bool UtolsóKarakterSzóköz(TextBox mező)
         {
