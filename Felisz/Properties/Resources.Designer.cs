@@ -73,6 +73,16 @@ namespace Felisz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cloud1_OLD {
+            get {
+                object obj = ResourceManager.GetObject("Cloud1_OLD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cloud2 {
             get {
                 object obj = ResourceManager.GetObject("Cloud2", resourceCulture);
@@ -403,10 +413,10 @@ namespace Felisz.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Nyitott pontok:
         ///
-        ///	- Rehab: Új mezők határozatszám, dátum (csak érvényesség elég?)
+        ///	- Rehab: Új mezők határozatszám, dátum (csak érvényesség elég?) 
         ///	- Esetleg telephelyenként lehessen megadni külön aláírót? Törvényes képviselő=aláíró?
         ///	- Aláíró neve: Választható legyen a törvényes képviselő és telephely aláírói között? + beírási lehetőség
-        ///	- Távolság validálása hiányzik
+        ///	- Távolság validálása hiányzik, jelzés LUNA változás esetén
         ///	- REHAB mezők mentése
         ///	- Határozatszám formátuma?.
         /// </summary>
@@ -417,7 +427,11 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to V0.0.7.14
+        ///   Looks up a localized string similar to V0.0.7.15
+        ///	- Logó teszt
+        ///	- ADA HRLine eltávolítva(?)
+        ///
+        ///V0.0.7.14
         ///	- Alapbeállítások 2 oszlopra tagolva
         ///	- TTS registry létrehozásakor megkerese a magyar &apos;hu-HU&apos; beállítást, amit alapértelmezetként vesz.
         ///	Amennyiben nincsen &apos;hu-HU&apos; úgy az első telepített nyelvet állítja be, és alapértelmezettként letiltja a TTS-t.
@@ -426,9 +440,7 @@ namespace Felisz.Properties {
         ///
         ///V0.0.7.13
         ///	- Születési dátum módosítása esetén, az adóazonosítót újra validálni kell
-        ///	- Megváltozott munkaképesség határozat érvényességének validálása
-        ///
-        ///V0.0.7.12 [rest of string was truncated]&quot;;.
+        ///	- Megváltozott munka [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VáltozásLista {
             get {
