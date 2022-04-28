@@ -229,5 +229,12 @@ namespace Felisz
         {
             return név.Substring(név.IndexOf(" ") + 1);
         }
+
+        
+
+
+
     }
+
+
 }

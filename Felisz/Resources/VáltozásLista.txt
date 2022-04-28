@@ -1,3 +1,9 @@
+V0.0.8.0
+	- Általános személyi adatok teljesen átdolgozva
+	- Új gombok a nem kötelezõ adatok megnyitásához
+	- Hiányzó mezõk 95%-a létrehozva, további egyeztetések szükségesek...
+	- Hiba elhárítva, szemét kitakarítása következõ verzióban
+
 V0.0.7.16
 	- Helytelen registry beállításból (Speech, Speech_oneCore) adódó hibák lekezelése.
 

@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 
+
 namespace Felisz
 {
     class Funkciók

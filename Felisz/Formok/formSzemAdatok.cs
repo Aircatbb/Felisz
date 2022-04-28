@@ -541,7 +541,7 @@ namespace Felisz.Formok
             if (formMunkavállalóVálasztás.mód == "M")
             {
                 SzemélyiAdatokBetöltése();
-                
+
 
             }
             if (formMunkavállalóVálasztás.mód == "T")
@@ -832,8 +832,8 @@ namespace Felisz.Formok
                 Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " általános személyi adatok mentve! " + DateTime.Now.ToString());
 
                 //Amennyiben új rögzítés,úgy mostantól engedélyezük a további adatok felvitelét
-                tlpHozzátartozók.Visible = true;
-
+                tlpHozzátartozók_New.Visible = true;
+                
 
                 SQLCommand.Dispose();
             }
@@ -850,7 +850,7 @@ namespace Felisz.Formok
 
 
         }
-        
+
         private void SzemélyiAdatokBetöltése()
         {
             MySql.Data.MySqlClient.MySqlConnection conn;
@@ -1001,7 +1001,7 @@ namespace Felisz.Formok
 
         private void MezőkValidálása(Control kontroll)
         {
-       
+
 
             foreach (var item in kontroll.Controls)
             {
@@ -1240,7 +1240,7 @@ namespace Felisz.Formok
                     {
                         if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
                         if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
-                        
+
                     }
                     else
                     {
@@ -1251,7 +1251,7 @@ namespace Felisz.Formok
 
                 if (tcSzemélyiAdatok.SelectedTab.Text == "Hozzátartozók")
                 {
-                    if (MentésIndítható(tlpHozzátartozók))
+                    if (MentésIndítható(tlpHozzátartozók_New))
                     {
                         if (formMunkavállalóVálasztás.mód == "M")
                         {
@@ -1276,6 +1276,8 @@ namespace Felisz.Formok
         private void HozzátartozókBetöltése(int SzemélyiAzon)
         {
             //if (tlpHozzátartozók.Visible == false) return;
+
+            gpHozzátartozók.Visible = true;
 
             if (!Adatbázis.AdatbázisEllenőrzéseCég())
             {
@@ -1303,41 +1305,41 @@ namespace Felisz.Formok
                 dataAdapter = new MySqlDataAdapter(sql, conn);
                 DataTable dtRecord = new DataTable();
                 dataAdapter.Fill(dtRecord);
-                dgvHozzátartozó.DataSource = dtRecord;
+                dgvHozzátartozók.DataSource = dtRecord;
                 conn.Close();
 
-                if (dgvHozzátartozó.Columns[0].HeaderText == "VezNev")
+                if (dgvHozzátartozók.Columns[0].HeaderText == "VezNev")
                 {
-                    for (int i = 0; i < dgvHozzátartozó.ColumnCount; i++)
+                    for (int i = 0; i < dgvHozzátartozók.ColumnCount; i++)
                     {
-                        switch (dgvHozzátartozó.Columns[i].HeaderText)
+                        switch (dgvHozzátartozók.Columns[i].HeaderText)
                         {
 
                             case "VezNev":
-                                dgvHozzátartozó.Columns[i].HeaderText = "Vezetéknév";
-                                dgvHozzátartozó.Columns[i].Width = 100;
+                                dgvHozzátartozók.Columns[i].HeaderText = "Vezetéknév";
+                                dgvHozzátartozók.Columns[i].Width = 100;
                                 break;
                             case "UtoNev1":
-                                dgvHozzátartozó.Columns[i].HeaderText = "Utónév 1";
-                                dgvHozzátartozó.Columns[i].Width = 100;
+                                dgvHozzátartozók.Columns[i].HeaderText = "Utónév 1";
+                                dgvHozzátartozók.Columns[i].Width = 100;
                                 break;
                             case "UtoNev2":
-                                dgvHozzátartozó.Columns[i].HeaderText = "Utónév 2";
-                                dgvHozzátartozó.Columns[i].Width = 100;
+                                dgvHozzátartozók.Columns[i].HeaderText = "Utónév 2";
+                                dgvHozzátartozók.Columns[i].Width = 100;
                                 break;
                             case "SzulDatum":
-                                dgvHozzátartozó.Columns[i].HeaderText = "Születési dátum";
-                                dgvHozzátartozó.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                                dgvHozzátartozó.Columns[i].Width = 70;
+                                dgvHozzátartozók.Columns[i].HeaderText = "Születési dátum";
+                                dgvHozzátartozók.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                                dgvHozzátartozók.Columns[i].Width = 70;
                                 break;
                             case "Fogyatekos":
-                                dgvHozzátartozó.Columns[i].HeaderText = "Fogyaték";
-                                dgvHozzátartozó.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                                dgvHozzátartozó.Columns[i].Width = 70;
+                                dgvHozzátartozók.Columns[i].HeaderText = "Fogyaték";
+                                dgvHozzátartozók.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                                dgvHozzátartozók.Columns[i].Width = 70;
                                 break;
                             default:
-                                dgvHozzátartozó.Columns[i].HeaderText = "#HIÁNYZIK#";
-                                dgvHozzátartozó.Columns[i].Width = 50;
+                                dgvHozzátartozók.Columns[i].HeaderText = "#HIÁNYZIK#";
+                                dgvHozzátartozók.Columns[i].Width = 50;
                                 break;
                         }
 
@@ -1353,6 +1355,7 @@ namespace Felisz.Formok
                 return;
             }
 
+            gpHozzátartozók.Visible = false;
 
         }
 
@@ -1559,19 +1562,19 @@ namespace Felisz.Formok
                 SQLCommand.Parameters["@SzemAzon"].Value = tbAzonosítószám.Text;
 
                 SQLCommand.Parameters.Add("@VezNev", MySql.Data.MySqlClient.MySqlDbType.VarString);
-                SQLCommand.Parameters["@VezNev"].Value = tbHozzáVezetéknév.Text;
+                SQLCommand.Parameters["@VezNev"].Value = tbVezetéknévHozzátartozó.Text;
 
                 SQLCommand.Parameters.Add("@UtoNev1", MySql.Data.MySqlClient.MySqlDbType.VarString);
-                SQLCommand.Parameters["@UtoNev1"].Value = tbHozzáUtónév1.Text;
+                SQLCommand.Parameters["@UtoNev1"].Value = tbUtónév1Hozzátartozó.Text;
 
                 SQLCommand.Parameters.Add("@UtoNev2", MySql.Data.MySqlClient.MySqlDbType.VarString);
-                SQLCommand.Parameters["@UtoNev2"].Value = tbHozzáUtónév2.Text;
+                SQLCommand.Parameters["@UtoNev2"].Value = tbUtónév2Hozzátartozó.Text;
 
                 SQLCommand.Parameters.Add("@SzulDatum", MySql.Data.MySqlClient.MySqlDbType.Date);
-                SQLCommand.Parameters["@SzulDatum"].Value = DateTime.Parse(tbSzülDátumHozzá.Text);
+                SQLCommand.Parameters["@SzulDatum"].Value = DateTime.Parse(tbSzületésiDátumHozzátartozó.Text);
 
                 SQLCommand.Parameters.Add("@Fogyatekos", MySql.Data.MySqlClient.MySqlDbType.VarChar);
-                SQLCommand.Parameters["@Fogyatekos"].Value = cbFogyatékHozzá.Text.Substring(0, 1);
+                SQLCommand.Parameters["@Fogyatekos"].Value = cbFogyatékosságHozzátartozó.Text.Substring(0, 1);
 
                 SQLCommand.Parameters.Add("@RogzFelh", MySql.Data.MySqlClient.MySqlDbType.VarString);
                 SQLCommand.Parameters["@RogzFelh"].Value = Properties.Settings.Default.utolsóFelhasználó;
@@ -1582,11 +1585,11 @@ namespace Felisz.Formok
                 SQLCommand.ExecuteNonQuery();
 
                 Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " hozzátartozója rögzítve! " + DateTime.Now.ToString());
-                tbHozzáVezetéknév.Text = "";
-                tbHozzáUtónév1.Text = "";
-                tbHozzáUtónév2.Text = "";
-                tbSzülDátumHozzá.Text = "";
-                cbFogyatékHozzá.Text = "";
+                tbVezetéknévHozzátartozó.Text = "";
+                tbUtónév1Hozzátartozó.Text = "";
+                tbUtónév2Hozzátartozó.Text = "";
+                tbSzületésiDátumHozzátartozó.Text = "";
+                cbFogyatékosságHozzátartozó.Text = "";
 
 
                 SQLCommand.Dispose();
@@ -1652,7 +1655,7 @@ namespace Felisz.Formok
                 if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
                 if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés();
                 //Kalkulált szabadság újraszámolása
-                
+
             }
             else
             {
@@ -1671,20 +1674,20 @@ namespace Felisz.Formok
             }
 
             //Újra validálás mivel eddig nem figyeltük az üres mezőket
-            Funkciók.NévValidálás(lbHozzáVezetéknév, tbHozzáVezetéknév, null, false);
-            Funkciók.NévValidálás(lbHozzáUtónév1, tbHozzáUtónév1, null, false);
-            Funkciók.DátumValidálás(lbSzülDátumHozzá, tbSzülDátumHozzá, null, null,false);
-            if (cbFogyatékHozzá.Text.Length == 0) CímkeSzínBeállítás(lbFogyatékHozzá, false);
+            Funkciók.NévValidálás(lbVezetéknévHozzátartozó, tbVezetéknévHozzátartozó, null, false);
+            Funkciók.NévValidálás(lbUtónév1Hozzátartozó, tbUtónév1Hozzátartozó, null, false);
+            Funkciók.DátumValidálás(lbSzületésiDátumHozzátartozó, tbSzületésiDátumHozzátartozó, null, null, false);
+            if (cbFogyatékosságHozzátartozó.Text.Length == 0) CímkeSzínBeállítás(lbFogyatékosságHozzátartozó, false);
 
 
-            if (MentésIndítható(tlpHozzátartozók_New))
+            if (MentésIndítható(tlpHozzátartozók))
             {
                 if (formMunkavállalóVálasztás.mód == "M")
                 {
                     HozzátartozókMentés();
                     HozzátartozókBetöltése(int.Parse(tbAzonosítószám.Text));
                     //Ez majf kijön! Törölni
-                    
+
 
                 }
             }
@@ -1697,33 +1700,33 @@ namespace Felisz.Formok
 
         private void tbHozzáVezetéknév_Validated_1(object sender, EventArgs e)
         {
-            Funkciók.NévValidálás(lbHozzáVezetéknév, tbHozzáVezetéknév, null, true);
+            Funkciók.NévValidálás(lbVezetéknévHozzátartozó, tbVezetéknévHozzátartozó, null, true);
         }
 
         private void tbHozzáUtónév1_Validated_1(object sender, EventArgs e)
         {
-            Funkciók.NévValidálás(lbHozzáUtónév1, tbHozzáUtónév1, null, true);
+            Funkciók.NévValidálás(lbUtónév1Hozzátartozó, tbUtónév1Hozzátartozó, null, true);
         }
 
         private void tbHozzáUtónév2_Validated_1(object sender, EventArgs e)
         {
-            Funkciók.NévValidálás(lbHozzáUtónév2, tbHozzáUtónév2, null, true);
+            Funkciók.NévValidálás(lbUtónév2Hozzátartozó, tbUtónév2Hozzátartozó, null, true);
         }
 
         private void tbSzülDátumHozzá_Validated(object sender, EventArgs e)
         {
-            Funkciók.DátumValidálás(lbSzülDátumHozzá, tbSzülDátumHozzá, null,null, true);
+            Funkciók.DátumValidálás(lbSzületésiDátumHozzátartozó, tbSzületésiDátumHozzátartozó, null, null, true);
         }
 
         private void cbFogyatékHozzá_Validated_1(object sender, EventArgs e)
         {
-            if (cbFogyatékHozzá.Text.Length > 0)
+            if (cbFogyatékosságHozzátartozó.Text.Length > 0)
             {
-                CímkeSzínBeállítás(lbFogyatékHozzá, true);
+                CímkeSzínBeállítás(lbFogyatékosságHozzátartozó, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbFogyatékHozzá, false);
+                CímkeSzínBeállítás(lbFogyatékosságHozzátartozó, false);
             }
         }
 
@@ -1731,14 +1734,14 @@ namespace Felisz.Formok
         {
             if (e.RowIndex < 0)
             {
-                btHozzTartTörlés.Visible = false;
+                btHozzátartozóTörlés.Visible = false;
                 return;
             }
 
-            btHozzTartTörlés.Visible = true;
-            hozzáTartVezetéknév = dgvHozzátartozó[0, e.RowIndex].Value.ToString();
-            hozzáTartUtónév1 = dgvHozzátartozó[1, e.RowIndex].Value.ToString();
-            hozzáTartUtónév2 = dgvHozzátartozó[2, e.RowIndex].Value.ToString();
+            btHozzátartozóTörlés.Visible = true;
+            hozzáTartVezetéknév = dgvHozzátartozók[0, e.RowIndex].Value.ToString();
+            hozzáTartUtónév1 = dgvHozzátartozók[1, e.RowIndex].Value.ToString();
+            hozzáTartUtónév2 = dgvHozzátartozók[2, e.RowIndex].Value.ToString();
         }
 
         private void btHozzTartTörlés_Click_1(object sender, EventArgs e)
@@ -1754,7 +1757,7 @@ namespace Felisz.Formok
             {
                 HozzátartozóTörlése(formMunkavállalóVálasztás.azon);
                 HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
-                btHozzTartTörlés.Visible = false;
+                btHozzátartozóTörlés.Visible = false;
             }
             TTS.TTS_RSS_Resume();
         }
@@ -1766,7 +1769,86 @@ namespace Felisz.Formok
 
         private void tbMegválltHatározatÉrv_Validated(object sender, EventArgs e)
         {
-            Funkciók.DátumValidálás(lbMegválltHatározatÉrv, tbMegválltHatározatÉrv, null,null, false);
+            Funkciók.DátumValidálás(lbFogyÁllapotKezdDátum, tbFogyÁllapotKezdDátum, null, null, false);
+        }
+
+        private void btTartózkodásiHelyMegnyit_Click(object sender, EventArgs e)
+        {
+            // gbTartózkodásiHely.Visible = !gbTartózkodásiHely.Visible;
+            //GombMegnyitásBezárásVáltás(sender);
+            KiegPanelekVezérlése(tlpOszlop3, tlpKiegGombok, sender);
+
+        }
+
+
+
+        private void btHozzátartozókMegnyit_Click(object sender, EventArgs e)
+        {
+            // gpHozzátartozó.Visible = !gpHozzátartozó.Visible;
+            //GombMegnyitásBezárásVáltás(sender);
+            KiegPanelekVezérlése(tlpOszlop3, tlpKiegGombok, sender);
+
+        }
+
+        private void btMegváltozottMunkaképességMegnyit_Click(object sender, EventArgs e)
+        {
+            //gbMegváltozottMunkaképesség.Visible = !gbMegváltozottMunkaképesség.Visible;
+            //GombMegnyitásBezárásVáltás(sender);
+            KiegPanelekVezérlése(tlpOszlop3, tlpKiegGombok, sender);
+        }
+
+        private void GombMegnyitásBezárásVáltás(object gomb)
+        {
+            Button temp = (Button)gomb;
+            if (temp.Text == "MEGNYITÁS") temp.Text = "BEZÁRÁS";
+            else temp.Text = "MEGNYITÁS";
+        }
+
+        private void btSzakszervezetMegnyit_Click(object sender, EventArgs e)
+        {
+            //gbSzakszervezet.Visible = !gbSzakszervezet.Visible;
+            //GombMegnyitásBezárásVáltás(sender);
+            KiegPanelekVezérlése(tlpOszlop3, tlpKiegGombok, sender);
+        }
+
+        private void KiegPanelekVezérlése(Control panel, Control gombPanel, object küldőGombNeve)
+        {
+            //Az oszloppanelen szereplő csoportok automatikus bezárása, csak a meghívott csoport megnyitása, illetve a 
+            //HozzátartozókBetöltése gombok szövegének változatása
+            //A gomb tag-jében tárolva a vezérelendő csoport
+
+
+
+
+            foreach (var item in panel.Controls)
+            {
+                if (item is GroupBox)
+                {
+                    Button küldőGomb = (Button)küldőGombNeve;
+                    GroupBox gb = (GroupBox)item;
+                    if (gb.Name != küldőGomb.Tag.ToString()) gb.Visible = false;
+                    else gb.Visible = true;
+                    if (gb.Name == küldőGomb.Tag.ToString() && küldőGomb.Text == "BEZÁRÁS") gb.Visible = false;
+                }
+
+            }
+
+
+            foreach (var item in gombPanel.Controls)
+            {
+                if (item is Button)
+                {
+                    Button küldőGomb = (Button)küldőGombNeve;
+                    Button bt = (Button)item;
+                    if (bt.Name == küldőGomb.Name && küldőGomb.Text != "BEZÁRÁS") bt.Text = "BEZÁRÁS";
+                    else bt.Text = "MEGNYITÁS";
+                }
+            }
+
+
+
+
         }
     }
+
 }

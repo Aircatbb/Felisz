@@ -6,3 +6,10 @@ Nyitott pontok:
 	- Távolság validálása hiányzik, jelzés LUNA változás esetén
 	- REHAB mezõk mentése
 	- Határozatszám formátuma?
+	- Igazolványszám ellenõrzés?
+	- Számlavazetõbank
+	- Számlaszám ellenõrzés
+	- ComboBox-ok lehetséges értékei? Pl. egyszerûsített, vagy nyugdíj
+	- Hozzátartozóknál a mentés methódusnál újra kell validálni a mezõket. Új mezõket ide is berakni!
+	Mentés után az új mezõket is ki kell üríteni
+	- Új hozzátartozó rögzítésekor a csoport nyitása, zárása nem megfelelõen mûködik
