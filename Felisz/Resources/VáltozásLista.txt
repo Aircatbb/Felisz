@@ -1,3 +1,6 @@
+V0.0.8.1
+	- Kiganalyozva, amit üsszekutyult a VS
+
 V0.0.8.0
 	- Általános személyi adatok teljesen átdolgozva
 	- Új gombok a nem kötelezõ adatok megnyitásához

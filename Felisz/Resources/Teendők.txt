@@ -12,4 +12,5 @@ Nyitott pontok:
 	- ComboBox-ok lehetséges értékei? Pl. egyszerûsített, vagy nyugdíj
 	- Hozzátartozóknál a mentés methódusnál újra kell validálni a mezõket. Új mezõket ide is berakni!
 	Mentés után az új mezõket is ki kell üríteni
+	Alapértelmezett értékeket beállítani új mezõk
 	- Új hozzátartozó rögzítésekor a csoport nyitása, zárása nem megfelelõen mûködik

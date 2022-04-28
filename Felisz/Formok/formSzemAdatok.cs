@@ -555,12 +555,12 @@ namespace Felisz.Formok
             //Alapértelmezett értékek
             cbMegVáltMunkFogy.SelectedIndex = 1;
             cbFöldAlattIonMunk.SelectedIndex = 1;
-            cbFogyatékHozzá.SelectedIndex = 1;
+            cbFogyatékosságHozzátartozó.SelectedIndex = 1;
 
             //Hozzátartozók betöltése
             HozzátartozókBetöltése(formMunkavállalóVálasztás.azon);
             //Hozzátartozók mezőinek validálása, mivel nem kötelező
-            MezőkValidálása(gpHozzátartozó);
+            MezőkValidálása(gpHozzátartozók);
 
 
         }
@@ -832,7 +832,7 @@ namespace Felisz.Formok
                 Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " általános személyi adatok mentve! " + DateTime.Now.ToString());
 
                 //Amennyiben új rögzítés,úgy mostantól engedélyezük a további adatok felvitelét
-                tlpHozzátartozók_New.Visible = true;
+                tlpHozzátartozók.Visible = true;
                 
 
                 SQLCommand.Dispose();
@@ -1251,7 +1251,7 @@ namespace Felisz.Formok
 
                 if (tcSzemélyiAdatok.SelectedTab.Text == "Hozzátartozók")
                 {
-                    if (MentésIndítható(tlpHozzátartozók_New))
+                    if (MentésIndítható(tlpHozzátartozók))
                     {
                         if (formMunkavállalóVálasztás.mód == "M")
                         {
