@@ -4,14 +4,16 @@ V0.0.9.0
 	- Törlés funkció már a 'Torol' oszlopot módosítja, a tényleges törlés helyett
 	- SzemTorsz és SzemHozzaTart betöltésekor a 'Torol' oszlop figyelembevéve
 	- Változáskövetés megvalósítva a személyitörzsben, minden változás archiválva.
-	- A frissítés és mentés funkciót az 'ÁltalánosSzemélyiAdatokMentés' metódus veszi át (bool módosítás paraméterrel)
+	- A frissítés és mentés funkciót az 'ÁltalánosSzemélyiAdatokMentés' metódus veszi át (bool módosítás
+	paraméterrel)
 	- Microsoft szervere helyett a google szerverén keresztüli dátum ellenõrzés
-	- Nyugdíj és jogviszony típusok rögzítésre kerültek az 'Adatbázis' osztályban, új 'Standard' többfunkciós rekordok segítségével, melyek
-	a ComboBox-ok feltöltésére lett bevezetve.
+	- Nyugdíj és jogviszony típusok rögzítésre kerültek az 'Adatbázis' osztályban, új 'Standard' többfunkciós
+	rekordok segítségével, melyek a ComboBox-ok feltöltésére lett bevezetve.
 	- Nyugdíj, Jogviszony, Iskolai végzettség ComboBox feltöltve
-	- Az eddig használatos lokális logfile "készítp" (NLOG) nyugdíjazva. Helyette saját fejlesztésû LOG funkció lett bevezetve, ami már
-	adatbázisban tárolja a bejegyzéseket. Egyben elérhetõvá vált a Justice felé történõ loggolások. Cég szinten az AuroraLog tábla használva, a
-	központi logtábla a JusticeLog. A bejegyzések akár 10 szintre sorolhatóak be. Jelenleg 1-3 szint használva (1-Kritikus, 2-Figyelmeztetés, 3-Info)
+	- Az eddig használatos lokális logfile "készítp" (NLOG) nyugdíjazva. Helyette saját fejlesztésû LOG funkció lett
+	bevezetve, ami már adatbázisban tárolja a bejegyzéseket. Egyben elérhetõvá vált a Justice felé történõ loggolások.
+	Cég szinten az AuroraLog tábla használva, a	központi logtábla a JusticeLog. A bejegyzések akár 10 szintre
+	sorolhatóak be. Jelenleg 1-3 szint használva (1-Kritikus, 2-Figyelmeztetés, 3-Info)
 
 V0.0.8.1
 	- Kiganalyozva, amit üsszekutyult a VS

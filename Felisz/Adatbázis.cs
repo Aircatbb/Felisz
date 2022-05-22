@@ -366,6 +366,7 @@ namespace Felisz
 
         public static void Naplózás(string szint, string bejegyzés)
         {
+            Console.WriteLine(DateTime.Now.ToString("yyyy.MM.dd") + " " + szint + " " + bejegyzés);
             //Egyes szint -> Justice-nak naplóz, kettes szint céges naplózás
             if (szint.StartsWith("1")) Adatbázis.NaplóÍrásJustice(szint.Substring(szint.Length - 1, 1), bejegyzés);
             if (szint.StartsWith("2")) Adatbázis.NaplóÍrásAurora(szint.Substring(szint.Length - 1, 1), bejegyzés);

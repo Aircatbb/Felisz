@@ -17,3 +17,4 @@ Nyitott pontok:
 	- Dátumellenõrzést visszakapcsolni, esetleg még egy szerver beállítása...
 	- A változáskövetés végett, újra szükséges a mentés, törlés és módosítás folyamatok ellenõrzése!!!
 	- Frissités rész hibakezelése
+	- NLOG végleges eltávolítása
