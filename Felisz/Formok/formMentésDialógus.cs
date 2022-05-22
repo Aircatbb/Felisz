@@ -37,21 +37,21 @@ namespace Felisz.Formok
 
         private void btMeBe_Click(object sender, EventArgs e)
         {
-            mód = "MB";
+            mód = "MB"; //Mentés és bezárás
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
         private void btMeFo_Click(object sender, EventArgs e)
         {
-            mód = "MF";
+            mód = "MF"; //Mentés és folytatás
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
         private void btMeMe_Click(object sender, EventArgs e)
         {
-            mód = "MM";
+            mód = "MM"; //Mentés megszakítása
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

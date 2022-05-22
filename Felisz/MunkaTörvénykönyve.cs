@@ -131,11 +131,13 @@ namespace Felisz
                 }
 
             }
-            Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---MT letöltése és tördelése kész!");
+            Adatbázis.Naplózás("23", Program.aktuálisCég + " " + Program.prefix + "---MT letöltése és tördelése kész!");
+            //Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---MT letöltése és tördelése kész!");
 
             if (!Adatbázis.AdatbázisEllenőrzéseMain())
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nincs DB kapcsolat, MT feltöltése meghiúsult!");
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Nincs DB kapcsolat, MT feltöltése meghiúsult!");
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nincs DB kapcsolat, MT feltöltése meghiúsult!");
                 return false;
             }
 
@@ -154,11 +156,13 @@ namespace Felisz
             try
             {
                 SQLCommand.ExecuteNonQuery();
-                Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---MT DB törlése kész!");
+                Adatbázis.Naplózás("23", Program.aktuálisCég + " " + Program.prefix + "---MT DB törlése kész!");
+                //Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---MT DB törlése kész!");
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Hiba az MT tábla törlésekor!" + Environment.NewLine + ex.Message);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Hiba az MT tábla törlésekor!" + Environment.NewLine + ex.Message);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Hiba az MT tábla törlésekor!" + Environment.NewLine + ex.Message);
                 return false;
             }
 
@@ -180,13 +184,15 @@ namespace Felisz
                 }
                 catch (MySql.Data.MySqlClient.MySqlException ex)
                 {
-                    Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Hiba az MT tábla DB-be történő töltésekor!" + Environment.NewLine + ex.Message);
+                    Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Hiba az MT tábla DB-be történő töltésekor!" + Environment.NewLine + ex.Message);
+                    //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Hiba az MT tábla DB-be történő töltésekor!" + Environment.NewLine + ex.Message);
                     return false;
                 }
 
 
             }
-            Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---MT feltöltése DB - be kész!");
+            Adatbázis.Naplózás("23", Program.aktuálisCég + " " + Program.prefix + "---MT feltöltése DB - be kész!");
+            //Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---MT feltöltése DB - be kész!");
             SQLCommand.Dispose();
             conn.Close();
             return true;
@@ -196,7 +202,8 @@ namespace Felisz
         {
             if (!Adatbázis.AdatbázisEllenőrzéseMain())
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nincs DB kapcsolat, MT feltöltése meghiúsult!");
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Nincs DB kapcsolat, MT feltöltése meghiúsult!");
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nincs DB kapcsolat, MT feltöltése meghiúsult!");
                 return false;
             }
 
@@ -228,11 +235,13 @@ namespace Felisz
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Hiba az MT betöltésekor!" + Environment.NewLine + ex.Message);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Hiba az MT betöltésekor!" + Environment.NewLine + ex.Message);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Hiba az MT betöltésekor!" + Environment.NewLine + ex.Message);
                 return false;
             }
 
-            Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Sikeres MT betöltés!");
+            Adatbázis.Naplózás("23", Program.aktuálisCég + " " + Program.prefix + "---Sikeres MT betöltés!");
+            //Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Sikeres MT betöltés!");
             conn.Close();
             return true;
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Felisz
@@ -13,7 +14,9 @@ namespace Felisz
         public static List<IszVárosUtca> csakIrszámList = new List<IszVárosUtca>();
         public static List<FoglalkoztatásHelye> foglalkoztatásHelyeList = new List<FoglalkoztatásHelye>();
         public static List<FEOR> FEORList = new List<FEOR>();
-
+        public static List<Standard> JogviszonyFormák = new List<Standard>();
+        public static List<Standard> NyugdíjTípusok = new List<Standard>();
+        public static List<Standard> IskolaiVégzettség = new List<Standard>();
 
         public static string MyConnectionString()
         {
@@ -37,8 +40,8 @@ namespace Felisz
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbáziskapcsolódási hiba (main)!" + Environment.NewLine + ex.Message);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Adatbáziskapcsolódási hiba (main)!" + Environment.NewLine + ex.Message);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbáziskapcsolódási hiba (main)!" + Environment.NewLine + ex.Message);
                 return false;
             }
 
@@ -64,8 +67,8 @@ namespace Felisz
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbáziskapcsolódási hiba (cég)!" + Environment.NewLine + ex.Message);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Adatbáziskapcsolódási hiba (cég)!" + Environment.NewLine + ex.Message);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbáziskapcsolódási hiba (cég)!" + Environment.NewLine + ex.Message);
                 return false;
             }
 
@@ -84,10 +87,36 @@ namespace Felisz
             return true;
         }
 
-
-
         public static void SzemAdatok_AdatokMemóriábaOlvasása()
         {
+
+            //Jogviszonyformák
+            JogviszonyFormák.Add(new Standard { Kód = "1", Megnevezés = "Munkaviszony" });
+            JogviszonyFormák.Add(new Standard { Kód = "2", Megnevezés = "Közszolgálati jogviszony" });
+            JogviszonyFormák.Add(new Standard { Kód = "3", Megnevezés = "Közalkalmazotti jogviszony" });
+            JogviszonyFormák.Add(new Standard { Kód = "4", Megnevezés = "Bírósági és igazságügyi jogviszony" });
+            JogviszonyFormák.Add(new Standard { Kód = "5", Megnevezés = "Ügyészségi szolgálati viszony" });
+            JogviszonyFormák.Add(new Standard { Kód = "6", Megnevezés = "Fegyveres és rendvédelmi szervek hivatásos és szerződéses állományú szolgálati jogviszony" });
+            JogviszonyFormák.Add(new Standard { Kód = "7", Megnevezés = "Bedolgozói jogviszony" });
+            JogviszonyFormák.Add(new Standard { Kód = "8", Megnevezés = "Hivatásos nevelő szülői jogviszony" });
+            JogviszonyFormák.Add(new Standard { Kód = "9", Megnevezés = "Szövetkezeti tag munkaviszony jellegű munkavégzésre irányuló jogviszony" });
+            JogviszonyFormák.Add(new Standard { Kód = "10", Megnevezés = "Foglalkoztatásra irányuló egyéb jogviszony" });
+
+            //Nyugdíjtípusok
+            NyugdíjTípusok.Add(new Standard { Kód = "1", Megnevezés = "Teljes nyugdíj" });
+            NyugdíjTípusok.Add(new Standard { Kód = "2", Megnevezés = "Résznyugdíj" });
+            NyugdíjTípusok.Add(new Standard { Kód = "3", Megnevezés = "Nők kedvezményes nyugdíja" });
+            NyugdíjTípusok.Add(new Standard { Kód = "4", Megnevezés = "Özvegyi nyugdíj" });
+
+            //Legmagasabb Iskolai Végzettség
+            IskolaiVégzettség.Add(new Standard { Kód = "1", Megnevezés = "Alapfokú (általános)" });
+            IskolaiVégzettség.Add(new Standard { Kód = "2", Megnevezés = "Szakiskola (szakmunkásképző)" });
+            IskolaiVégzettség.Add(new Standard { Kód = "3", Megnevezés = "Szakközépiskola" });
+            IskolaiVégzettség.Add(new Standard { Kód = "4", Megnevezés = "Szakközépiskola + Technikum" });
+            IskolaiVégzettség.Add(new Standard { Kód = "5", Megnevezés = "Gimnázium (végzettség érettségi)" });
+            IskolaiVégzettség.Add(new Standard { Kód = "6", Megnevezés = "Szakmajegyzék(OKJ)" });
+            IskolaiVégzettség.Add(new Standard { Kód = "7", Megnevezés = "Főiskola" });
+            IskolaiVégzettség.Add(new Standard { Kód = "8", Megnevezés = "Egyetem" });
 
 
             MySql.Data.MySqlClient.MySqlConnection conn;
@@ -113,7 +142,8 @@ namespace Felisz
             }
             catch (Exception ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (országkódok)!---" + ex);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (országkódok)!---" + ex);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (országkódok)!---" + ex);
                 MessageBox.Show("Adatbázis olvasási hiba (országkódok)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             conn.Close();
@@ -141,7 +171,8 @@ namespace Felisz
             }
             catch (Exception ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (Címek)!---" + ex);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (Címek)!---" + ex);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (Címek)!---" + ex);
                 MessageBox.Show("Adatbázis olvasási hiba (Címek)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             conn.Close();
@@ -167,7 +198,8 @@ namespace Felisz
             }
             catch (Exception ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (FEOR)!---" + ex);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (FEOR)!---" + ex);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (FEOR)!---" + ex);
                 MessageBox.Show("Adatbázis olvasási hiba (FEOR)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             conn.Close();
@@ -258,7 +290,8 @@ namespace Felisz
             }
             catch (Exception ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (Foglalkoztató)!---" + ex);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (Foglalkoztató)!---" + ex);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (Foglalkoztató)!---" + ex);
                 MessageBox.Show("Adatbázis olvasási hiba (Foglalkoztató)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             conn.Close();
@@ -292,7 +325,8 @@ namespace Felisz
             }
             catch (Exception ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (Szabad azonosítószám)!---" + ex);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (Szabad azonosítószám)!---" + ex);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (Szabad azonosítószám)!---" + ex);
                 MessageBox.Show("Adatbázis olvasási hiba (Szabad azonosítószám)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             conn.Close();
@@ -321,7 +355,8 @@ namespace Felisz
             }
             catch (Exception ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (Következő azonosítószám)!---" + ex);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (Következő azonosítószám)!---" + ex);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (Következő azonosítószám)!---" + ex);
                 MessageBox.Show("Adatbázis olvasási hiba (Következő azonosítószám)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return 0;
             }
@@ -329,6 +364,75 @@ namespace Felisz
             return 1;
         }
 
-        
+        public static void Naplózás(string szint, string bejegyzés)
+        {
+            //Egyes szint -> Justice-nak naplóz, kettes szint céges naplózás
+            if (szint.StartsWith("1")) Adatbázis.NaplóÍrásJustice(szint.Substring(szint.Length - 1, 1), bejegyzés);
+            if (szint.StartsWith("2")) Adatbázis.NaplóÍrásAurora(szint.Substring(szint.Length - 1, 1), bejegyzés);
+
+            //Thread threadNaplózás = new Thread(new ThreadStart(Adatbázis.NaplóÍrás(szint, bejegyzés)));
+            //threadNaplózás.Start();
+        }
+
+        public static void NaplóÍrásJustice(string szint, string bejegyzés)
+        {
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString = Properties.Settings.Default.felisz_db_ConnectionString;
+            conn = new MySql.Data.MySqlClient.MySqlConnection();
+            conn.ConnectionString = myConnectionString;
+            conn.Open();
+
+            string sql = "INSERT INTO JusticeLog (DatumIdo, Bejegyzes, Szint, Ellenorizve) " +
+                         "VALUES (@datum, @bejegyzes, @szint, 0)";
+
+
+            var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+            SQLCommand.Parameters.Add("@datum", MySql.Data.MySqlClient.MySqlDbType.DateTime);
+            SQLCommand.Parameters["@datum"].Value = DateTime.Now;
+
+            SQLCommand.Parameters.Add("@bejegyzes", MySql.Data.MySqlClient.MySqlDbType.String);
+            SQLCommand.Parameters["@bejegyzes"].Value = bejegyzés;
+
+            SQLCommand.Parameters.Add("@szint", MySql.Data.MySqlClient.MySqlDbType.String);
+            SQLCommand.Parameters["@szint"].Value = szint;
+
+            SQLCommand.ExecuteNonQuery();
+
+            conn.Close();
+
+        }
+
+        public static void NaplóÍrásAurora(string szint, string bejegyzés)
+        {
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString = Adatbázis.MyConnectionString();
+            conn = new MySql.Data.MySqlClient.MySqlConnection();
+            conn.ConnectionString = myConnectionString;
+            conn.Open();
+
+            string sql = "INSERT INTO AuroraLog (DatumIdo, Bejegyzes, Szint) " +
+                         "VALUES (@datum, @bejegyzes, @szint)";
+
+
+            var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+            SQLCommand.Parameters.Add("@datum", MySql.Data.MySqlClient.MySqlDbType.DateTime);
+            SQLCommand.Parameters["@datum"].Value = DateTime.Now;
+
+            SQLCommand.Parameters.Add("@bejegyzes", MySql.Data.MySqlClient.MySqlDbType.String);
+            SQLCommand.Parameters["@bejegyzes"].Value = bejegyzés;
+
+            SQLCommand.Parameters.Add("@szint", MySql.Data.MySqlClient.MySqlDbType.String);
+            SQLCommand.Parameters["@szint"].Value = szint;
+
+            SQLCommand.ExecuteNonQuery();
+
+            conn.Close();
+
+        }
+
+
+
+
+
     }
 }

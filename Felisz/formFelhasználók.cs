@@ -149,7 +149,8 @@ namespace Felisz
             }
             catch (Exception ex)
             {
-                Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen a felhasználói adatok betöltése!---" + ex);
+                Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Sikertelen a felhasználói adatok betöltése!---" + ex);
+                //Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen a felhasználói adatok betöltése!---" + ex);
                 return;
             }
             conn.Close();
@@ -227,7 +228,8 @@ namespace Felisz
                 tbEngedélykör.Text = "";
                 tbJelszó.Text = "";
 
-                Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Felhasználó sikeresen regisztrálva!---Felhasználó: " + tbFelhasználó.Text + "---");
+                Adatbázis.Naplózás("23", Program.aktuálisCég + " " + Program.prefix + "---Felhasználó sikeresen regisztrálva!---Felhasználó: " + tbFelhasználó.Text + "---");
+                //Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Felhasználó sikeresen regisztrálva!---Felhasználó: " + tbFelhasználó.Text + "---");
                 MessageBox.Show("Felhasználó sikeresen regisztrálva!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Lista frissítése
@@ -238,7 +240,8 @@ namespace Felisz
             }
             catch (Exception ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a felhasználót regisztrálni az adatbázisba!---" + Environment.NewLine + ex);
+                Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a felhasználót regisztrálni az adatbázisba!---" + Environment.NewLine + ex);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a felhasználót regisztrálni az adatbázisba!---" + Environment.NewLine + ex);
                 MessageBox.Show("Nem sikerült a felhasználót regisztrálni az adatbázisba!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
             }

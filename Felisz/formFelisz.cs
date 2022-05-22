@@ -275,7 +275,8 @@ namespace Felisz
         private void formFelisz_Load(object sender, EventArgs e)
         {
             Inicializálás();
-            Program.logger.Info("Program inicializálása kész");
+            Adatbázis.Naplózás("23", "Program inicializálása kész");
+            //Program.logger.Info("Program inicializálása kész");
 
         }
 
@@ -283,10 +284,6 @@ namespace Felisz
         {
 
             //TEST
-
-            
-
-
 
 
             //RSS beolvasás indítása
@@ -305,15 +302,16 @@ namespace Felisz
             //Licenckód ellenőrzése
             if (Funkciók.LicencEllenőrzés() != true) MenükLetiltása();
 
-            //Dátum ellenőrzése
-            if (Funkciók.DátumEllenőrzés() != true) MenükLetiltása();
-
+       
             //MT betöltése
             if (!MunkaTörvénykönyve.MTBetöltése()) MessageBox.Show("Hiba történt a Munka Törvénykönyve betöltésekor," + Environment.NewLine + "ennélkül a program csak csökkentett módban működik!", "Hiba");
 
             //Országkódok, Irszám, Város, Utca DB betöltése a memóriába
             Thread threadOIVU_DB_Betöltés = new Thread(new ThreadStart(Adatbázis.SzemAdatok_AdatokMemóriábaOlvasása));
             threadOIVU_DB_Betöltés.Start();
+
+            //Dátum ellenőrzése
+            if (Funkciók.DátumEllenőrzés() != true) MenükLetiltása();
 
             //Registry beállítások olvasása
             //TTS

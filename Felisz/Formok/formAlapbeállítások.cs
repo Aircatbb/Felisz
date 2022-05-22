@@ -41,7 +41,7 @@ namespace Felisz
         {
             if (!Adatbázis.AdatbázisEllenőrzéseMain())
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nincs DB kapcsolat, licencaktualizálás meghiúsult!");
+                Console.WriteLine(Program.aktuálisCég + " " + Program.prefix + "---Nincs DB kapcsolat, licencaktualizálás meghiúsult!");
                 return;
             }
 
@@ -66,7 +66,8 @@ namespace Felisz
 
                 if (dataReader.HasRows == false)
                 {
-                    Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---A megadott licenckód nem létezik, vagy nem aktiv!");
+                    Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---A megadott licenckód nem létezik, vagy nem aktiv!");
+                    //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---A megadott licenckód nem létezik, vagy nem aktiv!");
                     MessageBox.Show("A megadott licenckód nem létezik, vagy nem aktiv!" + Environment.NewLine +
                         "Kérjük, vegye fel a kapcsolatot az ügyfélszolgálattal!",
                         "Licenc hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -102,13 +103,15 @@ namespace Felisz
                 Properties.Settings.Default.Save();
 
                 MessageBox.Show("Sikeres licenckód aktualizálás!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Sikeres licenckód aktualizálása!---");
+                Adatbázis.Naplózás("23", Program.aktuálisCég + " " + Program.prefix + "---Sikeres licenckód aktualizálása!---");
+                //Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Sikeres licenckód aktualizálása!---");
                 tbLicenc.Text = "";
 
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a licenckód aktualizálása!---" + ex);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a licenckód aktualizálása!---" + ex);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a licenckód aktualizálása!---" + ex);
                 MessageBox.Show("Nem sikerült a licenckód ellenőrzése!" + Environment.NewLine +
                         "Kérjük, vegye fel a kapcsolatot az ügyfélszolgálattal!",
                         "Licenc hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);

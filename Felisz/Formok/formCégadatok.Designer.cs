@@ -29,10 +29,10 @@ namespace Felisz.Formok
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbCégadatok = new System.Windows.Forms.GroupBox();
             this.tcÁltalánosCégadatok = new System.Windows.Forms.TabControl();
             this.tpÁltalánosCégadatok = new System.Windows.Forms.TabPage();
@@ -133,6 +133,12 @@ namespace Felisz.Formok
             this.tlpHozzátartozók = new System.Windows.Forms.TableLayoutPanel();
             this.lbHozzátartozókFigyelmeztetés = new System.Windows.Forms.Label();
             this.pbClose = new System.Windows.Forms.PictureBox();
+            this.gbSzakszervezet = new System.Windows.Forms.GroupBox();
+            this.tlpSzakszervezet = new System.Windows.Forms.TableLayoutPanel();
+            this.lbSzakszervezetNeve = new System.Windows.Forms.Label();
+            this.tbSzakszervezetNeve = new System.Windows.Forms.TextBox();
+            this.tbSzakszervezetSzámlaszám = new System.Windows.Forms.TextBox();
+            this.lbSzakszervezetSzámlaszám = new System.Windows.Forms.Label();
             this.gbCégadatok.SuspendLayout();
             this.tcÁltalánosCégadatok.SuspendLayout();
             this.tpÁltalánosCégadatok.SuspendLayout();
@@ -158,6 +164,8 @@ namespace Felisz.Formok
             this.tlpTelephely.SuspendLayout();
             this.tpEgyéb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
+            this.gbSzakszervezet.SuspendLayout();
+            this.tlpSzakszervezet.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbCégadatok
@@ -218,6 +226,7 @@ namespace Felisz.Formok
             // 
             this.tlpOszlop1.ColumnCount = 1;
             this.tlpOszlop1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpOszlop1.Controls.Add(this.gbSzakszervezet, 0, 3);
             this.tlpOszlop1.Controls.Add(this.gpGDPR, 0, 2);
             this.tlpOszlop1.Controls.Add(this.gbAlapadatok, 0, 0);
             this.tlpOszlop1.Controls.Add(this.gpKapcsolatok, 0, 1);
@@ -1232,44 +1241,44 @@ namespace Felisz.Formok
             this.dgvTelephelyek.AllowUserToOrderColumns = true;
             this.dgvTelephelyek.AllowUserToResizeColumns = false;
             this.dgvTelephelyek.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
-            this.dgvTelephelyek.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gray;
+            this.dgvTelephelyek.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvTelephelyek.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTelephelyek.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTelephelyek.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.dgvTelephelyek.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTelephelyek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTelephelyek.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTelephelyek.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvTelephelyek.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTelephelyek.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.dgvTelephelyek.Location = new System.Drawing.Point(3, 350);
             this.dgvTelephelyek.MultiSelect = false;
             this.dgvTelephelyek.Name = "dgvTelephelyek";
             this.dgvTelephelyek.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTelephelyek.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTelephelyek.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvTelephelyek.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvTelephelyek.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvTelephelyek.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvTelephelyek.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Control;
             this.dgvTelephelyek.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.dgvTelephelyek.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -1697,6 +1706,89 @@ namespace Felisz.Formok
             this.pbClose.TabIndex = 11;
             this.pbClose.TabStop = false;
             // 
+            // gbSzakszervezet
+            // 
+            this.gbSzakszervezet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.gbSzakszervezet.Controls.Add(this.tlpSzakszervezet);
+            this.gbSzakszervezet.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbSzakszervezet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.gbSzakszervezet.Location = new System.Drawing.Point(1, 468);
+            this.gbSzakszervezet.Margin = new System.Windows.Forms.Padding(1);
+            this.gbSzakszervezet.Name = "gbSzakszervezet";
+            this.gbSzakszervezet.Size = new System.Drawing.Size(540, 84);
+            this.gbSzakszervezet.TabIndex = 52;
+            this.gbSzakszervezet.TabStop = false;
+            this.gbSzakszervezet.Text = "Szakszervezet";
+            this.gbSzakszervezet.Visible = false;
+            // 
+            // tlpSzakszervezet
+            // 
+            this.tlpSzakszervezet.ColumnCount = 2;
+            this.tlpSzakszervezet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpSzakszervezet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpSzakszervezet.Controls.Add(this.lbSzakszervezetNeve, 0, 0);
+            this.tlpSzakszervezet.Controls.Add(this.tbSzakszervezetNeve, 1, 0);
+            this.tlpSzakszervezet.Controls.Add(this.tbSzakszervezetSzámlaszám, 1, 1);
+            this.tlpSzakszervezet.Controls.Add(this.lbSzakszervezetSzámlaszám, 0, 1);
+            this.tlpSzakszervezet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpSzakszervezet.Location = new System.Drawing.Point(3, 16);
+            this.tlpSzakszervezet.Name = "tlpSzakszervezet";
+            this.tlpSzakszervezet.RowCount = 2;
+            this.tlpSzakszervezet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpSzakszervezet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpSzakszervezet.Size = new System.Drawing.Size(534, 65);
+            this.tlpSzakszervezet.TabIndex = 0;
+            // 
+            // lbSzakszervezetNeve
+            // 
+            this.lbSzakszervezetNeve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lbSzakszervezetNeve.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbSzakszervezetNeve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lbSzakszervezetNeve.Location = new System.Drawing.Point(3, 3);
+            this.lbSzakszervezetNeve.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSzakszervezetNeve.Name = "lbSzakszervezetNeve";
+            this.lbSzakszervezetNeve.Size = new System.Drawing.Size(160, 24);
+            this.lbSzakszervezetNeve.TabIndex = 15;
+            this.lbSzakszervezetNeve.Text = "Szakszervezet neve";
+            this.lbSzakszervezetNeve.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSzakszervezetNeve
+            // 
+            this.tbSzakszervezetNeve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbSzakszervezetNeve.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbSzakszervezetNeve.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbSzakszervezetNeve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbSzakszervezetNeve.Location = new System.Drawing.Point(166, 3);
+            this.tbSzakszervezetNeve.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbSzakszervezetNeve.Name = "tbSzakszervezetNeve";
+            this.tbSzakszervezetNeve.Size = new System.Drawing.Size(221, 26);
+            this.tbSzakszervezetNeve.TabIndex = 15;
+            // 
+            // tbSzakszervezetSzámlaszám
+            // 
+            this.tbSzakszervezetSzámlaszám.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbSzakszervezetSzámlaszám.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbSzakszervezetSzámlaszám.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbSzakszervezetSzámlaszám.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbSzakszervezetSzámlaszám.Location = new System.Drawing.Point(166, 33);
+            this.tbSzakszervezetSzámlaszám.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbSzakszervezetSzámlaszám.Name = "tbSzakszervezetSzámlaszám";
+            this.tbSzakszervezetSzámlaszám.Size = new System.Drawing.Size(221, 26);
+            this.tbSzakszervezetSzámlaszám.TabIndex = 16;
+            // 
+            // lbSzakszervezetSzámlaszám
+            // 
+            this.lbSzakszervezetSzámlaszám.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lbSzakszervezetSzámlaszám.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbSzakszervezetSzámlaszám.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lbSzakszervezetSzámlaszám.Location = new System.Drawing.Point(3, 33);
+            this.lbSzakszervezetSzámlaszám.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSzakszervezetSzámlaszám.Name = "lbSzakszervezetSzámlaszám";
+            this.lbSzakszervezetSzámlaszám.Size = new System.Drawing.Size(160, 24);
+            this.lbSzakszervezetSzámlaszám.TabIndex = 14;
+            this.lbSzakszervezetSzámlaszám.Text = "Szakszervezet számlaszáma";
+            this.lbSzakszervezetSzámlaszám.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // formCégadatok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1740,6 +1832,9 @@ namespace Felisz.Formok
             this.tpEgyéb.ResumeLayout(false);
             this.tpEgyéb.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
+            this.gbSzakszervezet.ResumeLayout(false);
+            this.tlpSzakszervezet.ResumeLayout(false);
+            this.tlpSzakszervezet.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1847,5 +1942,11 @@ namespace Felisz.Formok
         private System.Windows.Forms.Label lbAdatokTárolásánakIdőtartama;
         private System.Windows.Forms.TextBox tbAláírók;
         private System.Windows.Forms.Label lbAláírók;
+        private System.Windows.Forms.GroupBox gbSzakszervezet;
+        private System.Windows.Forms.TableLayoutPanel tlpSzakszervezet;
+        private System.Windows.Forms.Label lbSzakszervezetNeve;
+        private System.Windows.Forms.TextBox tbSzakszervezetNeve;
+        private System.Windows.Forms.TextBox tbSzakszervezetSzámlaszám;
+        private System.Windows.Forms.Label lbSzakszervezetSzámlaszám;
     }
 }

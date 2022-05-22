@@ -44,7 +44,9 @@ namespace Felisz.Formok
 
             conn = new MySqlConnection(myConnectionString);
             conn.Open();
-            string sql = "SELECT SzemAzon, VezNev, UtoNev1, UtoNev2, LakOrszag, LakIrSzam, LakVaros, LakKozt, LakKoztJell, LakHazSz FROM SzemTorzs";
+            string sql = "SELECT SzemAzon, VezNev, UtoNev1, UtoNev2, LakOrszag, LakIrSzam, LakVaros, LakKozt, LakKoztJell, LakHazSz FROM SzemTorzs"+
+                "WHERE Torol=0 "+
+                "AND ErvIg='2099-01-31'";
 
 
             try
@@ -99,7 +101,8 @@ namespace Felisz.Formok
             }
             catch (Exception ex)
             {
-                Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen a dolgozói adatok betöltése!---" + ex);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Sikertelen a dolgozói adatok betöltése!---" + ex);
+                //Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen a dolgozói adatok betöltése!---" + ex);
                 return;
             }
             conn.Close();

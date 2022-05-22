@@ -47,7 +47,8 @@ namespace Felisz
 
                 if (dataReader.HasRows == false)
                 {
-                    Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen bejelentkezés (nem létező, vagy inaktív felhasználó)!---");
+                    Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Sikertelen bejelentkezés (nem létező, vagy inaktív felhasználó)!---");
+                    //Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen bejelentkezés (nem létező, vagy inaktív felhasználó)!---");
                     MessageBox.Show("Nem található a felhasználó vagy inaktív!" + Environment.NewLine +
                         "Kérem, próbálja meg újra!",
                         "Bejelentkezési hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -63,7 +64,8 @@ namespace Felisz
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen bejelentkezés!---" + ex);
+                Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Sikertelen bejelentkezés!---" + ex);
+                //Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen bejelentkezés!---" + ex);
                 return;
             }
             conn.Close();
@@ -78,13 +80,15 @@ namespace Felisz
                     Properties.Settings.Default.Save();
                     Program.aktuálisFelhasználó = tbFelhasználó.Text;
                     Program.aktuálisFelhasználóNév = felhasználónévDB;
-                    Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Sikeres bejelentkezés!---Felhasználó: " + tbFelhasználó.Text + "---");
+                    Adatbázis.Naplózás("23", Program.aktuálisCég + " " + Program.prefix + "---Sikeres bejelentkezés!---Felhasználó: " + tbFelhasználó.Text + "---");
+                    //Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Sikeres bejelentkezés!---Felhasználó: " + tbFelhasználó.Text + "---");
                     Program.jelszó = jelszóDB;
                     this.Close();
                 }
                 else
                 {
-                    Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen bejelentkezés (helytelen jelszó)!---Próbálkozás:" + Properties.Settings.Default.bejelentkezésiKisérlet + "---Felhasználó: " + tbFelhasználó.Text + "---");
+                    Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Sikertelen bejelentkezés (helytelen jelszó)!---Próbálkozás:" + Properties.Settings.Default.bejelentkezésiKisérlet + "---Felhasználó: " + tbFelhasználó.Text + "---");
+                    //Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen bejelentkezés (helytelen jelszó)!---Próbálkozás:" + Properties.Settings.Default.bejelentkezésiKisérlet + "---Felhasználó: " + tbFelhasználó.Text + "---");
                     Properties.Settings.Default.bejelentkezésiKisérlet++;
                     Properties.Settings.Default.Save();
                     if (Properties.Settings.Default.bejelentkezésiKisérlet < 5)
@@ -135,7 +139,8 @@ namespace Felisz
             catch (Exception ex)
             {
 
-                Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Hiba a jelszó dekódolásánál!---Felhasználó: " + tbFelhasználó.Text + "---" + Environment.NewLine + ex);
+                Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Hiba a jelszó dekódolásánál!---Felhasználó: " + tbFelhasználó.Text + "---" + Environment.NewLine + ex);
+                //Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Hiba a jelszó dekódolásánál!---Felhasználó: " + tbFelhasználó.Text + "---" + Environment.NewLine + ex);
                 MessageBox.Show("Hiba a jelszó dekódolásánál!" + Environment.NewLine +
                         "Kérem, vegye fel a kapcsolatot az admnisztrátorral, vagy az ügyfélszolgálattal!",
                         "Bejelentkezési hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);

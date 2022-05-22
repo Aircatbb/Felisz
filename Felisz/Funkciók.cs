@@ -521,13 +521,14 @@ namespace Felisz
             {
                 MessageBox.Show("Érvénytelen a lokálisan tárolt licenckód!" + Environment.NewLine +
                     "Kérem ellenőrizze az ADMIN felületen!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                Program.logger.Error("Érvénytelen a lokálisan tárolt licenckód! ");
+                Adatbázis.Naplózás("21", "Érvénytelen a lokálisan tárolt licenckód! ");
+                //Program.logger.Error("Érvénytelen a lokálisan tárolt licenckód! ");
                 return false;
             }
 
             if (!Adatbázis.AdatbázisEllenőrzéseMain())
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nincs DB kapcsolat, licencellenőrzés meghiúsult!");
+                Console.WriteLine(Program.aktuálisCég + " " + Program.prefix + "---Nincs DB kapcsolat, licencellenőrzés meghiúsult!");
                 return false;
             }
 
@@ -553,7 +554,8 @@ namespace Felisz
 
                 if (dataReader.HasRows == false)
                 {
-                    Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---A megadott licenckód nem aktív!---");
+                    Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---A megadott licenckód nem aktív!---");
+                    //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---A megadott licenckód nem aktív!---");
                     MessageBox.Show("A megadott licenckód nem aktív!" + Environment.NewLine +
                         "Kérjük, vegye fel a kapcsolatot az ügyfélszolgálattal!",
                         "Licenc hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -569,7 +571,8 @@ namespace Felisz
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a licenckód ellenőrzése!---" + ex);
+                Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a licenckód ellenőrzése!---" + ex);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a licenckód ellenőrzése!---" + ex);
                 MessageBox.Show("Nem sikerült a licenckód ellenőrzése!" + Environment.NewLine +
                         "Kérjük, vegye fel a kapcsolatot az ügyfélszolgálattal!",
                         "Licenc hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -581,7 +584,8 @@ namespace Felisz
             if (Funkciók.LicencReg("", false) != licDB)
             //if (Properties.Settings.Default.licencKódOLD != licDB)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem egyeznek a licenckódok!");
+                Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Nem egyeznek a licenckódok!");
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem egyeznek a licenckódok!");
                 MessageBox.Show("Nem egyeznek a licenckódok!" + Environment.NewLine +
                         "Kérjük, vegye fel a kapcsolatot az ügyfélszolgálattal!",
                         "Licenc hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -598,7 +602,8 @@ namespace Felisz
                         "Ügyfélszolgálat" + Environment.NewLine +
                         "Telefon: " + Properties.Settings.Default.ügyfélSzolgTel + Environment.NewLine +
                         "E-Mail: " + Properties.Settings.Default.ügyfélSzolgEmail, "Lejárt licenckód", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Lejárt a licenc!");
+                Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Lejárt a licenc!");
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Lejárt a licenc!");
 
 
                 //Licenc deaktiválása a DB-ben
@@ -610,13 +615,14 @@ namespace Felisz
                 SQLCommand.ExecuteNonQuery();
                 SQLCommand.Dispose();
                 conn.Close();
-                Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Lejárt licenc deaktiválva!");
+                Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Lejárt licenc deaktiválva!");
+                //Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Lejárt licenc deaktiválva!");
 
                 return false;
             }
 
-
-            Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Sikeres licenc ellenőrzés!");
+            Adatbázis.Naplózás("23", Program.aktuálisCég + " " + Program.prefix + "---Sikeres licenc ellenőrzés!");
+            //Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Sikeres licenc ellenőrzés!");
             return true;
         }
 
@@ -633,7 +639,8 @@ namespace Felisz
                     "Telefon: " + Properties.Settings.Default.ügyfélSzolgTel + Environment.NewLine +
                     "E-Mail: " + Properties.Settings.Default.ügyfélSzolgEmail, "Aktiválás szükséges", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.No)
                 {
-                    Program.logger.Error("Nincs megadva licenckód!");
+                    Adatbázis.Naplózás("22", "Nincs megadva licenckód!");
+                    //Program.logger.Error("Nincs megadva licenckód!");
                     Application.Exit();
                 }
 
@@ -659,7 +666,8 @@ namespace Felisz
                                 //Properties.Settings.Default.Save();
                                 aktiválásOK = true;
 
-                                Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Sikeres licenec aktiválás!---" + Program.aktuálisCég + " " + Program.prefix + "---");
+                                Adatbázis.Naplózás("23", Program.aktuálisCég + " " + Program.prefix + "---Sikeres licenec aktiválás!---" + Program.aktuálisCég + " " + Program.prefix + "---");
+                                //Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Sikeres licenec aktiválás!---" + Program.aktuálisCég + " " + Program.prefix + "---");
                                 MessageBox.Show("Sikeres licenc aktiválás!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             }
@@ -667,7 +675,8 @@ namespace Felisz
                             {
                                 MessageBox.Show("Érvénytelen prefix!" + Environment.NewLine +
                                 "Kérem próbálja meg újra!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                                Program.logger.Warn("Érvénytelen prefix az aktiváláskor! ");
+                                Adatbázis.Naplózás("22", "Érvénytelen prefix az aktiváláskor! ");
+                                //Program.logger.Warn("Érvénytelen prefix az aktiváláskor! ");
                             }
 
                         }
@@ -675,13 +684,15 @@ namespace Felisz
                         {
                             MessageBox.Show("Érvénytelen licenckód!" + Environment.NewLine +
                                 "Kérem próbálja meg újra!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                            Program.logger.Warn("Érvénytelen licenckód az aktiváláskor!");
+                            Adatbázis.Naplózás("22", "Érvénytelen licenckód az aktiváláskor!");
+                            //Program.logger.Warn("Érvénytelen licenckód az aktiváláskor!");
                         }
 
                     }
                     else
                     {
-                        Program.logger.Error("Licenckód megadása megszakítva!");
+                        Adatbázis.Naplózás("22", "Licenckód megadása megszakítva!");
+                        //Program.logger.Error("Licenckód megadása megszakítva!");
                         Application.Exit();
                         Environment.Exit(0);
                     }
@@ -726,7 +737,8 @@ namespace Felisz
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a jogosultságokat beolvasni az adatbázisból!---" + ex);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a jogosultságokat beolvasni az adatbázisból!---" + ex);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a jogosultságokat beolvasni az adatbázisból!---" + ex);
                 return false;
             }
             conn.Close();
@@ -741,7 +753,8 @@ namespace Felisz
 
             try
             {
-                var myHttpWebRequest = (HttpWebRequest)WebRequest.Create("http://www.microsoft.com");
+                //var myHttpWebRequest = (HttpWebRequest)WebRequest.Create("http://www.microsoft.com");
+                var myHttpWebRequest = (HttpWebRequest)WebRequest.Create("http://www.google.com");
                 var response = myHttpWebRequest.GetResponse();
                 string todaysDates = response.Headers["date"];
                 var helyiDátumIdő = DateTime.ParseExact(todaysDates, "ddd, dd MMM yyyy HH:mm:ss 'GMT'", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.AssumeUniversal);
@@ -750,17 +763,22 @@ namespace Felisz
 
                 if (Math.Abs(különbség) < 1)
                 {
-                    Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Dátumellenőrzés rendben");
+                    Adatbázis.Naplózás("23", Program.aktuálisCég + " " + Program.prefix + "---Dátumellenőrzés rendben");
+                    //Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Dátumellenőrzés rendben");
                     return true;
                 }
 
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Hibás a lokális dátumbeállítás!");
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Hibás a lokális dátumbeállítás!");
+                Adatbázis.Naplózás("12", Program.aktuálisCég + " " + Program.prefix + "---Hibás a lokális dátumbeállítás!");
+
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Hibás a lokális dátumbeállítás!");
                 MessageBox.Show("A dátumbeállítás nem megfelelő, kérem ellenőrizze!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
             }
             catch (Exception ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Online dátumellenőrzés sikertelen!---" + Environment.NewLine + ex);
+                Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Online dátumellenőrzés sikertelen!---" + Environment.NewLine + ex);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Online dátumellenőrzés sikertelen!---" + Environment.NewLine + ex);
                 MessageBox.Show("Online dátumellenőrzés sikertelen!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
 
@@ -828,13 +846,15 @@ namespace Felisz
                     SQLCommand.ExecuteNonQuery();
                     SQLCommand.Dispose();
                     conn.Close();
-                    Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Sikeres jelszómódosítás!---" + Program.aktuálisFelhasználó + "---");
+                    Adatbázis.Naplózás("23", Program.aktuálisCég + " " + Program.prefix + "---Sikeres jelszómódosítás!---" + Program.aktuálisFelhasználó + "---");
+                    //Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Sikeres jelszómódosítás!---" + Program.aktuálisFelhasználó + "---");
                     MessageBox.Show("Sikeres jelszómódosítás!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
                 catch (Exception ex)
                 {
-                    Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a jelszómódosítás írása az adatbázisba!---" + Environment.NewLine + ex);
+                    Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a jelszómódosítás írása az adatbázisba!---" + Environment.NewLine + ex);
+                    //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem sikerült a jelszómódosítás írása az adatbázisba!---" + Environment.NewLine + ex);
                     MessageBox.Show("Nem sikerült a jelszómódosítás írása az adatbázisba!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     return false;
                 }
@@ -882,7 +902,8 @@ namespace Felisz
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen elsőbejelentkezés ellenőrzés (DB)!---" + ex);
+                Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Sikertelen elsőbejelentkezés ellenőrzés (DB)!---" + ex);
+                //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen elsőbejelentkezés ellenőrzés (DB)!---" + ex);
                 return true;
             }
 
@@ -1121,8 +1142,8 @@ namespace Felisz
 
 
                 sql = "SELECT SzulDatum, MegvaltMunkFogy, FoldAlattIonMunk FROM SzemTorzs " +
-                    "WHERE SzemAzon='" + azonosító + "' " +
-                    "AND SzemErvIg='2099-01-31'";
+                    "WHERE SzemAzon='" + azonosító + "' ";
+
                 SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 dataReader = SQLCommand.ExecuteReader();
 
@@ -1195,7 +1216,8 @@ namespace Felisz
             }
             catch (Exception ex)
             {
-                Program.logger.Error("---Adatbázis olvasási hiba (Szabadság jogosultság)!---" + ex);
+                Adatbázis.Naplózás("21", "---Adatbázis olvasási hiba (Szabadság jogosultság)!---" + ex);
+                //Program.logger.Error("---Adatbázis olvasási hiba (Szabadság jogosultság)!---" + ex);
                 MessageBox.Show("Adatbázis olvasási hiba (Szabadság jogosultság)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return 0;
             }
@@ -1204,6 +1226,9 @@ namespace Felisz
 
         }
 
+        
+
+        
         
 
 

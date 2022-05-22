@@ -32,7 +32,7 @@
     <PublisherName>Future2021 Kft.</PublisherName>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>70</ApplicationRevision>
+    <ApplicationRevision>71</ApplicationRevision>
     <ApplicationVersion>0.1.5.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -308,6 +308,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Rekordok\Standard.cs" />
     <Compile Include="Rekordok\ToolTipRekord.cs" />
     <Compile Include="RSSFeed.cs" />
     <Compile Include="RSSPost.cs" />

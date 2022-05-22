@@ -9,7 +9,8 @@ namespace Felisz
         //Általános változók
         public static int aktuálisHáttér = 1;
         //Logger
-        public static Logger logger = LogManager.GetCurrentClassLogger();
+        //public static Logger logger = LogManager.GetCurrentClassLogger();
+
         //Licenc változók
         public static string kódoltLic = "";
         public static string dekódoltLic = "";

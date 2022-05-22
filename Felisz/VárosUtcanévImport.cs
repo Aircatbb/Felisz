@@ -19,7 +19,8 @@ namespace Felisz
 
             if (!Adatbázis.AdatbázisEllenőrzéseMain())
             {
-                Program.logger.Error("---Nincs DB (Main) kapcsolat, település és utcanév feltöltése meghiúsult!");
+                Adatbázis.Naplózás("21", "---Nincs DB (Main) kapcsolat, település és utcanév feltöltése meghiúsult!");
+                //Program.logger.Error("---Nincs DB (Main) kapcsolat, település és utcanév feltöltése meghiúsult!");
                 return false;
             }
 
@@ -39,11 +40,13 @@ namespace Felisz
             try
             {
                 SQLCommand.ExecuteNonQuery();
-                Program.logger.Info("---Település és utcanév DB törlése kész!");
+                Adatbázis.Naplózás("23", "---Település és utcanév DB törlése kész!");
+                //Program.logger.Info("---Település és utcanév DB törlése kész!");
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                Program.logger.Error("---Hiba az település és utcanév tábla törlésekor!" + Environment.NewLine + ex.Message);
+                Adatbázis.Naplózás("22", "---Hiba az település és utcanév tábla törlésekor!" + Environment.NewLine + ex.Message);
+                //Program.logger.Error("---Hiba az település és utcanév tábla törlésekor!" + Environment.NewLine + ex.Message);
                 return false;
             }
 
@@ -89,7 +92,8 @@ namespace Felisz
                             }
                             catch (MySql.Data.MySqlClient.MySqlException ex)
                             {
-                                Program.logger.Error("---Hiba a település és utcanév tábla DB-be történő töltésekor!" + Environment.NewLine + ex.Message);
+                                Adatbázis.Naplózás("21", "---Hiba a település és utcanév tábla DB-be történő töltésekor!" + Environment.NewLine + ex.Message);
+                                //Program.logger.Error("---Hiba a település és utcanév tábla DB-be történő töltésekor!" + Environment.NewLine + ex.Message);
                                 return false;
                             }
                             break;
@@ -185,7 +189,8 @@ namespace Felisz
             }
             */
 
-            Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Település és utcanév feltöltése DB - be kész!");
+            Adatbázis.Naplózás("23", Program.aktuálisCég + " " + Program.prefix + "---Település és utcanév feltöltése DB - be kész!");
+            //Program.logger.Info(Program.aktuálisCég + " " + Program.prefix + "---Település és utcanév feltöltése DB - be kész!");
             SQLCommand.Dispose();
             conn.Close();
             return true;

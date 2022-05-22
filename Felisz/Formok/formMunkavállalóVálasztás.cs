@@ -57,7 +57,11 @@ namespace Felisz.Formok
 
 
 
-            string sql = @"SELECT SzemAzon, VezNev, UtoNev1, UtoNev2, LakIrSzam, LakVaros, LakKozt, LakKoztJell, LakHazSz FROM SzemTorzs WHERE VezNev LIKE '" + selName + "%' ORDER BY VezNev, UtoNev1, UtoNev2";
+            string sql = @"SELECT SzemAzon, VezNev, UtoNev1, UtoNev2, LakIrSzam, LakVaros, LakKozt, LakKoztJell, LakHazSz FROM SzemTorzs " +
+                          "WHERE VezNev LIKE '" + selName + "%' " +
+                          "AND TOROL=0 " +
+                          "AND ERVIG='2099-01-31' " +
+                          "ORDER BY VezNev, UtoNev1, UtoNev2";
 
             try
             {
@@ -126,8 +130,8 @@ namespace Felisz.Formok
             }
             catch (Exception ex)
             {
-
-                Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen a dolgozói adatok betöltése!---" + ex);
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Sikertelen a dolgozói adatok betöltése!---" + ex);
+                //Program.logger.Warn(Program.aktuálisCég + " " + Program.prefix + "---Sikertelen a dolgozói adatok betöltése!---" + ex);
                 return;
             }
 
