@@ -17,6 +17,7 @@ namespace Felisz
         public static List<Standard> JogviszonyFormák = new List<Standard>();
         public static List<Standard> NyugdíjTípusok = new List<Standard>();
         public static List<Standard> IskolaiVégzettség = new List<Standard>();
+        public static List<Standard> SzámlavezetőBankok = new List<Standard>();
 
         public static string MyConnectionString()
         {
@@ -124,9 +125,34 @@ namespace Felisz
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
 
-            #region Országkódok
-            string sql = "SELECT * FROM OrszagKod";
+            #region Számlavezető bankok
+            string sql = "SELECT * FROM Bankok";
             var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+
+            try
+            {
+                conn.Open();
+                MySql.Data.MySqlClient.MySqlDataReader dataReader = SQLCommand.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Standard item = new Standard();
+                    item.Kód = dataReader.GetString(0);
+                    item.Megnevezés = dataReader.GetString(2);
+                    SzámlavezetőBankok.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                Adatbázis.Naplózás("21", Program.aktuálisCég + " " + Program.prefix + "---Adatbázis olvasási hiba (számlavezető bankok)!---" + ex);
+                MessageBox.Show("Adatbázis olvasási hiba (számlavezető bankok)!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            conn.Close();
+            #endregion
+
+
+            #region Országkódok
+            sql = "SELECT * FROM OrszagKod";
+            SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
 
             try
             {

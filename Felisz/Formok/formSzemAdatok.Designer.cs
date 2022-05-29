@@ -54,16 +54,18 @@ namespace Felisz.Formok
             this.tlpOszlop1 = new System.Windows.Forms.TableLayoutPanel();
             this.gbPénzügyiAdatok = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lbSzámlavezetőBank = new System.Windows.Forms.Label();
+            this.lbBankKód = new System.Windows.Forms.Label();
+            this.cbBankKód = new System.Windows.Forms.ComboBox();
+            this.lbSzámlavezetőBankNeve = new System.Windows.Forms.Label();
             this.lbSzámlaSzám = new System.Windows.Forms.Label();
-            this.cbSzámlavezetőBank = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tbBankSzámlaszám = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tbSzámlavazetőBankNeve = new System.Windows.Forms.TextBox();
             this.gbOkmányok = new System.Windows.Forms.GroupBox();
             this.tlpAdóésTB = new System.Windows.Forms.TableLayoutPanel();
             this.tbTAJSzám = new System.Windows.Forms.TextBox();
@@ -424,7 +426,7 @@ namespace Felisz.Formok
             this.gbPénzügyiAdatok.Location = new System.Drawing.Point(1, 532);
             this.gbPénzügyiAdatok.Margin = new System.Windows.Forms.Padding(1);
             this.gbPénzügyiAdatok.Name = "gbPénzügyiAdatok";
-            this.gbPénzügyiAdatok.Size = new System.Drawing.Size(410, 175);
+            this.gbPénzügyiAdatok.Size = new System.Drawing.Size(410, 270);
             this.gbPénzügyiAdatok.TabIndex = 35;
             this.gbPénzügyiAdatok.TabStop = false;
             this.gbPénzügyiAdatok.Text = "Pénzügyi adatok";
@@ -434,59 +436,86 @@ namespace Felisz.Formok
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lbSzámlavezetőBank, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lbSzámlaSzám, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.cbSzámlavezetőBank, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.lbBankKód, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbBankKód, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbSzámlavezetőBankNeve, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lbSzámlaSzám, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tbBankSzámlaszám, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.textBox2, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBox3, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.textBox3, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.tbSzámlavazetőBankNeve, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 5;
+            this.tableLayoutPanel2.RowCount = 7;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(404, 156);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(404, 251);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // textBox1
+            // lbBankKód
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.textBox1.Location = new System.Drawing.Point(166, 33);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 26);
-            this.textBox1.TabIndex = 15;
+            this.lbBankKód.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lbBankKód.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbBankKód.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lbBankKód.Location = new System.Drawing.Point(3, 3);
+            this.lbBankKód.Margin = new System.Windows.Forms.Padding(3);
+            this.lbBankKód.Name = "lbBankKód";
+            this.lbBankKód.Size = new System.Drawing.Size(160, 24);
+            this.lbBankKód.TabIndex = 14;
+            this.lbBankKód.Text = "Számlavezető bankkód";
+            this.lbBankKód.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lbSzámlavezetőBank
+            // cbBankKód
             // 
-            this.lbSzámlavezetőBank.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.lbSzámlavezetőBank.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lbSzámlavezetőBank.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.lbSzámlavezetőBank.Location = new System.Drawing.Point(3, 3);
-            this.lbSzámlavezetőBank.Margin = new System.Windows.Forms.Padding(3);
-            this.lbSzámlavezetőBank.Name = "lbSzámlavezetőBank";
-            this.lbSzámlavezetőBank.Size = new System.Drawing.Size(160, 24);
-            this.lbSzámlavezetőBank.TabIndex = 14;
-            this.lbSzámlavezetőBank.Text = "Számlavezető bank";
-            this.lbSzámlavezetőBank.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cbBankKód.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbBankKód.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbBankKód.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cbBankKód.DropDownHeight = 150;
+            this.cbBankKód.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBankKód.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbBankKód.Font = new System.Drawing.Font("Arial Narrow", 11F);
+            this.cbBankKód.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.cbBankKód.FormattingEnabled = true;
+            this.cbBankKód.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbBankKód.IntegralHeight = false;
+            this.cbBankKód.Location = new System.Drawing.Point(166, 3);
+            this.cbBankKód.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.cbBankKód.MaxDropDownItems = 5;
+            this.cbBankKód.Name = "cbBankKód";
+            this.cbBankKód.Size = new System.Drawing.Size(221, 28);
+            this.cbBankKód.TabIndex = 14;
+            this.cbBankKód.Validated += new System.EventHandler(this.cbBankKód_Validated);
+            // 
+            // lbSzámlavezetőBankNeve
+            // 
+            this.lbSzámlavezetőBankNeve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lbSzámlavezetőBankNeve.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbSzámlavezetőBankNeve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lbSzámlavezetőBankNeve.Location = new System.Drawing.Point(3, 33);
+            this.lbSzámlavezetőBankNeve.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSzámlavezetőBankNeve.Name = "lbSzámlavezetőBankNeve";
+            this.lbSzámlavezetőBankNeve.Size = new System.Drawing.Size(160, 24);
+            this.lbSzámlavezetőBankNeve.TabIndex = 23;
+            this.lbSzámlavezetőBankNeve.Text = "Számlavezető bank neve";
+            this.lbSzámlavezetőBankNeve.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbSzámlaSzám
             // 
             this.lbSzámlaSzám.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.lbSzámlaSzám.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.lbSzámlaSzám.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.lbSzámlaSzám.Location = new System.Drawing.Point(3, 33);
+            this.lbSzámlaSzám.Location = new System.Drawing.Point(3, 63);
             this.lbSzámlaSzám.Margin = new System.Windows.Forms.Padding(3);
             this.lbSzámlaSzám.Name = "lbSzámlaSzám";
             this.lbSzámlaSzám.Size = new System.Drawing.Size(160, 24);
@@ -494,58 +523,18 @@ namespace Felisz.Formok
             this.lbSzámlaSzám.Text = "Számlaszám";
             this.lbSzámlaSzám.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cbSzámlavezetőBank
+            // tbBankSzámlaszám
             // 
-            this.cbSzámlavezetőBank.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbSzámlavezetőBank.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbSzámlavezetőBank.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.cbSzámlavezetőBank.DropDownHeight = 150;
-            this.cbSzámlavezetőBank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSzámlavezetőBank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbSzámlavezetőBank.Font = new System.Drawing.Font("Arial Narrow", 11F);
-            this.cbSzámlavezetőBank.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.cbSzámlavezetőBank.FormattingEnabled = true;
-            this.cbSzámlavezetőBank.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cbSzámlavezetőBank.IntegralHeight = false;
-            this.cbSzámlavezetőBank.Location = new System.Drawing.Point(166, 3);
-            this.cbSzámlavezetőBank.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.cbSzámlavezetőBank.MaxDropDownItems = 5;
-            this.cbSzámlavezetőBank.Name = "cbSzámlavezetőBank";
-            this.cbSzámlavezetőBank.Size = new System.Drawing.Size(221, 28);
-            this.cbSzámlavezetőBank.TabIndex = 14;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 10F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label1.Location = new System.Drawing.Point(3, 63);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 24);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Önkéntes nyugdíjpénztár neve";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.comboBox1.DropDownHeight = 150;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Arial Narrow", 11F);
-            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.Location = new System.Drawing.Point(166, 63);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.comboBox1.MaxDropDownItems = 5;
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(221, 28);
-            this.comboBox1.TabIndex = 17;
+            this.tbBankSzámlaszám.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbBankSzámlaszám.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbBankSzámlaszám.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbBankSzámlaszám.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbBankSzámlaszám.Location = new System.Drawing.Point(166, 63);
+            this.tbBankSzámlaszám.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbBankSzámlaszám.Name = "tbBankSzámlaszám";
+            this.tbBankSzámlaszám.Size = new System.Drawing.Size(221, 26);
+            this.tbBankSzámlaszám.TabIndex = 15;
+            this.tbBankSzámlaszám.Validated += new System.EventHandler(this.tbBankSzámlaszám_Validated);
             // 
             // label2
             // 
@@ -572,30 +561,76 @@ namespace Felisz.Formok
             this.textBox2.Size = new System.Drawing.Size(221, 26);
             this.textBox2.TabIndex = 19;
             // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.textBox3.Location = new System.Drawing.Point(166, 128);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(221, 26);
-            this.textBox3.TabIndex = 21;
-            // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 10F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label3.Location = new System.Drawing.Point(3, 128);
+            this.label3.Location = new System.Drawing.Point(3, 123);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(160, 24);
             this.label3.TabIndex = 20;
             this.label3.Text = "Önkéntes nyugdíjpénztári azonosító";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.textBox3.Location = new System.Drawing.Point(166, 123);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(221, 26);
+            this.textBox3.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 10F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label1.Location = new System.Drawing.Point(3, 153);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(160, 24);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Önkéntes nyugdíjpénztár neve";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.comboBox1.DropDownHeight = 150;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Arial Narrow", 11F);
+            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBox1.IntegralHeight = false;
+            this.comboBox1.Location = new System.Drawing.Point(166, 153);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.comboBox1.MaxDropDownItems = 5;
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(221, 28);
+            this.comboBox1.TabIndex = 17;
+            // 
+            // tbSzámlavazetőBankNeve
+            // 
+            this.tbSzámlavazetőBankNeve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbSzámlavazetőBankNeve.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbSzámlavazetőBankNeve.Enabled = false;
+            this.tbSzámlavazetőBankNeve.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbSzámlavazetőBankNeve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbSzámlavazetőBankNeve.Location = new System.Drawing.Point(166, 33);
+            this.tbSzámlavazetőBankNeve.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbSzámlavazetőBankNeve.Name = "tbSzámlavazetőBankNeve";
+            this.tbSzámlavazetőBankNeve.Size = new System.Drawing.Size(221, 26);
+            this.tbSzámlavazetőBankNeve.TabIndex = 24;
             // 
             // gbOkmányok
             // 
@@ -4243,10 +4278,10 @@ namespace Felisz.Formok
         private System.Windows.Forms.TableLayoutPanel tlpOszlop1;
         private System.Windows.Forms.GroupBox gbPénzügyiAdatok;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lbSzámlavezetőBank;
+        private System.Windows.Forms.TextBox tbBankSzámlaszám;
+        private System.Windows.Forms.Label lbBankKód;
         private System.Windows.Forms.Label lbSzámlaSzám;
-        private System.Windows.Forms.ComboBox cbSzámlavezetőBank;
+        private System.Windows.Forms.ComboBox cbBankKód;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
@@ -4465,5 +4500,7 @@ namespace Felisz.Formok
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.ComboBox cbIskolaiVégzettség;
+        private System.Windows.Forms.Label lbSzámlavezetőBankNeve;
+        private System.Windows.Forms.TextBox tbSzámlavazetőBankNeve;
     }
 }

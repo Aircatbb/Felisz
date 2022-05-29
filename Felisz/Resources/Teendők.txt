@@ -5,16 +5,13 @@ Nyitott pontok:
 	- Aláíró neve: Választható legyen a törvényes képviselõ és telephely aláírói között? + beírási lehetõség
 	- Távolság validálása hiányzik, jelzés LUNA változás esetén
 	- REHAB mezõk mentése
-	- Határozatszám formátuma?
 	- Igazolványszám ellenõrzés?
 	- Számlavazetõbank
 	- Számlaszám ellenõrzés
-	- ComboBox-ok lehetséges értékei? Pl. egyszerûsített, vagy nyugdíj
 	- Hozzátartozóknál a mentés methódusnál újra kell validálni a mezõket. Új mezõket ide is berakni!
 	Mentés után az új mezõket is ki kell üríteni
 	Alapértelmezett értékeket beállítani új mezõk
 	- Új hozzátartozó rögzítésekor a csoport nyitása, zárása nem megfelelõen mûködik
-	- Dátumellenõrzést visszakapcsolni, esetleg még egy szerver beállítása...
+	
 	- A változáskövetés végett, újra szükséges a mentés, törlés és módosítás folyamatok ellenõrzése!!!
 	- Frissités rész hibakezelése
-	- NLOG végleges eltávolítása

@@ -1027,11 +1027,13 @@ namespace Felisz
 
         public static bool SzámlaszámEllenőrzés(string számlaSzám)
         {
+            
             int tol = 0;
+
 
             try
             {
-                while (tol < 19)
+                while (tol < 27)
                 {
                     int sz1 = int.Parse(számlaSzám.Substring(tol + 0, 1)) * 9;
                     int sz2 = int.Parse(számlaSzám.Substring(tol + 1, 1)) * 7;

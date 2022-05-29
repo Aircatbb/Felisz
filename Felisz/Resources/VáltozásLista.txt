@@ -1,5 +1,9 @@
+V0.0.9.3
+	- Számlaszám validálása
+
 V0.0.9.2
 	- NLOG véglegesen eltávolítva
+	- Számlavezetõ bank adatbázis integrálva az általános személyi adatokba
 
 V0.0.9.1
 	- WorkFlow tesztmodul

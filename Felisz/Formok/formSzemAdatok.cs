@@ -36,8 +36,19 @@ namespace Felisz.Formok
 
         }
 
+        private void cbBankKódFeltöltés()
+        {
+            cbBankKód.Items.Clear();
+            tbSzámlavazetőBankNeve.Text = "";
+            for (int i = 0; i < Adatbázis.SzámlavezetőBankok.Count; i++)
+            {
+                cbBankKód.Items.Add(Adatbázis.SzámlavezetőBankok[i].Kód);
+            }
+        }
+
         private void cbFEORFeltöltés()
         {
+            cbFEOR.Items.Clear();
             for (int i = 0; i < Adatbázis.FEORList.Count; i++)
             {
                 FEOR item = new FEOR();
@@ -50,6 +61,7 @@ namespace Felisz.Formok
 
         private void cbJogviszonyFormájaFeltöltés()
         {
+            cbJogviszonyFormája.Items.Clear();
             for (int i = 0; i < Adatbázis.JogviszonyFormák.Count; i++)
             {
                 Standard item = new Standard();
@@ -61,6 +73,7 @@ namespace Felisz.Formok
 
         private void cbIskolaiVégzettségFeltöltés()
         {
+            cbIskolaiVégzettség.Items.Clear();
             for (int i = 0; i < Adatbázis.IskolaiVégzettség.Count; i++)
             {
                 Standard item = new Standard();
@@ -73,6 +86,7 @@ namespace Felisz.Formok
 
         private void cbNyugdíjTípusaFeltöltés()
         {
+            cbNyugdíjTípusa.Items.Clear();
             for (int i = 0; i < Adatbázis.NyugdíjTípusok.Count; i++)
             {
                 Standard item = new Standard();
@@ -85,7 +99,7 @@ namespace Felisz.Formok
         private void cbÁllampolgárságcbLakhelyOrszágFeltöltéscbSzületésiOrszág()
         {
 
-
+            cbÁllampolgárság.Items.Clear();
             for (int i = 0; i < Adatbázis.országKódokList.Count; i++)
             {
                 Országkód item = new Országkód();
@@ -103,7 +117,7 @@ namespace Felisz.Formok
 
         private void cbFoglakoztatásHelyeFeltöltés()
         {
-
+            cbFoglalkoztatásHelye.Items.Clear();
             for (int i = 0; i < Adatbázis.foglalkoztatásHelyeList.Count; i++)
             {
                 FoglalkoztatásHelye item = new FoglalkoztatásHelye();
@@ -536,9 +550,11 @@ namespace Felisz.Formok
 
             ProgressBar pB = Application.OpenForms["formFelisz"].Controls["panelTopMenu"].Controls["folyamatJelző1"] as ProgressBar;
             pB.Visible = true;
-            pB.Step = 11;
+            pB.Step = 10;
             pB.Value = 14;
 
+            pB.PerformStep();
+            cbBankKódFeltöltés();
 
             pB.PerformStep();
             cbVárosFeltöltés();
@@ -696,7 +712,7 @@ namespace Felisz.Formok
                     SQLCommand.ExecuteNonQuery();
 
                     Funkciók.TopKonzolKiírás("Azonosítószám: " + tbAzonosítószám.Text + " Név: " + tbVezetéknév.Text + " " + tbUtónév1.Text + " " + tbUtónév2.Text + " általános személyi adatok archiválva! " + DateTime.Now.ToString());
-                    
+
                     conn.Close();
 
                 }
@@ -1753,11 +1769,11 @@ namespace Felisz.Formok
 
             if (MentésIndítható(tlpÁltalánosSzemélyiAdatok))
             {
-                
+
                 //if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokFrissítés();
                 if (formMunkavállalóVálasztás.mód == "M") ÁltalánosSzemélyiAdatokMentés(true);
                 if (formMunkavállalóVálasztás.mód == "N") ÁltalánosSzemélyiAdatokMentés(false);
-                
+
 
             }
             else
@@ -1951,6 +1967,41 @@ namespace Felisz.Formok
 
 
 
+        }
+
+        private void cbBankKód_Validated(object sender, EventArgs e)
+        {
+            Standard tempTalálat = Adatbázis.SzámlavezetőBankok.Find(item => item.Kód == cbBankKód.Text);
+            if (tempTalálat != null) tbSzámlavazetőBankNeve.Text = tempTalálat.Megnevezés;
+
+            if (cbBankKód.Text != "")
+            {
+                CímkeSzínBeállítás(lbBankKód, true);
+                CímkeSzínBeállítás(lbSzámlavezetőBankNeve, true);
+            }
+            else
+            {
+                CímkeSzínBeállítás(lbBankKód, false);
+                CímkeSzínBeállítás(lbSzámlavezetőBankNeve, false);
+            }
+
+
+
+        }
+
+        private void tbBankSzámlaszám_Validated(object sender, EventArgs e)
+        {
+            if (tbBankSzámlaszám.Text.Length == 16) tbBankSzámlaszám.Text = tbBankSzámlaszám.Text.Substring(0, 8) + "-" + tbBankSzámlaszám.Text.Substring(8, 8);
+            if (tbBankSzámlaszám.Text.Length == 8) tbBankSzámlaszám.Text = tbBankSzámlaszám.Text + "-00000000";
+
+            if (tbBankSzámlaszám.Text != "" && Funkciók.SzámlaszámEllenőrzés(cbBankKód.Text + "-" + tbBankSzámlaszám.Text) && tbBankSzámlaszám.Text.Length == 17)
+            {
+                CímkeSzínBeállítás(lbSzámlaSzám, true);
+            }
+            else
+            {
+                CímkeSzínBeállítás(lbSzámlaSzám, false);
+            }
         }
     }
 
