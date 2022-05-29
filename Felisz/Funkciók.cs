@@ -512,8 +512,8 @@ namespace Felisz
                 Program.dekódoltLic = Funkciók.Decrypt(Funkciók.LicencReg("", false));
                 //Program.dekódoltLic = Funkciók.Decrypt(Properties.Settings.Default.licencKódOLD);
                 Program.licÉrvényesség = new DateTime(int.Parse(Program.dekódoltLic.Substring(0, 4)), int.Parse(Program.dekódoltLic.Substring(4, 2)), int.Parse(Program.dekódoltLic.Substring(6, 2)));
-                Program.aktuálisCég = Program.dekódoltLic.Substring(24, 5);
-                Program.prefix = Program.dekódoltLic.Substring(29, Program.dekódoltLic.Length - 29);
+                Program.aktuálisCég = Program.dekódoltLic.Substring(24, 13);
+                Program.prefix = Program.dekódoltLic.Substring(37, Program.dekódoltLic.Length - 37);
                 Program.jelszóLic = Program.dekódoltLic.Substring(8, 16);
                 if (!Adatbázis.AdatbázisEllenőrzéseCég()) return false;
             }
@@ -656,8 +656,8 @@ namespace Felisz
                         {
                             Program.dekódoltLic = Funkciók.Decrypt(licencKód);
                             Program.licÉrvényesség = new DateTime(int.Parse(Program.dekódoltLic.Substring(0, 4)), int.Parse(Program.dekódoltLic.Substring(4, 2)), int.Parse(Program.dekódoltLic.Substring(6, 2)));
-                            Program.aktuálisCég = Program.dekódoltLic.Substring(24, 5);
-                            Program.prefix = Program.dekódoltLic.Substring(29, Program.dekódoltLic.Length - 29);
+                            Program.aktuálisCég = Program.dekódoltLic.Substring(24, 13);
+                            Program.prefix = Program.dekódoltLic.Substring(37, Program.dekódoltLic.Length - 37);
 
                             if (Program.prefix == prefix)
                             {

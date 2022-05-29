@@ -371,8 +371,6 @@ namespace Felisz
             if (szint.StartsWith("1")) Adatbázis.NaplóÍrásJustice(szint.Substring(szint.Length - 1, 1), bejegyzés);
             if (szint.StartsWith("2")) Adatbázis.NaplóÍrásAurora(szint.Substring(szint.Length - 1, 1), bejegyzés);
 
-            //Thread threadNaplózás = new Thread(new ThreadStart(Adatbázis.NaplóÍrás(szint, bejegyzés)));
-            //threadNaplózás.Start();
         }
 
         public static void NaplóÍrásJustice(string szint, string bejegyzés)
@@ -383,7 +381,7 @@ namespace Felisz
             conn.ConnectionString = myConnectionString;
             conn.Open();
 
-            string sql = "INSERT INTO JusticeLog (DatumIdo, Bejegyzes, Szint, Ellenorizve) " +
+            string sql = "INSERT INTO JusticeLog (DatumIdo, Bejegyzes, Szint, Feldolgozva) " +
                          "VALUES (@datum, @bejegyzes, @szint, 0)";
 
 
@@ -411,11 +409,14 @@ namespace Felisz
             conn.ConnectionString = myConnectionString;
             conn.Open();
 
-            string sql = "INSERT INTO AuroraLog (DatumIdo, Bejegyzes, Szint) " +
-                         "VALUES (@datum, @bejegyzes, @szint)";
+            string sql = "INSERT INTO AuroraLog (AdoSzam, DatumIdo, Bejegyzes, Szint) " +
+                         "VALUES (@adoszam, @datum, @bejegyzes, @szint)";
 
 
             var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+            SQLCommand.Parameters.Add("@adoszam", MySql.Data.MySqlClient.MySqlDbType.String);
+            SQLCommand.Parameters["@adoszam"].Value = Program.aktuálisCég;
+
             SQLCommand.Parameters.Add("@datum", MySql.Data.MySqlClient.MySqlDbType.DateTime);
             SQLCommand.Parameters["@datum"].Value = DateTime.Now;
 
