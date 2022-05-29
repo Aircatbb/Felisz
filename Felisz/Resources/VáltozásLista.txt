@@ -1,3 +1,6 @@
+V0.0.9.2
+	- NLOG véglegesen eltávolítva
+
 V0.0.9.1
 	- WorkFlow tesztmodul
 	- Áttérés az adószámos azonosításra, AurorLog frissítve, licenzkezelés frissítve
