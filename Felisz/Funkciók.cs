@@ -19,7 +19,7 @@ namespace Felisz
 {
     class Funkciók
     {
-        private static void CímkeSzínBeállítás(Label címke, bool engedélyezve)
+        public static void CímkeSzínBeállítás(Label címke, bool engedélyezve)
         {
             if (engedélyezve == true)
             {
@@ -89,12 +89,12 @@ namespace Felisz
 
             if (üresEngedélyezve && !Funkciók.UtolsóKarakterSzóköz(textboxneve) && !Funkciók.StringTartalmazSzámot(textboxneve.Text))
             {
-                CímkeSzínBeállítás(címkeneve, true);
+                Funkciók.CímkeSzínBeállítás(címkeneve, true);
                 if (együttMódosítandótb != null) if (együttMódosítandótb.Text == "") együttMódosítandótb.Text = textboxneve.Text;
             }
             else
             {
-                CímkeSzínBeállítás(címkeneve, false);
+                Funkciók.CímkeSzínBeállítás(címkeneve, false);
             }
 
         }
@@ -1228,10 +1228,18 @@ namespace Felisz
 
         }
 
-        
+        public static void cbBankKódFeltöltés(ComboBox cbBankKód, TextBox tbSzámlavazetőBankNeve)
+        {
+            cbBankKód.Items.Clear();
+            tbSzámlavazetőBankNeve.Text = "";
+            for (int i = 0; i < Adatbázis.SzámlavezetőBankok.Count; i++)
+            {
+                cbBankKód.Items.Add(Adatbázis.SzámlavezetőBankok[i].Kód);
+            }
+        }
 
-        
-        
+
+
 
 
     }

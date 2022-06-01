@@ -33,17 +33,6 @@ namespace Felisz.Formok
         public formSzemAdatok()
         {
             InitializeComponent();
-
-        }
-
-        private void cbBankKódFeltöltés()
-        {
-            cbBankKód.Items.Clear();
-            tbSzámlavazetőBankNeve.Text = "";
-            for (int i = 0; i < Adatbázis.SzámlavezetőBankok.Count; i++)
-            {
-                cbBankKód.Items.Add(Adatbázis.SzámlavezetőBankok[i].Kód);
-            }
         }
 
         private void cbFEORFeltöltés()
@@ -234,12 +223,12 @@ namespace Felisz.Formok
 
             if (cbVáros.Text != "")
             {
-                CímkeSzínBeállítás(lbVáros, true);
-                CímkeSzínBeállítás(lbIrszám, true);
+                Funkciók.CímkeSzínBeállítás(lbVáros, true);
+                Funkciók.CímkeSzínBeállítás(lbIrszám, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbVáros, false);
+                Funkciók.CímkeSzínBeállítás(lbVáros, false);
             }
         }
 
@@ -267,12 +256,12 @@ namespace Felisz.Formok
 
             if (cbIrszám.Text != "")
             {
-                CímkeSzínBeállítás(lbIrszám, true);
-                CímkeSzínBeállítás(lbVáros, true);
+                Funkciók.CímkeSzínBeállítás(lbIrszám, true);
+                Funkciók.CímkeSzínBeállítás(lbVáros, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbIrszám, false);
+                Funkciók.CímkeSzínBeállítás(lbIrszám, false);
             }
         }
 
@@ -353,11 +342,11 @@ namespace Felisz.Formok
 
             if (cbKözterület.Text != "")
             {
-                CímkeSzínBeállítás(lbKözterület, true);
+                Funkciók.CímkeSzínBeállítás(lbKözterület, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbKözterület, false);
+                Funkciók.CímkeSzínBeállítás(lbKözterület, false);
             }
         }
 
@@ -377,11 +366,11 @@ namespace Felisz.Formok
 
             if (tbKözterületJellege.Text != "")
             {
-                CímkeSzínBeállítás(lbKözterületJellege, true);
+                Funkciók.CímkeSzínBeállítás(lbKözterületJellege, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbKözterületJellege, false);
+                Funkciók.CímkeSzínBeállítás(lbKözterületJellege, false);
             }
         }
 
@@ -391,25 +380,11 @@ namespace Felisz.Formok
 
             if (tbHázszám.Text != "")
             {
-                CímkeSzínBeállítás(lbHázszám, true);
+                Funkciók.CímkeSzínBeállítás(lbHázszám, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbHázszám, false);
-            }
-        }
-
-        private void CímkeSzínBeállítás(Label címke, bool engedélyezve)
-        {
-            if (engedélyezve == true)
-            {
-                címke.BackColor = Color.FromArgb(30, 30, 30);
-                címke.ForeColor = Color.FromArgb(200, 200, 200);
-            }
-            else
-            {
-                címke.BackColor = Color.FromArgb(166, 66, 51);
-                címke.ForeColor = Color.White;
+                Funkciók.CímkeSzínBeállítás(lbHázszám, false);
             }
         }
 
@@ -447,11 +422,11 @@ namespace Felisz.Formok
             //erre valószínűleg nincs szükség TÖRÖLNI
             if (cbIrszám.Text != "")
             {
-                CímkeSzínBeállítás(lbIrszám, true);
+                Funkciók.CímkeSzínBeállítás(lbIrszám, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbIrszám, false);
+                Funkciók.CímkeSzínBeállítás(lbIrszám, false);
             }
         }
 
@@ -460,17 +435,17 @@ namespace Felisz.Formok
             int tempAzon = 0;
             if (!int.TryParse(tbAzonosítószám.Text, out tempAzon))
             {
-                CímkeSzínBeállítás(lbAzonosítószám, false);
+                Funkciók.CímkeSzínBeállítás(lbAzonosítószám, false);
                 return;
             }
 
             if (tbAzonosítószám.Text.Length >= 1 && Adatbázis.AzonosítószámSzabad(tempAzon))
             {
-                CímkeSzínBeállítás(lbAzonosítószám, true);
+                Funkciók.CímkeSzínBeállítás(lbAzonosítószám, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbAzonosítószám, false);
+                Funkciók.CímkeSzínBeállítás(lbAzonosítószám, false);
             }
         }
 
@@ -478,11 +453,11 @@ namespace Felisz.Formok
         {
             if (cbSzületésiHely.Text.Length >= 2)
             {
-                CímkeSzínBeállítás(lbSzületésiHely, true);
+                Funkciók.CímkeSzínBeállítás(lbSzületésiHely, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbSzületésiHely, false);
+                Funkciók.CímkeSzínBeállítás(lbSzületésiHely, false);
             }
         }
 
@@ -496,11 +471,11 @@ namespace Felisz.Formok
         {
             if (cbNeme.Text.Length >= 2)
             {
-                CímkeSzínBeállítás(lbNeme, true);
+                Funkciók.CímkeSzínBeállítás(lbNeme, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbNeme, false);
+                Funkciók.CímkeSzínBeállítás(lbNeme, false);
             }
         }
 
@@ -508,13 +483,13 @@ namespace Felisz.Formok
         {
             if (Funkciók.AdóazonosítóEllenőrzése(tbAdóazonosító.Text, DateTime.Parse(tbSzületésDátum.Text)))
             {
-                CímkeSzínBeállítás(lbAdóazonosító, true);
+                Funkciók.CímkeSzínBeállítás(lbAdóazonosító, true);
 
             }
             else
             {
                 MessageBox.Show("Hibás adóazonosító, vagy születési dátum!", "Figyelem", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                CímkeSzínBeállítás(lbAdóazonosító, false);
+                Funkciók.CímkeSzínBeállítás(lbAdóazonosító, false);
             }
         }
 
@@ -522,11 +497,11 @@ namespace Felisz.Formok
         {
             if (Funkciók.TajszámEllenőrzés(tbTAJSzám.Text))
             {
-                CímkeSzínBeállítás(lbTAJSzám, true);
+                Funkciók.CímkeSzínBeállítás(lbTAJSzám, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbTAJSzám, false);
+                Funkciók.CímkeSzínBeállítás(lbTAJSzám, false);
             }
         }
 
@@ -534,11 +509,11 @@ namespace Felisz.Formok
         {
             if (cbFEOR.Text != "")
             {
-                CímkeSzínBeállítás(lbFEOR, true);
+                Funkciók.CímkeSzínBeállítás(lbFEOR, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbFEOR, false);
+                Funkciók.CímkeSzínBeállítás(lbFEOR, false);
             }
         }
 
@@ -554,7 +529,7 @@ namespace Felisz.Formok
             pB.Value = 14;
 
             pB.PerformStep();
-            cbBankKódFeltöltés();
+            Funkciók.cbBankKódFeltöltés(cbBankKód,tbSzámlavazetőBankNeve);
 
             pB.PerformStep();
             cbVárosFeltöltés();
@@ -1106,7 +1081,7 @@ namespace Felisz.Formok
                     if (lb.Name == "") continue; //ha belekerülne véletlenül a scrollbar, hibát okozna ha ez nem lenne
                     if (lb.Name.Substring(0, 2) == "lb")
                     {
-                        CímkeSzínBeállítás((Label)lb, true);
+                        Funkciók.CímkeSzínBeállítás((Label)lb, true);
                     }
                 }
 
@@ -1560,11 +1535,11 @@ namespace Felisz.Formok
         {
             if (cbMegVáltMunkFogy.Text.Length > 0)
             {
-                CímkeSzínBeállítás(lbMegVáltMunkFogy, true);
+                Funkciók.CímkeSzínBeállítás(lbMegVáltMunkFogy, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbMegVáltMunkFogy, false);
+                Funkciók.CímkeSzínBeállítás(lbMegVáltMunkFogy, false);
             }
         }
 
@@ -1572,11 +1547,11 @@ namespace Felisz.Formok
         {
             if (cbFöldAlattIonMunk.Text.Length > 0)
             {
-                CímkeSzínBeállítás(lbFöldAlattIon, true);
+                Funkciók.CímkeSzínBeállítás(lbFöldAlattIon, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbFöldAlattIon, false);
+                Funkciók.CímkeSzínBeállítás(lbFöldAlattIon, false);
             }
         }
 
@@ -1796,7 +1771,7 @@ namespace Felisz.Formok
             Funkciók.NévValidálás(lbVezetéknévHozzátartozó, tbVezetéknévHozzátartozó, null, false);
             Funkciók.NévValidálás(lbUtónév1Hozzátartozó, tbUtónév1Hozzátartozó, null, false);
             Funkciók.DátumValidálás(lbSzületésiDátumHozzátartozó, tbSzületésiDátumHozzátartozó, null, null, false);
-            if (cbFogyatékosságHozzátartozó.Text.Length == 0) CímkeSzínBeállítás(lbFogyatékosságHozzátartozó, false);
+            if (cbFogyatékosságHozzátartozó.Text.Length == 0) Funkciók.CímkeSzínBeállítás(lbFogyatékosságHozzátartozó, false);
 
 
             if (MentésIndítható(tlpHozzátartozók))
@@ -1841,11 +1816,11 @@ namespace Felisz.Formok
         {
             if (cbFogyatékosságHozzátartozó.Text.Length > 0)
             {
-                CímkeSzínBeállítás(lbFogyatékosságHozzátartozó, true);
+                Funkciók.CímkeSzínBeállítás(lbFogyatékosságHozzátartozó, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbFogyatékosságHozzátartozó, false);
+                Funkciók.CímkeSzínBeállítás(lbFogyatékosságHozzátartozó, false);
             }
         }
 
@@ -1976,13 +1951,13 @@ namespace Felisz.Formok
 
             if (cbBankKód.Text != "")
             {
-                CímkeSzínBeállítás(lbBankKód, true);
-                CímkeSzínBeállítás(lbSzámlavezetőBankNeve, true);
+                Funkciók.CímkeSzínBeállítás(lbBankKód, true);
+                Funkciók.CímkeSzínBeállítás(lbSzámlavezetőBankNeve, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbBankKód, false);
-                CímkeSzínBeállítás(lbSzámlavezetőBankNeve, false);
+                Funkciók.CímkeSzínBeállítás(lbBankKód, false);
+                Funkciók.CímkeSzínBeállítás(lbSzámlavezetőBankNeve, false);
             }
 
 
@@ -1996,11 +1971,11 @@ namespace Felisz.Formok
 
             if (tbBankSzámlaszám.Text != "" && Funkciók.SzámlaszámEllenőrzés(cbBankKód.Text + "-" + tbBankSzámlaszám.Text) && tbBankSzámlaszám.Text.Length == 17)
             {
-                CímkeSzínBeállítás(lbSzámlaSzám, true);
+                Funkciók.CímkeSzínBeállítás(lbSzámlaSzám, true);
             }
             else
             {
-                CímkeSzínBeállítás(lbSzámlaSzám, false);
+                Funkciók.CímkeSzínBeállítás(lbSzámlaSzám, false);
             }
         }
     }

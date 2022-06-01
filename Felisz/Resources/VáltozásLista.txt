@@ -1,3 +1,8 @@
+V0.0.9.4
+	- Számlaszám céges adatoknál
+	- Számlaszám feltöltése kikerült a funkciók osztályba
+	- Címkék "szinezése" validálás után szintén kikerült a funkciók osztályba
+
 V0.0.9.3
 	- Számlaszám validálása
 

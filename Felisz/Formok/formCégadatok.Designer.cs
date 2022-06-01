@@ -29,15 +29,21 @@ namespace Felisz.Formok
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbCégadatok = new System.Windows.Forms.GroupBox();
             this.tcÁltalánosCégadatok = new System.Windows.Forms.TabControl();
             this.tpÁltalánosCégadatok = new System.Windows.Forms.TabPage();
             this.tlpCégadatok = new System.Windows.Forms.TableLayoutPanel();
             this.tlpOszlop1 = new System.Windows.Forms.TableLayoutPanel();
+            this.gbSzakszervezet = new System.Windows.Forms.GroupBox();
+            this.tlpSzakszervezet = new System.Windows.Forms.TableLayoutPanel();
+            this.lbSzakszervezetNeve = new System.Windows.Forms.Label();
+            this.tbSzakszervezetNeve = new System.Windows.Forms.TextBox();
+            this.tbSzakszervezetSzámlaszám = new System.Windows.Forms.TextBox();
+            this.lbSzakszervezetSzámlaszám = new System.Windows.Forms.Label();
             this.gpGDPR = new System.Windows.Forms.GroupBox();
             this.tlpGDPR = new System.Windows.Forms.TableLayoutPanel();
             this.tbAdatokTárolásánakIdőtartama = new System.Windows.Forms.TextBox();
@@ -63,13 +69,17 @@ namespace Felisz.Formok
             this.gpKapcsolatok = new System.Windows.Forms.GroupBox();
             this.tlpKapcsolatok = new System.Windows.Forms.TableLayoutPanel();
             this.tbTörvényesKépviselő = new System.Windows.Forms.TextBox();
-            this.tbBankszámla = new System.Windows.Forms.TextBox();
             this.tbTelefon = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.lbTörvényesKépviselő = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
             this.lbTelefon = new System.Windows.Forms.Label();
-            this.lbBankszámla = new System.Windows.Forms.Label();
+            this.cbBankKód = new System.Windows.Forms.ComboBox();
+            this.lbSzámlavezetőBankNeve = new System.Windows.Forms.Label();
+            this.lbBankKód = new System.Windows.Forms.Label();
+            this.tbBankSzámlaszám = new System.Windows.Forms.TextBox();
+            this.lbSzámlaSzám = new System.Windows.Forms.Label();
+            this.tbSzámlavazetőBankNeve = new System.Windows.Forms.TextBox();
             this.tlpOszlop2 = new System.Windows.Forms.TableLayoutPanel();
             this.gpAutomataDokumentumKezelés = new System.Windows.Forms.GroupBox();
             this.tlpAutomataDokumentumkezelés = new System.Windows.Forms.TableLayoutPanel();
@@ -133,17 +143,13 @@ namespace Felisz.Formok
             this.tlpHozzátartozók = new System.Windows.Forms.TableLayoutPanel();
             this.lbHozzátartozókFigyelmeztetés = new System.Windows.Forms.Label();
             this.pbClose = new System.Windows.Forms.PictureBox();
-            this.gbSzakszervezet = new System.Windows.Forms.GroupBox();
-            this.tlpSzakszervezet = new System.Windows.Forms.TableLayoutPanel();
-            this.lbSzakszervezetNeve = new System.Windows.Forms.Label();
-            this.tbSzakszervezetNeve = new System.Windows.Forms.TextBox();
-            this.tbSzakszervezetSzámlaszám = new System.Windows.Forms.TextBox();
-            this.lbSzakszervezetSzámlaszám = new System.Windows.Forms.Label();
             this.gbCégadatok.SuspendLayout();
             this.tcÁltalánosCégadatok.SuspendLayout();
             this.tpÁltalánosCégadatok.SuspendLayout();
             this.tlpCégadatok.SuspendLayout();
             this.tlpOszlop1.SuspendLayout();
+            this.gbSzakszervezet.SuspendLayout();
+            this.tlpSzakszervezet.SuspendLayout();
             this.gpGDPR.SuspendLayout();
             this.tlpGDPR.SuspendLayout();
             this.gbAlapadatok.SuspendLayout();
@@ -164,8 +170,6 @@ namespace Felisz.Formok
             this.tlpTelephely.SuspendLayout();
             this.tpEgyéb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
-            this.gbSzakszervezet.SuspendLayout();
-            this.tlpSzakszervezet.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbCégadatok
@@ -241,7 +245,89 @@ namespace Felisz.Formok
             this.tlpOszlop1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpOszlop1.Size = new System.Drawing.Size(542, 947);
             this.tlpOszlop1.TabIndex = 51;
-            this.tlpOszlop1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
+            // 
+            // gbSzakszervezet
+            // 
+            this.gbSzakszervezet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.gbSzakszervezet.Controls.Add(this.tlpSzakszervezet);
+            this.gbSzakszervezet.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbSzakszervezet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.gbSzakszervezet.Location = new System.Drawing.Point(1, 525);
+            this.gbSzakszervezet.Margin = new System.Windows.Forms.Padding(1);
+            this.gbSzakszervezet.Name = "gbSzakszervezet";
+            this.gbSzakszervezet.Size = new System.Drawing.Size(540, 84);
+            this.gbSzakszervezet.TabIndex = 52;
+            this.gbSzakszervezet.TabStop = false;
+            this.gbSzakszervezet.Text = "Szakszervezet";
+            this.gbSzakszervezet.Visible = false;
+            // 
+            // tlpSzakszervezet
+            // 
+            this.tlpSzakszervezet.ColumnCount = 2;
+            this.tlpSzakszervezet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpSzakszervezet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpSzakszervezet.Controls.Add(this.lbSzakszervezetNeve, 0, 0);
+            this.tlpSzakszervezet.Controls.Add(this.tbSzakszervezetNeve, 1, 0);
+            this.tlpSzakszervezet.Controls.Add(this.tbSzakszervezetSzámlaszám, 1, 1);
+            this.tlpSzakszervezet.Controls.Add(this.lbSzakszervezetSzámlaszám, 0, 1);
+            this.tlpSzakszervezet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpSzakszervezet.Location = new System.Drawing.Point(3, 16);
+            this.tlpSzakszervezet.Name = "tlpSzakszervezet";
+            this.tlpSzakszervezet.RowCount = 2;
+            this.tlpSzakszervezet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpSzakszervezet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpSzakszervezet.Size = new System.Drawing.Size(534, 65);
+            this.tlpSzakszervezet.TabIndex = 0;
+            // 
+            // lbSzakszervezetNeve
+            // 
+            this.lbSzakszervezetNeve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lbSzakszervezetNeve.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbSzakszervezetNeve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lbSzakszervezetNeve.Location = new System.Drawing.Point(3, 3);
+            this.lbSzakszervezetNeve.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSzakszervezetNeve.Name = "lbSzakszervezetNeve";
+            this.lbSzakszervezetNeve.Size = new System.Drawing.Size(160, 24);
+            this.lbSzakszervezetNeve.TabIndex = 15;
+            this.lbSzakszervezetNeve.Text = "Szakszervezet neve";
+            this.lbSzakszervezetNeve.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSzakszervezetNeve
+            // 
+            this.tbSzakszervezetNeve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbSzakszervezetNeve.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbSzakszervezetNeve.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbSzakszervezetNeve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbSzakszervezetNeve.Location = new System.Drawing.Point(166, 3);
+            this.tbSzakszervezetNeve.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbSzakszervezetNeve.Name = "tbSzakszervezetNeve";
+            this.tbSzakszervezetNeve.Size = new System.Drawing.Size(221, 26);
+            this.tbSzakszervezetNeve.TabIndex = 15;
+            // 
+            // tbSzakszervezetSzámlaszám
+            // 
+            this.tbSzakszervezetSzámlaszám.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbSzakszervezetSzámlaszám.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbSzakszervezetSzámlaszám.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbSzakszervezetSzámlaszám.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbSzakszervezetSzámlaszám.Location = new System.Drawing.Point(166, 33);
+            this.tbSzakszervezetSzámlaszám.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbSzakszervezetSzámlaszám.Name = "tbSzakszervezetSzámlaszám";
+            this.tbSzakszervezetSzámlaszám.Size = new System.Drawing.Size(221, 26);
+            this.tbSzakszervezetSzámlaszám.TabIndex = 16;
+            // 
+            // lbSzakszervezetSzámlaszám
+            // 
+            this.lbSzakszervezetSzámlaszám.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lbSzakszervezetSzámlaszám.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbSzakszervezetSzámlaszám.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lbSzakszervezetSzámlaszám.Location = new System.Drawing.Point(3, 33);
+            this.lbSzakszervezetSzámlaszám.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSzakszervezetSzámlaszám.Name = "lbSzakszervezetSzámlaszám";
+            this.lbSzakszervezetSzámlaszám.Size = new System.Drawing.Size(160, 24);
+            this.lbSzakszervezetSzámlaszám.TabIndex = 14;
+            this.lbSzakszervezetSzámlaszám.Text = "Szakszervezet számlaszáma";
+            this.lbSzakszervezetSzámlaszám.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gpGDPR
             // 
@@ -249,7 +335,7 @@ namespace Felisz.Formok
             this.gpGDPR.Controls.Add(this.tlpGDPR);
             this.gpGDPR.Dock = System.Windows.Forms.DockStyle.Top;
             this.gpGDPR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.gpGDPR.Location = new System.Drawing.Point(1, 321);
+            this.gpGDPR.Location = new System.Drawing.Point(1, 378);
             this.gpGDPR.Margin = new System.Windows.Forms.Padding(1);
             this.gpGDPR.Name = "gpGDPR";
             this.gpGDPR.Size = new System.Drawing.Size(540, 145);
@@ -571,7 +657,7 @@ namespace Felisz.Formok
             this.gpKapcsolatok.Location = new System.Drawing.Point(1, 175);
             this.gpKapcsolatok.Margin = new System.Windows.Forms.Padding(1);
             this.gpKapcsolatok.Name = "gpKapcsolatok";
-            this.gpKapcsolatok.Size = new System.Drawing.Size(540, 144);
+            this.gpKapcsolatok.Size = new System.Drawing.Size(540, 201);
             this.gpKapcsolatok.TabIndex = 50;
             this.gpKapcsolatok.TabStop = false;
             this.gpKapcsolatok.Text = "Kapcsolatok";
@@ -582,24 +668,29 @@ namespace Felisz.Formok
             this.tlpKapcsolatok.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpKapcsolatok.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpKapcsolatok.Controls.Add(this.tbTörvényesKépviselő, 1, 0);
-            this.tlpKapcsolatok.Controls.Add(this.tbBankszámla, 1, 3);
             this.tlpKapcsolatok.Controls.Add(this.tbTelefon, 1, 2);
             this.tlpKapcsolatok.Controls.Add(this.tbEmail, 1, 1);
             this.tlpKapcsolatok.Controls.Add(this.lbTörvényesKépviselő, 0, 0);
             this.tlpKapcsolatok.Controls.Add(this.lbEmail, 0, 1);
             this.tlpKapcsolatok.Controls.Add(this.lbTelefon, 0, 2);
-            this.tlpKapcsolatok.Controls.Add(this.lbBankszámla, 0, 3);
+            this.tlpKapcsolatok.Controls.Add(this.cbBankKód, 1, 3);
+            this.tlpKapcsolatok.Controls.Add(this.lbSzámlavezetőBankNeve, 0, 4);
+            this.tlpKapcsolatok.Controls.Add(this.lbBankKód, 0, 3);
+            this.tlpKapcsolatok.Controls.Add(this.tbBankSzámlaszám, 1, 5);
+            this.tlpKapcsolatok.Controls.Add(this.lbSzámlaSzám, 0, 5);
+            this.tlpKapcsolatok.Controls.Add(this.tbSzámlavazetőBankNeve, 1, 4);
             this.tlpKapcsolatok.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpKapcsolatok.ForeColor = System.Drawing.Color.White;
             this.tlpKapcsolatok.Location = new System.Drawing.Point(3, 16);
             this.tlpKapcsolatok.Name = "tlpKapcsolatok";
-            this.tlpKapcsolatok.RowCount = 4;
+            this.tlpKapcsolatok.RowCount = 6;
             this.tlpKapcsolatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpKapcsolatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpKapcsolatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpKapcsolatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpKapcsolatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpKapcsolatok.Size = new System.Drawing.Size(534, 125);
+            this.tlpKapcsolatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpKapcsolatok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpKapcsolatok.Size = new System.Drawing.Size(534, 182);
             this.tlpKapcsolatok.TabIndex = 0;
             // 
             // tbTörvényesKépviselő
@@ -613,18 +704,6 @@ namespace Felisz.Formok
             this.tbTörvényesKépviselő.Name = "tbTörvényesKépviselő";
             this.tbTörvényesKépviselő.Size = new System.Drawing.Size(221, 26);
             this.tbTörvényesKépviselő.TabIndex = 18;
-            // 
-            // tbBankszámla
-            // 
-            this.tbBankszámla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tbBankszámla.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbBankszámla.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbBankszámla.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.tbBankszámla.Location = new System.Drawing.Point(166, 93);
-            this.tbBankszámla.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.tbBankszámla.Name = "tbBankszámla";
-            this.tbBankszámla.Size = new System.Drawing.Size(221, 26);
-            this.tbBankszámla.TabIndex = 4;
             // 
             // tbTelefon
             // 
@@ -689,18 +768,91 @@ namespace Felisz.Formok
             this.lbTelefon.Text = "Telefon";
             this.lbTelefon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lbBankszámla
+            // cbBankKód
             // 
-            this.lbBankszámla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(66)))), ((int)(((byte)(51)))));
-            this.lbBankszámla.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lbBankszámla.ForeColor = System.Drawing.Color.White;
-            this.lbBankszámla.Location = new System.Drawing.Point(3, 93);
-            this.lbBankszámla.Margin = new System.Windows.Forms.Padding(3);
-            this.lbBankszámla.Name = "lbBankszámla";
-            this.lbBankszámla.Size = new System.Drawing.Size(160, 24);
-            this.lbBankszámla.TabIndex = 17;
-            this.lbBankszámla.Text = "Bankszámla";
-            this.lbBankszámla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cbBankKód.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbBankKód.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbBankKód.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cbBankKód.DropDownHeight = 150;
+            this.cbBankKód.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBankKód.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbBankKód.Font = new System.Drawing.Font("Arial Narrow", 11F);
+            this.cbBankKód.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.cbBankKód.FormattingEnabled = true;
+            this.cbBankKód.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbBankKód.IntegralHeight = false;
+            this.cbBankKód.Location = new System.Drawing.Point(166, 93);
+            this.cbBankKód.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.cbBankKód.MaxDropDownItems = 5;
+            this.cbBankKód.Name = "cbBankKód";
+            this.cbBankKód.Size = new System.Drawing.Size(221, 28);
+            this.cbBankKód.TabIndex = 26;
+            this.cbBankKód.Validated += new System.EventHandler(this.cbBankKód_Validated);
+            // 
+            // lbSzámlavezetőBankNeve
+            // 
+            this.lbSzámlavezetőBankNeve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lbSzámlavezetőBankNeve.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbSzámlavezetőBankNeve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lbSzámlavezetőBankNeve.Location = new System.Drawing.Point(3, 123);
+            this.lbSzámlavezetőBankNeve.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSzámlavezetőBankNeve.Name = "lbSzámlavezetőBankNeve";
+            this.lbSzámlavezetőBankNeve.Size = new System.Drawing.Size(160, 24);
+            this.lbSzámlavezetőBankNeve.TabIndex = 29;
+            this.lbSzámlavezetőBankNeve.Text = "Számlavezető bank neve";
+            this.lbSzámlavezetőBankNeve.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbBankKód
+            // 
+            this.lbBankKód.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lbBankKód.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbBankKód.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lbBankKód.Location = new System.Drawing.Point(3, 93);
+            this.lbBankKód.Margin = new System.Windows.Forms.Padding(3);
+            this.lbBankKód.Name = "lbBankKód";
+            this.lbBankKód.Size = new System.Drawing.Size(160, 24);
+            this.lbBankKód.TabIndex = 25;
+            this.lbBankKód.Text = "Számlavezető bankkód";
+            this.lbBankKód.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbBankSzámlaszám
+            // 
+            this.tbBankSzámlaszám.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbBankSzámlaszám.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbBankSzámlaszám.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbBankSzámlaszám.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbBankSzámlaszám.Location = new System.Drawing.Point(166, 153);
+            this.tbBankSzámlaszám.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbBankSzámlaszám.Name = "tbBankSzámlaszám";
+            this.tbBankSzámlaszám.Size = new System.Drawing.Size(221, 26);
+            this.tbBankSzámlaszám.TabIndex = 28;
+            this.tbBankSzámlaszám.Validated += new System.EventHandler(this.tbBankSzámlaszám_Validated);
+            // 
+            // lbSzámlaSzám
+            // 
+            this.lbSzámlaSzám.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lbSzámlaSzám.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lbSzámlaSzám.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lbSzámlaSzám.Location = new System.Drawing.Point(3, 153);
+            this.lbSzámlaSzám.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSzámlaSzám.Name = "lbSzámlaSzám";
+            this.lbSzámlaSzám.Size = new System.Drawing.Size(160, 24);
+            this.lbSzámlaSzám.TabIndex = 27;
+            this.lbSzámlaSzám.Text = "Számlaszám";
+            this.lbSzámlaSzám.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbSzámlavazetőBankNeve
+            // 
+            this.tbSzámlavazetőBankNeve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbSzámlavazetőBankNeve.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbSzámlavazetőBankNeve.Enabled = false;
+            this.tbSzámlavazetőBankNeve.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tbSzámlavazetőBankNeve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.tbSzámlavazetőBankNeve.Location = new System.Drawing.Point(166, 123);
+            this.tbSzámlavazetőBankNeve.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tbSzámlavazetőBankNeve.Name = "tbSzámlavazetőBankNeve";
+            this.tbSzámlavazetőBankNeve.Size = new System.Drawing.Size(221, 26);
+            this.tbSzámlavazetőBankNeve.TabIndex = 30;
             // 
             // tlpOszlop2
             // 
@@ -1241,44 +1393,44 @@ namespace Felisz.Formok
             this.dgvTelephelyek.AllowUserToOrderColumns = true;
             this.dgvTelephelyek.AllowUserToResizeColumns = false;
             this.dgvTelephelyek.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gray;
-            this.dgvTelephelyek.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            this.dgvTelephelyek.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTelephelyek.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTelephelyek.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTelephelyek.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.dgvTelephelyek.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTelephelyek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTelephelyek.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTelephelyek.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTelephelyek.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTelephelyek.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.dgvTelephelyek.Location = new System.Drawing.Point(3, 350);
             this.dgvTelephelyek.MultiSelect = false;
             this.dgvTelephelyek.Name = "dgvTelephelyek";
             this.dgvTelephelyek.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTelephelyek.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTelephelyek.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTelephelyek.RowHeadersVisible = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvTelephelyek.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvTelephelyek.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTelephelyek.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Control;
             this.dgvTelephelyek.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.dgvTelephelyek.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -1706,89 +1858,6 @@ namespace Felisz.Formok
             this.pbClose.TabIndex = 11;
             this.pbClose.TabStop = false;
             // 
-            // gbSzakszervezet
-            // 
-            this.gbSzakszervezet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.gbSzakszervezet.Controls.Add(this.tlpSzakszervezet);
-            this.gbSzakszervezet.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbSzakszervezet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.gbSzakszervezet.Location = new System.Drawing.Point(1, 468);
-            this.gbSzakszervezet.Margin = new System.Windows.Forms.Padding(1);
-            this.gbSzakszervezet.Name = "gbSzakszervezet";
-            this.gbSzakszervezet.Size = new System.Drawing.Size(540, 84);
-            this.gbSzakszervezet.TabIndex = 52;
-            this.gbSzakszervezet.TabStop = false;
-            this.gbSzakszervezet.Text = "Szakszervezet";
-            this.gbSzakszervezet.Visible = false;
-            // 
-            // tlpSzakszervezet
-            // 
-            this.tlpSzakszervezet.ColumnCount = 2;
-            this.tlpSzakszervezet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpSzakszervezet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpSzakszervezet.Controls.Add(this.lbSzakszervezetNeve, 0, 0);
-            this.tlpSzakszervezet.Controls.Add(this.tbSzakszervezetNeve, 1, 0);
-            this.tlpSzakszervezet.Controls.Add(this.tbSzakszervezetSzámlaszám, 1, 1);
-            this.tlpSzakszervezet.Controls.Add(this.lbSzakszervezetSzámlaszám, 0, 1);
-            this.tlpSzakszervezet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSzakszervezet.Location = new System.Drawing.Point(3, 16);
-            this.tlpSzakszervezet.Name = "tlpSzakszervezet";
-            this.tlpSzakszervezet.RowCount = 2;
-            this.tlpSzakszervezet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpSzakszervezet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpSzakszervezet.Size = new System.Drawing.Size(534, 65);
-            this.tlpSzakszervezet.TabIndex = 0;
-            // 
-            // lbSzakszervezetNeve
-            // 
-            this.lbSzakszervezetNeve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.lbSzakszervezetNeve.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lbSzakszervezetNeve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.lbSzakszervezetNeve.Location = new System.Drawing.Point(3, 3);
-            this.lbSzakszervezetNeve.Margin = new System.Windows.Forms.Padding(3);
-            this.lbSzakszervezetNeve.Name = "lbSzakszervezetNeve";
-            this.lbSzakszervezetNeve.Size = new System.Drawing.Size(160, 24);
-            this.lbSzakszervezetNeve.TabIndex = 15;
-            this.lbSzakszervezetNeve.Text = "Szakszervezet neve";
-            this.lbSzakszervezetNeve.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbSzakszervezetNeve
-            // 
-            this.tbSzakszervezetNeve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tbSzakszervezetNeve.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbSzakszervezetNeve.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbSzakszervezetNeve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.tbSzakszervezetNeve.Location = new System.Drawing.Point(166, 3);
-            this.tbSzakszervezetNeve.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.tbSzakszervezetNeve.Name = "tbSzakszervezetNeve";
-            this.tbSzakszervezetNeve.Size = new System.Drawing.Size(221, 26);
-            this.tbSzakszervezetNeve.TabIndex = 15;
-            // 
-            // tbSzakszervezetSzámlaszám
-            // 
-            this.tbSzakszervezetSzámlaszám.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tbSzakszervezetSzámlaszám.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbSzakszervezetSzámlaszám.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbSzakszervezetSzámlaszám.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.tbSzakszervezetSzámlaszám.Location = new System.Drawing.Point(166, 33);
-            this.tbSzakszervezetSzámlaszám.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.tbSzakszervezetSzámlaszám.Name = "tbSzakszervezetSzámlaszám";
-            this.tbSzakszervezetSzámlaszám.Size = new System.Drawing.Size(221, 26);
-            this.tbSzakszervezetSzámlaszám.TabIndex = 16;
-            // 
-            // lbSzakszervezetSzámlaszám
-            // 
-            this.lbSzakszervezetSzámlaszám.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.lbSzakszervezetSzámlaszám.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lbSzakszervezetSzámlaszám.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.lbSzakszervezetSzámlaszám.Location = new System.Drawing.Point(3, 33);
-            this.lbSzakszervezetSzámlaszám.Margin = new System.Windows.Forms.Padding(3);
-            this.lbSzakszervezetSzámlaszám.Name = "lbSzakszervezetSzámlaszám";
-            this.lbSzakszervezetSzámlaszám.Size = new System.Drawing.Size(160, 24);
-            this.lbSzakszervezetSzámlaszám.TabIndex = 14;
-            this.lbSzakszervezetSzámlaszám.Text = "Szakszervezet számlaszáma";
-            this.lbSzakszervezetSzámlaszám.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // formCégadatok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1799,12 +1868,16 @@ namespace Felisz.Formok
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formCégadatok";
             this.Text = "formCégadatok";
+            this.Shown += new System.EventHandler(this.formCégadatok_Shown);
             this.gbCégadatok.ResumeLayout(false);
             this.gbCégadatok.PerformLayout();
             this.tcÁltalánosCégadatok.ResumeLayout(false);
             this.tpÁltalánosCégadatok.ResumeLayout(false);
             this.tlpCégadatok.ResumeLayout(false);
             this.tlpOszlop1.ResumeLayout(false);
+            this.gbSzakszervezet.ResumeLayout(false);
+            this.tlpSzakszervezet.ResumeLayout(false);
+            this.tlpSzakszervezet.PerformLayout();
             this.gpGDPR.ResumeLayout(false);
             this.tlpGDPR.ResumeLayout(false);
             this.tlpGDPR.PerformLayout();
@@ -1832,9 +1905,6 @@ namespace Felisz.Formok
             this.tpEgyéb.ResumeLayout(false);
             this.tpEgyéb.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
-            this.gbSzakszervezet.ResumeLayout(false);
-            this.tlpSzakszervezet.ResumeLayout(false);
-            this.tlpSzakszervezet.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1866,13 +1936,11 @@ namespace Felisz.Formok
         private System.Windows.Forms.GroupBox gpKapcsolatok;
         private System.Windows.Forms.TableLayoutPanel tlpKapcsolatok;
         private System.Windows.Forms.TextBox tbTörvényesKépviselő;
-        private System.Windows.Forms.TextBox tbBankszámla;
         private System.Windows.Forms.TextBox tbTelefon;
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label lbTörvényesKépviselő;
         private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.Label lbTelefon;
-        private System.Windows.Forms.Label lbBankszámla;
         private System.Windows.Forms.GroupBox gpGDPR;
         private System.Windows.Forms.TableLayoutPanel tlpGDPR;
         private System.Windows.Forms.TextBox tbAdatokTárolásánakIdőtartama;
@@ -1948,5 +2016,11 @@ namespace Felisz.Formok
         private System.Windows.Forms.TextBox tbSzakszervezetNeve;
         private System.Windows.Forms.TextBox tbSzakszervezetSzámlaszám;
         private System.Windows.Forms.Label lbSzakszervezetSzámlaszám;
+        private System.Windows.Forms.Label lbBankKód;
+        private System.Windows.Forms.Label lbSzámlaSzám;
+        private System.Windows.Forms.TextBox tbBankSzámlaszám;
+        private System.Windows.Forms.TextBox tbSzámlavazetőBankNeve;
+        private System.Windows.Forms.Label lbSzámlavezetőBankNeve;
+        private System.Windows.Forms.ComboBox cbBankKód;
     }
 }
