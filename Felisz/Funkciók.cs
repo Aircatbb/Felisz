@@ -99,6 +99,23 @@ namespace Felisz
 
         }
 
+        public static void EmailValidálás(Label címkeneve, TextBox textboxneve, bool üresEngedélyezve)
+        {
+
+            if (textboxneve.Text.Contains('@') && textboxneve.Text.Contains('.') && textboxneve.Text.Length > 5)
+            {
+
+                if (textboxneve.Text.Substring(textboxneve.Text.IndexOf('.')).Length < 5 && textboxneve.Text.Substring(0, textboxneve.Text.IndexOf('@')).Length != 0) Funkciók.CímkeSzínBeállítás(címkeneve, true);
+                else Funkciók.CímkeSzínBeállítás(címkeneve, false);
+                
+            }
+            else
+            {
+                Funkciók.CímkeSzínBeállítás(címkeneve, false);
+            }
+            if (üresEngedélyezve && textboxneve.Text == "") CímkeSzínBeállítás(címkeneve, true);
+        }
+
         public static string licDB = "---Üres---";
 
         public static void TopKonzolKiírás(string szöveg)
@@ -1027,7 +1044,7 @@ namespace Felisz
 
         public static bool SzámlaszámEllenőrzés(string számlaSzám)
         {
-            
+
             int tol = 0;
 
 
@@ -1237,7 +1254,6 @@ namespace Felisz
                 cbBankKód.Items.Add(Adatbázis.SzámlavezetőBankok[i].Kód);
             }
         }
-
 
 
 

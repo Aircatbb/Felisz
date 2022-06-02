@@ -54,5 +54,10 @@ namespace Felisz.Formok
             Funkciók.cbBankKódFeltöltés(cbBankKód,tbSzámlavazetőBankNeve);
 
         }
+
+        private void tbEmail_Validated(object sender, EventArgs e)
+        {
+            Funkciók.EmailValidálás(lbEmail, tbEmail, true);
+        }
     }
 }

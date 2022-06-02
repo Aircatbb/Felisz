@@ -728,6 +728,7 @@ namespace Felisz.Formok
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(221, 26);
             this.tbEmail.TabIndex = 2;
+            this.tbEmail.Validated += new System.EventHandler(this.tbEmail_Validated);
             // 
             // lbTörvényesKépviselő
             // 
