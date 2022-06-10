@@ -150,9 +150,11 @@ namespace Felisz
 
             cbTTSNyelv.SelectedIndex = cbTTSNyelv.FindStringExact(Program.TTSNyelv + " / " + nyelve);
 
-            //Fordítás nyelve
-            cbFordításNyelve.SelectedIndex = cbFordításNyelve.FindStringExact(Program.fordításNyelve);
+            //Fordítás és hang
+            cbFordításNyelve.SelectedIndex = cbFordításNyelve.FindString(Program.fordításNyelve);
+            trSpFordítás.Enabled = true; 
 
+            
             //Változáslista
             rtbVáltozásLista.Text = Properties.Resources.VáltozásLista;
 
@@ -212,6 +214,37 @@ namespace Felisz
         private void pbClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbFordításNyelve_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Program.fordításNyelve = cbFordításNyelve.Text.Substring(0, 2);
+            Funkciók.RegistryRW("TranslateTo",Program.fordításNyelve,true);
+
+        }
+
+
+
+
+        private void rtbVáltozásLista_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+
+                
+                PictureBox fordításGomb = new PictureBox();
+                fordításGomb.Left = e.X;
+                fordításGomb.Top = e.Y;
+                fordításGomb.Width = 20;
+                fordításGomb.Height = 20;
+                fordításGomb.BackColor = Color.Azure;
+                fordításGomb.Visible = true;
+                fordításGomb.Enabled = true;
+                Controls.Add(fordításGomb);
+                
+
+
+            }
         }
     }
 }

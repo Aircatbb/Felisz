@@ -285,7 +285,7 @@ namespace Felisz
 
             //TEST
 
-            string test = Funkciók.RegistryRW("TTSSpeed", "10", true);
+            
 
             //RSS beolvasás indítása
             timerRSS_Tick(null, null);
@@ -315,8 +315,17 @@ namespace Felisz
             if (Funkciók.DátumEllenőrzés() != true) MenükLetiltása();
 
             //Registry beállítások olvasása
-            //TTS
+            //Nyelvi és hang beállítások
             Funkciók.TTSRegOlvasás();
+            if (Funkciók.RegistryRW("TranslateTo", "", false) == "")
+            {
+                Funkciók.RegistryRW("TranslateTo", "EN", true);
+            }
+            else
+            {
+                Program.fordításNyelve = Funkciók.RegistryRW("TranslateTo", "", false);
+            }
+
 
 
             //Bejelentkezés

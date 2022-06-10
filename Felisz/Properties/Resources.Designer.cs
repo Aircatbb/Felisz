@@ -408,7 +408,10 @@ namespace Felisz.Properties {
         ///	- Aláíró neve: Választható legyen a törvényes képviselő és telephely aláírói között? + beírási lehetőség
         ///	- Távolság validálása hiányzik, jelzés LUNA változás esetén
         ///	- REHAB mezők mentése
-        ///	- Határozatszám formátuma?.
+        ///	- Igazolványszám ellenőrzés?
+        ///	- Számlavazetőbank
+        ///	- Számlaszám ellenőrzés
+        ///	- Hozzátartozóknál a mentés methódusnál újra kell validálni a mező [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Teendők {
             get {
@@ -417,20 +420,38 @@ namespace Felisz.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to V0.0.7.15
-        ///	- Logó teszt
-        ///	- ADA HRLine eltávolítva(?)
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TrSp {
+            get {
+                object obj = ResourceManager.GetObject("TrSp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TrSp_Inv {
+            get {
+                object obj = ResourceManager.GetObject("TrSp_Inv", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to V0.0.10.1
+        ///	- Fordítás funkció. Tesztverzió a változáslistában.
         ///
-        ///V0.0.7.14
-        ///	- Alapbeállítások 2 oszlopra tagolva
-        ///	- TTS registry létrehozásakor megkerese a magyar &apos;hu-HU&apos; beállítást, amit alapértelmezetként vesz.
-        ///	Amennyiben nincsen &apos;hu-HU&apos; úgy az első telepített nyelvet állítja be, és alapértelmezettként letiltja a TTS-t.
-        ///	- Alapbeállítások közé bekerült a nyelvválasztási lehetőség
-        ///	- Új logó próba
+        ///V0.0.9.6
+        ///	- Azure fordítási funkció integrálva a funkciók osztályba
+        ///	- Azure fordítás implementálása után a debug any cpu-ra nem működik már, mivel az AI nem támogatja.
+        ///	- Alapbeállításokon belül beállítható a fordítás nyelve
+        ///	- Beállított fordítás nyelvének kiolvasása a regisztry-ből, menüben CB-be beillesztve
+        ///	- Registry bejegyzések írását és olvasását egy új egységesített funkció (Funkciók.RegistrRW) látja el.
         ///
-        ///V0.0.7.13
-        ///	- Születési dátum módosítása esetén, az adóazonosítót újra validálni kell
-        ///	- Megváltozott munka [rest of string was truncated]&quot;;.
+        ///V0.0.9.5
+        ///	- E-Mail  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VáltozásLista {
             get {

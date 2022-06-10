@@ -260,7 +260,7 @@ namespace Felisz
             {
                 RegKey.SetValue(kulcs, érték);
                 RegKey.Close();
-                return "";
+                return érték;
             }
             else
             {

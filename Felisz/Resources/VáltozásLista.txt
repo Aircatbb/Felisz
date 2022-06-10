@@ -1,7 +1,14 @@
+V0.0.9.7
+	- TrSpVezérlõ = többcélú vezérlõ a fordítás, és a TTS funkcióhoz. Új paraméterek:
+		o TrNyelv - Fordítás nyelve
+		o SpNyelv - Beszéd nyelve
+		o mitMondjak - Beszéd szövege
+		o TTSállapot - Beszéd státusza
+		o TrVagySp - Vezérlõ funkciója: fordítás, vagy beszéd
+	
 V0.0.9.6
-	- Azure fordítás implementálása után a debug any cpu-ra nem mûködik már, mivel az AI nem támogatja.
-	Egyben érdekes, hogy nem engedi már a windows-os Szabolcs hangot használni (ezzel függ össze???)
 	- Azure fordítási funkció integrálva a funkciók osztályba
+	- Azure fordítás implementálása után a debug any cpu-ra nem mûködik már, mivel az AI nem támogatja.
 	- Alapbeállításokon belül beállítható a fordítás nyelve
 	- Beállított fordítás nyelvének kiolvasása a regisztry-bõl, menüben CB-be beillesztve
 	- Registry bejegyzések írását és olvasását egy új egységesített funkció (Funkciók.RegistrRW) látja el.

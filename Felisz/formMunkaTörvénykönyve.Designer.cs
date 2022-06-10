@@ -43,7 +43,7 @@ namespace Felisz
             this.btKeresésParagrafus = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ttsPlayMT = new Felisz.Vezérlők.TTSPlay();
+            this.ttsPlayMT = new Felisz.Vezérlők.TrSpVezérlő();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).BeginInit();
             this.panel1.SuspendLayout();
@@ -267,6 +267,6 @@ namespace Felisz
         private System.Windows.Forms.Button btKeresésParagrafus;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private Vezérlők.TTSPlay ttsPlayMT;
+        private Vezérlők.TrSpVezérlő ttsPlayMT;
     }
 }

@@ -49,10 +49,10 @@ namespace Felisz
             this.lbFordításNyelve = new System.Windows.Forms.Label();
             this.cbFordításNyelve = new System.Windows.Forms.ComboBox();
             this.gbVáltozásLista1 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbVáltozásLista = new System.Windows.Forms.RichTextBox();
-            this.ttsPlay1 = new Felisz.Vezérlők.TTSPlay();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.trSpFordítás = new Felisz.Vezérlők.TrSpVezérlő();
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).BeginInit();
             this.gbLicenc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
@@ -61,9 +61,8 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.trbSebesség)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbHangerő)).BeginInit();
             this.gbVáltozásLista1.SuspendLayout();
-            this.tableLayoutPanel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ttsPlay1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trSpFordítás)).BeginInit();
             this.SuspendLayout();
             // 
             // pbFormClose
@@ -89,7 +88,7 @@ namespace Felisz
             this.gbLicenc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbLicenc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.gbLicenc.Location = new System.Drawing.Point(1, 1);
-            this.gbLicenc.Margin = new System.Windows.Forms.Padding(1);
+            this.gbLicenc.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.gbLicenc.Name = "gbLicenc";
             this.gbLicenc.Size = new System.Drawing.Size(821, 61);
             this.gbLicenc.TabIndex = 13;
@@ -100,7 +99,7 @@ namespace Felisz
             // 
             this.pbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbClose.Image = global::Felisz.Properties.Resources.window_close;
-            this.pbClose.Location = new System.Drawing.Point(800, 0);
+            this.pbClose.Location = new System.Drawing.Point(799, 0);
             this.pbClose.Name = "pbClose";
             this.pbClose.Size = new System.Drawing.Size(24, 24);
             this.pbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -119,7 +118,7 @@ namespace Felisz
             this.tbLicenc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.tbLicenc.Location = new System.Drawing.Point(82, 19);
             this.tbLicenc.Name = "tbLicenc";
-            this.tbLicenc.Size = new System.Drawing.Size(612, 26);
+            this.tbLicenc.Size = new System.Drawing.Size(611, 26);
             this.tbLicenc.TabIndex = 3;
             this.tbLicenc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -130,7 +129,7 @@ namespace Felisz
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.label2.Location = new System.Drawing.Point(6, 19);
-            this.label2.Margin = new System.Windows.Forms.Padding(3);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 26);
             this.label2.TabIndex = 12;
@@ -144,7 +143,7 @@ namespace Felisz
             this.btAktualizálás.BackColor = System.Drawing.Color.Transparent;
             this.btAktualizálás.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
             this.btAktualizálás.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.btAktualizálás.Location = new System.Drawing.Point(700, 19);
+            this.btAktualizálás.Location = new System.Drawing.Point(699, 19);
             this.btAktualizálás.Name = "btAktualizálás";
             this.btAktualizálás.Size = new System.Drawing.Size(102, 26);
             this.btAktualizálás.TabIndex = 4;
@@ -158,7 +157,7 @@ namespace Felisz
             this.gbBeszédaszisztens.Controls.Add(this.tableLayoutPanel2);
             this.gbBeszédaszisztens.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.gbBeszédaszisztens.Location = new System.Drawing.Point(1, 64);
-            this.gbBeszédaszisztens.Margin = new System.Windows.Forms.Padding(1);
+            this.gbBeszédaszisztens.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.gbBeszédaszisztens.Name = "gbBeszédaszisztens";
             this.gbBeszédaszisztens.Size = new System.Drawing.Size(821, 151);
             this.gbBeszédaszisztens.TabIndex = 14;
@@ -207,7 +206,7 @@ namespace Felisz
             // trbSebesség
             // 
             this.trbSebesség.LargeChange = 1;
-            this.trbSebesség.Location = new System.Drawing.Point(314, 3);
+            this.trbSebesség.Location = new System.Drawing.Point(307, 3);
             this.trbSebesség.Maximum = 5;
             this.trbSebesség.Minimum = -5;
             this.trbSebesség.Name = "trbSebesség";
@@ -220,10 +219,10 @@ namespace Felisz
             // 
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.label3.Location = new System.Drawing.Point(235, 36);
-            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Location = new System.Drawing.Point(228, 36);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 26);
+            this.label3.Size = new System.Drawing.Size(73, 24);
             this.label3.TabIndex = 18;
             this.label3.Text = "Hangerő";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -232,17 +231,17 @@ namespace Felisz
             // 
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.label1.Location = new System.Drawing.Point(235, 3);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Location = new System.Drawing.Point(228, 3);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 26);
+            this.label1.Size = new System.Drawing.Size(73, 24);
             this.label1.TabIndex = 17;
             this.label1.Text = "Sebesség";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // trbHangerő
             // 
-            this.trbHangerő.Location = new System.Drawing.Point(314, 36);
+            this.trbHangerő.Location = new System.Drawing.Point(307, 36);
             this.trbHangerő.Maximum = 100;
             this.trbHangerő.Name = "trbHangerő";
             this.trbHangerő.Size = new System.Drawing.Size(172, 27);
@@ -259,9 +258,9 @@ namespace Felisz
             this.cbTTSEngedélyezve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.cbTTSEngedélyezve.Location = new System.Drawing.Point(3, 3);
             this.cbTTSEngedélyezve.Name = "cbTTSEngedélyezve";
-            this.cbTTSEngedélyezve.Size = new System.Drawing.Size(226, 24);
+            this.cbTTSEngedélyezve.Size = new System.Drawing.Size(219, 24);
             this.cbTTSEngedélyezve.TabIndex = 15;
-            this.cbTTSEngedélyezve.Text = "Beszédaszisztens bekapcsolása";
+            this.cbTTSEngedélyezve.Text = "Beszédaszisztens bekapcsolva";
             this.cbTTSEngedélyezve.UseVisualStyleBackColor = true;
             this.cbTTSEngedélyezve.CheckedChanged += new System.EventHandler(this.cbTTSEngedélyezve_CheckedChanged);
             // 
@@ -276,7 +275,7 @@ namespace Felisz
             this.cbTTSNyelv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.cbTTSNyelv.FormattingEnabled = true;
             this.cbTTSNyelv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cbTTSNyelv.Location = new System.Drawing.Point(311, 69);
+            this.cbTTSNyelv.Location = new System.Drawing.Point(304, 69);
             this.cbTTSNyelv.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cbTTSNyelv.Name = "cbTTSNyelv";
             this.cbTTSNyelv.Size = new System.Drawing.Size(175, 28);
@@ -287,10 +286,10 @@ namespace Felisz
             // 
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.label4.Location = new System.Drawing.Point(235, 69);
-            this.label4.Margin = new System.Windows.Forms.Padding(3);
+            this.label4.Location = new System.Drawing.Point(228, 69);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 26);
+            this.label4.Size = new System.Drawing.Size(73, 24);
             this.label4.TabIndex = 20;
             this.label4.Text = "Nyelv";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -299,10 +298,10 @@ namespace Felisz
             // 
             this.lbFordításNyelve.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.lbFordításNyelve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.lbFordításNyelve.Location = new System.Drawing.Point(235, 102);
-            this.lbFordításNyelve.Margin = new System.Windows.Forms.Padding(3);
+            this.lbFordításNyelve.Location = new System.Drawing.Point(228, 102);
+            this.lbFordításNyelve.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.lbFordításNyelve.Name = "lbFordításNyelve";
-            this.lbFordításNyelve.Size = new System.Drawing.Size(73, 26);
+            this.lbFordításNyelve.Size = new System.Drawing.Size(73, 25);
             this.lbFordításNyelve.TabIndex = 38;
             this.lbFordításNyelve.Text = "Fordítás nyelve";
             this.lbFordításNyelve.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -320,78 +319,69 @@ namespace Felisz
             this.cbFordításNyelve.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cbFordításNyelve.IntegralHeight = false;
             this.cbFordításNyelve.Items.AddRange(new object[] {
-            "CZ",
-            "DE",
-            "EN",
-            "ES",
-            "FR",
-            "HR",
-            "IT",
-            "RO",
-            "RU",
-            "SI",
-            "SK",
-            "SR"});
-            this.cbFordításNyelve.Location = new System.Drawing.Point(311, 102);
+            "CZ - Cseh ",
+            "DE - Német",
+            "EN - Angol",
+            "ES - Spanyol",
+            "FR - Francia",
+            "HR - Horvát",
+            "IT - Olasz",
+            "NL - Holland",
+            "PL - Lengyel",
+            "RO - Román",
+            "RU - Orosz",
+            "SE - Svéd",
+            "SI - Szlovén",
+            "SK - Szlovák",
+            "SR - Szerb",
+            "UK - Ukrán"});
+            this.cbFordításNyelve.Location = new System.Drawing.Point(304, 102);
             this.cbFordításNyelve.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.cbFordításNyelve.MaxDropDownItems = 5;
             this.cbFordításNyelve.Name = "cbFordításNyelve";
             this.cbFordításNyelve.Size = new System.Drawing.Size(175, 28);
             this.cbFordításNyelve.Sorted = true;
             this.cbFordításNyelve.TabIndex = 39;
+            this.cbFordításNyelve.SelectionChangeCommitted += new System.EventHandler(this.cbFordításNyelve_SelectionChangeCommitted);
             // 
             // gbVáltozásLista1
             // 
-            this.gbVáltozásLista1.Controls.Add(this.tableLayoutPanel12);
+            this.gbVáltozásLista1.Controls.Add(this.trSpFordítás);
+            this.gbVáltozásLista1.Controls.Add(this.rtbVáltozásLista);
+            this.gbVáltozásLista1.Controls.Add(this.tableLayoutPanel3);
             this.gbVáltozásLista1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.gbVáltozásLista1.Location = new System.Drawing.Point(1, 217);
-            this.gbVáltozásLista1.Margin = new System.Windows.Forms.Padding(1);
+            this.gbVáltozásLista1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.gbVáltozásLista1.Name = "gbVáltozásLista1";
-            this.gbVáltozásLista1.Size = new System.Drawing.Size(821, 306);
+            this.gbVáltozásLista1.Size = new System.Drawing.Size(821, 413);
             this.gbVáltozásLista1.TabIndex = 15;
             this.gbVáltozásLista1.TabStop = false;
             this.gbVáltozásLista1.Text = "Változáslista";
             // 
-            // tableLayoutPanel12
-            // 
-            this.tableLayoutPanel12.ColumnCount = 1;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Controls.Add(this.rtbVáltozásLista, 0, 3);
-            this.tableLayoutPanel12.Controls.Add(this.ttsPlay1, 0, 2);
-            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
-            this.tableLayoutPanel12.RowCount = 4;
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(815, 287);
-            this.tableLayoutPanel12.TabIndex = 0;
-            // 
             // rtbVáltozásLista
             // 
-            this.rtbVáltozásLista.Location = new System.Drawing.Point(3, 23);
+            this.rtbVáltozásLista.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rtbVáltozásLista.Location = new System.Drawing.Point(3, 40);
             this.rtbVáltozásLista.Name = "rtbVáltozásLista";
-            this.rtbVáltozásLista.Size = new System.Drawing.Size(790, 260);
+            this.rtbVáltozásLista.Size = new System.Drawing.Size(815, 260);
             this.rtbVáltozásLista.TabIndex = 12;
             this.rtbVáltozásLista.Text = "";
             this.rtbVáltozásLista.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.rtbVáltozásLista_MouseDoubleClick);
+            this.rtbVáltozásLista.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbVáltozásLista_MouseDown);
             // 
-            // ttsPlay1
+            // tableLayoutPanel3
             // 
-            this.ttsPlay1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ttsPlay1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ttsPlay1.Image = ((System.Drawing.Image)(resources.GetObject("ttsPlay1.Image")));
-            this.ttsPlay1.Location = new System.Drawing.Point(791, 0);
-            this.ttsPlay1.Margin = new System.Windows.Forms.Padding(0);
-            this.ttsPlay1.mitMondjak = this.rtbVáltozásLista;
-            this.ttsPlay1.Name = "ttsPlay1";
-            this.ttsPlay1.Size = new System.Drawing.Size(24, 20);
-            this.ttsPlay1.TabIndex = 13;
-            this.ttsPlay1.TabStop = false;
-            this.ttsPlay1.TTSállapot = false;
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 791F));
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(815, 24);
+            this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -409,15 +399,33 @@ namespace Felisz
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1647, 1000);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1647, 756);
             this.tableLayoutPanel1.TabIndex = 16;
+            // 
+            // trSpFordítás
+            // 
+            this.trSpFordítás.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.trSpFordítás.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.trSpFordítás.Enabled = false;
+            this.trSpFordítás.Image = ((System.Drawing.Image)(resources.GetObject("trSpFordítás.Image")));
+            this.trSpFordítás.Location = new System.Drawing.Point(307, 324);
+            this.trSpFordítás.Margin = new System.Windows.Forms.Padding(0);
+            this.trSpFordítás.mitMondjak = null;
+            this.trSpFordítás.Name = "trSpFordítás";
+            this.trSpFordítás.Size = new System.Drawing.Size(24, 24);
+            this.trSpFordítás.SpNyelv = null;
+            this.trSpFordítás.TabIndex = 14;
+            this.trSpFordítás.TabStop = false;
+            this.trSpFordítás.TrNyelv = null;
+            this.trSpFordítás.TrVagySp = true;
+            this.trSpFordítás.TTSállapot = false;
             // 
             // formAlapbeállítások
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(1647, 1000);
+            this.ClientSize = new System.Drawing.Size(1647, 756);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pbFormClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -434,9 +442,8 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.trbSebesség)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbHangerő)).EndInit();
             this.gbVáltozásLista1.ResumeLayout(false);
-            this.tableLayoutPanel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ttsPlay1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trSpFordítás)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,14 +465,14 @@ namespace Felisz
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TrackBar trbHangerő;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
-        private System.Windows.Forms.RichTextBox rtbVáltozásLista;
-        private Vezérlők.TTSPlay ttsPlay1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbTTSNyelv;
         private System.Windows.Forms.Label lbFordításNyelve;
         private System.Windows.Forms.ComboBox cbFordításNyelve;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.RichTextBox rtbVáltozásLista;
+        private Vezérlők.TrSpVezérlő trSpFordítás;
     }
 }
