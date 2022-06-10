@@ -51,9 +51,9 @@ namespace Felisz
             this.gbVáltozásLista1 = new System.Windows.Forms.GroupBox();
             this.rtbVáltozásLista = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.trSpFordítás = new Felisz.Vezérlők.TrSpVezérlő();
             this.trSpBeszéd = new Felisz.Vezérlők.TrSpVezérlő();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pbFormClose)).BeginInit();
             this.gbLicenc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
@@ -63,9 +63,9 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.trbHangerő)).BeginInit();
             this.gbVáltozásLista1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trSpFordítás)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trSpBeszéd)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbFormClose
@@ -333,10 +333,10 @@ namespace Felisz
             "PL - Lengyel",
             "RO - Román",
             "RU - Orosz",
-            "SE - Svéd",
             "SI - Szlovén",
             "SK - Szlovák",
             "SR - Szerb",
+            "SV - Svéd",
             "UK - Ukrán"});
             this.cbFordításNyelve.Location = new System.Drawing.Point(304, 102);
             this.cbFordításNyelve.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
@@ -387,25 +387,6 @@ namespace Felisz
             this.tableLayoutPanel3.Size = new System.Drawing.Size(815, 24);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.gbLicenc, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.gbVáltozásLista1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.gbBeszédaszisztens, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1647, 756);
-            this.tableLayoutPanel1.TabIndex = 16;
-            // 
             // trSpFordítás
             // 
             this.trSpFordítás.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -442,6 +423,25 @@ namespace Felisz
             this.trSpBeszéd.TrVagySp = false;
             this.trSpBeszéd.TTSállapot = false;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.gbLicenc, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.gbVáltozásLista1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.gbBeszédaszisztens, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1647, 756);
+            this.tableLayoutPanel1.TabIndex = 16;
+            // 
             // formAlapbeállítások
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,9 +465,9 @@ namespace Felisz
             ((System.ComponentModel.ISupportInitialize)(this.trbHangerő)).EndInit();
             this.gbVáltozásLista1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trSpFordítás)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trSpBeszéd)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
