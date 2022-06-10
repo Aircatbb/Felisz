@@ -285,6 +285,7 @@ namespace Felisz
 
             //TEST
 
+            string test = Funkciók.RegistryRW("TTSSpeed", "10", true);
 
             //RSS beolvasás indítása
             timerRSS_Tick(null, null);
@@ -316,6 +317,7 @@ namespace Felisz
             //Registry beállítások olvasása
             //TTS
             Funkciók.TTSRegOlvasás();
+
 
             //Bejelentkezés
             Form form = new formBejelentkezés();

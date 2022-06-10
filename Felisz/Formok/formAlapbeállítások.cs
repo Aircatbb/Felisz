@@ -80,8 +80,8 @@ namespace Felisz
                 sql = "UPDATE Licenc SET Aktiv=0 WHERE Licenc=@licenc";
                 SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 SQLCommand.Parameters.Add("@licenc", MySql.Data.MySqlClient.MySqlDbType.VarString);
-                SQLCommand.Parameters["@licenc"].Value = Funkciók.LicencReg("", false);
-                //SQLCommand.Parameters["@licenc"].Value = Properties.Settings.Default.licencKódOLD;
+                //SQLCommand.Parameters["@licenc"].Value = Funkciók.LicencReg("", false);
+                SQLCommand.Parameters["@licenc"].Value = Funkciók.RegistryRW("LicKey","", false);
 
 
 
@@ -98,7 +98,8 @@ namespace Felisz
                 SQLCommand.ExecuteNonQuery();
                 SQLCommand.Dispose();
 
-                Funkciók.LicencReg(tbLicenc.Text, true);
+                //Funkciók.LicencReg(tbLicenc.Text, true);
+                Funkciók.RegistryRW("LicKey",tbLicenc.Text, true);
                 //Properties.Settings.Default.licencKódOLD = tbLicenc.Text;
                 Properties.Settings.Default.Save();
 
@@ -138,6 +139,7 @@ namespace Felisz
             trbSebesség.Value = Program.TTSSebesség;
 
 
+
             var voice = TTS.hang.GetInstalledVoices();
             var nyelve = "";
             for (int i = 0; i < voice.Count; i++)
@@ -148,6 +150,8 @@ namespace Felisz
 
             cbTTSNyelv.SelectedIndex = cbTTSNyelv.FindStringExact(Program.TTSNyelv + " / " + nyelve);
 
+            //Fordítás nyelve
+            cbFordításNyelve.SelectedIndex = cbFordításNyelve.FindStringExact(Program.fordításNyelve);
 
             //Változáslista
             rtbVáltozásLista.Text = Properties.Resources.VáltozásLista;

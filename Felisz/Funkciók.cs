@@ -12,6 +12,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 
 
@@ -107,7 +110,7 @@ namespace Felisz
 
                 if (textboxneve.Text.Substring(textboxneve.Text.IndexOf('.')).Length < 5 && textboxneve.Text.Substring(0, textboxneve.Text.IndexOf('@')).Length != 0) Funkciók.CímkeSzínBeállítás(címkeneve, true);
                 else Funkciók.CímkeSzínBeállítás(címkeneve, false);
-                
+
             }
             else
             {
@@ -125,7 +128,7 @@ namespace Felisz
             konzol.Visible = true;
         }
 
-        public static string LicencReg(string licenc, bool RW)
+        public static string LicencReg_BACKUP_TÖRÖLNI(string licenc, bool RW)
         {
             RegistryKey licKey = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Felisz\\Felisz", true);
 
@@ -220,7 +223,7 @@ namespace Felisz
                 var voice = TTS.hang.GetInstalledVoices();
                 for (int i = 0; i < voice.Count; i++)
                 {
-                    if (voice[i].VoiceInfo.Culture.ToString() == "shu-HU")
+                    if (voice[i].VoiceInfo.Culture.ToString() == "hu-HU")
                     {
                         nyelv = voice[i].VoiceInfo.Name;
                         találat = true;
@@ -246,21 +249,42 @@ namespace Felisz
 
 
             TTSKey.Close();
+        }
 
+
+        public static string RegistryRW(string kulcs, string érték, bool RW)
+        {
+            RegistryKey RegKey = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Felisz\\Felisz\\", true);
+
+            if (RW)
+            {
+                RegKey.SetValue(kulcs, érték);
+                RegKey.Close();
+                return "";
+            }
+            else
+            {
+                if (Registry.GetValue(RegKey.ToString(), kulcs, null) != null)
+                {
+                    string temp = RegKey.GetValue(kulcs).ToString();
+                    RegKey.Close();
+                    return temp;
+                }
+                RegKey.Close();
+                return "";
+            }
 
 
 
 
         }
 
+
         public static void VerzióVáltozásLog()
         {
+            /* Régi verzió
             string verJelenlegi = Assembly.GetEntryAssembly().GetName().Version.ToString();
-
-
             RegistryKey verKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz\\", true);
-
-
 
             if (Registry.GetValue(verKey.ToString(), "Version", null) == null)
             {
@@ -280,6 +304,27 @@ namespace Felisz
 
             verKey.SetValue("Version", verJelenlegi);
             verKey.Close();
+            */
+
+            string verJelenlegi = Assembly.GetEntryAssembly().GetName().Version.ToString();
+            string verKey = Funkciók.RegistryRW("Version", "", false);
+
+            if (verKey=="")
+            {
+                Formok.formVáltozásLista vv = new Formok.formVáltozásLista();
+                vv.ShowDialog();
+                Funkciók.RegistryRW("Version", verJelenlegi, true);
+                return;
+            }
+
+            if (verKey != verJelenlegi)
+            {
+                Formok.formVáltozásLista vv = new Formok.formVáltozásLista();
+                vv.ShowDialog();
+            }
+
+            Funkciók.RegistryRW("Version", verJelenlegi, true);
+
         }
 
         public static bool UtolsóKarakterSzóköz(TextBox mező)
@@ -526,8 +571,8 @@ namespace Felisz
             //Lokális licenckód ellenőrzése
             try
             {
-                Program.dekódoltLic = Funkciók.Decrypt(Funkciók.LicencReg("", false));
-                //Program.dekódoltLic = Funkciók.Decrypt(Properties.Settings.Default.licencKódOLD);
+                //Program.dekódoltLic = Funkciók.Decrypt(Funkciók.LicencReg("", false));
+                Program.dekódoltLic = Funkciók.Decrypt(Funkciók.RegistryRW("LicKey", "", false));
                 Program.licÉrvényesség = new DateTime(int.Parse(Program.dekódoltLic.Substring(0, 4)), int.Parse(Program.dekódoltLic.Substring(4, 2)), int.Parse(Program.dekódoltLic.Substring(6, 2)));
                 Program.aktuálisCég = Program.dekódoltLic.Substring(24, 13);
                 Program.prefix = Program.dekódoltLic.Substring(37, Program.dekódoltLic.Length - 37);
@@ -560,8 +605,8 @@ namespace Felisz
             string sql = "SELECT Licenc, ID FROM Licenc WHERE Aktiv=1 AND Licenc=@licKód";
             var SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
             SQLCommand.Parameters.Add("@licKód", MySql.Data.MySqlClient.MySqlDbType.VarString);
-            SQLCommand.Parameters["@licKód"].Value = Funkciók.LicencReg("", false);
-            //SQLCommand.Parameters["@licKód"].Value = Properties.Settings.Default.licencKódOLD;
+            //SQLCommand.Parameters["@licKód"].Value = Funkciók.LicencReg("", false);
+            SQLCommand.Parameters["@licKód"].Value = Funkciók.RegistryRW("LicKey", "", false);
 
 
             try
@@ -598,8 +643,8 @@ namespace Felisz
             conn.Close();
 
             //Lokális és DB-ben tárolt licenc összevetése
-            if (Funkciók.LicencReg("", false) != licDB)
-            //if (Properties.Settings.Default.licencKódOLD != licDB)
+            //if (Funkciók.LicencReg("", false) != licDB)
+            if (Funkciók.RegistryRW("LicKey", "", false) != licDB)
             {
                 Adatbázis.Naplózás("22", Program.aktuálisCég + " " + Program.prefix + "---Nem egyeznek a licenckódok!");
                 //Program.logger.Error(Program.aktuálisCég + " " + Program.prefix + "---Nem egyeznek a licenckódok!");
@@ -647,8 +692,8 @@ namespace Felisz
         {
             //Aktiválás üres licenckód esetén
             //Properties.Settings.Default.Reset();
-            if (Funkciók.LicencReg("", false) == "")
-            //if (Properties.Settings.Default.licencKódOLD == "")
+            //if (Funkciók.LicencReg("", false) == "")
+            if (Funkciók.RegistryRW("LicKey","", false) == "")
             {
                 if (MessageBox.Show("A PROGRAMOT HASZNÁLAT ELÖTT AKTIVÁLNI KELL!" + Environment.NewLine + Environment.NewLine +
                     "Amennyiben rendelkezik érvényes licenckóddal, nyomja meg az 'Igen' gombot, ellenkező esetben a 'nem' gombbal kiléphet." + Environment.NewLine + Environment.NewLine +
@@ -678,8 +723,8 @@ namespace Felisz
 
                             if (Program.prefix == prefix)
                             {
-                                Funkciók.LicencReg(licencKód, true);
-                                //Properties.Settings.Default.licencKódOLD = licencKód;
+                                //Funkciók.LicencReg(licencKód, true);
+                                Funkciók.RegistryRW("LicKey",licencKód, true);
                                 //Properties.Settings.Default.Save();
                                 aktiválásOK = true;
 
@@ -1255,7 +1300,37 @@ namespace Felisz
             }
         }
 
+        public static async Task<string> Fordítás(string szöveg, string nyelv)
+        {
+            string key = "22a726fac02646baafeff60124ccf85e";
+            string endpoint = "https://api.cognitive.microsofttranslator.com/";
+            string location = "westeurope";
 
+            string route = "/translate?api-version=3.0&from=hu&to=" + nyelv;
+            object[] body = new object[] { new { Text = szöveg } };
+            var requestBody = JsonConvert.SerializeObject(body);
+
+            using (var client = new HttpClient())
+            using (var request = new HttpRequestMessage())
+            {
+                // Build the request.
+                request.Method = HttpMethod.Post;
+                request.RequestUri = new Uri(endpoint + route);
+                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+                request.Headers.Add("Ocp-Apim-Subscription-Region", location);
+
+                HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
+                string result = await response.Content.ReadAsStringAsync();
+                List<RootObject> fordítás = JsonConvert.DeserializeObject<List<RootObject>>(result);
+
+                return fordítás[0].translations[0].text;
+
+            }
+
+
+
+        }
 
 
     }

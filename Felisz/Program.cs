@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
+using Microsoft.CognitiveServices.Speech.Translation;
 
 namespace Felisz
 {
@@ -24,7 +27,8 @@ namespace Felisz
         public static int TTSHangerő = 33;
         public static int TTSSebesség = 0;
         public static string TTSNyelv = "";
-
+        //Fordítás nyelve
+        public static string fordításNyelve = "DE";
 
         /// <summary>
         /// The main entry point for the application.
