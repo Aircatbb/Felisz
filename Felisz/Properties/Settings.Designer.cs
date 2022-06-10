@@ -132,17 +132,5 @@ namespace Felisz.Properties {
                 this["jelszóÉrvényesség"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("AIzaSyDbfd28AxL8tBKWUrmEOHaBh9e3D-NGQnY")]
-        public string GoogleMapsAPI {
-            get {
-                return ((string)(this["GoogleMapsAPI"]));
-            }
-            set {
-                this["GoogleMapsAPI"] = value;
-            }
-        }
     }
 }

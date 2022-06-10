@@ -29,8 +29,5 @@
     <Setting Name="jelszóÉrvényesség" Type="System.Double" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="GoogleMapsAPI" Type="System.String" Scope="User">
-      <Value Profile="(Default)">AIzaSyDbfd28AxL8tBKWUrmEOHaBh9e3D-NGQnY</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

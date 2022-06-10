@@ -1,7 +1,14 @@
+V0.0.10.1
+	- Azure ApiKey titkosítva
+	- Google ApiKey titkosítva
+	- Többnyelvû fordítás tesztelhetõ a változáslistán, az alapbeállításokon belül kiválasztott 
+	nyelv a fordítás esetén azonnal érvényesül.
+	- TTS következõ verzióig a régi...
+
+
 V0.0.9.7
 	- TrSpVezérlõ = többcélú vezérlõ a fordítás, és a TTS funkcióhoz. Új paraméterek:
-		o TrNyelv - Fordítás nyelve
-		o SpNyelv - Beszéd nyelve
+		o TrMentett - Fordítás után az eredeti szöveg mentett változata
 		o mitMondjak - Beszéd szövege
 		o TTSállapot - Beszéd státusza
 		o TrVagySp - Vezérlõ funkciója: fordítás, vagy beszéd

@@ -309,7 +309,7 @@ namespace Felisz
             string verJelenlegi = Assembly.GetEntryAssembly().GetName().Version.ToString();
             string verKey = Funkciók.RegistryRW("Version", "", false);
 
-            if (verKey=="")
+            if (verKey == "")
             {
                 Formok.formVáltozásLista vv = new Formok.formVáltozásLista();
                 vv.ShowDialog();
@@ -693,7 +693,7 @@ namespace Felisz
             //Aktiválás üres licenckód esetén
             //Properties.Settings.Default.Reset();
             //if (Funkciók.LicencReg("", false) == "")
-            if (Funkciók.RegistryRW("LicKey","", false) == "")
+            if (Funkciók.RegistryRW("LicKey", "", false) == "")
             {
                 if (MessageBox.Show("A PROGRAMOT HASZNÁLAT ELÖTT AKTIVÁLNI KELL!" + Environment.NewLine + Environment.NewLine +
                     "Amennyiben rendelkezik érvényes licenckóddal, nyomja meg az 'Igen' gombot, ellenkező esetben a 'nem' gombbal kiléphet." + Environment.NewLine + Environment.NewLine +
@@ -724,7 +724,7 @@ namespace Felisz
                             if (Program.prefix == prefix)
                             {
                                 //Funkciók.LicencReg(licencKód, true);
-                                Funkciók.RegistryRW("LicKey",licencKód, true);
+                                Funkciók.RegistryRW("LicKey", licencKód, true);
                                 //Properties.Settings.Default.Save();
                                 aktiválásOK = true;
 
@@ -1124,7 +1124,8 @@ namespace Felisz
         {
             try
             {
-                string url = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins=" + cím1 + "&destinations=" + cím2 + "&key=" + Properties.Settings.Default.GoogleMapsAPI;
+
+                string url = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins=" + cím1 + "&destinations=" + cím2 + "&key=" + Funkciók.Decrypt("CCeHrcFkJrXHEbw3DQwbOPkAg0KTsqv0mgYiakh92uX4lAp65yyKb+/aJqVPREye3akeJABWplpvc1cQjrrPzNA7QvmFT4z+q21p567q5mo=");
                 WebRequest request = WebRequest.Create(url);
                 WebResponse response = (HttpWebResponse)request.GetResponse();
                 StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
@@ -1302,9 +1303,11 @@ namespace Felisz
 
         public static async Task<string> Fordítás(string szöveg, string nyelv)
         {
-            string key = "22a726fac02646baafeff60124ccf85e";
+
+            string key = Funkciók.Decrypt("qzZBgmSFC5+aAh8UZzyyWkNZvVYdp0WkSfUQT6w5vTGk89PZjZF2FC888p1gFl5VPYpHsHsiqRpjjyGjAbPXXXr6vqD7pDcxpHDLK86w8SM=");
             string endpoint = "https://api.cognitive.microsofttranslator.com/";
             string location = "westeurope";
+            string ford = "";
 
             string route = "/translate?api-version=3.0&from=hu&to=" + nyelv;
             object[] body = new object[] { new { Text = szöveg } };
@@ -1323,10 +1326,11 @@ namespace Felisz
                 HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
                 string result = await response.Content.ReadAsStringAsync();
                 List<RootObject> fordítás = JsonConvert.DeserializeObject<List<RootObject>>(result);
-
                 return fordítás[0].translations[0].text;
 
             }
+
+
 
 
 

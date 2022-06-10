@@ -152,7 +152,8 @@ namespace Felisz
 
             //Fordítás és hang
             cbFordításNyelve.SelectedIndex = cbFordításNyelve.FindString(Program.fordításNyelve);
-            trSpFordítás.Enabled = true; 
+            trSpFordítás.Enabled = true;
+            trSpBeszéd.Enabled = true;
 
             
             //Változáslista
