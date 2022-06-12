@@ -1,3 +1,7 @@
+V0.0.11.1
+	- Azure TTS 75%-ban integrálva, még sok helyen össze kell csiszolni!
+	- Használata elött a Registry-ben törölni az összes TTS* bejegyzést!
+
 V0.0.10.1
 	- Azure ApiKey titkosítva
 	- Google ApiKey titkosítva

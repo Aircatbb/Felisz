@@ -18,6 +18,8 @@ using System.Threading.Tasks;
 
 
 
+
+
 namespace Felisz
 {
     class Funkciók
@@ -58,7 +60,8 @@ namespace Felisz
                         if (DateTime.Parse(textboxneve.Text) <= DateTime.Now)
                         {
                             TTS.TTS_StopAll();
-                            TTS.TTS_Play("Figyelem! Kiskorúak foglalkoztatását a törvény bünteti!", false);
+                            //TTS.TTS_Play("Figyelem! Kiskorúak foglalkoztatását a törvény bünteti!", false);
+                            TTS.SynthesizeToSpeaker("Figyelem! Kiskorúak foglalkoztatását a törvény bünteti!");
                             MessageBox.Show("Kiskorúak foglalkoztatását a törvény bünteti!" + Environment.NewLine +
                                 "A 16. életévét betöltött de 18 évnél fiatalabb személy is" + Environment.NewLine +
                                 "csupán törvényes képviselője hozzájárulása birtokában" + Environment.NewLine +
@@ -152,8 +155,9 @@ namespace Felisz
 
         }
 
-        public static void TTSRegÍrás(bool engedélyezve, int beszHangerő, int beszSebesség, string beszNyelv)
+        public static void TTSRegÍrás_OLD(bool engedélyezve, int beszHangerő, int beszSebesség, string beszNyelv)
         {
+            /*
             RegistryKey TTSKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz\\", true);
 
             TTSKey.SetValue("TTSEnabled", engedélyezve);
@@ -172,10 +176,12 @@ namespace Felisz
 
 
             TTSKey.Close();
+            */
         }
 
-        public static void TTSRegOlvasás()
+        public static void TTSRegOlvasás_OLD()
         {
+            /*
             RegistryKey TTSKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz\\", true);
 
 
@@ -249,6 +255,7 @@ namespace Felisz
 
 
             TTSKey.Close();
+            */
         }
 
 
@@ -282,7 +289,7 @@ namespace Felisz
 
         public static void VerzióVáltozásLog()
         {
-            /* Régi verzió
+            /* régi
             string verJelenlegi = Assembly.GetEntryAssembly().GetName().Version.ToString();
             RegistryKey verKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Felisz\\Felisz\\", true);
 
@@ -1307,7 +1314,7 @@ namespace Felisz
             string key = Funkciók.Decrypt("qzZBgmSFC5+aAh8UZzyyWkNZvVYdp0WkSfUQT6w5vTGk89PZjZF2FC888p1gFl5VPYpHsHsiqRpjjyGjAbPXXXr6vqD7pDcxpHDLK86w8SM=");
             string endpoint = "https://api.cognitive.microsofttranslator.com/";
             string location = "westeurope";
-            string ford = "";
+            
 
             string route = "/translate?api-version=3.0&from=hu&to=" + nyelv;
             object[] body = new object[] { new { Text = szöveg } };
@@ -1336,6 +1343,7 @@ namespace Felisz
 
         }
 
+       
 
     }
 }

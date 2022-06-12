@@ -23,12 +23,15 @@ namespace Felisz
         public static string aktuálisFelhasználó = "";
         public static string aktuálisFelhasználóNév = "";
         //TTS
-        public static bool TTSEngedélyezve = false;
+        
+        public static string TTSEngedélyezve = "No";
         public static int TTSHangerő = 33;
         public static int TTSSebesség = 0;
-        public static string TTSNyelv = "";
-        //Fordítás nyelve
+        //public static string TTSNyelv = "";
+
+        //Fordítás nyelve és hang
         public static string fordításNyelve = "DE";
+        public static string TTS_Nyelv = "hu-HU";
 
         /// <summary>
         /// The main entry point for the application.

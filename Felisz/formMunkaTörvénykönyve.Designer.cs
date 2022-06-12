@@ -213,7 +213,6 @@ namespace Felisz
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(702, 1000);
             this.panel1.TabIndex = 6;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // ttsPlayMT
             // 
@@ -228,7 +227,11 @@ namespace Felisz
             this.ttsPlayMT.Size = new System.Drawing.Size(24, 24);
             this.ttsPlayMT.TabIndex = 15;
             this.ttsPlayMT.TabStop = false;
+            this.ttsPlayMT.TrMentett = "";
+            this.ttsPlayMT.TrNyelv = "HU";
+            this.ttsPlayMT.TrVagySp = false;
             this.ttsPlayMT.TTSállapot = false;
+            this.ttsPlayMT.Click += new System.EventHandler(this.btPlay_Click);
             // 
             // formMunkaTörvénykönyve
             // 

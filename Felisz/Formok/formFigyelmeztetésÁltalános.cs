@@ -41,8 +41,11 @@ namespace Felisz.Formok
             tbFigyelmeztetés.Text = figySzöveg;
             tbFigyelmeztetés.Height = tbFigyelmeztetés.Lines.Count() * 23;
             this.Height = 100 + (tbFigyelmeztetés.Lines.Count() * 23);
-            TTS.TTS_StopAll();
-            TTS.TTS_Play(figyTTS,false);
+
+            if (TTS.synthesizer != null) TTS.synthesizer.StopSpeakingAsync();
+            TTS.SynthesizeToSpeaker(figyTTS);
+            //TTS.TTS_StopAll();
+            //TTS.TTS_Play(figyTTS,false);
             
         }
     }

@@ -16,4 +16,4 @@ Nyitott pontok:
 	- A változáskövetés végett, újra szükséges a mentés, törlés és módosítás folyamatok ellenõrzése!!!
 	- Frissités rész hibakezelése
 	- Registry kezelés végett, újra tesztelni a licenckód megadását, módosítását, változáslistát!
-	
+	- Figyelem! A Google API-ra IP szûrést tettem!

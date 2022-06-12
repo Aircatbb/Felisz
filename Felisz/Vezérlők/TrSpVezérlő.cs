@@ -92,16 +92,20 @@ namespace Felisz.Vezérlők
                 {
 
 
-                    TTS.hang.SpeakAsyncCancelAll();
-                    TTS.hangRSS.SpeakAsyncCancelAll();
-                    TTS.TTS_Play(TTS.TTS_SzövegKorrekció(mitMondjak.Text), false);
-                    this.TTSállapot = true;
+
+                    if (TTS.synthesizer != null) TTS.synthesizer.StopSpeakingAsync();
+                    TTS.SynthesizeToSpeaker(TTS.TTS_SzövegKorrekció(mitMondjak.Text));
+                    //TTS.hang.SpeakAsyncCancelAll();
+                    //TTS.hangRSS.SpeakAsyncCancelAll();
+                    //TTS.TTS_Play(TTS.TTS_SzövegKorrekció(mitMondjak.Text), false);
+                    //this.TTSállapot = true;
                 }
                 else
                 {
-                    TTS.hang.Resume(); //különben pause marad az állapota
-                    TTS.hang.SpeakAsyncCancelAll();
-                    this.TTSállapot = false;
+
+                    //TTS.hang.Resume(); //különben pause marad az állapota
+                    //TTS.hang.SpeakAsyncCancelAll();
+                    //this.TTSállapot = false;
                     //var test = TTS.hang.State;
                 }
 

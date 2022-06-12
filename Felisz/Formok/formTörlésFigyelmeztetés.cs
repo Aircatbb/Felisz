@@ -19,20 +19,22 @@ namespace Felisz.Formok
 
         private void formTörlésFigyelmeztetés_Load(object sender, EventArgs e)
         {
-            TTS.TTS_StopAll();
-            TTS.TTS_Play("FIGYELEM! VÉGLEGESEN TÖRÖLNI KÉSZÜL A KIVÁLASZTOTT MUNKAVÁLLALÓT!",false);
+            if (TTS.synthesizer != null) TTS.synthesizer.StopSpeakingAsync();
+            TTS.SynthesizeToSpeaker("FIGYELEM! VÉGLEGESEN TÖRÖLNI KÉSZÜL A KIVÁLASZTOTT MUNKAVÁLLALÓT!");
+            //TTS.TTS_StopAll();
+            //TTS.TTS_Play("FIGYELEM! VÉGLEGESEN TÖRÖLNI KÉSZÜL A KIVÁLASZTOTT MUNKAVÁLLALÓT!",false);
             
         }
 
         private void btMegszakítás_Click(object sender, EventArgs e)
         {
-            TTS.hang.SpeakAsyncCancelAll();
+            if (TTS.synthesizer != null) TTS.synthesizer.StopSpeakingAsync();
             formMunkavállalóVálasztás.mód = "A";
         }
 
         private void btTörlés_Click(object sender, EventArgs e)
         {
-            TTS.hang.SpeakAsyncCancelAll();
+            if (TTS.synthesizer != null) TTS.synthesizer.StopSpeakingAsync();
             formMunkavállalóVálasztás.mód = "T";
         }
     }

@@ -4,6 +4,8 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
+
+
 namespace Felisz
 {
 
@@ -81,7 +83,7 @@ namespace Felisz
                 SQLCommand = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 SQLCommand.Parameters.Add("@licenc", MySql.Data.MySqlClient.MySqlDbType.VarString);
                 //SQLCommand.Parameters["@licenc"].Value = Funkciók.LicencReg("", false);
-                SQLCommand.Parameters["@licenc"].Value = Funkciók.RegistryRW("LicKey","", false);
+                SQLCommand.Parameters["@licenc"].Value = Funkciók.RegistryRW("LicKey", "", false);
 
 
 
@@ -99,7 +101,7 @@ namespace Felisz
                 SQLCommand.Dispose();
 
                 //Funkciók.LicencReg(tbLicenc.Text, true);
-                Funkciók.RegistryRW("LicKey",tbLicenc.Text, true);
+                Funkciók.RegistryRW("LicKey", tbLicenc.Text, true);
                 //Properties.Settings.Default.licencKódOLD = tbLicenc.Text;
                 Properties.Settings.Default.Save();
 
@@ -134,7 +136,11 @@ namespace Felisz
             tbLicenc.Text = Program.kódoltLic;
 
             //TTS
-            cbTTSEngedélyezve.Checked = Program.TTSEngedélyezve;
+            //cbTTSEngedélyezve.Checked = Program.TTSEngedélyezve;
+            if (Program.TTSEngedélyezve == "Yes") cbTTSEngedélyezve.Checked = true;
+            else cbTTSEngedélyezve.Checked = false;
+            
+            /*
             trbHangerő.Value = Program.TTSHangerő;
             trbSebesség.Value = Program.TTSSebesség;
 
@@ -149,13 +155,18 @@ namespace Felisz
             }
 
             cbTTSNyelv.SelectedIndex = cbTTSNyelv.FindStringExact(Program.TTSNyelv + " / " + nyelve);
+            */
 
             //Fordítás és hang
             cbFordításNyelve.SelectedIndex = cbFordításNyelve.FindString(Program.fordításNyelve);
-            trSpFordítás.Enabled = true;
-            trSpBeszéd.Enabled = true;
+            cbTTS_Nyelv.SelectedIndex = cbTTS_Nyelv.FindString(Program.TTS_Nyelv.Substring(0,2).ToUpper());
 
-            
+            var test1 = Program.TTS_Nyelv.Substring(0, 2).ToUpper();
+            var test2 = Program.fordításNyelve;
+            trSp_Fordítás.Enabled = true;
+            trSp_Beszéd.Enabled = true;
+
+
             //Változáslista
             rtbVáltozásLista.Text = Properties.Resources.VáltozásLista;
 
@@ -167,27 +178,34 @@ namespace Felisz
         {
             if (cbTTSEngedélyezve.Checked)
             {
-                Funkciók.TTSRegÍrás(true, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
+                //Funkciók.TTSRegÍrás(true, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
+
+                Funkciók.RegistryRW("TTSEnabled", "Yes", true);
+
                 TTS.TTS_Beállítás();
             }
-            else Funkciók.TTSRegÍrás(false, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
+            else Funkciók.RegistryRW("TTSEnabled", "No", true);
+            //Funkciók.TTSRegÍrás(false, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
             TTS.TTS_Beállítás();
         }
 
 
         private void trbSebesség_ValueChanged(object sender, EventArgs e)
         {
-
+            /*
             Program.TTSSebesség = trbSebesség.Value;
             Funkciók.TTSRegÍrás(Program.TTSEngedélyezve, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
             TTS.TTS_Beállítás();
+            */
         }
 
         private void trbHangerő_ValueChanged(object sender, EventArgs e)
         {
+            /*
             Program.TTSHangerő = trbHangerő.Value;
             Funkciók.TTSRegÍrás(Program.TTSEngedélyezve, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
             TTS.TTS_Beállítás();
+            */
         }
 
         private void rtbVáltozásLista_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -198,18 +216,21 @@ namespace Felisz
 
         }
 
-     
+
 
         private void cbTTSNyelv_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            /*
             Program.TTSNyelv = cbTTSNyelv.Text.Substring(0, cbTTSNyelv.Text.IndexOf(" / "));
             Funkciók.TTSRegÍrás(Program.TTSEngedélyezve, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
             TTS.hang.SpeakAsyncCancelAll();
             TTS.hangRSS.SpeakAsyncCancelAll();
             
 
+
             TTS.TTS_Beállítás();
             TTS.TTS_Play("A Felisz Aurora köszönti Önt!", false);
+            */
         }
 
         private void pbClose_Click(object sender, EventArgs e)
@@ -220,32 +241,63 @@ namespace Felisz
         private void cbFordításNyelve_SelectionChangeCommitted(object sender, EventArgs e)
         {
             Program.fordításNyelve = cbFordításNyelve.Text.Substring(0, 2);
-            Funkciók.RegistryRW("TranslateTo",Program.fordításNyelve,true);
+            Funkciók.RegistryRW("TranslateTo", Program.fordításNyelve, true);
+
+
+
 
         }
 
-
-
-
-        private void rtbVáltozásLista_MouseDown(object sender, MouseEventArgs e)
+        private void cbTTS_Nyelv_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
+
+            string[,] nyelvek = new string[,]{
+                    {"DE", "de-DE"},
+                    {"CS", "cs-CZ"},
+                    {"EN", "en-US"},
+                    {"ES", "es-ES"},
+                    {"FR", "fr-FR"},
+                    {"HR", "hr-HR"},
+                    {"HU", "hu-HU"},
+                    {"IT", "it-IT"},
+                    {"NL", "nl-NL"},
+                    {"PL", "pl-PL"},
+                    {"RO", "ro-RO"},
+                    {"RU", "ru-RU"},
+                    {"SI", "sl-SI"},
+                    {"SK", "sk-SK"},
+                    {"SR", "sr-RS"},
+                    {"SV", "sv-SE"},
+                    {"UK", "uk-UA"}};
+
+
+            
+
+            for (int i = 0; i < nyelvek.Length; i++)
             {
-
-                
-                PictureBox fordításGomb = new PictureBox();
-                fordításGomb.Left = e.X;
-                fordításGomb.Top = e.Y;
-                fordításGomb.Width = 20;
-                fordításGomb.Height = 20;
-                fordításGomb.BackColor = Color.Azure;
-                fordításGomb.Visible = true;
-                fordításGomb.Enabled = true;
-                Controls.Add(fordításGomb);
-                
-
-
+                if (nyelvek[i,0]== cbTTS_Nyelv.Text.Substring(0, 2))
+                {
+                    Program.TTS_Nyelv = nyelvek[i, 1];
+                    break;
+                }
             }
+
+
+            Funkciók.RegistryRW("TTSEnabled", "Yes", true);
+            Funkciók.RegistryRW("TTSLanguage", Program.TTS_Nyelv, true);
+
+
+            //Funkciók.TTSRegÍrás(Program.TTSEngedélyezve, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
+            if (TTS.synthesizer != null) TTS.synthesizer.StopSpeakingAsync();
+
+
+            //TTS.hang.SpeakAsyncCancelAll();
+            //TTS.hangRSS.SpeakAsyncCancelAll();
+
+
+            TTS.TTS_Beállítás();
+            //TTS.TTS_Play("A Felisz Aurora köszönti Önt!", false);
+            TTS.SynthesizeToSpeaker("A Felisz Aurora köszönti Önt!");
         }
     }
 }

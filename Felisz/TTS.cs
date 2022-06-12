@@ -5,16 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
+using Microsoft.CognitiveServices.Speech.Translation;
 
 namespace Felisz
 {
     class TTS
     {
-        public static SpeechSynthesizer hang = new SpeechSynthesizer();
-        public static SpeechSynthesizer hangRSS = new SpeechSynthesizer();
+        public static System.Speech.Synthesis.SpeechSynthesizer hang = new System.Speech.Synthesis.SpeechSynthesizer();
+        public static System.Speech.Synthesis.SpeechSynthesizer hangRSS = new System.Speech.Synthesis.SpeechSynthesizer();
+
+        public static bool TTS_Lejátszás = false;
+        public static SpeechConfig configTTS = null;
+        public static Microsoft.CognitiveServices.Speech.SpeechSynthesizer synthesizer = null;
+
+
+
         public static void TTS_Beállítás()
         {
 
+            /*
             try
             {
                 hang.SelectVoice(Program.TTSNyelv);
@@ -30,24 +41,27 @@ namespace Felisz
                 return;
             }
 
+            */
 
 
 
 
-
-            if (Program.TTSEngedélyezve == false)
+            if (Program.TTSEngedélyezve == "No")
             {
                 PictureBox icon = Application.OpenForms["formFelisz"].Controls["panelTopMenu"].Controls["pbTTSEngedélyezés"] as PictureBox;
-                hang.SpeakAsyncCancelAll();
-                hangRSS.SpeakAsyncCancelAll();
+
+                if (TTS.synthesizer != null) TTS.synthesizer.StopSpeakingAsync();
+
+                //hang.SpeakAsyncCancelAll();
+                //hangRSS.SpeakAsyncCancelAll();
                 icon.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
                 return;
             }
-            hang.Rate = Program.TTSSebesség;
-            hang.Volume = Program.TTSHangerő;
+            //hang.Rate = Program.TTSSebesség;
+            //hang.Volume = Program.TTSHangerő;
 
-            hangRSS.Rate = Program.TTSSebesség;
-            hangRSS.Volume = Program.TTSHangerő;
+            //hangRSS.Rate = Program.TTSSebesség;
+            //hangRSS.Volume = Program.TTSHangerő;
 
 
 
@@ -65,13 +79,14 @@ namespace Felisz
             pB.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
         }
 
-        public static void TTS_Play(string szöveg, bool RSS)
+        public static void TTS_Play_OLD(string szöveg, bool RSS)
         {
+            /*
             if (Program.TTSEngedélyezve == false) return;
 
             if (RSS) hangRSS.SpeakAsync(TTS_SzövegKorrekció(szöveg));
             else hang.SpeakAsync(TTS_SzövegKorrekció(szöveg));
-
+            */
 
         }
 
@@ -230,7 +245,78 @@ namespace Felisz
             return név.Substring(név.IndexOf(" ") + 1);
         }
 
-        
+        async static Task RecognizeFromMic(SpeechConfig speechConfig)
+        {
+            string szöveg = "Test szöveg";
+
+
+            var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
+            var recognizer = new SpeechRecognizer(speechConfig, "hu-HU", audioConfig);
+
+
+            Console.WriteLine("Beszé valamit waze!");
+            var result = await recognizer.RecognizeOnceAsync();
+            Console.WriteLine($"Én ezt értettem: " + result.Text);
+            szöveg = result.Text;
+            Console.WriteLine(szöveg);
+        }
+
+
+        public async static Task SynthesizeToSpeaker(string szöveg)
+        {
+
+
+            configTTS = SpeechConfig.FromSubscription(Funkciók.Decrypt("+IAKPB59mtSXPNFs4lexGcJD8G8TyhkmTNlXfQetCfR+8lKcmn3ba+bpk8HuyAj5pAuW6TXy9tOP32l5MD3SC8QxqiFeJAlEnxw+a2Ps6qk="), "westeurope");
+            configTTS.SpeechSynthesisLanguage = Program.TTS_Nyelv;
+
+            synthesizer = new Microsoft.CognitiveServices.Speech.SpeechSynthesizer(configTTS);
+            synthesizer.SynthesisCompleted += Synthesizer_SynthesisCompleted;
+
+            TTS.TTS_Lejátszás = true;
+
+
+            await synthesizer.SpeakTextAsync(szöveg);
+            //await synthesizer.StartSpeakingTextAsync(szöveg);
+            //synthesizer.StopSpeakingAsync();
+
+
+
+        }
+
+        private static void Synthesizer_SynthesisCompleted(object sender, SpeechSynthesisEventArgs e)
+        {
+            TTS.TTS_Lejátszás = false;
+            synthesizer.Dispose();
+        }
+
+        static async Task TranslateSpeechAsync()
+        {
+            var translationConfig =
+                SpeechTranslationConfig.FromSubscription("72da4768518f4116a9cdc338f9c6f36a", "westeurope");
+
+            var fromLanguage = "hu-HU";
+            var toLanguages = new List<string> { "it", "fr", "de", "en" };
+            translationConfig.SpeechRecognitionLanguage = fromLanguage;
+
+            toLanguages.ForEach(translationConfig.AddTargetLanguage);
+
+            var recognizer = new TranslationRecognizer(translationConfig);
+
+            Console.Write($"Mondgyá valamit '{fromLanguage}' és ");
+            Console.WriteLine($"lefordítom waze '{string.Join("', '", toLanguages)}'.\n");
+
+            var result = await recognizer.RecognizeOnceAsync();
+            if (result.Reason == ResultReason.TranslatedSpeech)
+            {
+                Console.WriteLine($"Eredeti: \"{result.Text}\":");
+                foreach (var item in result.Translations)
+                {
+
+                    //Console.WriteLine($"Fordítás '{language}': {translation}");
+                }
+            }
+        }
+
 
 
 

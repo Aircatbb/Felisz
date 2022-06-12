@@ -280,12 +280,17 @@ namespace Felisz
 
         }
 
-        private void Inicializálás()
+
+
+        private async void Inicializálás()
+        //private void Inicializálás()
         {
 
             //TEST
 
-            
+
+
+
 
             //RSS beolvasás indítása
             timerRSS_Tick(null, null);
@@ -303,7 +308,7 @@ namespace Felisz
             //Licenckód ellenőrzése
             if (Funkciók.LicencEllenőrzés() != true) MenükLetiltása();
 
-       
+
             //MT betöltése
             if (!MunkaTörvénykönyve.MTBetöltése()) MessageBox.Show("Hiba történt a Munka Törvénykönyve betöltésekor," + Environment.NewLine + "ennélkül a program csak csökkentett módban működik!", "Hiba");
 
@@ -316,16 +321,21 @@ namespace Felisz
 
             //Registry beállítások olvasása
             //Nyelvi és hang beállítások
-            Funkciók.TTSRegOlvasás();
-            if (Funkciók.RegistryRW("TranslateTo", "", false) == "")
-            {
-                Funkciók.RegistryRW("TranslateTo", "EN", true);
-            }
-            else
-            {
-                Program.fordításNyelve = Funkciók.RegistryRW("TranslateTo", "", false);
-            }
 
+            //Funkciók.TTSRegOlvasás();
+
+            if (Funkciók.RegistryRW("TTSEnabled", "", false) == "") Funkciók.RegistryRW("TTSEnabled", "Yes", true);
+            else Program.TTSEngedélyezve = Funkciók.RegistryRW("TTSEnabled", "", false);
+
+            if (Funkciók.RegistryRW("TTSLanguage", "", false) == "") Funkciók.RegistryRW("TTSLanguage", "hu-HU", true);
+            else Program.TTS_Nyelv = Funkciók.RegistryRW("TTSLanguage", "", false);
+
+
+            if (Funkciók.RegistryRW("TranslateTo", "", false) == "") Funkciók.RegistryRW("TranslateTo", "EN", true);
+            else Program.fordításNyelve = Funkciók.RegistryRW("TranslateTo", "", false);
+
+            
+            TTS.TTS_Beállítás();
 
 
             //Bejelentkezés
@@ -406,32 +416,40 @@ namespace Felisz
             lbFelhasználó.Text = "Felhasználó: " + Program.aktuálisFelhasználóNév;
 
 
-            //TTS inicializálása
-            TTS.TTS_Beállítás();
+      
 
 
             //Verzóváltozás értesítés
-            TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! Új funkciók és frissítések érhetőek el!",false);
+            await TTS.SynthesizeToSpeaker("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! Új funkciók és frissítések érhetőek el!");
+            //TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! Új funkciók és frissítések érhetőek el!", false);
             Funkciók.VerzióVáltozásLog();
-            TTS.hang.SpeakAsyncCancelAll();
+            if (TTS.synthesizer != null) TTS.synthesizer.StopSpeakingAsync();
 
             //Üdvözlet, születésnap, névnap, hírek
 
+            await TTS.SynthesizeToSpeaker("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! A Felisz auróra üdvözli Önt! Ma " + DateTime.Now.Year + " " + TTS.szám2Hónap(DateTime.Now.Month) + " hónap " + TTS.szám2Nap(DateTime.Now.Day) + " van. Születésnaposok: Bohus Attila. Ma névnapjukat ünneplők: Lackó Mackó");
 
+            Program.TTS_Nyelv = "de-DE";
+            await TTS.SynthesizeToSpeaker("Hallo, wie geht es dir?");
 
+            Program.TTS_Nyelv = "hu-HU";
 
+            /*
             TTS.TTS_Play("Kedves " + TTS.név2Utónév(Program.aktuálisFelhasználóNév) + "! A Felisz auróra üdvözli Önt! Ma " + DateTime.Now.Year + " " + TTS.szám2Hónap(DateTime.Now.Month) + " hónap " + TTS.szám2Nap(DateTime.Now.Day) + " van.",true);
             TTS.TTS_Play("Születésnaposok: Bohus Attila",true);
             TTS.TTS_Play("Ma névnapjukat ünneplők: Lackó Mackó",true);
-            
+            */
 
 
             //Funkciók.TTS("Itt most hangfelismeréssel lehetne válaszolni.");
 
+
             for (int i = 0; i < RSSFeed.postok.Count; i++)
             {
-                TTS.TTS_Play(RSSFeed.postok[i].Cím,true);
+                //TTS.TTS_Play(RSSFeed.postok[i].Cím,true);
+                await TTS.SynthesizeToSpeaker(TTS.TTS_SzövegKorrekció(RSSFeed.postok[i].Cím));
             }
+
 
 
 
@@ -532,20 +550,29 @@ namespace Felisz
         private void pbTTSEngedélyezés_Click(object sender, EventArgs e)
         {
 
-            if (Program.TTSEngedélyezve)
+
+            if (Program.TTSEngedélyezve == "Yes")
             {
-                Program.TTSEngedélyezve = false;
-                Funkciók.TTSRegÍrás(false, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
+                Program.TTSEngedélyezve = "No";
+                Funkciók.RegistryRW("TTSEnabled", "No", true);
+                if (TTS.synthesizer != null)
+                {
+                    TTS.synthesizer.StopSpeakingAsync();
+                    //TTS.synthesizer.Dispose();
+                }
+                //Funkciók.TTSRegÍrás(false, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
                 TTS.TTS_Beállítás();
                 return;
             }
-            else Program.TTSEngedélyezve = true;
+            else
             {
-                Funkciók.TTSRegÍrás(true, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
+                Program.TTSEngedélyezve = "Yes";
+                Funkciók.RegistryRW("TTSEnabled", "Yes", true);
+                //Funkciók.TTSRegÍrás(true, Program.TTSHangerő, Program.TTSSebesség, Program.TTSNyelv);
                 TTS.TTS_Beállítás();
             }
 
-            
+
         }
 
         private void ADALogo_Click(object sender, EventArgs e)
