@@ -539,8 +539,7 @@ namespace Felisz
         private System.Windows.Forms.ComboBox cbFordításNyelve;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.RichTextBox rtbVáltozásLista;
-        private Vezérlők.TrSpVezérlő trSpFordítás;
-        private Vezérlők.TrSpVezérlő trSpBeszéd;
+        
         private System.Windows.Forms.ComboBox cbTTS_Nyelv;
         private Vezérlők.TrSpVezérlő trSp_Beszéd;
         private Vezérlők.TrSpVezérlő trSp_Fordítás;
